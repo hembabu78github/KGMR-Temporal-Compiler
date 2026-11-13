@@ -1,0 +1,189 @@
+{
+  "environment_in_release_signature": false,
+  "environment_observation": {
+    "platform_machine": "AMD64",
+    "platform_system": "Windows",
+    "python_implementation": "CPython",
+    "python_version": "3.11.0"
+  },
+  "release_core": {
+    "candidate_count": 12,
+    "candidate_rows": [
+      {
+        "candidate_mr_id": "CMR-31ce8779673c05fe37e7ce1e",
+        "execution_admission_status": "STATICALLY_VALID_BUT_CONTROL_BLOCKED",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "98051f525fdab4359b84ab247ff13a9dd3a5619f9ac486bda81b8c7b739ec3e7",
+        "operator_id": "DECREASE_SLOPE",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "ORDINAL_NONINCREASE",
+        "semantic_spec_fingerprint": "f7d4e6a672feba1a759b78834d6d6b6b11a2643d151ae6cfa3a26f6871eda555",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-3fbe15eb0c59f7367ebdd879",
+        "execution_admission_status": "STATICALLY_VALID_EXECUTION_ADMISSIBLE",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "c23f8d78bedbd0681dfa587d6e5a8bce526e0ff8acdf8d15739db657954cead3",
+        "operator_id": "PRESERVE_CLINICAL_STATE",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "DECISION_LEVEL",
+        "semantic_spec_fingerprint": "fd6077c5dfa6e1b91bd629d051f94bc1c126033b16086c683f15fba959f493d5",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-4bdb6db32f311bfc85ea76fd",
+        "execution_admission_status": "STATICALLY_VALID_EXECUTION_ADMISSIBLE",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "720641103c0f2750d37749f34c8402b516d33ccf3f6c5cde6a8279c404e0b4d0",
+        "operator_id": "SHIFT_TIME",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "semantic_spec_fingerprint": "8082babd474f0d6d055d14f3f263233dc62cee0d67d28d816a5b30ccd9501396",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-50a9723f0360ad3fba34ecd2",
+        "execution_admission_status": "STATICALLY_VALID_EXECUTION_ADMISSIBLE",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "a9021c4d14d1a24c5f1c328e15c3d76ad525beea8229bb140481f9a95301c5ff",
+        "operator_id": "CONVERT_UNIT",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "semantic_spec_fingerprint": "68a2623d95952376fbc4643967ff4e5f829e262a50f5fb398b01b7883f1a7ba3",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-548584d5df10797164816313",
+        "execution_admission_status": "STATICALLY_VALID_BUT_CONTROL_BLOCKED",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "01fe4b677248f4bdbe9c4d8879707abe9090f9f56aaec5521456e067a0dbe004",
+        "operator_id": "SWAP_EQUIVALENT_ORDER",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "semantic_spec_fingerprint": "84be76e531f683b8b1f73c75c42d68d9fa0c4d288eae3745e6cd33fb6631531a",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-5685e890d5232ba5a656596d",
+        "execution_admission_status": "STATICALLY_VALID_EXECUTION_ADMISSIBLE",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "d78c67a6f2ec8454cd3629a0f0262cf504a425a5993064e62629c71ae07c5024",
+        "operator_id": "RESAMPLE_TRAJECTORY",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "ORDINAL_NONDECREASE",
+        "semantic_spec_fingerprint": "775df42f55227069571ae8894a4f8af471db355f18e84532bf7784a7660ff60e",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-aeb765295a3081c558da634c",
+        "execution_admission_status": "STATICALLY_VALID_BUT_CONTROL_BLOCKED",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "20a813baafb286b163b129d68c70af0962c9a6578e297729f96b0e5acbcdd830",
+        "operator_id": "MASK_REQUIRED_OBSERVATION",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "DECISION_LEVEL",
+        "semantic_spec_fingerprint": "c8c0b84a5a448ca55ebe18f18dfcac47e80bf359dbaa3d58cdfb696911eff6f6",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-cbde4de53261e747cf0a0645",
+        "execution_admission_status": "STATICALLY_VALID_EXECUTION_ADMISSIBLE",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "d5932ff3be913e14516fc1e73e2cf75a43d8773ccb6fd2d52dd79f9344d3bb9a",
+        "operator_id": "INCREASE_SLOPE",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "ORDINAL_NONDECREASE",
+        "semantic_spec_fingerprint": "b10b87ac1c44328d8ccdd017585dcbc4a5c69b9aa99e1288efdb67c8a15e2f43",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-daaf93e85111e7aa49dfc15a",
+        "execution_admission_status": "STATICALLY_VALID_BUT_CONTROL_BLOCKED",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "1df0bd6902cb79101ee1c15ed5afc9dece70fb5392463b92475a2dd474754500",
+        "operator_id": "SHIFT_TIME",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "semantic_spec_fingerprint": "0fb43489bfacd01799a8ac3603df590aaa02887dbade4598c510e57c9c72105c",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-e23a304617adcf5ee0e244c9",
+        "execution_admission_status": "STATICALLY_VALID_EXECUTION_ADMISSIBLE",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "4ef1ae904e412ca7ddb0438cf138972719aacc4f97a97edc0a0b41d28fd5495e",
+        "operator_id": "INSERT_TRANSIENT_AKI",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "BOUNDED_CHANGE",
+        "semantic_spec_fingerprint": "1c74fbcaf2eadcb4968c72a93b561808b4a8dd7292f74facc5804c082523a58f",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-f1c39b6972f8b9f1e38b6a34",
+        "execution_admission_status": "STATICALLY_VALID_EXECUTION_ADMISSIBLE",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "43ae2b2fb6e76916f993a16b144632f8fa91fe3313aa45de1b52da55cfa8cbbc",
+        "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "semantic_spec_fingerprint": "236867a3e1c4e0f69650e1f00c6c06e576a2929737c3733a24bd57b80fbab90f",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      },
+      {
+        "candidate_mr_id": "CMR-fd3fa393813e67e76871758e",
+        "execution_admission_status": "STATICALLY_VALID_EXECUTION_ADMISSIBLE",
+        "expert_validation_status": "UNREVIEWED",
+        "generated_python_sha256": "d18ec079281961a3d32e7cf22ea820c15a76bb39569249d733aa3f02adb1bed9",
+        "operator_id": "DELAY_RESULT_ENTRY",
+        "operator_version": "OperatorLibrary-R1.0",
+        "relation_family": "DECISION_LEVEL",
+        "semantic_spec_fingerprint": "398418e1fc83e35ab4e4e6ac8e58f2af2a85ef27408f39f3f9d0c1213d602ea6",
+        "static_validation_status": "STATIC_VALIDATION_PASS"
+      }
+    ],
+    "pipeline_scope": "C4-006-through-C4-016",
+    "policy_version": "C4-016-R1.0",
+    "release_record_version": "CompilerRunRecord-R1.0",
+    "versions": {
+      "c4_014_runtime_version": "C4-014-R1.0",
+      "c4_015_static_validation_version": "C4-015-R1.0",
+      "c4_016_reproducibility_version": "C4-016-R1.0",
+      "candidate_compiler_versions": [
+        "C4-013-R1.0"
+      ],
+      "closure_policy_versions": [
+        "C3-016-R1.0"
+      ],
+      "compiler_config_ids": [
+        "C4-006-CompilerConfig-R1.0"
+      ],
+      "inference_profiles": [
+        "RDFS+SREW-R1.0"
+      ],
+      "kg_releases": [
+        "fixture:R1"
+      ],
+      "ontology_releases": [
+        "CKD-TKG-R1.0"
+      ],
+      "operator_library_versions": [
+        "OperatorLibrary-R1.0"
+      ],
+      "proposition_ir_versions": [
+        "ClinicalPropositionIR-1.0"
+      ],
+      "representation_versions": [
+        "CandidateMR-R1.0"
+      ],
+      "schema_implementation": "CandidateMR-R1.0 / C4-013 schema patch 1",
+      "shacl_releases": [
+        "CKD-TKG-SHACL-R1.0"
+      ],
+      "srew_versions": [
+        "SREW-R1.0"
+      ]
+    }
+  },
+  "reproducibility_signature": "1fb461973aa502a3db2285a0f728fc49d52c4ee6ab5b3178beb8d8f330c421ed"
+}

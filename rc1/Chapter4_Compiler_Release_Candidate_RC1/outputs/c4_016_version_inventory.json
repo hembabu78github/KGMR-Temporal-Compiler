@@ -1,0 +1,39 @@
+{
+  "c4_014_runtime_version": "C4-014-R1.0",
+  "c4_015_static_validation_version": "C4-015-R1.0",
+  "c4_016_reproducibility_version": "C4-016-R1.0",
+  "candidate_compiler_versions": [
+    "C4-013-R1.0"
+  ],
+  "closure_policy_versions": [
+    "C3-016-R1.0"
+  ],
+  "compiler_config_ids": [
+    "C4-006-CompilerConfig-R1.0"
+  ],
+  "inference_profiles": [
+    "RDFS+SREW-R1.0"
+  ],
+  "kg_releases": [
+    "fixture:R1"
+  ],
+  "ontology_releases": [
+    "CKD-TKG-R1.0"
+  ],
+  "operator_library_versions": [
+    "OperatorLibrary-R1.0"
+  ],
+  "proposition_ir_versions": [
+    "ClinicalPropositionIR-1.0"
+  ],
+  "representation_versions": [
+    "CandidateMR-R1.0"
+  ],
+  "schema_implementation": "CandidateMR-R1.0 / C4-013 schema patch 1",
+  "shacl_releases": [
+    "CKD-TKG-SHACL-R1.0"
+  ],
+  "srew_versions": [
+    "SREW-R1.0"
+  ]
+}

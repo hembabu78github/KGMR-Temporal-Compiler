@@ -1,0 +1,2204 @@
+{
+  "compiler_version": "C4-006-R1.0",
+  "operator_library_version": "OperatorLibrary-R1.0",
+  "results": [
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [
+            {
+              "name": "shift_days",
+              "source_kind": "source_evidence",
+              "source_ref": "fixture:temporal-window",
+              "value": 7
+            }
+          ],
+          "compatible": true,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": true,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle",
+            "MASK_REQUIRES_DECISION_LEVEL",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-TIME-001",
+      "selected_operators": [
+        "SHIFT_TIME"
+      ],
+      "selection_fingerprint": "421d8e98b235abe5972b944ac55c54d2d2ff7366cb9d9ec0f2ae2e697a2712f3",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "resample_strategy",
+              "source_kind": "compiler_config",
+              "source_ref": "fixture:cfg",
+              "value": "retain_anchors_reduce_density"
+            }
+          ],
+          "compatible": true,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": true,
+          "permitted_relations": [
+            "BOUNDED_CHANGE",
+            "ORDINAL_NONDECREASE",
+            "ORDINAL_NONINCREASE"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle",
+            "MASK_REQUIRES_DECISION_LEVEL",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "slope_delta",
+              "source_kind": "source_evidence",
+              "source_ref": "fixture:slope-range",
+              "value": 0.5
+            }
+          ],
+          "compatible": true,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": true,
+          "permitted_relations": [
+            "BOUNDED_CHANGE",
+            "ORDINAL_NONDECREASE",
+            "ORDINAL_NONINCREASE"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "slope_delta",
+              "source_kind": "source_evidence",
+              "source_ref": "fixture:slope-range",
+              "value": 0.5
+            }
+          ],
+          "compatible": true,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": true,
+          "permitted_relations": [
+            "BOUNDED_CHANGE",
+            "ORDINAL_NONDECREASE",
+            "ORDINAL_NONINCREASE"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE",
+            "ORDINAL_NONDECREASE",
+            "ORDINAL_NONINCREASE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "ORDINAL_NONDECREASE",
+            "ORDINAL_NONINCREASE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-TRAJ-001",
+      "selected_operators": [
+        "RESAMPLE_TRAJECTORY",
+        "INCREASE_SLOPE",
+        "DECREASE_SLOPE"
+      ],
+      "selection_fingerprint": "10da31ecbed28c49c6a5cae8cc0d5800ccb6b3e36caf5e13fa7c1bfb16315c5b",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "delay_days",
+              "source_kind": "source_evidence",
+              "source_ref": "fixture:availability-window",
+              "value": 3
+            }
+          ],
+          "compatible": true,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": true,
+          "permitted_relations": [
+            "DECISION_LEVEL",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-DELAY-001",
+      "selected_operators": [
+        "DELAY_RESULT_ENTRY"
+      ],
+      "selection_fingerprint": "f0d184cd528b19ad3741c6169ee06bb0b9fe3c79467ec6834625328ba28a713a",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": true,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": true,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle",
+            "MASK_REQUIRES_DECISION_LEVEL",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-ORDER-001",
+      "selected_operators": [
+        "SWAP_EQUIVALENT_ORDER"
+      ],
+      "selection_fingerprint": "4f8e06a7478c9ba97a4ce6cf9c105d0e13123c53dbe70b3aeb85183a954e8c7b",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "redundancy_key",
+              "source_kind": "kg",
+              "source_ref": "fixture:graph-path",
+              "value": "obs_non_anchor_3"
+            }
+          ],
+          "compatible": true,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": true,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle",
+            "MASK_REQUIRES_DECISION_LEVEL",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-REDUNDANT-001",
+      "selected_operators": [
+        "REMOVE_REDUNDANT_OBSERVATION"
+      ],
+      "selection_fingerprint": "440e69415a20427787abf72a25c718ae9c40b63b534ff9982d0beb7c46f4d976",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "observation_key",
+              "source_kind": "kg",
+              "source_ref": "fixture:antecedent",
+              "value": "required_egfr"
+            }
+          ],
+          "compatible": true,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": true,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-MASK-001",
+      "selected_operators": [
+        "MASK_REQUIRED_OBSERVATION"
+      ],
+      "selection_fingerprint": "6ab745acda3e784b48d95b5c279c1f128850fe5a9eea882dc71e939754cddb5e",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE",
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE",
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [
+            "BOUNDED_CHANGE"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "decline_fraction",
+              "source_kind": "source_evidence",
+              "source_ref": "fixture:acute-like-trigger",
+              "value": 0.25
+            },
+            {
+              "name": "event_duration_days",
+              "source_kind": "source_evidence",
+              "source_ref": "fixture:event-window",
+              "value": 14
+            },
+            {
+              "name": "recovery_fraction",
+              "source_kind": "source_evidence",
+              "source_ref": "fixture:recovery-rule",
+              "value": 0.9
+            }
+          ],
+          "compatible": true,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": true,
+          "permitted_relations": [
+            "BOUNDED_CHANGE",
+            "DECISION_LEVEL"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-AKI-001",
+      "selected_operators": [
+        "INSERT_TRANSIENT_AKI"
+      ],
+      "selection_fingerprint": "f44ee2362702af7b954703459179ae1dd8626f0b02796f34a80bc029ca54f36e",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle",
+            "MASK_REQUIRES_DECISION_LEVEL",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "target_unit",
+              "source_kind": "kg",
+              "source_ref": "fixture:unit-map",
+              "value": "mL/min/1.73m2"
+            },
+            {
+              "name": "conversion_id",
+              "source_kind": "kg",
+              "source_ref": "fixture:unit-map",
+              "value": "UCUM-FIX-001"
+            }
+          ],
+          "compatible": true,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": true,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-UNIT-001",
+      "selected_operators": [
+        "CONVERT_UNIT"
+      ],
+      "selection_fingerprint": "dd5f49ef33613ba3602cdeafc43f3e7466d9973c56b9f9670212d40bca3e013d",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [
+            "DECISION_LEVEL"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "mutable_fields",
+              "source_kind": "kg",
+              "source_ref": "fixture:unaffected-neighbourhood",
+              "value": [
+                "non_state_auxiliary_field"
+              ]
+            }
+          ],
+          "compatible": true,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": true,
+          "permitted_relations": [
+            "DECISION_LEVEL",
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": []
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-STATE-001",
+      "selected_operators": [
+        "PRESERVE_CLINICAL_STATE"
+      ],
+      "selection_fingerprint": "ec19cd21d3576240936bd97bece3c9472bf60441998058a5daae8c708c2fa125",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "INELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pending",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pending",
+        "ReleaseIntegrity": "Pending",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [
+        "Context-only/excluded knowledge is not compiled."
+      ],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "DISPOSITION_NOT_EXECUTABLE"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-CONTEXT-001",
+      "selected_operators": [],
+      "selection_fingerprint": "a8aaf1fbf94e542240236a945d6dd99fb0d20a092ca6dc7b6b265130b7967700",
+      "selection_status": "BLOCKED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "TEMPORAL_INDETERMINATE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics",
+            "TEMPORAL_INDETERMINATE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time",
+            "TEMPORAL_INDETERMINATE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics",
+            "TEMPORAL_INDETERMINATE"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle",
+            "MASK_REQUIRES_DECISION_LEVEL",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "TEMPORAL_INDETERMINATE",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "TEMPORAL_INDETERMINATE",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "TEMPORAL_INDETERMINATE",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-INDET-001",
+      "selected_operators": [],
+      "selection_fingerprint": "18d27545db57e3830d435959db5aa3efcf3103203c0fb93d17a5413be64b6efc",
+      "selection_status": "NO_COMPATIBLE_OPERATORS"
+    },
+    {
+      "admission_status": "PENDING",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pending",
+        "LicensingAllowed": "Pending",
+        "ReleaseIntegrity": "Pending",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [
+        "Operator compatibility was assessed, but final MR admission remains Pending."
+      ],
+      "operator_decisions": [
+        {
+          "bound_parameters": [
+            {
+              "name": "shift_days",
+              "source_kind": "source_evidence",
+              "source_ref": "fixture:window",
+              "value": 5
+            }
+          ],
+          "compatible": true,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": true,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": []
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle",
+            "MASK_REQUIRES_DECISION_LEVEL",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_unit_conversion_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "selected_operators": [
+        "SHIFT_TIME"
+      ],
+      "selection_fingerprint": "0f388e7ccc2544f9da011052778b3a87c275b35fb84796430c0e629021065b22",
+      "selection_status": "SELECTED"
+    },
+    {
+      "admission_status": "ELIGIBLE",
+      "compiler_version": "C4-006-R1.0",
+      "gate_snapshot": {
+        "Computable": "Pass",
+        "ConflictResolved": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReleaseIntegrity": "Pass",
+        "ReviewSufficient": "Pass",
+        "ScopeMatched": "Pass",
+        "SourceLocated": "Pass",
+        "TerminologyReady": "Pass"
+      },
+      "notes": [],
+      "operator_decisions": [
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SHIFT_TIME",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_temporal_structure"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_sampling_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_effective_and_issued_time"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_equivalent_order_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_redundant_observation_semantics"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_required_observation",
+            "MISSING_CAPABILITY:supports_decision_level_missingness_oracle",
+            "MASK_REQUIRES_DECISION_LEVEL",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INCREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "DECREASE_SLOPE",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:has_trajectory",
+            "MISSING_CAPABILITY:has_slope_semantics",
+            "DIRECTION_SEMANTICS_MISSING",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "parameterized": false,
+          "permitted_relations": [],
+          "reasons": [
+            "MISSING_CAPABILITY:supports_aki_like_event",
+            "MISSING_CAPABILITY:has_recovery_semantics",
+            "AKI_REQUIRES_AKI_LIKE_EVENT_SEMANTICS",
+            "AKI_REQUIRES_RECOVERY_SEMANTICS",
+            "RELATION_NOT_ALLOWED"
+          ]
+        },
+        {
+          "bound_parameters": [
+            {
+              "name": "target_unit",
+              "source_kind": "kg",
+              "source_ref": "fixture:unit-map",
+              "value": "mL/min/1.73m2"
+            }
+          ],
+          "compatible": true,
+          "operator_id": "CONVERT_UNIT",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_PARAMETER:conversion_id"
+          ]
+        },
+        {
+          "bound_parameters": [],
+          "compatible": false,
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "parameterized": false,
+          "permitted_relations": [
+            "PRESERVE_OUTPUT"
+          ],
+          "reasons": [
+            "MISSING_CAPABILITY:has_state_definition",
+            "MISSING_CAPABILITY:has_invariant_safe_dimensions"
+          ]
+        }
+      ],
+      "operator_library_version": "OperatorLibrary-R1.0",
+      "proposition_id": "FIX-MISSING-PARAM-001",
+      "selected_operators": [],
+      "selection_fingerprint": "b38c03afd7c1ff28af361790f5ee0e4bbce29f0b0f9f41bb835b1215893ea050",
+      "selection_status": "PARAMETERIZATION_BLOCKED"
+    }
+  ],
+  "srew_version": "SREW-R1.0"
+}

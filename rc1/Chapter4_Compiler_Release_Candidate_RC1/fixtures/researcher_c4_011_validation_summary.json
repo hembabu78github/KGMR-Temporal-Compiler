@@ -1,0 +1,16 @@
+{
+  "calendar_month_year_arithmetic": true,
+  "clinical_vs_availability_time_separated": true,
+  "component_count": 12,
+  "constraint_evaluation_count": 14,
+  "deterministic_repeat_pass": true,
+  "fingerprint_match_count": 12,
+  "half_open_interval_policy": true,
+  "indeterminate_coerced_to_false": false,
+  "invalid_temporal_input_count": 0,
+  "note": "Software-validation fixtures only; not clinical MR-performance or real temporal-failure rates.",
+  "task": "C4-011",
+  "temporally_indeterminate_count": 1,
+  "temporally_satisfiable_count": 11,
+  "temporally_unsatisfiable_count": 0
+}

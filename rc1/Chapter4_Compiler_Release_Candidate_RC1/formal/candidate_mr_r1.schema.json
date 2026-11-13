@@ -1,0 +1,495 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/ckd-tkg/candidate-mr-r1.schema.json",
+  "title": "CKD-TKG Candidate Metamorphic Relation R1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidate_mr_id",
+    "representation_version",
+    "candidate_status",
+    "C",
+    "T",
+    "R",
+    "I",
+    "E",
+    "P"
+  ],
+  "properties": {
+    "candidate_mr_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "representation_version": {
+      "const": "CandidateMR-R1.0"
+    },
+    "candidate_status": {
+      "enum": [
+        "COMPILED_CANDIDATE",
+        "STATICALLY_VALIDATED_CANDIDATE",
+        "EXPERT_ACCEPTED",
+        "EXPERT_REJECTED",
+        "ADJUDICATED"
+      ]
+    },
+    "C": {
+      "$ref": "#/$defs/conditionExpression"
+    },
+    "T": {
+      "$ref": "#/$defs/transformation"
+    },
+    "R": {
+      "$ref": "#/$defs/outputRelation"
+    },
+    "I": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/invariant"
+      },
+      "uniqueItems": true
+    },
+    "E": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exception"
+      },
+      "uniqueItems": true
+    },
+    "P": {
+      "$ref": "#/$defs/provenance"
+    }
+  },
+  "$defs": {
+    "conditionExpression": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/conditionAtom"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "children"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "ALL",
+                "ANY"
+              ]
+            },
+            "children": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/conditionExpression"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "child"
+          ],
+          "properties": {
+            "op": {
+              "const": "NOT"
+            },
+            "child": {
+              "$ref": "#/$defs/conditionExpression"
+            }
+          }
+        }
+      ]
+    },
+    "conditionAtom": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate_id",
+        "predicate_type",
+        "arguments",
+        "evaluator_id",
+        "source_refs",
+        "missing_evidence_result"
+      ],
+      "properties": {
+        "predicate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "predicate_type": {
+          "enum": [
+            "CLINICAL",
+            "DATA_AVAILABILITY",
+            "TEMPORAL",
+            "APPLICABILITY",
+            "TERMINOLOGY"
+          ]
+        },
+        "arguments": {
+          "type": "object"
+        },
+        "evaluator_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_evidence_result": {
+          "const": "INDETERMINATE"
+        }
+      }
+    },
+    "boundParameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value",
+        "source_kind",
+        "source_ref"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {},
+        "source_kind": {
+          "enum": [
+            "kg",
+            "source_evidence",
+            "compiler_config"
+          ]
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "transformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operator_id",
+        "operator_version",
+        "bound_parameters",
+        "read_set",
+        "touch_set",
+        "forbidden_touch_set"
+      ],
+      "properties": {
+        "operator_id": {
+          "enum": [
+            "SHIFT_TIME",
+            "RESAMPLE_TRAJECTORY",
+            "DELAY_RESULT_ENTRY",
+            "SWAP_EQUIVALENT_ORDER",
+            "REMOVE_REDUNDANT_OBSERVATION",
+            "MASK_REQUIRED_OBSERVATION",
+            "INCREASE_SLOPE",
+            "DECREASE_SLOPE",
+            "INSERT_TRANSIENT_AKI",
+            "CONVERT_UNIT",
+            "PRESERVE_CLINICAL_STATE"
+          ]
+        },
+        "operator_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bound_parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/boundParameter"
+          }
+        },
+        "read_set": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "touch_set": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forbidden_touch_set": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "outputRelation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relation_family",
+        "source_output_selector",
+        "followup_output_selector",
+        "comparator_id",
+        "parameters"
+      ],
+      "properties": {
+        "relation_family": {
+          "enum": [
+            "EQUALITY_WITHIN_TOLERANCE",
+            "MONOTONIC_INCREASE",
+            "MONOTONIC_DECREASE",
+            "ORDINAL_NONDECREASE",
+            "ORDINAL_NONINCREASE",
+            "BOUNDED_CHANGE",
+            "DECISION_LEVEL"
+          ]
+        },
+        "source_output_selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "followup_output_selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "comparator_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameters": {
+          "type": "object"
+        }
+      }
+    },
+    "invariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "invariant_id",
+        "invariant_type",
+        "source_selector",
+        "followup_selector",
+        "comparator_id",
+        "parameters",
+        "source_refs"
+      ],
+      "properties": {
+        "invariant_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invariant_type": {
+          "enum": [
+            "VALUE",
+            "IDENTITY",
+            "TIME",
+            "STATE",
+            "STRUCTURE",
+            "UNIT_CANONICAL_VALUE",
+            "CUSTOM_DECLARED"
+          ]
+        },
+        "source_selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "followup_selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "comparator_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exception_ref",
+        "exception_type",
+        "condition",
+        "precedence_tier",
+        "evidence_refs",
+        "resolution_status"
+      ],
+      "properties": {
+        "exception_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exception_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition": {
+          "$ref": "#/$defs/conditionExpression"
+        },
+        "precedence_tier": {
+          "enum": [
+            "P0",
+            "P1",
+            "P2",
+            "P3",
+            "P4",
+            "P5",
+            "P6",
+            "P7",
+            "P8"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "resolution_status": {
+          "enum": [
+            "DECLARED",
+            "PENDING_ASSEMBLY",
+            "RESOLVED",
+            "UNRESOLVED"
+          ]
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_knowledge_item_ids",
+        "source_locator_refs",
+        "graph_path_ids",
+        "kg_release",
+        "ontology_release",
+        "shacl_release",
+        "proposition_ir_version",
+        "compiler_version",
+        "operator_library_version",
+        "operator_selection_fingerprint",
+        "parameter_provenance_refs",
+        "inference_profile",
+        "closure_policy_version",
+        "srew_version",
+        "compiler_config_id",
+        "generation_status",
+        "mr_expert_validation_status"
+      ],
+      "properties": {
+        "source_knowledge_item_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_locator_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "graph_path_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "kg_release": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ontology_release": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shacl_release": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposition_ir_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "compiler_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operator_library_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operator_selection_fingerprint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameter_provenance_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_review_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "inference_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "closure_policy_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "srew_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "compiler_config_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generation_status": {
+          "const": "CANDIDATE"
+        },
+        "mr_expert_validation_status": {
+          "enum": [
+            "UNREVIEWED",
+            "ACCEPTED",
+            "REJECTED",
+            "ADJUDICATED"
+          ]
+        }
+      }
+    }
+  }
+}

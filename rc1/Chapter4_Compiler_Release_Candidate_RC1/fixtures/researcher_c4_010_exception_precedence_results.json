@@ -1,0 +1,1120 @@
+{
+  "results": [
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "ClinicalEventException",
+              "scope_ref": "scope:aki-like-segment"
+            },
+            "evaluator_id": "eval:ClinicalEventException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "TRUE",
+            "predicate_id": "cond:EX-CE-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-CE-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-CE-001",
+          "exception_type": "ClinicalEventException",
+          "linked_operator_id": "INSERT_TRANSIENT_AKI",
+          "linked_proposition_id": "FIX-AKI-001",
+          "phase": "runtime",
+          "precedence_tier": "P3",
+          "reasons": [],
+          "scope_ref": "scope:aki-like-segment",
+          "source_refs": [
+            "source:EX-CE-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "988f0c8ad9e26bfa171c934064ed39da9933271a0ce273dea07e6c0b67780c35",
+      "c4_009_invariant_fingerprint": "f20fd2d999c4a1b7095e92b6882fe4ec35f6a5f4364734f10f237ac084d28190",
+      "conflict_resolved_gate": "Pass",
+      "exception_fingerprint": "1bb2bcc2fe877a1e79f00be8e246592ba37ac647d217aeea580522f9338a4eae",
+      "notes": [
+        "Qualifier affects only its explicitly linked segment/window; no global override."
+      ],
+      "operator_id": "INSERT_TRANSIENT_AKI",
+      "precedence_outcome": "QUALIFIED",
+      "proposition_id": "FIX-AKI-001",
+      "semantic_truth": "TRUE",
+      "system_action": "PROCEED",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:1",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "QUALIFIED_LINKED_SCOPE",
+          "evidence_refs": [
+            "source:EX-CE-001"
+          ],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "NO_SPECIFICITY_DECISION",
+          "evidence_refs": [],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "NO_STRENGTH_METADATA",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "NOT_REACHED_AS_FAILURE",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "TemporalPrecisionException",
+              "scope_ref": "scope:issued-effective"
+            },
+            "evaluator_id": "eval:TemporalPrecisionException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "FALSE",
+            "predicate_id": "cond:EX-TP-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-TP-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-TP-001",
+          "exception_type": "TemporalPrecisionException",
+          "linked_operator_id": "DELAY_RESULT_ENTRY",
+          "linked_proposition_id": "FIX-DELAY-001",
+          "phase": "runtime",
+          "precedence_tier": "P3",
+          "reasons": [],
+          "scope_ref": "scope:issued-effective",
+          "source_refs": [
+            "source:EX-TP-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "a9efce1b9b0a1bac25cecc1b4835b8919d223578275b107abf93cd0e40a44911",
+      "c4_009_invariant_fingerprint": "b4732606b4b15cb3c9a1421cb5fbd35f401df6d9388958be262a525214730098",
+      "conflict_resolved_gate": "Pass",
+      "exception_fingerprint": "b6031547f88570df4c5393e507fe2bcca863e6e5f506cac09e608d48ba2c750f",
+      "notes": [],
+      "operator_id": "DELAY_RESULT_ENTRY",
+      "precedence_outcome": "PROCEED",
+      "proposition_id": "FIX-DELAY-001",
+      "semantic_truth": "TRUE",
+      "system_action": "PROCEED",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:0",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "NO_SPECIFICITY_DECISION",
+          "evidence_refs": [],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "NO_STRENGTH_METADATA",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "NOT_REACHED_AS_FAILURE",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "MissingDataException",
+              "scope_ref": "scope:required-egfr"
+            },
+            "evaluator_id": "eval:MissingDataException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "TRUE",
+            "predicate_id": "cond:EX-MISS-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-MISS-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-MISS-001",
+          "exception_type": "MissingDataException",
+          "linked_operator_id": "MASK_REQUIRED_OBSERVATION",
+          "linked_proposition_id": "FIX-MASK-001",
+          "phase": "runtime",
+          "precedence_tier": "P0",
+          "reasons": [],
+          "scope_ref": "scope:required-egfr",
+          "source_refs": [
+            "source:EX-MISS-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "abb55324087aa65ccd10bbf3cfbe9fd6a1df4f0eb6523477f73df7f2e11ebe63",
+      "c4_009_invariant_fingerprint": "d0b111e087a6c5615e70a1b2b9a2ade8c85557b2a6504ca968d0a8c43b84f347",
+      "conflict_resolved_gate": "Pending",
+      "exception_fingerprint": "937b1d121e15cb5c39ca51329cd9f27ac4a965d7213434b95d299610cd14f216",
+      "notes": [],
+      "operator_id": "MASK_REQUIRED_OBSERVATION",
+      "precedence_outcome": "ABSTAIN",
+      "proposition_id": "FIX-MASK-001",
+      "semantic_truth": "INDETERMINATE",
+      "system_action": "ABSTAIN",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "MissingDataException:ABSTAIN",
+          "evidence_refs": [
+            "source:EX-MISS-001"
+          ],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "TemporalPrecisionException",
+              "scope_ref": "scope:same-time"
+            },
+            "evaluator_id": "eval:TemporalPrecisionException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "INDETERMINATE",
+            "predicate_id": "cond:EX-TP-INDET",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-TP-INDET"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-TP-INDET",
+          "exception_type": "TemporalPrecisionException",
+          "linked_operator_id": "SWAP_EQUIVALENT_ORDER",
+          "linked_proposition_id": "FIX-ORDER-001",
+          "phase": "runtime",
+          "precedence_tier": "P3",
+          "reasons": [],
+          "scope_ref": "scope:same-time",
+          "source_refs": [
+            "source:EX-TP-INDET"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "23e4c94e7c884b1757a3f61ffbe285b3ed1ea39c45a0a5aaee71b8f818c20650",
+      "c4_009_invariant_fingerprint": "df0e9028bd74f1fe9ca586e9053e889a7fbaa81dcd3d2f230d986045d143fc1c",
+      "conflict_resolved_gate": "Pending",
+      "exception_fingerprint": "f11c8c599c89106ae882332818294d496b0076969988aaa9b129c849e59c6a70",
+      "notes": [],
+      "operator_id": "SWAP_EQUIVALENT_ORDER",
+      "precedence_outcome": "PENDING",
+      "proposition_id": "FIX-ORDER-001",
+      "semantic_truth": "INDETERMINATE",
+      "system_action": "ABSTAIN",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:1",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "TEMPORAL_EVENT_INDETERMINATE",
+          "evidence_refs": [
+            "source:EX-TP-INDET"
+          ],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "LicensingReleaseException",
+              "scope_ref": "scope:release"
+            },
+            "evaluator_id": "eval:LicensingReleaseException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "TRUE",
+            "predicate_id": "cond:EX-LIC-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-LIC-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-LIC-001",
+          "exception_type": "LicensingReleaseException",
+          "linked_operator_id": "SHIFT_TIME",
+          "linked_proposition_id": "FIX-PENDING-ADMISSION-001",
+          "phase": "compile_time",
+          "precedence_tier": "P0",
+          "reasons": [],
+          "scope_ref": "scope:release",
+          "source_refs": [
+            "source:EX-LIC-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "545e645e8cd7c7c3b1ca03bfebe1aacf6c5beafd15880d554dd9b0387aa54c4d",
+      "c4_009_invariant_fingerprint": "1af5850a4c8b83f7c239407149dab5c6b9f0410b3bc1cc24fe693a86225920d8",
+      "conflict_resolved_gate": "Pending",
+      "exception_fingerprint": "326cb7c9acecccfaae7b71db284c27c4a5d6fd0ee6b292d03f33d8c51eeaffbc",
+      "notes": [],
+      "operator_id": "SHIFT_TIME",
+      "precedence_outcome": "RELEASE_BLOCKED",
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "semantic_truth": "INDETERMINATE",
+      "system_action": "ABSTAIN",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "LicensingReleaseException:RELEASE_BLOCKED",
+          "evidence_refs": [
+            "source:EX-LIC-001"
+          ],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "DataQualityException",
+              "scope_ref": "scope:redundant"
+            },
+            "evaluator_id": "eval:DataQualityException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "FALSE",
+            "predicate_id": "cond:EX-DQ-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-DQ-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-DQ-001",
+          "exception_type": "DataQualityException",
+          "linked_operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "linked_proposition_id": "FIX-REDUNDANT-001",
+          "phase": "compile_time",
+          "precedence_tier": "P0",
+          "reasons": [],
+          "scope_ref": "scope:redundant",
+          "source_refs": [
+            "source:EX-DQ-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "5f96113ac990c66b649c339c6fc461be56c2f627dad8863ed87a8f8679da0bc7",
+      "c4_009_invariant_fingerprint": "dc807357de8b1125de4f2e49a3b4e7d0a6bd4b29cbb07bf184cb476a02557eee",
+      "conflict_resolved_gate": "Pass",
+      "exception_fingerprint": "3bd75c73cebe84dd511d1a3a81221b7f34dd6b191b7a9d8154e56838f31f3022",
+      "notes": [],
+      "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+      "precedence_outcome": "PROCEED",
+      "proposition_id": "FIX-REDUNDANT-001",
+      "semantic_truth": "TRUE",
+      "system_action": "PROCEED",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:0",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "NO_SPECIFICITY_DECISION",
+          "evidence_refs": [],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "NO_STRENGTH_METADATA",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "NOT_REACHED_AS_FAILURE",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "ReviewGateException",
+              "scope_ref": "scope:state-rule"
+            },
+            "evaluator_id": "eval:ReviewGateException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "FALSE",
+            "predicate_id": "cond:EX-REV-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-REV-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-REV-001",
+          "exception_type": "ReviewGateException",
+          "linked_operator_id": "PRESERVE_CLINICAL_STATE",
+          "linked_proposition_id": "FIX-STATE-001",
+          "phase": "compile_time",
+          "precedence_tier": "P0",
+          "reasons": [],
+          "scope_ref": "scope:state-rule",
+          "source_refs": [
+            "source:EX-REV-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "807bcc9ef9562e3513ea400ea08e5fadf3dcd914661e386099dbde3ad4379137",
+      "c4_009_invariant_fingerprint": "7f660da689c587d8a6faec5c80ced2cd4fc29c82abcad34d971ae4b138187745",
+      "conflict_resolved_gate": "Pass",
+      "exception_fingerprint": "df40d78d7c38dc6b09ba32e0b57bbf9b38fc2b7917f61f6cba8c0212954c7688",
+      "notes": [],
+      "operator_id": "PRESERVE_CLINICAL_STATE",
+      "precedence_outcome": "PROCEED",
+      "proposition_id": "FIX-STATE-001",
+      "semantic_truth": "TRUE",
+      "system_action": "PROCEED",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:0",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "EXPLICIT_SCOPE_CONTAINMENT_AVAILABLE",
+          "evidence_refs": [
+            "scope-containment:state-specific"
+          ],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "NO_STRENGTH_METADATA",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "NOT_REACHED_AS_FAILURE",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "ApplicabilityExclusion",
+              "scope_ref": "scope:time:d1"
+            },
+            "evaluator_id": "eval:ApplicabilityExclusion:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "FALSE",
+            "predicate_id": "cond:EX-APP-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-APP-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-APP-001",
+          "exception_type": "ApplicabilityExclusion",
+          "linked_operator_id": "SHIFT_TIME",
+          "linked_proposition_id": "FIX-TIME-001",
+          "phase": "compile_time",
+          "precedence_tier": "P1",
+          "reasons": [],
+          "scope_ref": "scope:time:d1",
+          "source_refs": [
+            "source:EX-APP-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "2176c708344b0dfc1f6653bc1569d4f8fe90d3f251887d87732ba96c3d572720",
+      "c4_009_invariant_fingerprint": "c1ef131a147e087d348158f6c253cb0893657a099d02ab63ab2c12d3e08534c3",
+      "conflict_resolved_gate": "Pass",
+      "exception_fingerprint": "e0955a8c01d1534bb0028ea00a5c6104f463edcd0d39d31d568b9d0c7219daaa",
+      "notes": [],
+      "operator_id": "SHIFT_TIME",
+      "precedence_outcome": "PROCEED",
+      "proposition_id": "FIX-TIME-001",
+      "semantic_truth": "TRUE",
+      "system_action": "PROCEED",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:0",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "NO_SPECIFICITY_DECISION",
+          "evidence_refs": [],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "NO_STRENGTH_METADATA",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "NOT_REACHED_AS_FAILURE",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "ClinicalEventException",
+              "scope_ref": "scope:other-segment"
+            },
+            "evaluator_id": "eval:ClinicalEventException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "FALSE",
+            "predicate_id": "cond:EX-SCOPE-OTHER",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-SCOPE-OTHER"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-SCOPE-OTHER",
+          "exception_type": "ClinicalEventException",
+          "linked_operator_id": "DECREASE_SLOPE",
+          "linked_proposition_id": "FIX-TRAJ-001",
+          "phase": "compile_time",
+          "precedence_tier": "P3",
+          "reasons": [],
+          "scope_ref": "scope:other-segment",
+          "source_refs": [
+            "source:EX-SCOPE-OTHER"
+          ]
+        },
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "ConflictException",
+              "scope_ref": "scope:risk-output"
+            },
+            "evaluator_id": "eval:ConflictException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "TRUE",
+            "predicate_id": "cond:EX-CONF-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-CONF-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-CONF-001",
+          "exception_type": "ConflictException",
+          "linked_operator_id": "DECREASE_SLOPE",
+          "linked_proposition_id": "FIX-TRAJ-001",
+          "phase": "compile_time",
+          "precedence_tier": "P8",
+          "reasons": [],
+          "scope_ref": "scope:risk-output",
+          "source_refs": [
+            "source:EX-CONF-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "5efc0ec1d08a634945e2debb75de0d63c5f2d601c72cba3f6309473a6b4f0cd1",
+      "c4_009_invariant_fingerprint": "4fe62ae892c3247364cd25493a867c8a552e2280834ce0a6fbe2e3df9e8be999",
+      "conflict_resolved_gate": "Fail",
+      "exception_fingerprint": "80417d23721823d1b3ae2f78ead7f70232f237b4cc1020a20362a9d67559dd4c",
+      "notes": [
+        "Guideline strength/certainty was not used as an automatic precedence tiebreaker.",
+        "ConflictResolved cannot pass while the contradiction is unresolved."
+      ],
+      "operator_id": "DECREASE_SLOPE",
+      "precedence_outcome": "UNRESOLVED",
+      "proposition_id": "FIX-TRAJ-001",
+      "semantic_truth": "INDETERMINATE",
+      "system_action": "ABSTAIN",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:1",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "NO_SPECIFICITY_DECISION",
+          "evidence_refs": [],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "RECORDED_METADATA_ONLY",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "HUMAN_ADJUDICATION_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "SAFE_ABSTENTION_NO_ARBITRARY_WINNER",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "fddac113b58e33fe57849f0400cd0cc4e06e1ecd43c6d3d4815f6aa2bfd3782e",
+      "c4_009_invariant_fingerprint": "bd72cfd1a452e980fba173549b01cef172c0d422945dfbc0d5863f9a642d8d2d",
+      "conflict_resolved_gate": "Pass",
+      "exception_fingerprint": "f6c977dce5cadb5d2a760e26f6a6a0e9378f8839356939e1f2d1facf7d90874c",
+      "notes": [
+        "Guideline strength/certainty was not used as an automatic precedence tiebreaker."
+      ],
+      "operator_id": "INCREASE_SLOPE",
+      "precedence_outcome": "PROCEED",
+      "proposition_id": "FIX-TRAJ-001",
+      "semantic_truth": "TRUE",
+      "system_action": "PROCEED",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:0",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "NO_SPECIFICITY_DECISION",
+          "evidence_refs": [],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "RECORDED_METADATA_ONLY",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "NOT_REACHED_AS_FAILURE",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "MedicationContextException",
+              "scope_ref": "scope:med-window"
+            },
+            "evaluator_id": "eval:MedicationContextException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "TRUE",
+            "predicate_id": "cond:EX-MED-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-MED-001"
+            ]
+          },
+          "effect_mode": "DEFAULT",
+          "exception_ref": "EX-MED-001",
+          "exception_type": "MedicationContextException",
+          "linked_operator_id": "RESAMPLE_TRAJECTORY",
+          "linked_proposition_id": "FIX-TRAJ-001",
+          "phase": "runtime",
+          "precedence_tier": "P3",
+          "reasons": [],
+          "scope_ref": "scope:med-window",
+          "source_refs": [
+            "source:EX-MED-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "58b1c46ab2df77a2d4bf9f54315ef2109daa7f9bb356399257c1e415fb5068f3",
+      "c4_009_invariant_fingerprint": "b6ddd3886c084c0f37830f88612552e05c8d36e1f681eee2f12e3b02a567e53d",
+      "conflict_resolved_gate": "Pass",
+      "exception_fingerprint": "517be122313ad9f2ca6c75c1288f3d961cfa7842e96470413972f22ecd8decc9",
+      "notes": [
+        "Qualifier affects only its explicitly linked segment/window; no global override."
+      ],
+      "operator_id": "RESAMPLE_TRAJECTORY",
+      "precedence_outcome": "QUALIFIED",
+      "proposition_id": "FIX-TRAJ-001",
+      "semantic_truth": "TRUE",
+      "system_action": "PROCEED",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:1",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "QUALIFIED_LINKED_SCOPE",
+          "evidence_refs": [
+            "source:EX-MED-001"
+          ],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "NO_SPECIFICITY_DECISION",
+          "evidence_refs": [],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "NO_STRENGTH_METADATA",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "NOT_REACHED_AS_FAILURE",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    },
+    {
+      "assembled_exceptions": [
+        {
+          "assembly_status": "ASSEMBLED",
+          "condition": {
+            "arguments": {
+              "exception_type": "TerminologyMappingException",
+              "scope_ref": "scope:unit-map"
+            },
+            "evaluator_id": "eval:TerminologyMappingException:v1",
+            "missing_evidence_result": "INDETERMINATE",
+            "observed_fixture_truth": "TRUE",
+            "predicate_id": "cond:EX-TERM-001",
+            "predicate_type": "EXCEPTION",
+            "source_refs": [
+              "source:EX-TERM-001"
+            ]
+          },
+          "effect_mode": "LOCAL_FALLBACK_AVAILABLE",
+          "exception_ref": "EX-TERM-001",
+          "exception_type": "TerminologyMappingException",
+          "linked_operator_id": "CONVERT_UNIT",
+          "linked_proposition_id": "FIX-UNIT-001",
+          "phase": "compile_time",
+          "precedence_tier": "P0",
+          "reasons": [],
+          "scope_ref": "scope:unit-map",
+          "source_refs": [
+            "source:EX-TERM-001"
+          ]
+        }
+      ],
+      "assembly_status": "ASSEMBLED",
+      "c4_008_component_fingerprint": "a83454fe2af2c43e83133cae4025c3343d7e238fc0692ac27eaafac11460157e",
+      "c4_009_invariant_fingerprint": "921333fcb86d97d809456f14f387b9ef60d037294181dfc7091bc07071d02ea2",
+      "conflict_resolved_gate": "Pass",
+      "exception_fingerprint": "eecc6c54c09f8a06b5bdf0c3bd0db1f7f6aff618b1d9db89b3534f7d5807e516",
+      "notes": [
+        "External mapping blocked; explicitly available local concept may continue."
+      ],
+      "operator_id": "CONVERT_UNIT",
+      "precedence_outcome": "PROCEED",
+      "proposition_id": "FIX-UNIT-001",
+      "semantic_truth": "TRUE",
+      "system_action": "PROCEED",
+      "trace": [
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "TerminologyMappingException:LOCAL_ONLY_OR_BLOCKED",
+          "evidence_refs": [
+            "source:EX-TERM-001"
+          ],
+          "principle": "Input integrity / legality",
+          "tier": "P0"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Applicability",
+          "tier": "P1"
+        },
+        {
+          "decision": "EXPLICIT_LINK_SCOPE_ENFORCED:1",
+          "evidence_refs": [],
+          "principle": "Explicit linked exception",
+          "tier": "P2"
+        },
+        {
+          "decision": "PASS",
+          "evidence_refs": [],
+          "principle": "Temporal/event semantics",
+          "tier": "P3"
+        },
+        {
+          "decision": "NO_SPECIFICITY_DECISION",
+          "evidence_refs": [],
+          "principle": "Specificity",
+          "tier": "P4"
+        },
+        {
+          "decision": "CURRENT_RELEASE_PINNED",
+          "evidence_refs": [],
+          "principle": "Release/version",
+          "tier": "P5"
+        },
+        {
+          "decision": "NO_STRENGTH_METADATA",
+          "evidence_refs": [],
+          "principle": "Guideline strength metadata only",
+          "tier": "P6"
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "principle": "Human adjudication",
+          "tier": "P7"
+        },
+        {
+          "decision": "NOT_REACHED_AS_FAILURE",
+          "evidence_refs": [],
+          "principle": "Unresolved safety / abstention",
+          "tier": "P8"
+        }
+      ]
+    }
+  ]
+}

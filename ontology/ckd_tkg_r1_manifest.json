@@ -1,0 +1,2905 @@
+{
+  "ontology": {
+    "base": "https://ckd-tkg.org/ontology/r1.0/",
+    "version": "R1.0",
+    "generated": "2026-08-06",
+    "design_baseline": "C3-004 through C3-013 Closed (design)"
+  },
+  "namespaces": {
+    "ckd": "https://ckd-tkg.org/ontology/r1.0/ckd/",
+    "tk": "https://ckd-tkg.org/ontology/r1.0/tk/",
+    "kgmr": "https://ckd-tkg.org/ontology/r1.0/kgmr/",
+    "prov": "https://ckd-tkg.org/ontology/r1.0/prov/",
+    "term": "https://ckd-tkg.org/ontology/r1.0/term/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "classes": [
+    {
+      "id": "ckd:ResearchSubject",
+      "label": "Research Subject",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "De-identified adult subject whose longitudinal CKD data are represented.",
+      "allowed_values": "N/A",
+      "decision": "Shared",
+      "scope": "Adult outpatient CKD",
+      "source": "C3-002 scope"
+    },
+    {
+      "id": "ckd:CareContext",
+      "label": "Care Context",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "Care setting and eligibility context associated with an observation, state or decision.",
+      "allowed_values": "OutpatientAmbulatoryContext",
+      "decision": "Shared",
+      "scope": "Adult outpatient CKD",
+      "source": "C3-002 scope"
+    },
+    {
+      "id": "ckd:ClinicalState",
+      "label": "Clinical State",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "Clinically meaningful state asserted for a subject over a stated interval.",
+      "allowed_values": "CKDState; category states; eligibility states",
+      "decision": "Shared",
+      "scope": "Decision-specific",
+      "source": "C3-002/C3-004 design"
+    },
+    {
+      "id": "ckd:CKDState",
+      "label": "CKD State",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Established CKD state with cause, GFR category, albuminuria category and chronicity context.",
+      "allowed_values": "N/A",
+      "decision": "Shared",
+      "scope": "G1-G5",
+      "source": "K24-1.1"
+    },
+    {
+      "id": "ckd:GFRCategoricalState",
+      "label": "GFR Categorical State",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "GFR category state.",
+      "allowed_values": "G1; G2; G3a; G3b; G4; G5",
+      "decision": "Shared",
+      "scope": "G1-G5",
+      "source": "KDIGO CGA"
+    },
+    {
+      "id": "ckd:AlbuminuriaCategoricalState",
+      "label": "Albuminuria Categorical State",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Albuminuria category state.",
+      "allowed_values": "A1; A2; A3",
+      "decision": "Shared",
+      "scope": "G1-G5",
+      "source": "KDIGO CGA"
+    },
+    {
+      "id": "ckd:KDIGOCGARiskCategory",
+      "label": "KDIGO CGA Risk Category",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Native four-level CGA risk category.",
+      "allowed_values": "Low; ModeratelyIncreased; High; VeryHigh",
+      "decision": "Shared",
+      "scope": "G1-G5",
+      "source": "KDIGO CGA"
+    },
+    {
+      "id": "kgmr:MRTestingRiskCategory",
+      "label": "MR Testing Risk Category",
+      "namespace": "kgmr",
+      "layer": "Layer B",
+      "parent": "ckd:ClinicalState",
+      "definition": "Derived three-level category used only to limit ordinal MR test-space size.",
+      "allowed_values": "Low; Moderate; High",
+      "decision": "D1/D2 testing",
+      "scope": "G1-G5",
+      "source": "Author design"
+    },
+    {
+      "id": "ckd:CKDEtiologyCategory",
+      "label": "CKD Etiology Category",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Broad cause/etiology qualifier when available.",
+      "allowed_values": "Broad categories to be frozen",
+      "decision": "Shared",
+      "scope": "G1-G5",
+      "source": "C3-002 scope"
+    },
+    {
+      "id": "ckd:EstablishedCKDEligibilityState",
+      "label": "Established CKD Eligibility State",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "R1.0 release-population eligibility state.",
+      "allowed_values": "Eligible; NotEligible; Unknown",
+      "decision": "Shared",
+      "scope": "Adult outpatient CKD",
+      "source": "C3-002 scope"
+    },
+    {
+      "id": "ckd:ClinicalObservation",
+      "label": "Clinical Observation",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "Measured or recorded clinical observation with value and temporal metadata.",
+      "allowed_values": "KidneyFunctionObservation; AlbuminuriaObservation",
+      "decision": "Shared",
+      "scope": "G1-G5",
+      "source": "Proposal + C3-002"
+    },
+    {
+      "id": "ckd:KidneyFunctionObservation",
+      "label": "Kidney Function Observation",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalObservation",
+      "definition": "Observation reflecting kidney filtration/function.",
+      "allowed_values": "eGFRObservation; SerumCreatinineObservation; optional CystatinCObservation",
+      "decision": "D1/D2/D3",
+      "scope": "Decision-specific",
+      "source": "K24-1.1; K24-2.1"
+    },
+    {
+      "id": "ckd:AlbuminuriaObservation",
+      "label": "Albuminuria Observation",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalObservation",
+      "definition": "Urinary albumin measurement used for A-category state or change assessment.",
+      "allowed_values": "UrineACRObservation",
+      "decision": "D1/D2/D3",
+      "scope": "G1-G5",
+      "source": "K24-2.1-PP1; PP5"
+    },
+    {
+      "id": "ckd:ObservationValidityAssessment",
+      "label": "Observation Validity Assessment",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Assessment of whether an observation is usable for a rule or trajectory.",
+      "allowed_values": "Valid; Invalid; Questionable; MissingReasonKnown",
+      "decision": "Shared",
+      "scope": "All represented subjects",
+      "source": "C3-002 provenance/computability"
+    },
+    {
+      "id": "ckd:ObservationAvailabilityState",
+      "label": "Observation Availability State",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Availability state used for missingness and result-delay testing.",
+      "allowed_values": "Available; Missing; Delayed; Pending",
+      "decision": "Shared",
+      "scope": "All represented subjects",
+      "source": "Proposal operator library"
+    },
+    {
+      "id": "ckd:MeasurementMethodContext",
+      "label": "Measurement Method Context",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "Method/specimen context required to interpret or map an observation.",
+      "allowed_values": "Assay method; specimen type; equation",
+      "decision": "Shared",
+      "scope": "As available",
+      "source": "C3-006 requirement"
+    },
+    {
+      "id": "tk:TemporalEntity",
+      "label": "Temporal Entity",
+      "namespace": "tk",
+      "layer": "Shared",
+      "parent": "owl:Thing",
+      "definition": "Entity with time-point, interval, duration, ordering or persistence semantics.",
+      "allowed_values": "Trajectory; event; temporal constraint",
+      "decision": "Shared",
+      "scope": "All represented subjects",
+      "source": "Proposal temporal scope"
+    },
+    {
+      "id": "tk:Trajectory",
+      "label": "Trajectory",
+      "namespace": "tk",
+      "layer": "Layer A",
+      "parent": "tk:TemporalEntity",
+      "definition": "Ordered longitudinal abstraction derived from observations.",
+      "allowed_values": "ObservationSequence and specific trajectories",
+      "decision": "D1/D2/D3",
+      "scope": "All applicable subjects",
+      "source": "Proposal KG scope"
+    },
+    {
+      "id": "tk:ObservationSequence",
+      "label": "Observation Sequence",
+      "namespace": "tk",
+      "layer": "Layer A",
+      "parent": "tk:Trajectory",
+      "definition": "Time-ordered sequence of comparable observations.",
+      "allowed_values": "eGFRSequence; ACRSequence",
+      "decision": "D1/D2",
+      "scope": "All applicable subjects",
+      "source": "C3-007 design"
+    },
+    {
+      "id": "tk:BaselineObservationContext",
+      "label": "Baseline Observation Context",
+      "namespace": "tk",
+      "layer": "Layer A",
+      "parent": "tk:TemporalEntity",
+      "definition": "Baseline selection context used by a trajectory or outcome.",
+      "allowed_values": "CohortEntryNonAcuteBaseline",
+      "decision": "D1",
+      "scope": "G3-G5",
+      "source": "OQ-C3-03"
+    },
+    {
+      "id": "tk:FollowUpObservationContext",
+      "label": "Follow-up Observation Context",
+      "namespace": "tk",
+      "layer": "Layer A",
+      "parent": "tk:TemporalEntity",
+      "definition": "Follow-up observation context linked to a baseline.",
+      "allowed_values": "Subsequent; Confirmatory; Recovery",
+      "decision": "D1/D2",
+      "scope": "Decision-specific",
+      "source": "OQ-C3-03"
+    },
+    {
+      "id": "ckd:EarlyWarningEGFRChange",
+      "label": "Early-warning eGFR Change",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "tk:Trajectory",
+      "definition": "Subsequent-test eGFR decline >20% represented as an evaluation trigger.",
+      "allowed_values": "N/A",
+      "decision": "D1 qualifier / D2 context",
+      "scope": "G1-G5 context; D1 G3-G5",
+      "source": "K24-2.1-PP3"
+    },
+    {
+      "id": "ckd:ConfirmedSustainedEGFRDecline",
+      "label": "Confirmed Sustained eGFR Decline",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "tk:Trajectory",
+      "definition": "Proposed D1 outcome: >=40% decline, second valid measurement >=90 days later, no intervening transient exception.",
+      "allowed_values": "N/A",
+      "decision": "D1 primary candidate; D2/D3 context",
+      "scope": "G3-G5",
+      "source": "OQ-C3-03 + endpoint literature"
+    },
+    {
+      "id": "ckd:AlbuminuriaChangeTrajectory",
+      "label": "Albuminuria Change Trajectory",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "tk:Trajectory",
+      "definition": "Longitudinal ACR change including a doubling evaluation qualifier.",
+      "allowed_values": "N/A",
+      "decision": "D1/D2 context",
+      "scope": "G1-G5",
+      "source": "K24-2.1-PP5"
+    },
+    {
+      "id": "ckd:StableKidneyFunctionTrajectory",
+      "label": "Stable Kidney Function Trajectory",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "tk:Trajectory",
+      "definition": "Trajectory satisfying a declared stability definition.",
+      "allowed_values": "N/A",
+      "decision": "D1 invariance context",
+      "scope": "G3-G5",
+      "source": "Operator library"
+    },
+    {
+      "id": "ckd:ClinicalEvent",
+      "label": "Clinical Event",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "tk:TemporalEntity",
+      "definition": "Temporally bounded event that may alter interpretation of a state or trajectory.",
+      "allowed_values": "AKI-like; recovery; medication exposure",
+      "decision": "Shared",
+      "scope": "All applicable subjects",
+      "source": "Proposal KG scope"
+    },
+    {
+      "id": "ckd:AKILikeTransientDeterioration",
+      "label": "AKI-like Transient Deterioration",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalEvent",
+      "definition": "Operational acute deterioration triggered by >20% eGFR decline and reversing before D1 persistence.",
+      "allowed_values": "N/A",
+      "decision": "D1 exception; D2/D3 context",
+      "scope": "Decision-specific",
+      "source": "OQ-C3-08; K24-2.1-PP3"
+    },
+    {
+      "id": "ckd:RecoveryEvent",
+      "label": "Recovery Event",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalEvent",
+      "definition": "Observed recovery terminating or qualifying a transient deterioration.",
+      "allowed_values": "N/A",
+      "decision": "D1 exception assembly",
+      "scope": "Decision-specific",
+      "source": "OQ-C3-08"
+    },
+    {
+      "id": "tk:SamplingPattern",
+      "label": "Sampling Pattern",
+      "namespace": "tk",
+      "layer": "Layer A",
+      "parent": "tk:TemporalEntity",
+      "definition": "Pattern of visit/observation density, gaps and redundancy.",
+      "allowed_values": "Regular; Irregular; Sparse; Redundant",
+      "decision": "D1/D2 testing",
+      "scope": "All applicable subjects",
+      "source": "Proposal temporal classes"
+    },
+    {
+      "id": "ckd:MedicationExposureEvent",
+      "label": "Medication Exposure Event",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalEvent",
+      "definition": "Start, stop or dose-change event for a medication class relevant to trajectory interpretation.",
+      "allowed_values": "RAASi; SGLT2i; Diuretic; NSAID",
+      "decision": "D1 exception/context",
+      "scope": "Decision-specific",
+      "source": "OQ-C3-07"
+    },
+    {
+      "id": "ckd:RAASInhibitorExposureEvent",
+      "label": "RAAS Inhibitor Exposure Event",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:MedicationExposureEvent",
+      "definition": "ACE inhibitor or ARB exposure event.",
+      "allowed_values": "Start; Stop; DoseChange",
+      "decision": "D1 context",
+      "scope": "Decision-specific",
+      "source": "OQ-C3-07; K24-2.1-PP4"
+    },
+    {
+      "id": "ckd:SGLT2InhibitorExposureEvent",
+      "label": "SGLT2 Inhibitor Exposure Event",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:MedicationExposureEvent",
+      "definition": "SGLT2 inhibitor exposure event.",
+      "allowed_values": "Start; Stop; DoseChange",
+      "decision": "D1 context",
+      "scope": "Decision-specific",
+      "source": "OQ-C3-07; K24-2.1-PP4"
+    },
+    {
+      "id": "ckd:DiureticExposureEvent",
+      "label": "Diuretic Exposure Event",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:MedicationExposureEvent",
+      "definition": "Diuretic exposure event relevant to volume-related changes.",
+      "allowed_values": "Start; Stop; DoseChange",
+      "decision": "D1 context",
+      "scope": "Decision-specific",
+      "source": "OQ-C3-07"
+    },
+    {
+      "id": "ckd:NSAIDExposureEvent",
+      "label": "NSAID Exposure Event",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:MedicationExposureEvent",
+      "definition": "NSAID exposure event relevant to acute deterioration context.",
+      "allowed_values": "Start; Stop",
+      "decision": "D1 context",
+      "scope": "Decision-specific",
+      "source": "OQ-C3-07"
+    },
+    {
+      "id": "ckd:TherapyAssociatedGFRReductionEvaluation",
+      "label": "Therapy-associated GFR Reduction Evaluation",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Evaluation state triggered when GFR reduction after hemodynamically active therapy exceeds 30%.",
+      "allowed_values": "N/A",
+      "decision": "D1 qualifier; D2 context",
+      "scope": "Decision-specific",
+      "source": "K24-2.1-PP4"
+    },
+    {
+      "id": "ckd:RiskAssessment",
+      "label": "Risk Assessment",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "Versioned numeric or categorical risk estimate.",
+      "allowed_values": "ProgressionRiskAssessment; KidneyFailureRiskAssessment",
+      "decision": "D1/D3",
+      "scope": "Decision-specific",
+      "source": "Proposal decision scope"
+    },
+    {
+      "id": "ckd:ProgressionRiskAssessment",
+      "label": "Progression Risk Assessment",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:RiskAssessment",
+      "definition": "D1 output for the selected sustained-decline target.",
+      "allowed_values": "N/A",
+      "decision": "D1 primary",
+      "scope": "G3-G5",
+      "source": "B-C3-01; OQ-C3-03"
+    },
+    {
+      "id": "ckd:KidneyFailureRiskAssessment",
+      "label": "Kidney Failure Risk Assessment",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:RiskAssessment",
+      "definition": "Absolute kidney-failure risk from a validated equation.",
+      "allowed_values": "N/A",
+      "decision": "D3 input; optional D1 comparator",
+      "scope": "G3-G5",
+      "source": "K24-2.2-REC1; PP4"
+    },
+    {
+      "id": "ckd:DecisionArtifact",
+      "label": "Decision Artifact",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "Versioned output produced by a model or decision policy.",
+      "allowed_values": "D1/D2/D3 outputs",
+      "decision": "Shared",
+      "scope": "Decision-specific",
+      "source": "Proposal decision separation"
+    },
+    {
+      "id": "ckd:MonitoringRecommendation",
+      "label": "Monitoring Recommendation",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:DecisionArtifact",
+      "definition": "D2 policy output.",
+      "allowed_values": "Annual; MoreFrequent; optional LocalTimesPerYear",
+      "decision": "D2",
+      "scope": "G1-G5",
+      "source": "K24-2.1-PP1/PP2"
+    },
+    {
+      "id": "ckd:ReferralSupportDecision",
+      "label": "Referral Support Decision",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:DecisionArtifact",
+      "definition": "D3 advisory policy output.",
+      "allowed_values": "NoNewSignal; ReferralSupportSignal",
+      "decision": "D3",
+      "scope": "G3-G5",
+      "source": "K24-2.2-PP1; K24-5.1-PP1"
+    },
+    {
+      "id": "ckd:ReferralRiskCriterion",
+      "label": "Referral Risk Criterion",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Five-year kidney-failure risk criterion for D3.",
+      "allowed_values": "Risk >=3% lower-bound advisory signal",
+      "decision": "D3",
+      "scope": "G3-G5",
+      "source": "K24-2.2-PP1"
+    },
+    {
+      "id": "ckd:ReferralCGACondition",
+      "label": "Referral CGA Condition",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:ClinicalState",
+      "definition": "Selected eGFR/ACR referral condition extracted from Figure 48.",
+      "allowed_values": "To be extracted",
+      "decision": "D3",
+      "scope": "G3-G5",
+      "source": "K24-FIG48"
+    },
+    {
+      "id": "ckd:DecisionRationale",
+      "label": "Decision Rationale",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "Criterion-level explanation attached to a policy output.",
+      "allowed_values": "N/A",
+      "decision": "D2/D3",
+      "scope": "Decision-specific",
+      "source": "Provenance requirement"
+    },
+    {
+      "id": "ckd:DecisionPolicyVersion",
+      "label": "Decision Policy Version",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "prov:GovernanceEntity",
+      "definition": "Versioned policy used to produce D2 or D3 output.",
+      "allowed_values": "N/A",
+      "decision": "D2/D3",
+      "scope": "Decision-specific",
+      "source": "Circularity control"
+    },
+    {
+      "id": "ckd:GuidelineKnowledgeItem",
+      "label": "Guideline Knowledge Item",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "owl:Thing",
+      "definition": "Source-linked recommendation, practice point, definition, figure/table proposition or expert interpretation.",
+      "allowed_values": "Recommendation; PracticePoint; FigureDerived; ExpertInterpretation",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "C3-003 inventory"
+    },
+    {
+      "id": "ckd:GuidelineSource",
+      "label": "Guideline Source",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "definition": "Versioned source document or official guideline release.",
+      "allowed_values": "KDIGO2024CKD",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "K24-META"
+    },
+    {
+      "id": "ckd:RecommendationStatement",
+      "label": "Recommendation Statement",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "definition": "Graded guideline recommendation.",
+      "allowed_values": "N/A",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "K24-2.2-REC1"
+    },
+    {
+      "id": "ckd:PracticePointStatement",
+      "label": "Practice Point Statement",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "definition": "KDIGO practice point.",
+      "allowed_values": "N/A",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "K24 PP inventory"
+    },
+    {
+      "id": "ckd:FigureDerivedProposition",
+      "label": "Figure-derived Proposition",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "definition": "Controlled proposition extracted from a guideline figure/table cell.",
+      "allowed_values": "Figure13; Figure14; Figure48 propositions",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "K24-FIG13/14/48"
+    },
+    {
+      "id": "ckd:ExpertInterpretation",
+      "label": "Expert Interpretation",
+      "namespace": "ckd",
+      "layer": "Layer A",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "definition": "Documented operationalization not stated directly by the guideline.",
+      "allowed_values": "Window; recovery; local tolerance",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "Decision resolutions/rubric"
+    },
+    {
+      "id": "prov:GovernanceEntity",
+      "label": "Governance Entity",
+      "namespace": "prov",
+      "layer": "Shared",
+      "parent": "owl:Thing",
+      "definition": "Provenance, review, licensing, version and terminology-control entity.",
+      "allowed_values": "ProvenanceRecord; ReviewRecord; LicensingRecord; ReleaseRecord",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "C3-003 provenance"
+    },
+    {
+      "id": "prov:ProvenanceRecord",
+      "label": "Provenance Record",
+      "namespace": "prov",
+      "layer": "Shared",
+      "parent": "prov:GovernanceEntity",
+      "definition": "Source, locator, extraction, encoding and change record.",
+      "allowed_values": "N/A",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "C3-003 provenance"
+    },
+    {
+      "id": "prov:ClinicalReviewRecord",
+      "label": "Clinical Review Record",
+      "namespace": "prov",
+      "layer": "Shared",
+      "parent": "prov:GovernanceEntity",
+      "definition": "Independent reviewer decision, rationale and adjudication status.",
+      "allowed_values": "PanelPass; NephrologistReview; Adjudication",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "Clinical Review Rubric"
+    },
+    {
+      "id": "prov:LicensingRecord",
+      "label": "Licensing Record",
+      "namespace": "prov",
+      "layer": "Shared",
+      "parent": "prov:GovernanceEntity",
+      "definition": "Internal/public use and redistribution status.",
+      "allowed_values": "N/A",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "Terminology & Licensing sheet"
+    },
+    {
+      "id": "term:TerminologyMapping",
+      "label": "Terminology Mapping",
+      "namespace": "term",
+      "layer": "Shared",
+      "parent": "prov:GovernanceEntity",
+      "definition": "Mapping from local class/concept to a frozen terminology code/version.",
+      "allowed_values": "SNOMED CT; LOINC; RxNorm; UCUM",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "C3-003 terminology inventory"
+    },
+    {
+      "id": "prov:ReleaseRecord",
+      "label": "Release Record",
+      "namespace": "prov",
+      "layer": "Shared",
+      "parent": "prov:GovernanceEntity",
+      "definition": "KG release identifier, freeze date, checksum and supersession history.",
+      "allowed_values": "R1.0; later versions",
+      "decision": "Shared",
+      "scope": "N/A",
+      "source": "Version-control requirement"
+    },
+    {
+      "id": "kgmr:RuleEntity",
+      "label": "Rule Entity",
+      "namespace": "kgmr",
+      "layer": "Layer B",
+      "parent": "owl:Thing",
+      "definition": "Compiler-facing class used only in the executable-rule layer.",
+      "allowed_values": "ExecutableRule; Applicability; Antecedent; Relation; Exception",
+      "decision": "Compiler",
+      "scope": "N/A",
+      "source": "Proposal compiler design"
+    },
+    {
+      "id": "kgmr:ExecutableClinicalRule",
+      "label": "Executable Clinical Rule",
+      "namespace": "kgmr",
+      "layer": "Layer B",
+      "parent": "kgmr:RuleEntity",
+      "definition": "Source-linked proposition admitted to deterministic compilation.",
+      "allowed_values": "N/A",
+      "decision": "Compiler",
+      "scope": "Computable cases only",
+      "source": "Rule-eligibility boundary"
+    },
+    {
+      "id": "kgmr:RuleApplicability",
+      "label": "Rule Applicability",
+      "namespace": "kgmr",
+      "layer": "Layer B",
+      "parent": "kgmr:RuleEntity",
+      "definition": "Population, care-setting and clinical-state applicability specification.",
+      "allowed_values": "N/A",
+      "decision": "Compiler",
+      "scope": "Decision-specific",
+      "source": "C3-002 decision applicability"
+    },
+    {
+      "id": "kgmr:RuleAntecedent",
+      "label": "Rule Antecedent",
+      "namespace": "kgmr",
+      "layer": "Layer B",
+      "parent": "kgmr:RuleEntity",
+      "definition": "Computable condition set required before a rule applies.",
+      "allowed_values": "N/A",
+      "decision": "Compiler",
+      "scope": "Computable cases only",
+      "source": "Proposal formalism"
+    },
+    {
+      "id": "kgmr:ExpectedClinicalRelation",
+      "label": "Expected Clinical Relation",
+      "namespace": "kgmr",
+      "layer": "Layer B",
+      "parent": "kgmr:RuleEntity",
+      "definition": "Expected equality, monotonic, ordinal, bounded or decision-level relation.",
+      "allowed_values": "N/A",
+      "decision": "Compiler",
+      "scope": "Computable cases only",
+      "source": "Proposal MR formalism"
+    },
+    {
+      "id": "kgmr:RuleException",
+      "label": "Rule Exception",
+      "namespace": "kgmr",
+      "layer": "Layer B",
+      "parent": "kgmr:RuleEntity",
+      "definition": "Computable exception preventing or modifying rule execution.",
+      "allowed_values": "N/A",
+      "decision": "Compiler",
+      "scope": "Computable cases only",
+      "source": "Proposal exceptions"
+    },
+    {
+      "id": "kgmr:CompilationEligibilityRecord",
+      "label": "Compilation Eligibility Record",
+      "namespace": "kgmr",
+      "layer": "Layer B",
+      "parent": "prov:GovernanceEntity",
+      "definition": "Evidence that source, computability, provenance, terminology, review and licensing gates were checked.",
+      "allowed_values": "Eligible; Ineligible; Pending",
+      "decision": "Compiler",
+      "scope": "N/A",
+      "source": "Rule-eligibility boundary"
+    },
+    {
+      "id": "kgmr:ContextOnlyKnowledgeItem",
+      "label": "Context-only Knowledge Item",
+      "namespace": "kgmr",
+      "layer": "Layer B control",
+      "parent": "kgmr:RuleEntity",
+      "definition": "Explicit designation that an item remains contextual and is not compiled.",
+      "allowed_values": "N/A",
+      "decision": "Compiler exclusion",
+      "scope": "N/A",
+      "source": "C3-003 disposition"
+    },
+    {
+      "id": "kgmr:ExcludedKnowledgeItem",
+      "label": "Excluded Knowledge Item",
+      "namespace": "kgmr",
+      "layer": "Layer B control",
+      "parent": "kgmr:RuleEntity",
+      "definition": "Out-of-scope item retained with an exclusion reason.",
+      "allowed_values": "N/A",
+      "decision": "Compiler exclusion",
+      "scope": "N/A",
+      "source": "C3-002 exclusions"
+    },
+    {
+      "id": "ckd:PredictionModelVersion",
+      "label": "Prediction Model Version",
+      "namespace": "ckd:",
+      "layer": "Layer A",
+      "parent": "prov:GovernanceEntity",
+      "definition": "A versioned identifier for the specific D1 prediction model (algorithm, training-data snapshot and hyperparameters) that produced a ProgressionRiskAssessment instance.",
+      "allowed_values": "ModelVersionID, TrainingSnapshotDate, AlgorithmFamily",
+      "decision": "D1",
+      "scope": "G3-G5",
+      "source": "Author-added in the closure pass to remove the D1/D2/D3 provenance asymmetry (D2/D3 already had DecisionPolicyVersion)."
+    }
+  ],
+  "object_properties": [
+    {
+      "id": "ckd:hasCareContext",
+      "label": "has care context",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:CareContext",
+      "inverse": "ckd:careContextOf",
+      "characteristics": "None globally"
+    },
+    {
+      "id": "ckd:careContextOf",
+      "label": "care context of",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:CareContext",
+      "range": "ckd:ResearchSubject",
+      "inverse": "ckd:hasCareContext",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasClinicalState",
+      "label": "has clinical state",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:ClinicalState",
+      "inverse": "ckd:clinicalStateOf",
+      "characteristics": "None globally"
+    },
+    {
+      "id": "ckd:clinicalStateOf",
+      "label": "clinical state of",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalState",
+      "range": "ckd:ResearchSubject",
+      "inverse": "ckd:hasClinicalState",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasCKDState",
+      "label": "has CKD state",
+      "parent": "ckd:hasClinicalState",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:CKDState",
+      "inverse": "ckd:ckdStateOf",
+      "characteristics": "Local maxCount 1 per snapshot"
+    },
+    {
+      "id": "ckd:ckdStateOf",
+      "label": "CKD state of",
+      "parent": "ckd:clinicalStateOf",
+      "domain": "ckd:CKDState",
+      "range": "ckd:ResearchSubject",
+      "inverse": "ckd:hasCKDState",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasGFRCategory",
+      "label": "has GFR category",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:CKDState",
+      "range": "ckd:GFRCategoricalState",
+      "inverse": null,
+      "characteristics": "Local exactly 1 per state snapshot"
+    },
+    {
+      "id": "ckd:hasAlbuminuriaCategory",
+      "label": "has albuminuria category",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:CKDState",
+      "range": "ckd:AlbuminuriaCategoricalState",
+      "inverse": null,
+      "characteristics": "Local 0..1"
+    },
+    {
+      "id": "ckd:hasEtiologyCategory",
+      "label": "has etiology category",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:CKDState",
+      "range": "ckd:CKDEtiologyCategory",
+      "inverse": null,
+      "characteristics": "Local 0..1"
+    },
+    {
+      "id": "ckd:hasCGAClinicalRiskCategory",
+      "label": "has CGA clinical risk category",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:CKDState",
+      "range": "ckd:KDIGOCGARiskCategory",
+      "inverse": null,
+      "characteristics": "Local maxCount 1"
+    },
+    {
+      "id": "kgmr:hasMRTestingRiskCategory",
+      "label": "has MR-testing risk category",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:CKDState",
+      "range": "kgmr:MRTestingRiskCategory",
+      "inverse": null,
+      "characteristics": "Local maxCount 1"
+    },
+    {
+      "id": "ckd:hasEligibilityState",
+      "label": "has eligibility state",
+      "parent": "ckd:hasClinicalState",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:EstablishedCKDEligibilityState",
+      "inverse": null,
+      "characteristics": "Local exactly 1 per executable snapshot"
+    },
+    {
+      "id": "ckd:hasObservation",
+      "label": "has observation",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:ClinicalObservation",
+      "inverse": "ckd:observationOf",
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:observationOf",
+      "label": "observation of",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalObservation",
+      "range": "ckd:ResearchSubject",
+      "inverse": "ckd:hasObservation",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasValidityAssessment",
+      "label": "has validity assessment",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalObservation",
+      "range": "ckd:ObservationValidityAssessment",
+      "inverse": null,
+      "characteristics": "Local exactly 1 before executable use"
+    },
+    {
+      "id": "ckd:hasAvailabilityState",
+      "label": "has availability state",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalObservation",
+      "range": "ckd:ObservationAvailabilityState",
+      "inverse": null,
+      "characteristics": "Local maxCount 1"
+    },
+    {
+      "id": "ckd:hasMeasurementMethodContext",
+      "label": "has measurement method context",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalObservation",
+      "range": "ckd:MeasurementMethodContext",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:contributesToState",
+      "label": "contributes to state",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalObservation",
+      "range": "ckd:ClinicalState",
+      "inverse": "ckd:isStateDerivedFromObservation",
+      "characteristics": "Many-to-many"
+    },
+    {
+      "id": "ckd:isStateDerivedFromObservation",
+      "label": "is state derived from observation",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalState",
+      "range": "ckd:ClinicalObservation",
+      "inverse": "ckd:contributesToState",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "tk:hasSequenceMember",
+      "label": "has sequence member",
+      "parent": "owl:topObjectProperty",
+      "domain": "tk:ObservationSequence",
+      "range": "ckd:ClinicalObservation",
+      "inverse": "tk:isSequenceMemberOf",
+      "characteristics": "Ordered semantics deferred"
+    },
+    {
+      "id": "tk:isSequenceMemberOf",
+      "label": "is sequence member of",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalObservation",
+      "range": "tk:ObservationSequence",
+      "inverse": "tk:hasSequenceMember",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "tk:hasBaselineObservation",
+      "label": "has baseline observation",
+      "parent": "owl:topObjectProperty",
+      "domain": "tk:Trajectory",
+      "range": "ckd:ClinicalObservation",
+      "inverse": null,
+      "characteristics": "Local exactly 1 for D1 candidate"
+    },
+    {
+      "id": "tk:hasFollowUpObservation",
+      "label": "has follow-up observation",
+      "parent": "owl:topObjectProperty",
+      "domain": "tk:Trajectory",
+      "range": "ckd:ClinicalObservation",
+      "inverse": null,
+      "characteristics": "1..*"
+    },
+    {
+      "id": "tk:hasConfirmatoryObservation",
+      "label": "has confirmatory observation",
+      "parent": "tk:hasFollowUpObservation",
+      "domain": "ckd:ConfirmedSustainedEGFRDecline",
+      "range": "ckd:ClinicalObservation",
+      "inverse": null,
+      "characteristics": "Local exactly 1 candidate"
+    },
+    {
+      "id": "tk:hasRecoveryObservation",
+      "label": "has recovery observation",
+      "parent": "tk:hasFollowUpObservation",
+      "domain": "ckd:RecoveryEvent",
+      "range": "ckd:ClinicalObservation",
+      "inverse": null,
+      "characteristics": "Local minCount 1"
+    },
+    {
+      "id": "tk:hasSamplingPattern",
+      "label": "has sampling pattern",
+      "parent": "owl:topObjectProperty",
+      "domain": "tk:Trajectory",
+      "range": "tk:SamplingPattern",
+      "inverse": null,
+      "characteristics": "Local maxCount 1"
+    },
+    {
+      "id": "ckd:hasTrajectory",
+      "label": "has trajectory",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ResearchSubject",
+      "range": "tk:Trajectory",
+      "inverse": "ckd:trajectoryOf",
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:trajectoryOf",
+      "label": "trajectory of",
+      "parent": "owl:topObjectProperty",
+      "domain": "tk:Trajectory",
+      "range": "ckd:ResearchSubject",
+      "inverse": "ckd:hasTrajectory",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasClinicalEvent",
+      "label": "has clinical event",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:ClinicalEvent",
+      "inverse": "ckd:clinicalEventOf",
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:clinicalEventOf",
+      "label": "clinical event of",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalEvent",
+      "range": "ckd:ResearchSubject",
+      "inverse": "ckd:hasClinicalEvent",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasMedicationExposureEvent",
+      "label": "has medication exposure event",
+      "parent": "ckd:hasClinicalEvent",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:MedicationExposureEvent",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:affectsTrajectory",
+      "label": "affects trajectory",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalEvent",
+      "range": "tk:Trajectory",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:qualifiesTrajectory",
+      "label": "qualifies trajectory",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ClinicalState",
+      "range": "tk:Trajectory",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:hasRecoveryEvent",
+      "label": "has recovery event",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:AKILikeTransientDeterioration",
+      "range": "ckd:RecoveryEvent",
+      "inverse": null,
+      "characteristics": "MinCount 1 before recovered use"
+    },
+    {
+      "id": "ckd:associatedWithMedicationExposure",
+      "label": "associated with medication exposure",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:TherapyAssociatedGFRReductionEvaluation",
+      "range": "ckd:MedicationExposureEvent",
+      "inverse": null,
+      "characteristics": "MinCount 1"
+    },
+    {
+      "id": "ckd:triggersTherapyEvaluation",
+      "label": "triggers therapy evaluation",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:MedicationExposureEvent",
+      "range": "ckd:TherapyAssociatedGFRReductionEvaluation",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:hasRiskAssessment",
+      "label": "has risk assessment",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:RiskAssessment",
+      "inverse": "ckd:riskAssessmentOf",
+      "characteristics": "0..* versioned"
+    },
+    {
+      "id": "ckd:riskAssessmentOf",
+      "label": "risk assessment of",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:RiskAssessment",
+      "range": "ckd:ResearchSubject",
+      "inverse": "ckd:hasRiskAssessment",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasProgressionRiskAssessment",
+      "label": "has progression-risk assessment",
+      "parent": "ckd:hasRiskAssessment",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:ProgressionRiskAssessment",
+      "inverse": null,
+      "characteristics": "0..* versioned"
+    },
+    {
+      "id": "ckd:hasKidneyFailureRiskAssessment",
+      "label": "has kidney-failure risk assessment",
+      "parent": "ckd:hasRiskAssessment",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:KidneyFailureRiskAssessment",
+      "inverse": null,
+      "characteristics": "0..* versioned"
+    },
+    {
+      "id": "ckd:assessesTrajectory",
+      "label": "assesses trajectory",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:RiskAssessment",
+      "range": "tk:Trajectory",
+      "inverse": null,
+      "characteristics": "1..* candidate"
+    },
+    {
+      "id": "ckd:hasPredictionTarget",
+      "label": "has prediction target",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ProgressionRiskAssessment",
+      "range": "ckd:ConfirmedSustainedEGFRDecline",
+      "inverse": null,
+      "characteristics": "Local exactly 1"
+    },
+    {
+      "id": "ckd:hasDecisionArtifact",
+      "label": "has decision artifact",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:DecisionArtifact",
+      "inverse": "ckd:decisionFor",
+      "characteristics": "0..* versioned"
+    },
+    {
+      "id": "ckd:decisionFor",
+      "label": "decision for",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:DecisionArtifact",
+      "range": "ckd:ResearchSubject",
+      "inverse": "ckd:hasDecisionArtifact",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasMonitoringRecommendation",
+      "label": "has monitoring recommendation",
+      "parent": "ckd:hasDecisionArtifact",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:MonitoringRecommendation",
+      "inverse": null,
+      "characteristics": "0..* versioned"
+    },
+    {
+      "id": "ckd:hasReferralSupportDecision",
+      "label": "has referral-support decision",
+      "parent": "ckd:hasDecisionArtifact",
+      "domain": "ckd:ResearchSubject",
+      "range": "ckd:ReferralSupportDecision",
+      "inverse": null,
+      "characteristics": "0..* versioned"
+    },
+    {
+      "id": "ckd:supportedByRiskAssessment",
+      "label": "supported by risk assessment",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:DecisionArtifact",
+      "range": "ckd:RiskAssessment",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:generatedByPolicyVersion",
+      "label": "generated by policy version",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:DecisionArtifact",
+      "range": "ckd:DecisionPolicyVersion",
+      "inverse": "ckd:producesDecision",
+      "characteristics": "Exactly 1 for D2/D3"
+    },
+    {
+      "id": "ckd:producesDecision",
+      "label": "produces decision",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:DecisionPolicyVersion",
+      "range": "ckd:DecisionArtifact",
+      "inverse": "ckd:generatedByPolicyVersion",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasDecisionRationale",
+      "label": "has decision rationale",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:DecisionArtifact",
+      "range": "ckd:DecisionRationale",
+      "inverse": null,
+      "characteristics": "MinCount 1 for policy outputs"
+    },
+    {
+      "id": "ckd:rationaleGroundedIn",
+      "label": "rationale grounded in",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:DecisionRationale",
+      "range": "ckd:GuidelineKnowledgeItem",
+      "inverse": null,
+      "characteristics": "1..*"
+    },
+    {
+      "id": "ckd:usesCriterion",
+      "label": "uses criterion",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:DecisionPolicyVersion",
+      "range": "ckd:ClinicalState",
+      "inverse": null,
+      "characteristics": "1..*"
+    },
+    {
+      "id": "ckd:usesReferralRiskCriterion",
+      "label": "uses referral-risk criterion",
+      "parent": "ckd:usesCriterion",
+      "domain": "ckd:DecisionPolicyVersion",
+      "range": "ckd:ReferralRiskCriterion",
+      "inverse": null,
+      "characteristics": "0..1 candidate"
+    },
+    {
+      "id": "ckd:usesReferralCGACondition",
+      "label": "uses referral CGA condition",
+      "parent": "ckd:usesCriterion",
+      "domain": "ckd:DecisionPolicyVersion",
+      "range": "ckd:ReferralCGACondition",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "ckd:groundedInKnowledgeItem",
+      "label": "grounded in knowledge item",
+      "parent": "owl:topObjectProperty",
+      "domain": "owl:Thing",
+      "range": "ckd:GuidelineKnowledgeItem",
+      "inverse": "ckd:groundsEntity",
+      "characteristics": "1..* for rules/policies"
+    },
+    {
+      "id": "ckd:groundsEntity",
+      "label": "grounds entity",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:GuidelineKnowledgeItem",
+      "range": "owl:Thing",
+      "inverse": "ckd:groundedInKnowledgeItem",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "ckd:hasOperationalInterpretation",
+      "label": "has operational interpretation",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:GuidelineKnowledgeItem",
+      "range": "ckd:ExpertInterpretation",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "prov:hasProvenanceRecord",
+      "label": "has provenance record",
+      "parent": "owl:topObjectProperty",
+      "domain": "owl:Thing",
+      "range": "prov:ProvenanceRecord",
+      "inverse": null,
+      "characteristics": "MinCount 1 for executable artefacts"
+    },
+    {
+      "id": "prov:hasClinicalReviewRecord",
+      "label": "has clinical review record",
+      "parent": "owl:topObjectProperty",
+      "domain": "owl:Thing",
+      "range": "prov:ClinicalReviewRecord",
+      "inverse": null,
+      "characteristics": "MinCount 1 for candidate rules"
+    },
+    {
+      "id": "prov:hasLicensingRecord",
+      "label": "has licensing record",
+      "parent": "owl:topObjectProperty",
+      "domain": "owl:Thing",
+      "range": "prov:LicensingRecord",
+      "inverse": null,
+      "characteristics": "MinCount 1 for controlled items"
+    },
+    {
+      "id": "term:hasTerminologyMapping",
+      "label": "has terminology mapping",
+      "parent": "owl:topObjectProperty",
+      "domain": "owl:Thing",
+      "range": "term:TerminologyMapping",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "prov:hasReleaseRecord",
+      "label": "has release record",
+      "parent": "owl:topObjectProperty",
+      "domain": "owl:Thing",
+      "range": "prov:ReleaseRecord",
+      "inverse": null,
+      "characteristics": "MinCount 1 for frozen artefacts"
+    },
+    {
+      "id": "prov:supersedes",
+      "label": "supersedes",
+      "parent": "owl:topObjectProperty",
+      "domain": "prov:ReleaseRecord",
+      "range": "prov:ReleaseRecord",
+      "inverse": "prov:isSupersededBy",
+      "characteristics": "Irreflexive/asymmetric candidate"
+    },
+    {
+      "id": "prov:isSupersededBy",
+      "label": "is superseded by",
+      "parent": "owl:topObjectProperty",
+      "domain": "prov:ReleaseRecord",
+      "range": "prov:ReleaseRecord",
+      "inverse": "prov:supersedes",
+      "characteristics": "Inverse"
+    },
+    {
+      "id": "kgmr:hasApplicability",
+      "label": "has applicability",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:ExecutableClinicalRule",
+      "range": "kgmr:RuleApplicability",
+      "inverse": null,
+      "characteristics": "Exactly 1"
+    },
+    {
+      "id": "kgmr:hasAntecedent",
+      "label": "has antecedent",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:ExecutableClinicalRule",
+      "range": "kgmr:RuleAntecedent",
+      "inverse": null,
+      "characteristics": "MinCount 1"
+    },
+    {
+      "id": "kgmr:hasExpectedRelation",
+      "label": "has expected relation",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:ExecutableClinicalRule",
+      "range": "kgmr:ExpectedClinicalRelation",
+      "inverse": null,
+      "characteristics": "Exactly 1"
+    },
+    {
+      "id": "kgmr:hasException",
+      "label": "has exception",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:ExecutableClinicalRule",
+      "range": "kgmr:RuleException",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "kgmr:hasEligibilityRecord",
+      "label": "has eligibility record",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:ExecutableClinicalRule",
+      "range": "kgmr:CompilationEligibilityRecord",
+      "inverse": null,
+      "characteristics": "Exactly 1"
+    },
+    {
+      "id": "kgmr:admittedFromKnowledgeItem",
+      "label": "admitted from knowledge item",
+      "parent": "ckd:groundedInKnowledgeItem",
+      "domain": "kgmr:ExecutableClinicalRule",
+      "range": "ckd:GuidelineKnowledgeItem",
+      "inverse": null,
+      "characteristics": "1..*"
+    },
+    {
+      "id": "kgmr:appliesToCareContext",
+      "label": "applies to care context",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:RuleApplicability",
+      "range": "ckd:CareContext",
+      "inverse": null,
+      "characteristics": "MinCount 1"
+    },
+    {
+      "id": "kgmr:appliesToEligibilityState",
+      "label": "applies to eligibility state",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:RuleApplicability",
+      "range": "ckd:EstablishedCKDEligibilityState",
+      "inverse": null,
+      "characteristics": "Exactly 1"
+    },
+    {
+      "id": "kgmr:appliesToGFRCategory",
+      "label": "applies to GFR category",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:RuleApplicability",
+      "range": "ckd:GFRCategoricalState",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "kgmr:requiresObservation",
+      "label": "requires observation",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:RuleAntecedent",
+      "range": "ckd:ClinicalObservation",
+      "inverse": null,
+      "characteristics": "1..* test-instance link"
+    },
+    {
+      "id": "kgmr:requiresClinicalState",
+      "label": "requires clinical state",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:RuleAntecedent",
+      "range": "ckd:ClinicalState",
+      "inverse": null,
+      "characteristics": "0..* test-instance link"
+    },
+    {
+      "id": "kgmr:exceptedByClinicalEvent",
+      "label": "excepted by clinical event",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:RuleException",
+      "range": "ckd:ClinicalEvent",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "kgmr:exceptedByMedicationExposure",
+      "label": "excepted by medication exposure",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:RuleException",
+      "range": "ckd:MedicationExposureEvent",
+      "inverse": null,
+      "characteristics": "0..*"
+    },
+    {
+      "id": "kgmr:expectedRelationOnRiskAssessment",
+      "label": "expected relation on risk assessment",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:ExpectedClinicalRelation",
+      "range": "ckd:RiskAssessment",
+      "inverse": null,
+      "characteristics": "0..* test-instance link"
+    },
+    {
+      "id": "kgmr:expectedRelationOnDecisionArtifact",
+      "label": "expected relation on decision artifact",
+      "parent": "owl:topObjectProperty",
+      "domain": "kgmr:ExpectedClinicalRelation",
+      "range": "ckd:DecisionArtifact",
+      "inverse": null,
+      "characteristics": "0..* test-instance link"
+    },
+    {
+      "id": "ckd:generatedByModelVersion",
+      "label": "generated by model version",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:ProgressionRiskAssessment",
+      "range": "ckd:PredictionModelVersion",
+      "inverse": "ckd:modelVersionGenerates",
+      "characteristics": "Exactly 1"
+    },
+    {
+      "id": "ckd:modelVersionGenerates",
+      "label": "model version generates",
+      "parent": "owl:topObjectProperty",
+      "domain": "ckd:PredictionModelVersion",
+      "range": "ckd:ProgressionRiskAssessment",
+      "inverse": "ckd:generatedByModelVersion",
+      "characteristics": "Inverse, 0..*"
+    }
+  ],
+  "datatype_properties": [
+    {
+      "id": "ckd:localIdentifier",
+      "range": "xsd:string",
+      "domain": "owl:Thing",
+      "definition": "Stable local identifier.",
+      "status": "Included",
+      "control": "Not a terminology code."
+    },
+    {
+      "id": "prov:versionLabel",
+      "range": "xsd:string",
+      "domain": "owl:Thing",
+      "definition": "Version/release label.",
+      "status": "Included",
+      "control": "Use with ReleaseRecord."
+    },
+    {
+      "id": "prov:sourceLocator",
+      "range": "xsd:string",
+      "domain": "ckd:GuidelineKnowledgeItem",
+      "definition": "Exact source locator.",
+      "status": "Included",
+      "control": "Required before approval."
+    },
+    {
+      "id": "prov:sourceChecksum",
+      "range": "xsd:string",
+      "domain": "ckd:GuidelineSource",
+      "definition": "Frozen source checksum.",
+      "status": "Included",
+      "control": "Algorithm recorded."
+    },
+    {
+      "id": "prov:reviewStatus",
+      "range": "xsd:string",
+      "domain": "prov:ClinicalReviewRecord",
+      "definition": "Controlled review status.",
+      "status": "Included",
+      "control": "Panel/real review distinct."
+    },
+    {
+      "id": "prov:licensingStatus",
+      "range": "xsd:string",
+      "domain": "prov:LicensingRecord",
+      "definition": "Permission status.",
+      "status": "Included",
+      "control": "Institutionally verified."
+    },
+    {
+      "id": "prov:releaseStatus",
+      "range": "xsd:string",
+      "domain": "prov:ReleaseRecord",
+      "definition": "Draft/Frozen/Superseded/Deprecated.",
+      "status": "Included",
+      "control": "Controlled vocabulary."
+    },
+    {
+      "id": "term:codeValue",
+      "range": "xsd:string",
+      "domain": "term:TerminologyMapping",
+      "definition": "External terminology code.",
+      "status": "Included",
+      "control": "Licence/release required."
+    },
+    {
+      "id": "term:codeSystemURI",
+      "range": "xsd:anyURI",
+      "domain": "term:TerminologyMapping",
+      "definition": "Code-system identifier.",
+      "status": "Included",
+      "control": "No unsupported labels."
+    },
+    {
+      "id": "term:codeSystemVersion",
+      "range": "xsd:string",
+      "domain": "term:TerminologyMapping",
+      "definition": "Frozen terminology release.",
+      "status": "Included",
+      "control": "Reproducibility."
+    },
+    {
+      "id": "ckd:numericRiskValue",
+      "range": "xsd:decimal",
+      "domain": "ckd:RiskAssessment",
+      "definition": "Numeric risk estimate.",
+      "status": "Included",
+      "control": "Scale/model provenance."
+    },
+    {
+      "id": "ckd:riskHorizonYears",
+      "range": "xsd:decimal",
+      "domain": "ckd:RiskAssessment",
+      "definition": "Prediction horizon.",
+      "status": "Included",
+      "control": "D1/D3."
+    },
+    {
+      "id": "ckd:monitoringTimesPerYear",
+      "range": "xsd:decimal",
+      "domain": "ckd:MonitoringRecommendation",
+      "definition": "Optional local-policy cadence.",
+      "status": "Candidate",
+      "control": "Not KDIGO unless sourced."
+    },
+    {
+      "id": "kgmr:inclusionStatus",
+      "range": "xsd:string",
+      "domain": "ckd:GuidelineKnowledgeItem",
+      "definition": "Included/ContextOnly/Excluded/Deferred.",
+      "status": "Included",
+      "control": "Controlled disposition."
+    },
+    {
+      "id": "kgmr:eligibilityStatus",
+      "range": "xsd:string",
+      "domain": "kgmr:CompilationEligibilityRecord",
+      "definition": "Eligible/Ineligible/Pending.",
+      "status": "Included",
+      "control": "Gate result."
+    },
+    {
+      "id": "ckd:observationValue",
+      "range": "xsd:decimal",
+      "domain": "ckd:ClinicalObservation",
+      "definition": "Clinical value.",
+      "status": "Reserved - C3-006",
+      "control": "Not finalized here."
+    },
+    {
+      "id": "ckd:observationUnitCode",
+      "range": "xsd:string",
+      "domain": "ckd:ClinicalObservation",
+      "definition": "UCUM unit code.",
+      "status": "Reserved - C3-006/C3-010",
+      "control": "Mapping later."
+    },
+    {
+      "id": "tk:effectiveDateTime",
+      "range": "xsd:dateTime",
+      "domain": "ckd:ClinicalObservation",
+      "definition": "Clinical effective/specimen time.",
+      "status": "Reserved - C3-006/C3-009",
+      "control": "Distinct from issued."
+    },
+    {
+      "id": "tk:issuedDateTime",
+      "range": "xsd:dateTime",
+      "domain": "ckd:ClinicalObservation",
+      "definition": "Result issuance time.",
+      "status": "Reserved - C3-006/C3-009",
+      "control": "Delay MRs."
+    },
+    {
+      "id": "tk:relativeChangePercent",
+      "range": "xsd:decimal",
+      "domain": "tk:Trajectory",
+      "definition": "Relative change.",
+      "status": "Reserved - C3-007",
+      "control": "Source-linked threshold."
+    },
+    {
+      "id": "tk:durationDays",
+      "range": "xsd:decimal",
+      "domain": "tk:TemporalEntity",
+      "definition": "Duration.",
+      "status": "Reserved - C3-009",
+      "control": "Grammar controls use."
+    },
+    {
+      "id": "tk:specimenCollectionDateTime",
+      "range": "xsd:dateTime",
+      "domain": "ckd:ClinicalObservation",
+      "definition": "Time the specimen was collected, when available; preferred ordering time for specimen-based lab observations.",
+      "status": "Included \u2014 C3-006-O3 addendum",
+      "control": "Added post-C3-005-closure via C3-006; 0..1 cardinality."
+    },
+    {
+      "id": "prov:recordedDateTime",
+      "range": "xsd:dateTime",
+      "domain": "owl:Thing",
+      "definition": "Time an observation or record was entered/imported into the research representation; provenance only, must not replace clinical time.",
+      "status": "Included \u2014 C3-006-O3 addendum",
+      "control": "Added post-C3-005-closure via C3-006; exactly 1 cardinality."
+    }
+  ],
+  "hierarchy_edges": [
+    {
+      "child": "ckd:CKDState",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:GFRCategoricalState",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:AlbuminuriaCategoricalState",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:KDIGOCGARiskCategory",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:MRTestingRiskCategory",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer B",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:CKDEtiologyCategory",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:EstablishedCKDEligibilityState",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:KidneyFunctionObservation",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalObservation",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:AlbuminuriaObservation",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalObservation",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ObservationValidityAssessment",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ObservationAvailabilityState",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "tk:Trajectory",
+      "relation": "subClassOf",
+      "parent": "tk:TemporalEntity",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "tk:ObservationSequence",
+      "relation": "subClassOf",
+      "parent": "tk:Trajectory",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "tk:BaselineObservationContext",
+      "relation": "subClassOf",
+      "parent": "tk:TemporalEntity",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "tk:FollowUpObservationContext",
+      "relation": "subClassOf",
+      "parent": "tk:TemporalEntity",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:EarlyWarningEGFRChange",
+      "relation": "subClassOf",
+      "parent": "tk:Trajectory",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ConfirmedSustainedEGFRDecline",
+      "relation": "subClassOf",
+      "parent": "tk:Trajectory",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:AlbuminuriaChangeTrajectory",
+      "relation": "subClassOf",
+      "parent": "tk:Trajectory",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:StableKidneyFunctionTrajectory",
+      "relation": "subClassOf",
+      "parent": "tk:Trajectory",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ClinicalEvent",
+      "relation": "subClassOf",
+      "parent": "tk:TemporalEntity",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:AKILikeTransientDeterioration",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalEvent",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:RecoveryEvent",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalEvent",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "tk:SamplingPattern",
+      "relation": "subClassOf",
+      "parent": "tk:TemporalEntity",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:MedicationExposureEvent",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalEvent",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:RAASInhibitorExposureEvent",
+      "relation": "subClassOf",
+      "parent": "ckd:MedicationExposureEvent",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:SGLT2InhibitorExposureEvent",
+      "relation": "subClassOf",
+      "parent": "ckd:MedicationExposureEvent",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:DiureticExposureEvent",
+      "relation": "subClassOf",
+      "parent": "ckd:MedicationExposureEvent",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:NSAIDExposureEvent",
+      "relation": "subClassOf",
+      "parent": "ckd:MedicationExposureEvent",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:TherapyAssociatedGFRReductionEvaluation",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ProgressionRiskAssessment",
+      "relation": "subClassOf",
+      "parent": "ckd:RiskAssessment",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:KidneyFailureRiskAssessment",
+      "relation": "subClassOf",
+      "parent": "ckd:RiskAssessment",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:MonitoringRecommendation",
+      "relation": "subClassOf",
+      "parent": "ckd:DecisionArtifact",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ReferralSupportDecision",
+      "relation": "subClassOf",
+      "parent": "ckd:DecisionArtifact",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ReferralRiskCriterion",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ReferralCGACondition",
+      "relation": "subClassOf",
+      "parent": "ckd:ClinicalState",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:DecisionPolicyVersion",
+      "relation": "subClassOf",
+      "parent": "prov:GovernanceEntity",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:GuidelineSource",
+      "relation": "subClassOf",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:RecommendationStatement",
+      "relation": "subClassOf",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:PracticePointStatement",
+      "relation": "subClassOf",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:FigureDerivedProposition",
+      "relation": "subClassOf",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "ckd:ExpertInterpretation",
+      "relation": "subClassOf",
+      "parent": "ckd:GuidelineKnowledgeItem",
+      "layer": "Layer A",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "prov:ProvenanceRecord",
+      "relation": "subClassOf",
+      "parent": "prov:GovernanceEntity",
+      "layer": "Shared",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "prov:ClinicalReviewRecord",
+      "relation": "subClassOf",
+      "parent": "prov:GovernanceEntity",
+      "layer": "Shared",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "prov:LicensingRecord",
+      "relation": "subClassOf",
+      "parent": "prov:GovernanceEntity",
+      "layer": "Shared",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "term:TerminologyMapping",
+      "relation": "subClassOf",
+      "parent": "prov:GovernanceEntity",
+      "layer": "Shared",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "prov:ReleaseRecord",
+      "relation": "subClassOf",
+      "parent": "prov:GovernanceEntity",
+      "layer": "Shared",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:ExecutableClinicalRule",
+      "relation": "subClassOf",
+      "parent": "kgmr:RuleEntity",
+      "layer": "Layer B",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:RuleApplicability",
+      "relation": "subClassOf",
+      "parent": "kgmr:RuleEntity",
+      "layer": "Layer B",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:RuleAntecedent",
+      "relation": "subClassOf",
+      "parent": "kgmr:RuleEntity",
+      "layer": "Layer B",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:ExpectedClinicalRelation",
+      "relation": "subClassOf",
+      "parent": "kgmr:RuleEntity",
+      "layer": "Layer B",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:RuleException",
+      "relation": "subClassOf",
+      "parent": "kgmr:RuleEntity",
+      "layer": "Layer B",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:CompilationEligibilityRecord",
+      "relation": "subClassOf",
+      "parent": "prov:GovernanceEntity",
+      "layer": "Layer B",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:ContextOnlyKnowledgeItem",
+      "relation": "subClassOf",
+      "parent": "kgmr:RuleEntity",
+      "layer": "Layer B control",
+      "note": "Primary conceptual hierarchy edge."
+    },
+    {
+      "child": "kgmr:ExcludedKnowledgeItem",
+      "relation": "subClassOf",
+      "parent": "kgmr:RuleEntity",
+      "layer": "Layer B control",
+      "note": "Primary conceptual hierarchy edge."
+    }
+  ],
+  "axioms": [
+    {
+      "id": "AX-01",
+      "type": "Disjointness",
+      "classes": "ProgressionRiskAssessment; MonitoringRecommendation; ReferralSupportDecision",
+      "axiom": "The three decision-output classes are mutually disjoint.",
+      "reason": "Prevents conflation of model and policy outputs."
+    },
+    {
+      "id": "AX-02",
+      "type": "Distinct concepts",
+      "classes": "KidneyFailureRiskAssessment; ProgressionRiskAssessment",
+      "axiom": "The two risk-assessment classes are distinct.",
+      "reason": "Different target outcomes."
+    },
+    {
+      "id": "AX-03",
+      "type": "Distinct category systems",
+      "classes": "KDIGOCGARiskCategory; MRTestingRiskCategory",
+      "axiom": "The native and derived category systems are separate types linked by a versioned mapping.",
+      "reason": "Prevents the three-level collapse being presented as KDIGO."
+    },
+    {
+      "id": "AX-04",
+      "type": "Disjointness",
+      "classes": "AKILikeTransientDeterioration; FormalAKIDiagnosis",
+      "axiom": "The operational transient flag cannot be inferred as a formal diagnosis.",
+      "reason": "Safety and scope control."
+    },
+    {
+      "id": "AX-05",
+      "type": "Disjointness",
+      "classes": "ExecutableClinicalRule; ContextOnlyKnowledgeItem; ExcludedKnowledgeItem",
+      "axiom": "Executable and non-executable dispositions are mutually exclusive.",
+      "reason": "Compilation safety."
+    },
+    {
+      "id": "AX-06",
+      "type": "Exclusion",
+      "classes": "ReferralSupportDecision; ReferralOrder",
+      "axiom": "R1.0 contains no referral-order class and cannot infer one.",
+      "reason": "Advisory scope only."
+    },
+    {
+      "id": "AX-07",
+      "type": "Exclusion",
+      "classes": "MedicationExposureEvent; DecisionArtifact",
+      "axiom": "Medication exposure classes cannot be decision outputs.",
+      "reason": "No treatment recommendation scope."
+    },
+    {
+      "id": "AX-08",
+      "type": "Mandatory provenance",
+      "classes": "ExecutableClinicalRule",
+      "axiom": "Every executable rule must have ProvenanceRecord and CompilationEligibilityRecord.",
+      "reason": "Auditability."
+    },
+    {
+      "id": "AX-09",
+      "type": "Referral safety",
+      "classes": "ReferralRiskCriterion",
+      "axiom": "Risk >=3% alone is insufficient to create a referral-support output.",
+      "reason": "Preserves 'in addition to' qualifier."
+    },
+    {
+      "id": "AX-10",
+      "type": "Medication safety",
+      "classes": "TherapyAssociatedGFRReductionEvaluation",
+      "axiom": "A >30% reduction creates an evaluation state, not an automatic benign/adverse classification.",
+      "reason": "Avoids unsupported interpretation."
+    }
+  ],
+  "temporal_relations": [
+    {
+      "id": "tk:before",
+      "inverse": "tk:after",
+      "domain": "TemporalEntity",
+      "range": "TemporalEntity",
+      "meaning": "Entity ends before the other begins.",
+      "characteristic": "Asymmetric; transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:after",
+      "inverse": "tk:before",
+      "domain": "TemporalEntity",
+      "range": "TemporalEntity",
+      "meaning": "Inverse of before.",
+      "characteristic": "Asymmetric; transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:meets",
+      "inverse": "tk:metBy",
+      "domain": "TemporalInterval",
+      "range": "TemporalInterval",
+      "meaning": "First interval ends exactly when second starts.",
+      "characteristic": "Asymmetric; not transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:overlaps",
+      "inverse": "tk:overlappedBy",
+      "domain": "TemporalInterval",
+      "range": "TemporalInterval",
+      "meaning": "First starts earlier and ends inside second.",
+      "characteristic": "Asymmetric; not transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:starts",
+      "inverse": "tk:startedBy",
+      "domain": "TemporalInterval",
+      "range": "TemporalInterval",
+      "meaning": "Same start; first ends earlier.",
+      "characteristic": "Asymmetric; not transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:during",
+      "inverse": "tk:contains",
+      "domain": "TemporalInterval",
+      "range": "TemporalInterval",
+      "meaning": "First lies within second.",
+      "characteristic": "Asymmetric; transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:finishes",
+      "inverse": "tk:finishedBy",
+      "domain": "TemporalInterval",
+      "range": "TemporalInterval",
+      "meaning": "Same end; first starts later.",
+      "characteristic": "Asymmetric; not transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:equalsTime",
+      "inverse": "tk:equalsTime",
+      "domain": "TemporalEntity",
+      "range": "TemporalEntity",
+      "meaning": "Same normalized temporal extent.",
+      "characteristic": "Symmetric; transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:sameClinicalTime",
+      "inverse": "tk:sameClinicalTime",
+      "domain": "ClinicalObservation",
+      "range": "ClinicalObservation",
+      "meaning": "Effective/specimen times equal at available precision.",
+      "characteristic": "Symmetric; not declared transitive",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:issuedAfterEffective",
+      "inverse": null,
+      "domain": "ClinicalObservation",
+      "range": "ClinicalObservation",
+      "meaning": "Issued time follows effective time for same observation.",
+      "characteristic": "Derived validation check",
+      "status": "Closed design"
+    },
+    {
+      "id": "tk:overlapsEventWindow",
+      "inverse": "tk:eventWindowOverlaps",
+      "domain": "TemporalEntity",
+      "range": "EventWindow",
+      "meaning": "Temporal entity intersects configured event window.",
+      "characteristic": "Symmetric at interval level; not transitive",
+      "status": "Closed design"
+    }
+  ],
+  "compilation_gates": [
+    {
+      "label": "Source located",
+      "question": "Is a stable source and precise locator present?",
+      "allowed": "Pass/Fail/Pending",
+      "required": "Yes",
+      "failure": "Ineligible/Pending",
+      "evidence": "Source URI, version, checksum, locator"
+    },
+    {
+      "label": "Scope matched",
+      "question": "Is the knowledge item within C3-002 decision/population scope?",
+      "allowed": "Pass/Fail",
+      "required": "Yes",
+      "failure": "Ineligible",
+      "evidence": "Applicability record"
+    },
+    {
+      "label": "Computable",
+      "question": "Can the proposition be deterministically represented?",
+      "allowed": "Pass/Fail/Pending",
+      "required": "Yes",
+      "failure": "ContextOnly/Pending",
+      "evidence": "Rule derivation record"
+    },
+    {
+      "label": "Terminology ready",
+      "question": "Are required local/external mappings versioned?",
+      "allowed": "Pass/Fail/Pending",
+      "required": "Yes when external mapping required",
+      "failure": "Pending/Ineligible",
+      "evidence": "C3-010 mapping record"
+    },
+    {
+      "label": "Licensing allowed",
+      "question": "Can the required artefact be used in the target release?",
+      "allowed": "Pass/Fail/Pending/NotApplicable",
+      "required": "Yes for release target",
+      "failure": "Pending/Excluded",
+      "evidence": "LicensingRecord"
+    },
+    {
+      "label": "Review sufficient",
+      "question": "Has the required review tier been reached?",
+      "allowed": "Pass/Fail/Pending",
+      "required": "Yes",
+      "failure": "Pending/Ineligible",
+      "evidence": "ReviewRecord"
+    },
+    {
+      "label": "Conflict resolved",
+      "question": "Are relevant conflicts/precedence decisions resolved?",
+      "allowed": "Pass/Fail/Pending",
+      "required": "Yes",
+      "failure": "ABSTAIN/Pending",
+      "evidence": "C3-013 ConflictResolutionRecord"
+    },
+    {
+      "label": "Release integrity",
+      "question": "Are version, checksum and supersession metadata complete?",
+      "allowed": "Pass/Fail",
+      "required": "Yes",
+      "failure": "Release blocked",
+      "evidence": "ReleaseRecord"
+    }
+  ],
+  "exception_types": [
+    {
+      "label": "ApplicabilityExclusion",
+      "definition": "Subject/context is outside rule applicability.",
+      "trigger": "GFR category, care setting, age/population eligibility",
+      "effect": "Rule does not fire.",
+      "scope": "Declared rule applicability only"
+    },
+    {
+      "label": "DataQualityException",
+      "definition": "Required observation is invalid/unsupported.",
+      "trigger": "Invalid unit, entered-in-error, unusable time",
+      "effect": "Rule returns Ineligible/Indeterminate.",
+      "scope": "Affected input/rule"
+    },
+    {
+      "label": "MissingDataException",
+      "definition": "Required observation or confirmation is absent.",
+      "trigger": "Missing baseline, missing confirmation, missing expected visit",
+      "effect": "Rule returns Indeterminate/Abstain.",
+      "scope": "Affected rule execution"
+    },
+    {
+      "label": "TemporalPrecisionException",
+      "definition": "Available time precision cannot prove temporal relation.",
+      "trigger": "Visit-only timing for <=2-week event",
+      "effect": "Rule returns Indeterminate.",
+      "scope": "Temporal condition only"
+    },
+    {
+      "label": "ClinicalEventException",
+      "definition": "Transient/recovery event qualifies chronic interpretation.",
+      "trigger": "AKI-like event, RecoveryEvent",
+      "effect": "Qualifies/excludes declared segment/rule.",
+      "scope": "Linked trajectory segment"
+    },
+    {
+      "label": "MedicationContextException",
+      "definition": "Medication evaluation window changes interpretation.",
+      "trigger": "RAASi/SGLT2i exposure + 4-week window",
+      "effect": "Qualifies segment/default slope; no causation claim.",
+      "scope": "Linked exposure/window"
+    },
+    {
+      "label": "TerminologyMappingException",
+      "definition": "External mapping is unavailable/ambiguous.",
+      "trigger": "No safe mapping, unverified source convention",
+      "effect": "Use local concept or block external-dependent rule.",
+      "scope": "Mapping-dependent rule"
+    },
+    {
+      "label": "LicensingReleaseException",
+      "definition": "Target release cannot expose/use restricted artefact.",
+      "trigger": "Pending/restricted license",
+      "effect": "Block release inclusion; local private use may differ.",
+      "scope": "Release target"
+    },
+    {
+      "label": "ReviewGateException",
+      "definition": "Required clinical/technical review is incomplete or rejected.",
+      "trigger": "Review status pending/rejected",
+      "effect": "Compilation eligibility fails.",
+      "scope": "Rule/mapping"
+    },
+    {
+      "label": "ConflictException",
+      "definition": "Another applicable rule creates unresolved contradictory expectation.",
+      "trigger": "Same target + overlapping applicability",
+      "effect": "ABSTAIN pending resolution.",
+      "scope": "Conflict set"
+    }
+  ],
+  "conflict_types": [
+    {
+      "label": "ExpectedRelationConflict",
+      "condition": "Same target/output, overlapping applicability, incompatible expected relations.",
+      "example": "One rule expects increase; another expects decrease.",
+      "resolution": "Check explicit exception/precedence/specificity; else abstain.",
+      "human_review": "If unresolved"
+    },
+    {
+      "label": "ApplicabilityConflict",
+      "condition": "Two rules claim incompatible applicability for same snapshot.",
+      "example": "Eligible vs excluded under same conditions.",
+      "resolution": "Use more-specific declared scope only if approved.",
+      "human_review": "If same specificity"
+    },
+    {
+      "label": "ExceptionConflict",
+      "condition": "Rule exception and rule antecedent both satisfied with unclear override.",
+      "example": "Medication/acute exception overlaps D1 rule.",
+      "resolution": "Use explicit linked exception semantics.",
+      "human_review": "If competing exceptions"
+    },
+    {
+      "label": "VersionConflict",
+      "condition": "Different active versions of same source/rule/mapping appear applicable.",
+      "example": "Old vs new policy/mapping release.",
+      "resolution": "Use release pin/current version; preserve superseded history.",
+      "human_review": "No unless ambiguous"
+    },
+    {
+      "label": "TerminologyConflict",
+      "condition": "Multiple candidate codes/mapping relations for same source value.",
+      "example": "ACR convention unclear.",
+      "resolution": "Use source applicability record; otherwise local-only/abstain.",
+      "human_review": "Sometimes"
+    },
+    {
+      "label": "DataConflict",
+      "condition": "Concurrent source records disagree after selection/status rules.",
+      "example": "Distinct final observations with incompatible values.",
+      "resolution": "Apply frozen same-time rule; if still semantically unresolved, flag conflict.",
+      "human_review": "Sometimes"
+    },
+    {
+      "label": "TemporalConflict",
+      "condition": "Temporal relations cannot be simultaneously satisfied or precision makes relation uncertain.",
+      "example": "Event both before/overlaps under coarse time.",
+      "resolution": "Three-valued evaluation; Indeterminate if not provable.",
+      "human_review": "No unless clinically material"
+    },
+    {
+      "label": "DecisionPolicyConflict",
+      "condition": "D2/D3 policy versions produce contradictory recommendations.",
+      "example": "Two current policy versions or overlapping local policies.",
+      "resolution": "Use one release-pinned policy; unresolved -> abstain.",
+      "human_review": "Yes if policy governance unclear"
+    },
+    {
+      "label": "SourceInterpretationConflict",
+      "condition": "Source statement and author interpretation disagree or two interpretations differ.",
+      "example": "Figure interpretation vs narrative text.",
+      "resolution": "Source item remains authoritative; adjudicate interpretation.",
+      "human_review": "Yes"
+    },
+    {
+      "label": "ReviewConflict",
+      "condition": "Independent reviewers disagree on clinical meaning/safety.",
+      "example": "Reviewer A accept, reviewer B reject.",
+      "resolution": "Adjudication record required.",
+      "human_review": "Yes"
+    }
+  ],
+  "precedence_tiers": [
+    {
+      "tier": "P0",
+      "principle": "Input integrity / legality",
+      "rule": "Invalid/entered-in-error data and release-prohibited artefacts cannot support execution.",
+      "cannot_override": "Cannot be overridden by rule strength or specificity."
+    },
+    {
+      "tier": "P1",
+      "principle": "Applicability gate",
+      "rule": "Out-of-scope subject/context makes the rule non-applicable.",
+      "cannot_override": "Cannot be overridden by a more general rule."
+    },
+    {
+      "tier": "P2",
+      "principle": "Explicit linked exception",
+      "rule": "An exception suppresses/qualifies only the rule and scope it explicitly references.",
+      "cannot_override": "Cannot globally disable unrelated rules."
+    },
+    {
+      "tier": "P3",
+      "principle": "Temporal/event qualifier",
+      "rule": "Closed C3-008/C3-009 event and precision semantics determine whether a condition is TRUE/FALSE/INDETERMINATE.",
+      "cannot_override": "Cannot coerce Indeterminate to False."
+    },
+    {
+      "tier": "P4",
+      "principle": "Specificity",
+      "rule": "A more-specific rule may outrank a generic rule only when scope containment is explicit and the expected relations are compatible with the approved policy.",
+      "cannot_override": "Cannot be assumed from wording alone."
+    },
+    {
+      "tier": "P5",
+      "principle": "Release/version",
+      "rule": "Within one rule/mapping lineage, the release-pinned non-superseded version is current.",
+      "cannot_override": "Cannot delete superseded history."
+    },
+    {
+      "tier": "P6",
+      "principle": "Guideline strength",
+      "rule": "Recorded as provenance metadata.",
+      "cannot_override": "Does not automatically establish precedence."
+    },
+    {
+      "tier": "P7",
+      "principle": "Human adjudication",
+      "rule": "Used for unresolved same-tier or clinically meaningful conflicts.",
+      "cannot_override": "Must produce explicit rationale/version."
+    },
+    {
+      "tier": "P8",
+      "principle": "Unresolved",
+      "rule": "Return ABSTAIN/INDETERMINATE and block eligible compilation where required.",
+      "cannot_override": "Never choose arbitrary winner."
+    }
+  ],
+  "temporal_entities": [
+    {
+      "id": "tk:TemporalInstant",
+      "label": "Temporal Instant",
+      "definition": "Single time point with declared precision.",
+      "required_fields": "value; timezone/offset if present; precision",
+      "control": "Represents an interval of possible instants when precision is coarse."
+    },
+    {
+      "id": "tk:TemporalInterval",
+      "label": "Temporal Interval",
+      "definition": "Start/end bounded temporal extent.",
+      "required_fields": "start; end or open-end; boundary convention",
+      "control": "Proposed half-open [start,end)."
+    },
+    {
+      "id": "tk:TemporalDuration",
+      "label": "Temporal Duration",
+      "definition": "Elapsed quantity between temporal entities.",
+      "required_fields": "lexical duration; canonical numeric value where safe; unit",
+      "control": "Calendar month/year durations are not blindly converted to fixed days."
+    },
+    {
+      "id": "tk:UncertainTime",
+      "label": "Uncertain Time",
+      "definition": "Possible-time interval implied by partial precision.",
+      "required_fields": "earliest possible; latest possible; precision",
+      "control": "Relation executable only when truth is invariant across possibilities."
+    },
+    {
+      "id": "tk:EventWindow",
+      "label": "Event Window",
+      "definition": "Configured interval around an event/exposure.",
+      "required_fields": "anchor; start/end offset; version",
+      "control": "Used for 2-week, 4-week, 90-day and 2-year conditions."
+    },
+    {
+      "id": "tk:SequencePosition",
+      "label": "Sequence Position",
+      "definition": "Deterministic ordering position after same-time tie-break.",
+      "required_fields": "sequence ID; ordinal; selectionRuleVersion",
+      "control": "Does not replace clinical time."
+    }
+  ],
+  "implementation_extension_classes": {
+    "prov:SourceArtifact": [
+      "Source Artifact",
+      "Frozen guideline, literature, dataset or design-control source.",
+      "prov:GovernanceEntity"
+    ],
+    "prov:LiteratureSource": [
+      "Literature Source",
+      "Versioned literature source used for evidence/working assumptions.",
+      "prov:SourceArtifact"
+    ],
+    "prov:DatasetSource": [
+      "Dataset Source",
+      "Versioned dataset or data-dictionary source.",
+      "prov:SourceArtifact"
+    ],
+    "prov:ProvenanceActivity": [
+      "Provenance Activity",
+      "Activity that extracts, interprets, maps, derives or executes an artefact.",
+      "owl:Thing"
+    ],
+    "prov:ExtractionActivity": [
+      "Extraction Activity",
+      "Activity extracting a knowledge item from a source.",
+      "prov:ProvenanceActivity"
+    ],
+    "prov:InterpretationActivity": [
+      "Interpretation Activity",
+      "Activity creating an explicit operational interpretation.",
+      "prov:ProvenanceActivity"
+    ],
+    "prov:MappingActivity": [
+      "Mapping Activity",
+      "Terminology or dataset mapping activity.",
+      "prov:ProvenanceActivity"
+    ],
+    "prov:RuleDerivationActivity": [
+      "Rule Derivation Activity",
+      "Activity deriving an executable clinical rule.",
+      "prov:ProvenanceActivity"
+    ],
+    "prov:TechnicalReviewRecord": [
+      "Technical Review Record",
+      "Technical/schema/terminology/FHIR/statistical review record.",
+      "prov:GovernanceEntity"
+    ],
+    "prov:AdjudicationRecord": [
+      "Adjudication Record",
+      "Record resolving reviewer/rule disagreement.",
+      "prov:GovernanceEntity"
+    ],
+    "prov:AdministrativeReviewRecord": [
+      "Administrative Review Record",
+      "Licensing, registration or public-sharing review record.",
+      "prov:GovernanceEntity"
+    ],
+    "prov:ExecutionProvenanceRecord": [
+      "Execution Provenance Record",
+      "Runtime provenance linking release, code, dataset snapshot and outputs.",
+      "prov:ProvenanceRecord"
+    ],
+    "term:TerminologyReleasePin": [
+      "Terminology Release Pin",
+      "Pinned terminology edition/version for a mapping set.",
+      "prov:GovernanceEntity"
+    ],
+    "kgmr:CompilationGateType": [
+      "Compilation Gate Type",
+      "One of the eight frozen C3-012 compilation gates.",
+      "kgmr:RuleEntity"
+    ],
+    "kgmr:CompilationGateAssessment": [
+      "Compilation Gate Assessment",
+      "Assessment of one compilation gate.",
+      "prov:GovernanceEntity"
+    ],
+    "kgmr:ConflictResolutionRecord": [
+      "Conflict Resolution Record",
+      "Versioned record of a conflict, resolution or abstention.",
+      "prov:GovernanceEntity"
+    ],
+    "kgmr:ConflictType": [
+      "Conflict Type",
+      "Controlled C3-013 conflict category.",
+      "kgmr:RuleEntity"
+    ],
+    "kgmr:ExceptionType": [
+      "Exception Type",
+      "Controlled C3-013 exception category.",
+      "kgmr:RuleEntity"
+    ],
+    "kgmr:PrecedenceTier": [
+      "Precedence Tier",
+      "One of the frozen P0-P8 precedence tiers.",
+      "kgmr:RuleEntity"
+    ],
+    "prov:ReviewStatus": [
+      "Review Status",
+      "Controlled C3-012 review status vocabulary.",
+      "prov:GovernanceEntity"
+    ]
+  },
+  "implementation_object_properties": {
+    "prov:usedSourceArtifact": [
+      "prov:ProvenanceActivity",
+      "prov:SourceArtifact",
+      "used source artifact"
+    ],
+    "prov:generatedEntity": [
+      "prov:ProvenanceActivity",
+      "owl:Thing",
+      "generated entity"
+    ],
+    "prov:performedByAgent": [
+      "prov:ProvenanceActivity",
+      "owl:Thing",
+      "performed by agent"
+    ],
+    "prov:hasTechnicalReviewRecord": [
+      "owl:Thing",
+      "prov:TechnicalReviewRecord",
+      "has technical review record"
+    ],
+    "prov:hasAdjudicationRecord": [
+      "owl:Thing",
+      "prov:AdjudicationRecord",
+      "has adjudication record"
+    ],
+    "prov:hasAdministrativeReviewRecord": [
+      "owl:Thing",
+      "prov:AdministrativeReviewRecord",
+      "has administrative review record"
+    ],
+    "term:hasTerminologyReleasePin": [
+      "term:TerminologyMapping",
+      "term:TerminologyReleasePin",
+      "has terminology release pin"
+    ],
+    "kgmr:hasGateAssessment": [
+      "kgmr:CompilationEligibilityRecord",
+      "kgmr:CompilationGateAssessment",
+      "has gate assessment"
+    ],
+    "kgmr:assessesGateType": [
+      "kgmr:CompilationGateAssessment",
+      "kgmr:CompilationGateType",
+      "assesses gate type"
+    ],
+    "kgmr:hasConflictResolutionRecord": [
+      "kgmr:ExecutableClinicalRule",
+      "kgmr:ConflictResolutionRecord",
+      "has conflict resolution record"
+    ],
+    "kgmr:involvesRule": [
+      "kgmr:ConflictResolutionRecord",
+      "kgmr:ExecutableClinicalRule",
+      "involves rule"
+    ],
+    "kgmr:hasConflictType": [
+      "kgmr:ConflictResolutionRecord",
+      "kgmr:ConflictType",
+      "has conflict type"
+    ],
+    "kgmr:resolvedByPrecedenceTier": [
+      "kgmr:ConflictResolutionRecord",
+      "kgmr:PrecedenceTier",
+      "resolved by precedence tier"
+    ],
+    "kgmr:winningRule": [
+      "kgmr:ConflictResolutionRecord",
+      "kgmr:ExecutableClinicalRule",
+      "winning rule"
+    ],
+    "ckd:overlapsEvent": [
+      "ckd:ClinicalEvent",
+      "ckd:ClinicalEvent",
+      "overlaps event"
+    ]
+  },
+  "implementation_datatype_properties": {
+    "prov:sourceURI": [
+      "xsd:anyURI",
+      "prov:SourceArtifact"
+    ],
+    "prov:sourceVersion": [
+      "xsd:string",
+      "prov:SourceArtifact"
+    ],
+    "prov:sourcePublicationDate": [
+      "xsd:date",
+      "prov:SourceArtifact"
+    ],
+    "prov:checksumAlgorithm": [
+      "xsd:string",
+      "prov:SourceArtifact"
+    ],
+    "prov:rawStrengthText": [
+      "xsd:string",
+      "ckd:GuidelineKnowledgeItem"
+    ],
+    "prov:recommendationLevel": [
+      "xsd:string",
+      "ckd:RecommendationStatement"
+    ],
+    "prov:evidenceCertainty": [
+      "xsd:string",
+      "ckd:RecommendationStatement"
+    ],
+    "prov:statementType": [
+      "xsd:string",
+      "ckd:GuidelineKnowledgeItem"
+    ],
+    "prov:derivationMethod": [
+      "xsd:string",
+      "prov:ProvenanceActivity"
+    ],
+    "prov:agentRole": [
+      "xsd:string",
+      "prov:GovernanceEntity"
+    ],
+    "prov:reviewDate": [
+      "xsd:dateTime",
+      "prov:GovernanceEntity"
+    ],
+    "prov:reviewRationale": [
+      "xsd:string",
+      "prov:GovernanceEntity"
+    ],
+    "kgmr:gateStatus": [
+      "xsd:string",
+      "kgmr:CompilationGateAssessment"
+    ],
+    "kgmr:conflictStatus": [
+      "xsd:string",
+      "kgmr:ConflictResolutionRecord"
+    ],
+    "kgmr:resolutionType": [
+      "xsd:string",
+      "kgmr:ConflictResolutionRecord"
+    ],
+    "kgmr:resolutionRationale": [
+      "xsd:string",
+      "kgmr:ConflictResolutionRecord"
+    ]
+  },
+  "review_statuses": [
+    "Draft",
+    "AuthorApproved",
+    "TechnicallyReviewed",
+    "ClinicallyReviewed",
+    "Adjudicated",
+    "Rejected"
+  ],
+  "categorical_individuals": {
+    "ckd:GFRCategoricalState": [
+      "G1",
+      "G2",
+      "G3a",
+      "G3b",
+      "G4",
+      "G5"
+    ],
+    "ckd:AlbuminuriaCategoricalState": [
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "ckd:CKDEtiologyCategory": [
+      "DiabeticKidneyDisease",
+      "GlomerularImmuneMediated",
+      "VascularHypertensive",
+      "Tubulointerstitial",
+      "CysticHereditary",
+      "OtherUnknown"
+    ]
+  },
+  "pairwise_disjoint": [
+    [
+      "ckd:ProgressionRiskAssessment",
+      "ckd:MonitoringRecommendation",
+      "ckd:ReferralSupportDecision"
+    ],
+    [
+      "kgmr:ExecutableClinicalRule",
+      "kgmr:ContextOnlyKnowledgeItem",
+      "kgmr:ExcludedKnowledgeItem"
+    ],
+    [
+      "ckd:MedicationExposureEvent",
+      "ckd:DecisionArtifact"
+    ],
+    [
+      "ckd:KidneyFailureRiskAssessment",
+      "ckd:ProgressionRiskAssessment"
+    ],
+    [
+      "ckd:KDIGOCGARiskCategory",
+      "kgmr:MRTestingRiskCategory"
+    ]
+  ]
+}

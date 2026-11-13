@@ -1,0 +1,42 @@
+{
+  "DELAY_RESULT_ENTRY": {
+    "candidate_mr_id": "CMR-fd3fa393813e67e76871758e",
+    "sha256": "d18ec079281961a3d32e7cf22ea820c15a76bb39569249d733aa3f02adb1bed9",
+    "relation_family": "DECISION_LEVEL"
+  },
+  "REMOVE_REDUNDANT_OBSERVATION": {
+    "candidate_mr_id": "CMR-f1c39b6972f8b9f1e38b6a34",
+    "sha256": "43ae2b2fb6e76916f993a16b144632f8fa91fe3313aa45de1b52da55cfa8cbbc",
+    "relation_family": "EQUALITY_WITHIN_TOLERANCE"
+  },
+  "PRESERVE_CLINICAL_STATE": {
+    "candidate_mr_id": "CMR-3fbe15eb0c59f7367ebdd879",
+    "sha256": "c23f8d78bedbd0681dfa587d6e5a8bce526e0ff8acdf8d15739db657954cead3",
+    "relation_family": "DECISION_LEVEL"
+  },
+  "RESAMPLE_TRAJECTORY": {
+    "candidate_mr_id": "CMR-5685e890d5232ba5a656596d",
+    "sha256": "d78c67a6f2ec8454cd3629a0f0262cf504a425a5993064e62629c71ae07c5024",
+    "relation_family": "ORDINAL_NONDECREASE"
+  },
+  "INCREASE_SLOPE": {
+    "candidate_mr_id": "CMR-cbde4de53261e747cf0a0645",
+    "sha256": "d5932ff3be913e14516fc1e73e2cf75a43d8773ccb6fd2d52dd79f9344d3bb9a",
+    "relation_family": "ORDINAL_NONDECREASE"
+  },
+  "INSERT_TRANSIENT_AKI": {
+    "candidate_mr_id": "CMR-e23a304617adcf5ee0e244c9",
+    "sha256": "4ef1ae904e412ca7ddb0438cf138972719aacc4f97a97edc0a0b41d28fd5495e",
+    "relation_family": "BOUNDED_CHANGE"
+  },
+  "SHIFT_TIME": {
+    "candidate_mr_id": "CMR-4bdb6db32f311bfc85ea76fd",
+    "sha256": "720641103c0f2750d37749f34c8402b516d33ccf3f6c5cde6a8279c404e0b4d0",
+    "relation_family": "EQUALITY_WITHIN_TOLERANCE"
+  },
+  "CONVERT_UNIT": {
+    "candidate_mr_id": "CMR-50a9723f0360ad3fba34ecd2",
+    "sha256": "a9021c4d14d1a24c5f1c328e15c3d76ad525beea8229bb140481f9a95301c5ff",
+    "relation_family": "EQUALITY_WITHIN_TOLERANCE"
+  }
+}

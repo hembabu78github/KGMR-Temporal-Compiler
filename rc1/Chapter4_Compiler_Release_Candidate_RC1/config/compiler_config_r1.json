@@ -1,0 +1,25 @@
+{
+  "config_id": "C4-006-CompilerConfig-R1.0",
+  "compiler_version": "C4-006-R1.0",
+  "operator_library_version": "OperatorLibrary-R1.0",
+  "selection_policy": {
+    "emit_all_compatible_operators": true,
+    "one_operator_per_candidate_mr": true,
+    "canonical_registry_order": true,
+    "free_form_transformation_synthesis": false,
+    "heuristic_best_operator_selection": false
+  },
+  "semantic_policy": {
+    "truth_values": [
+      "TRUE",
+      "FALSE",
+      "INDETERMINATE"
+    ],
+    "abstain_is_control_action_not_relation": true,
+    "srew_version": "SREW-R1.0",
+    "srew_members": [
+      "ckd:overlapsEvent"
+    ]
+  },
+  "operator_parameters": {}
+}

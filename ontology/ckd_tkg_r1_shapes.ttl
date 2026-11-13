@@ -1,0 +1,241 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ckd: <https://ckd-tkg.org/ontology/r1.0/ckd/> .
+@prefix tk: <https://ckd-tkg.org/ontology/r1.0/tk/> .
+@prefix kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/> .
+@prefix prov: <https://ckd-tkg.org/ontology/r1.0/prov/> .
+@prefix term: <https://ckd-tkg.org/ontology/r1.0/term/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ckd:CKDStateShape a sh:NodeShape ;
+  sh:targetClass ckd:CKDState ;
+  sh:property [ sh:path ckd:hasGFRCategory ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:GFRCategoricalState ] ;
+  sh:property [ sh:path ckd:hasAlbuminuriaCategory ; sh:maxCount 1 ; sh:class ckd:AlbuminuriaCategoricalState ] ;
+  sh:property [ sh:path ckd:hasEtiologyCategory ; sh:maxCount 1 ; sh:class ckd:CKDEtiologyCategory ] ;
+  sh:property [ sh:path ckd:hasCGAClinicalRiskCategory ; sh:maxCount 1 ; sh:class ckd:KDIGOCGARiskCategory ] ;
+  sh:property [ sh:path kgmr:hasMRTestingRiskCategory ; sh:maxCount 1 ; sh:class kgmr:MRTestingRiskCategory ] .
+
+ckd:ClinicalObservationCoreShape a sh:NodeShape ;
+  sh:targetClass ckd:ClinicalObservation ;
+  sh:property [ sh:path ckd:localIdentifier ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path prov:recordedDateTime ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+  sh:property [ sh:path tk:specimenCollectionDateTime ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+  sh:property [ sh:path tk:effectiveDateTime ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+  sh:property [ sh:path tk:issuedDateTime ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] .
+
+ckd:ExecutableObservationShape a sh:NodeShape ;
+  sh:targetObjectsOf kgmr:requiresObservation ;
+  sh:property [ sh:path ckd:hasValidityAssessment ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:ObservationValidityAssessment ] ;
+  sh:property [ sh:path ckd:observationValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ] ;
+  sh:property [ sh:path ckd:observationUnitCode ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+ckd:ConfirmedSustainedDeclineShape a sh:NodeShape ;
+  sh:targetClass ckd:ConfirmedSustainedEGFRDecline ;
+  sh:property [ sh:path tk:hasBaselineObservation ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:ClinicalObservation ] ;
+  sh:property [ sh:path tk:hasConfirmatoryObservation ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:ClinicalObservation ] .
+
+ckd:RecoveryEventShape a sh:NodeShape ;
+  sh:targetClass ckd:RecoveryEvent ;
+  sh:property [ sh:path tk:hasRecoveryObservation ; sh:minCount 1 ; sh:class ckd:ClinicalObservation ] .
+
+ckd:TherapyAssociatedEvaluationShape a sh:NodeShape ;
+  sh:targetClass ckd:TherapyAssociatedGFRReductionEvaluation ;
+  sh:property [ sh:path ckd:associatedWithMedicationExposure ; sh:minCount 1 ; sh:class ckd:MedicationExposureEvent ] .
+
+ckd:ProgressionRiskAssessmentShape a sh:NodeShape ;
+  sh:targetClass ckd:ProgressionRiskAssessment ;
+  sh:property [ sh:path ckd:hasPredictionTarget ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:ConfirmedSustainedEGFRDecline ] ;
+  sh:property [ sh:path ckd:generatedByModelVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:PredictionModelVersion ] .
+
+ckd:KidneyFailureRiskAssessmentShape a sh:NodeShape ;
+  sh:targetClass ckd:KidneyFailureRiskAssessment ;
+  sh:property [ sh:path ckd:numericRiskValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ] ;
+  sh:property [ sh:path ckd:riskHorizonYears ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ] .
+
+ckd:MonitoringRecommendationShape a sh:NodeShape ;
+  sh:targetClass ckd:MonitoringRecommendation ;
+  sh:property [ sh:path ckd:generatedByPolicyVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:DecisionPolicyVersion ] ;
+  sh:property [ sh:path ckd:hasDecisionRationale ; sh:minCount 1 ; sh:class ckd:DecisionRationale ] .
+
+ckd:ReferralSupportDecisionShape a sh:NodeShape ;
+  sh:targetClass ckd:ReferralSupportDecision ;
+  sh:property [ sh:path ckd:generatedByPolicyVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:DecisionPolicyVersion ] ;
+  sh:property [ sh:path ckd:hasDecisionRationale ; sh:minCount 1 ; sh:class ckd:DecisionRationale ] .
+
+kgmr:ExecutableClinicalRuleShape a sh:NodeShape ;
+  sh:targetClass kgmr:ExecutableClinicalRule ;
+  sh:property [ sh:path kgmr:hasApplicability ; sh:minCount 1 ; sh:maxCount 1 ; sh:class kgmr:RuleApplicability ] ;
+  sh:property [ sh:path kgmr:hasAntecedent ; sh:minCount 1 ; sh:class kgmr:RuleAntecedent ] ;
+  sh:property [ sh:path kgmr:hasExpectedRelation ; sh:minCount 1 ; sh:maxCount 1 ; sh:class kgmr:ExpectedClinicalRelation ] ;
+  sh:property [ sh:path kgmr:hasEligibilityRecord ; sh:minCount 1 ; sh:maxCount 1 ; sh:class kgmr:CompilationEligibilityRecord ] ;
+  sh:property [ sh:path kgmr:admittedFromKnowledgeItem ; sh:minCount 1 ; sh:class ckd:GuidelineKnowledgeItem ] ;
+  sh:property [ sh:path prov:hasProvenanceRecord ; sh:minCount 1 ; sh:class prov:ProvenanceRecord ] ;
+  sh:property [ sh:path prov:hasReleaseRecord ; sh:minCount 1 ; sh:class prov:ReleaseRecord ] .
+
+kgmr:RuleApplicabilityShape a sh:NodeShape ;
+  sh:targetClass kgmr:RuleApplicability ;
+  sh:property [ sh:path kgmr:appliesToCareContext ; sh:minCount 1 ; sh:class ckd:CareContext ] ;
+  sh:property [ sh:path kgmr:appliesToEligibilityState ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ckd:EstablishedCKDEligibilityState ] .
+
+kgmr:RuleAntecedentShape a sh:NodeShape ;
+  sh:targetClass kgmr:RuleAntecedent ;
+  sh:property [ sh:path kgmr:requiresObservation ; sh:minCount 1 ; sh:class ckd:ClinicalObservation ] .
+
+kgmr:CompilationGateAssessmentShape a sh:NodeShape ;
+  sh:targetClass kgmr:CompilationGateAssessment ;
+  sh:property [ sh:path kgmr:assessesGateType ; sh:minCount 1 ; sh:maxCount 1 ; sh:class kgmr:CompilationGateType ] ;
+  sh:property [ sh:path kgmr:gateStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ;
+                sh:in ( "Pass" "Fail" "Pending" "NotApplicable" ) ] .
+
+kgmr:CompilationEligibilityRecordShape a sh:NodeShape ;
+  sh:targetClass kgmr:CompilationEligibilityRecord ;
+  sh:property [ sh:path kgmr:eligibilityStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ;
+                sh:in ( "Eligible" "Ineligible" "Pending" ) ] ;
+  sh:property [ sh:path kgmr:hasGateAssessment ; sh:minCount 8 ; sh:maxCount 8 ; sh:class kgmr:CompilationGateAssessment ] ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Each of the eight frozen compilation gate types must be present." ;
+    sh:select """
+      PREFIX kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/>
+      SELECT $this WHERE {
+        {
+          FILTER NOT EXISTS { $this kgmr:hasGateAssessment ?a . ?a kgmr:assessesGateType kgmr:Gate_Source_located . }
+        } UNION {
+          FILTER NOT EXISTS { $this kgmr:hasGateAssessment ?a . ?a kgmr:assessesGateType kgmr:Gate_Scope_matched . }
+        } UNION {
+          FILTER NOT EXISTS { $this kgmr:hasGateAssessment ?a . ?a kgmr:assessesGateType kgmr:Gate_Computable . }
+        } UNION {
+          FILTER NOT EXISTS { $this kgmr:hasGateAssessment ?a . ?a kgmr:assessesGateType kgmr:Gate_Terminology_ready . }
+        } UNION {
+          FILTER NOT EXISTS { $this kgmr:hasGateAssessment ?a . ?a kgmr:assessesGateType kgmr:Gate_Licensing_allowed . }
+        } UNION {
+          FILTER NOT EXISTS { $this kgmr:hasGateAssessment ?a . ?a kgmr:assessesGateType kgmr:Gate_Review_sufficient . }
+        } UNION {
+          FILTER NOT EXISTS { $this kgmr:hasGateAssessment ?a . ?a kgmr:assessesGateType kgmr:Gate_Conflict_resolved . }
+        } UNION {
+          FILTER NOT EXISTS { $this kgmr:hasGateAssessment ?a . ?a kgmr:assessesGateType kgmr:Gate_Release_integrity . }
+        }
+      }
+    """
+  ] ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "No compilation gate type may appear more than once." ;
+    sh:select """
+      PREFIX kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/>
+      SELECT $this WHERE {
+        $this kgmr:hasGateAssessment ?a1, ?a2 .
+        FILTER (?a1 != ?a2)
+        ?a1 kgmr:assessesGateType ?g .
+        ?a2 kgmr:assessesGateType ?g .
+      }
+    """
+  ] ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "An Eligible record may contain only Pass or NotApplicable gate results." ;
+    sh:select """
+      PREFIX kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/>
+      SELECT $this WHERE {
+        $this kgmr:eligibilityStatus "Eligible" ;
+              kgmr:hasGateAssessment ?a .
+        ?a kgmr:gateStatus ?s .
+        FILTER (?s NOT IN ("Pass", "NotApplicable"))
+      }
+    """
+  ] .
+
+ckd:GuidelineKnowledgeItemShape a sh:NodeShape ;
+  sh:targetClass ckd:GuidelineKnowledgeItem ;
+  sh:property [ sh:path prov:sourceLocator ; sh:minCount 1 ; sh:datatype xsd:string ] .
+
+ckd:RecommendationStatementShape a sh:NodeShape ;
+  sh:targetClass ckd:RecommendationStatement ;
+  sh:property [ sh:path prov:recommendationLevel ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "Level1" "Level2" ) ] ;
+  sh:property [ sh:path prov:evidenceCertainty ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "A" "B" "C" "D" ) ] .
+
+ckd:PracticePointStatementShape a sh:NodeShape ;
+  sh:targetClass ckd:PracticePointStatement ;
+  sh:property [ sh:path prov:recommendationLevel ; sh:maxCount 0 ] ;
+  sh:property [ sh:path prov:evidenceCertainty ; sh:maxCount 0 ] .
+
+prov:ReleaseRecordShape a sh:NodeShape ;
+  sh:targetClass prov:ReleaseRecord ;
+  sh:property [ sh:path prov:versionLabel ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path prov:releaseStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path prov:recordedDateTime ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] .
+
+term:TerminologyMappingShape a sh:NodeShape ;
+  sh:targetClass term:TerminologyMapping ;
+  sh:property [ sh:path term:codeValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path term:codeSystemURI ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:anyURI ] ;
+  sh:property [ sh:path term:codeSystemVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+kgmr:ConflictResolutionRecordShape a sh:NodeShape ;
+  sh:targetClass kgmr:ConflictResolutionRecord ;
+  sh:property [ sh:path kgmr:involvesRule ; sh:minCount 2 ; sh:class kgmr:ExecutableClinicalRule ] ;
+  sh:property [ sh:path kgmr:hasConflictType ; sh:minCount 1 ; sh:maxCount 1 ; sh:class kgmr:ConflictType ] ;
+  sh:property [ sh:path kgmr:conflictStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path kgmr:resolutionRationale ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path kgmr:winningRule ; sh:maxCount 1 ; sh:class kgmr:ExecutableClinicalRule ] ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "A winning rule must be one of the rules involved in the conflict." ;
+    sh:select """
+      PREFIX kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/>
+      SELECT $this WHERE {
+        $this kgmr:winningRule ?winner .
+        FILTER NOT EXISTS { $this kgmr:involvesRule ?winner . }
+      }
+    """
+  ] ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Unresolved/abstained conflict records must not assert a winning rule." ;
+    sh:select """
+      PREFIX kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/>
+      SELECT $this WHERE {
+        $this kgmr:conflictStatus ?s ;
+              kgmr:winningRule ?winner .
+        FILTER (LCASE(STR(?s)) IN ("unresolved", "abstain", "indeterminate"))
+      }
+    """
+  ] .
+
+# Closed-design safety pairs are repeated as SHACL so violations are detected
+# even without OWL disjointness reasoning.
+ckd:KidneyFailureVsProgressionDisjointShape a sh:NodeShape ;
+  sh:targetClass ckd:KidneyFailureRiskAssessment ;
+  sh:not [ sh:class ckd:ProgressionRiskAssessment ] ;
+  sh:message "KidneyFailureRiskAssessment and ProgressionRiskAssessment are disjoint (C3-004-O9)." .
+
+ckd:KDIGOVsMRRiskCategoryDisjointShape a sh:NodeShape ;
+  sh:targetClass ckd:KDIGOCGARiskCategory ;
+  sh:not [ sh:class kgmr:MRTestingRiskCategory ] ;
+  sh:message "KDIGOCGARiskCategory and MRTestingRiskCategory are disjoint (C3-004-O4)." .
+
+kgmr:ExecutableVsContextDisjointShape a sh:NodeShape ;
+  sh:targetClass kgmr:ExecutableClinicalRule ;
+  sh:not [ sh:class kgmr:ContextOnlyKnowledgeItem ] ;
+  sh:not [ sh:class kgmr:ExcludedKnowledgeItem ] .
+
+ckd:MedicationExposureVsDecisionDisjointShape a sh:NodeShape ;
+  sh:targetClass ckd:MedicationExposureEvent ;
+  sh:not [ sh:class ckd:DecisionArtifact ] .
+
+# C3-016-dependent explicit-closure check. The OWL property is already symmetric.
+# This shape is deliberately deactivated until the thesis freezes whether
+# materialized reverse triples are required in the local validation snapshot.
+ckd:ExplicitOverlapSymmetryShape a sh:NodeShape ;
+  sh:deactivated true ;
+  sh:targetSubjectsOf ckd:overlapsEvent ;
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "If local closed-world materialization is adopted, overlapsEvent must be explicitly reciprocal." ;
+    sh:select """
+      PREFIX ckd: <https://ckd-tkg.org/ontology/r1.0/ckd/>
+      SELECT $this WHERE {
+        $this ckd:overlapsEvent ?other .
+        FILTER NOT EXISTS { ?other ckd:overlapsEvent $this . }
+      }
+    """
+  ] .

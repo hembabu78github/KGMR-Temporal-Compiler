@@ -1,0 +1,1911 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:prov1="https://ckd-tkg.org/ontology/r1.0/prov/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/EstablishedCKDEligibilityState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Established CKD Eligibility State</rdfs:label>
+    <rdfs:comment>R1.0 release-population eligibility state.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/hasReleaseRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has release record</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReleaseRecord"/>
+    <rdfs:comment>C3-005 control: MinCount 1 for frozen artefacts</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Conflict Resolution Record</rdfs:label>
+    <rdfs:comment>Versioned record of a conflict, resolution or abstention.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasEligibilityState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has eligibility state</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasClinicalState"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/EstablishedCKDEligibilityState"/>
+    <rdfs:comment>C3-005 control: Local exactly 1 per executable snapshot</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasDecisionRationale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has decision rationale</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionRationale"/>
+    <rdfs:comment>C3-005 control: MinCount 1 for policy outputs</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Guideline Knowledge Item</rdfs:label>
+    <rdfs:comment>Source-linked recommendation, practice point, definition, figure/table proposition or expert interpretation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/sourceLocator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>sourceLocator</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Exact source locator.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ReferralSupportDecision">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Referral Support Decision</rdfs:label>
+    <rdfs:comment>D3 advisory policy output.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/groundsEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>grounds entity</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/groundedInKnowledgeItem"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/sourceVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>sourceVersion</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/SourceArtifact"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasProgressionRiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has progression-risk assessment</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasRiskAssessment"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ProgressionRiskAssessment"/>
+    <rdfs:comment>C3-005 control: 0..* versioned</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/sameClinicalTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label>sameClinicalTime</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/sameClinicalTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/FigureDerivedProposition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Figure-derived Proposition</rdfs:label>
+    <rdfs:comment>Controlled proposition extracted from a guideline figure/table cell.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/rawStrengthText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>rawStrengthText</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/G5">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState"/>
+    <rdfs:label>G5</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/recommendationLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>recommendationLevel</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RecommendationStatement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleException">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Rule Exception</rdfs:label>
+    <rdfs:comment>Computable exception preventing or modifying rule execution.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/resolutionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>resolutionType</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/equalsTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label>equalsTime</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/equalsTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Decision Artifact</rdfs:label>
+    <rdfs:comment>Versioned output produced by a model or decision policy.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/AdjudicationRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Adjudication Record</rdfs:label>
+    <rdfs:comment>Record resolving reviewer/rule disagreement.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/isSequenceMemberOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>is sequence member of</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/ObservationSequence"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/hasSequenceMember"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/sourceChecksum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>sourceChecksum</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineSource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Frozen source checksum.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/monitoringTimesPerYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>monitoringTimesPerYear</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MonitoringRecommendation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Optional local-policy cadence.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/reviewDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>reviewDate</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/usedSourceArtifact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>used source artifact</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/SourceArtifact"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/recordedDateTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>recordedDateTime</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Time an observation or record was entered/imported into the research representation; provenance only, must not replace clinical time.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/RecoveryEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Recovery Event</rdfs:label>
+    <rdfs:comment>Observed recovery terminating or qualifying a transient deterioration.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus_Rejected">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus"/>
+    <rdfs:label>Rejected</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/hasLicensingRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has licensing record</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/LicensingRecord"/>
+    <rdfs:comment>C3-005 control: MinCount 1 for controlled items</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/performedByAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>performed by agent</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/SequencePosition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Sequence Position</rdfs:label>
+    <rdfs:comment>Deterministic ordering position after same-time tie-break.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/before">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label>before</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/after"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleApplicability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Rule Applicability</rdfs:label>
+    <rdfs:comment>Population, care-setting and clinical-state applicability specification.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/isStateDerivedFromObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>is state derived from observation</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/contributesToState"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/clinicalEventOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>clinical event of</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasClinicalEvent"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus_Draft">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus"/>
+    <rdfs:label>Draft</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/MonitoringRecommendation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Monitoring Recommendation</rdfs:label>
+    <rdfs:comment>D2 policy output.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ReferralSupportDecision"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Research Subject</rdfs:label>
+    <rdfs:comment>De-identified adult subject whose longitudinal CKD data are represented.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/term/TerminologyReleasePin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Terminology Release Pin</rdfs:label>
+    <rdfs:comment>Pinned terminology edition/version for a mapping set.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/modelVersionGenerates">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>model version generates</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/PredictionModelVersion"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ProgressionRiskAssessment"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/generatedByModelVersion"/>
+    <rdfs:comment>C3-005 control: Inverse, 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/AdministrativeReviewRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Administrative Review Record</rdfs:label>
+    <rdfs:comment>Licensing, registration or public-sharing review record.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/G2">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState"/>
+    <rdfs:label>G2</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/specimenCollectionDateTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>specimenCollectionDateTime</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Time the specimen was collected, when available; preferred ordering time for specimen-based lab observations.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasMRTestingRiskCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has MR-testing risk category</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/MRTestingRiskCategory"/>
+    <rdfs:comment>C3-005 control: Local maxCount 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasAvailabilityState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has availability state</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ObservationAvailabilityState"/>
+    <rdfs:comment>C3-005 control: Local maxCount 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasEtiologyCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has etiology category</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDEtiologyCategory"/>
+    <rdfs:comment>C3-005 control: Local 0..1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Governance Entity</rdfs:label>
+    <rdfs:comment>Provenance, review, licensing, version and terminology-control entity.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/requiresClinicalState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>requires clinical state</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleAntecedent"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+    <rdfs:comment>C3-005 control: 0..* test-instance link</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/involvesRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>involves rule</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/FollowUpObservationContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Follow-up Observation Context</rdfs:label>
+    <rdfs:comment>Follow-up observation context linked to a baseline.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/TechnicalReviewRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Technical Review Record</rdfs:label>
+    <rdfs:comment>Technical/schema/terminology/FHIR/statistical review record.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasCKDState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has CKD state</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasClinicalState"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDState"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ckdStateOf"/>
+    <rdfs:comment>C3-005 control: Local maxCount 1 per snapshot</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_DataConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>DataConflict</rdfs:label>
+    <rdfs:comment>Concurrent source records disagree after selection/status rules.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionPolicyVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Decision Policy Version</rdfs:label>
+    <rdfs:comment>Versioned policy used to produce D2 or D3 output.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/relativeChangePercent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>relativeChangePercent</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Relative change.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasRiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has risk assessment</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/riskAssessmentOf"/>
+    <rdfs:comment>C3-005 control: 0..* versioned</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Clinical Event</rdfs:label>
+    <rdfs:comment>Temporally bounded event that may alter interpretation of a state or trajectory.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/assessesTrajectory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>assesses trajectory</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <rdfs:comment>C3-005 control: 1..* candidate</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/SGLT2InhibitorExposureEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>SGLT2 Inhibitor Exposure Event</rdfs:label>
+    <rdfs:comment>SGLT2 inhibitor exposure event.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/PredictionModelVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Prediction Model Version</rdfs:label>
+    <rdfs:comment>A versioned identifier for the specific D1 prediction model (algorithm, training-data snapshot and hyperparameters) that produced a ProgressionRiskAssessment instance.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/rationaleGroundedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>rationale grounded in</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionRationale"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <rdfs:comment>C3-005 control: 1..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionRationale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Decision Rationale</rdfs:label>
+    <rdfs:comment>Criterion-level explanation attached to a policy output.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/careContextOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>care context of</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CareContext"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasCareContext"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasGFRCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has GFR category</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState"/>
+    <rdfs:comment>C3-005 control: Local exactly 1 per state snapshot</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Temporal Entity</rdfs:label>
+    <rdfs:comment>Entity with time-point, interval, duration, ordering or persistence semantics.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/checksumAlgorithm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>checksumAlgorithm</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/SourceArtifact"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Exception Type</rdfs:label>
+    <rdfs:comment>Controlled C3-013 exception category.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/hasFollowUpObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has follow-up observation</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:comment>C3-005 control: 1..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/numericRiskValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>numericRiskValue</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Numeric risk estimate.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/LicensingRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Licensing Record</rdfs:label>
+    <rdfs:comment>Internal/public use and redistribution status.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/resolutionRationale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>resolutionRationale</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/hasSequenceMember">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has sequence member</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/ObservationSequence"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/isSequenceMemberOf"/>
+    <rdfs:comment>C3-005 control: Ordered semantics deferred</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/licensingStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>licensingStatus</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/LicensingRecord"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Permission status.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/finishes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>finishes</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/finishedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/generatedByModelVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>generated by model version</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ProgressionRiskAssessment"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/PredictionModelVersion"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/modelVersionGenerates"/>
+    <rdfs:comment>C3-005 control: Exactly 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/hasAdjudicationRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has adjudication record</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/AdjudicationRecord"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ConfirmedSustainedEGFRDecline">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Confirmed Sustained eGFR Decline</rdfs:label>
+    <rdfs:comment>Proposed D1 outcome: &gt;=40% decline, second valid measurement &gt;=90 days later, no intervening transient exception.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/overlapsEventWindow">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label>overlapsEventWindow</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/EventWindow"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/eventWindowOverlaps"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasClinicalState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has clinical state</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/clinicalStateOf"/>
+    <rdfs:comment>C3-005 control: None globally</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Rule Entity</rdfs:label>
+    <rdfs:comment>Compiler-facing class used only in the executable-rule layer.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/hasClinicalReviewRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has clinical review record</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ClinicalReviewRecord"/>
+    <rdfs:comment>C3-005 control: MinCount 1 for candidate rules</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus_TechnicallyReviewed">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus"/>
+    <rdfs:label>TechnicallyReviewed</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_TemporalConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>TemporalConflict</rdfs:label>
+    <rdfs:comment>Temporal relations cannot be simultaneously satisfied or precision makes relation uncertain.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ProgressionRiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Progression Risk Assessment</rdfs:label>
+    <rdfs:comment>D1 output for the selected sustained-decline target.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MonitoringRecommendation"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ReferralSupportDecision"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/during">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label>during</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/contains"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Provenance Activity</rdfs:label>
+    <rdfs:comment>Activity that extracts, interprets, maps, derives or executes an artefact.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/qualifiesTrajectory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>qualifies trajectory</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/GlomerularImmuneMediated">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDEtiologyCategory"/>
+    <rdfs:label>GlomerularImmuneMediated</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Gate_Scope_matched">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+    <rdfs:label>Scope matched</rdfs:label>
+    <rdfs:comment>Is the knowledge item within C3-002 decision/population scope?</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/hasRecoveryObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has recovery observation</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/hasFollowUpObservation"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RecoveryEvent"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:comment>C3-005 control: Local minCount 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/meets">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>meets</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/metBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/overlaps">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>overlaps</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/overlappedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasMedicationExposureEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has medication exposure event</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasClinicalEvent"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Executable Clinical Rule</rdfs:label>
+    <rdfs:comment>Source-linked proposition admitted to deterministic compilation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ContextOnlyKnowledgeItem"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExcludedKnowledgeItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/usesReferralCGACondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>uses referral CGA condition</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/usesCriterion"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionPolicyVersion"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ReferralCGACondition"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/triggersTherapyEvaluation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>triggers therapy evaluation</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/TherapyAssociatedGFRReductionEvaluation"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/ObservationSequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Observation Sequence</rdfs:label>
+    <rdfs:comment>Time-ordered sequence of comparable observations.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/supersedes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>supersedes</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReleaseRecord"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReleaseRecord"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/isSupersededBy"/>
+    <rdfs:comment>C3-005 control: Irreflexive/asymmetric candidate</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/hasConfirmatoryObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has confirmatory observation</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/hasFollowUpObservation"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ConfirmedSustainedEGFRDecline"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:comment>C3-005 control: Local exactly 1 candidate</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/decisionFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>decision for</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasDecisionArtifact"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_ApplicabilityExclusion">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>ApplicabilityExclusion</rdfs:label>
+    <rdfs:comment>Subject/context is outside rule applicability.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasConflictResolutionRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has conflict resolution record</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/G1">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState"/>
+    <rdfs:label>G1</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/isSupersededBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>is superseded by</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReleaseRecord"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReleaseRecord"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/supersedes"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/generatedEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>generated entity</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/winningRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>winning rule</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/starts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>starts</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/startedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/effectiveDateTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>effectiveDateTime</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Clinical effective/specimen time.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/ContextOnlyKnowledgeItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Context-only Knowledge Item</rdfs:label>
+    <rdfs:comment>Explicit designation that an item remains contextual and is not compiled.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExcludedKnowledgeItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/SamplingPattern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Sampling Pattern</rdfs:label>
+    <rdfs:comment>Pattern of visit/observation density, gaps and redundancy.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasException">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has exception</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleException"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ReferralCGACondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Referral CGA Condition</rdfs:label>
+    <rdfs:comment>Selected eGFR/ACR referral condition extracted from Figure 48.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInstant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Temporal Instant</rdfs:label>
+    <rdfs:comment>Single time point with declared precision.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/hasTechnicalReviewRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has technical review record</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/TechnicalReviewRecord"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/CKDEtiologyCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>CKD Etiology Category</rdfs:label>
+    <rdfs:comment>Broad cause/etiology qualifier when available.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ExpertInterpretation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Expert Interpretation</rdfs:label>
+    <rdfs:comment>Documented operationalization not stated directly by the guideline.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/supportedByRiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>supported by risk assessment</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Gate_Review_sufficient">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+    <rdfs:label>Review sufficient</rdfs:label>
+    <rdfs:comment>Has the required review tier been reached?</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/AKILikeTransientDeterioration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>AKI-like Transient Deterioration</rdfs:label>
+    <rdfs:comment>Operational acute deterioration triggered by &gt;20% eGFR decline and reversing before D1 persistence.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Compilation Gate Assessment</rdfs:label>
+    <rdfs:comment>Assessment of one compilation gate.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/appliesToCareContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>applies to care context</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleApplicability"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CareContext"/>
+    <rdfs:comment>C3-005 control: MinCount 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasConflictType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has conflict type</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>GFR Categorical State</rdfs:label>
+    <rdfs:comment>GFR category state.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/trajectoryOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>trajectory of</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasTrajectory"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/appliesToGFRCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>applies to GFR category</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleApplicability"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Clinical State</rdfs:label>
+    <rdfs:comment>Clinically meaningful state asserted for a subject over a stated interval.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P8">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P8 Unresolved</rdfs:label>
+    <rdfs:comment>Return ABSTAIN/INDETERMINATE and block eligible compilation where required.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/DatasetSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Dataset Source</rdfs:label>
+    <rdfs:comment>Versioned dataset or data-dictionary source.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/SourceArtifact"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_ClinicalEventException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>ClinicalEventException</rdfs:label>
+    <rdfs:comment>Transient/recovery event qualifies chronic interpretation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/riskAssessmentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>risk assessment of</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasRiskAssessment"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/term/codeValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>codeValue</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/term/TerminologyMapping"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>External terminology code.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ExtractionActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Extraction Activity</rdfs:label>
+    <rdfs:comment>Activity extracting a knowledge item from a source.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasApplicability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has applicability</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleApplicability"/>
+    <rdfs:comment>C3-005 control: Exactly 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/hasBaselineObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has baseline observation</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:comment>C3-005 control: Local exactly 1 for D1 candidate</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasMonitoringRecommendation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has monitoring recommendation</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasDecisionArtifact"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MonitoringRecommendation"/>
+    <rdfs:comment>C3-005 control: 0..* versioned</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/RuleDerivationActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Rule Derivation Activity</rdfs:label>
+    <rdfs:comment>Activity deriving an executable clinical rule.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/term/hasTerminologyReleasePin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has terminology release pin</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/term/TerminologyMapping"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/term/TerminologyReleasePin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/EventWindow">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Event Window</rdfs:label>
+    <rdfs:comment>Configured interval around an event/exposure.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/exceptedByClinicalEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>excepted by clinical event</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleException"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/admittedFromKnowledgeItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>admitted from knowledge item</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/groundedInKnowledgeItem"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <rdfs:comment>C3-005 control: 1..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/overlapsEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:label>overlaps event</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P2">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P2 Explicit linked exception</rdfs:label>
+    <rdfs:comment>An exception suppresses/qualifies only the rule and scope it explicitly references.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Gate_Terminology_ready">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+    <rdfs:label>Terminology ready</rdfs:label>
+    <rdfs:comment>Are required local/external mappings versioned?</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/observationOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>observation of</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasObservation"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/requiresObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>requires observation</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleAntecedent"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:comment>C3-005 control: 1..* test-instance link</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/term/codeSystemVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>codeSystemVersion</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/term/TerminologyMapping"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Frozen terminology release.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ckdStateOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>CKD state of</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/clinicalStateOf"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasCKDState"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/sourceURI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>sourceURI</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/SourceArtifact"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Medication Exposure Event</rdfs:label>
+    <rdfs:comment>Start, stop or dose-change event for a medication class relevant to trajectory interpretation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/conflictStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>conflictStatus</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ExecutionProvenanceRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Execution Provenance Record</rdfs:label>
+    <rdfs:comment>Runtime provenance linking release, code, dataset snapshot and outputs.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceRecord"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/appliesToEligibilityState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>applies to eligibility state</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleApplicability"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/EstablishedCKDEligibilityState"/>
+    <rdfs:comment>C3-005 control: Exactly 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/TemporalDuration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Temporal Duration</rdfs:label>
+    <rdfs:comment>Elapsed quantity between temporal entities.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/reviewRationale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>reviewRationale</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasAntecedent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has antecedent</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleAntecedent"/>
+    <rdfs:comment>C3-005 control: MinCount 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Gate_Source_located">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+    <rdfs:label>Source located</rdfs:label>
+    <rdfs:comment>Is a stable source and precise locator present?</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/LiteratureSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Literature Source</rdfs:label>
+    <rdfs:comment>Versioned literature source used for evidence/working assumptions.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/SourceArtifact"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/ExcludedKnowledgeItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Excluded Knowledge Item</rdfs:label>
+    <rdfs:comment>Out-of-scope item retained with an exclusion reason.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/KidneyFailureRiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Kidney Failure Risk Assessment</rdfs:label>
+    <rdfs:comment>Absolute kidney-failure risk from a validated equation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ProgressionRiskAssessment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/issuedDateTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>issuedDateTime</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment>Result issuance time.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/OtherUnknown">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDEtiologyCategory"/>
+    <rdfs:label>OtherUnknown</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/producesDecision">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>produces decision</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionPolicyVersion"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/generatedByPolicyVersion"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/releaseStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>releaseStatus</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReleaseRecord"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Draft/Frozen/Superseded/Deprecated.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/contributesToState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>contributes to state</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/isStateDerivedFromObservation"/>
+    <rdfs:comment>C3-005 control: Many-to-many</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/hasAdministrativeReviewRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has administrative review record</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/AdministrativeReviewRecord"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/CysticHereditary">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDEtiologyCategory"/>
+    <rdfs:label>CysticHereditary</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasRecoveryEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has recovery event</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/AKILikeTransientDeterioration"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RecoveryEvent"/>
+    <rdfs:comment>C3-005 control: MinCount 1 before recovered use</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasKidneyFailureRiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has kidney-failure risk assessment</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasRiskAssessment"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/KidneyFailureRiskAssessment"/>
+    <rdfs:comment>C3-005 control: 0..* versioned</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/durationDays">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>durationDays</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Duration.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P5">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P5 Release/version</rdfs:label>
+    <rdfs:comment>Within one rule/mapping lineage, the release-pinned non-superseded version is current.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/riskHorizonYears">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>riskHorizonYears</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Prediction horizon.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/generatedByPolicyVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>generated by policy version</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionPolicyVersion"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/producesDecision"/>
+    <rdfs:comment>C3-005 control: Exactly 1 for D2/D3</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/term/codeSystemURI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>codeSystemURI</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/term/TerminologyMapping"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:comment>Code-system identifier.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Risk Assessment</rdfs:label>
+    <rdfs:comment>Versioned numeric or categorical risk estimate.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/CareContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Care Context</rdfs:label>
+    <rdfs:comment>Care setting and eligibility context associated with an observation, state or decision.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/derivationMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>derivationMethod</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Guideline Source</rdfs:label>
+    <rdfs:comment>Versioned source document or official guideline release.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_ReviewGateException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>ReviewGateException</rdfs:label>
+    <rdfs:comment>Required clinical/technical review is incomplete or rejected.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/EarlyWarningEGFRChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Early-warning eGFR Change</rdfs:label>
+    <rdfs:comment>Subsequent-test eGFR decline &gt;20% represented as an evaluation trigger.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/issuedAfterEffective">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>issuedAfterEffective</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/eligibilityStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>eligibilityStatus</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationEligibilityRecord"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Eligible/Ineligible/Pending.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/CKDState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>CKD State</rdfs:label>
+    <rdfs:comment>Established CKD state with cause, GFR category, albuminuria category and chronicity context.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/after">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label>after</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/before"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/exceptedByMedicationExposure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>excepted by medication exposure</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleException"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/Release_R1_0_Implementation">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReleaseRecord"/>
+    <rdfs:label>CKD-TKG R1.0 implementation release</rdfs:label>
+    <prov1:versionLabel>R1.0</prov1:versionLabel>
+    <prov1:releaseStatus>ImplementationCandidate</prov1:releaseStatus>
+    <prov1:recordedDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-08-06T23:37:00-04:00</prov1:recordedDateTime>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/usesCriterion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>uses criterion</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionPolicyVersion"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+    <rdfs:comment>C3-005 control: 1..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasDecisionArtifact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has decision artifact</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/decisionFor"/>
+    <rdfs:comment>C3-005 control: 0..* versioned</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_LicensingReleaseException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>LicensingReleaseException</rdfs:label>
+    <rdfs:comment>Target release cannot expose/use restricted artefact.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/usesReferralRiskCriterion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>uses referral-risk criterion</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/usesCriterion"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionPolicyVersion"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ReferralRiskCriterion"/>
+    <rdfs:comment>C3-005 control: 0..1 candidate</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/versionLabel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>versionLabel</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Version/release label.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/expectedRelationOnRiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>expected relation on risk assessment</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExpectedClinicalRelation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RiskAssessment"/>
+    <rdfs:comment>C3-005 control: 0..* test-instance link</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_ExceptionConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>ExceptionConflict</rdfs:label>
+    <rdfs:comment>Rule exception and rule antecedent both satisfied with unclear override.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasValidityAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has validity assessment</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ObservationValidityAssessment"/>
+    <rdfs:comment>C3-005 control: Local exactly 1 before executable use</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_TerminologyConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>TerminologyConflict</rdfs:label>
+    <rdfs:comment>Multiple candidate codes/mapping relations for same source value.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/assessesGateType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>assesses gate type</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateAssessment"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasReferralSupportDecision">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has referral-support decision</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasDecisionArtifact"/>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ReferralSupportDecision"/>
+    <rdfs:comment>C3-005 control: 0..* versioned</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Clinical Observation</rdfs:label>
+    <rdfs:comment>Measured or recorded clinical observation with value and temporal metadata.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasCGAClinicalRiskCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has CGA clinical risk category</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/KDIGOCGARiskCategory"/>
+    <rdfs:comment>C3-005 control: Local maxCount 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_SourceInterpretationConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>SourceInterpretationConflict</rdfs:label>
+    <rdfs:comment>Source statement and author interpretation disagree or two interpretations differ.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_ApplicabilityConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>ApplicabilityConflict</rdfs:label>
+    <rdfs:comment>Two rules claim incompatible applicability for same snapshot.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/MRTestingRiskCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>MR Testing Risk Category</rdfs:label>
+    <rdfs:comment>Derived three-level category used only to limit ordinal MR test-space size.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasExpectedRelation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has expected relation</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExpectedClinicalRelation"/>
+    <rdfs:comment>C3-005 control: Exactly 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/expectedRelationOnDecisionArtifact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>expected relation on decision artifact</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExpectedClinicalRelation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/DecisionArtifact"/>
+    <rdfs:comment>C3-005 control: 0..* test-instance link</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/agentRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>agentRole</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/DiureticExposureEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Diuretic Exposure Event</rdfs:label>
+    <rdfs:comment>Diuretic exposure event relevant to volume-related changes.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/groundedInKnowledgeItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>grounded in knowledge item</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/groundsEntity"/>
+    <rdfs:comment>C3-005 control: 1..* for rules/policies</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasOperationalInterpretation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has operational interpretation</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ExpertInterpretation"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/term/TerminologyMapping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Terminology Mapping</rdfs:label>
+    <rdfs:comment>Mapping from local class/concept to a frozen terminology code/version.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ReferralRiskCriterion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Referral Risk Criterion</rdfs:label>
+    <rdfs:comment>Five-year kidney-failure risk criterion for D3.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ObservationAvailabilityState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Observation Availability State</rdfs:label>
+    <rdfs:comment>Availability state used for missingness and result-delay testing.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Precedence Tier</rdfs:label>
+    <rdfs:comment>One of the frozen P0-P8 precedence tiers.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/G3b">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState"/>
+    <rdfs:label>G3b</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasTrajectory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has trajectory</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/trajectoryOf"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P4">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P4 Specificity</rdfs:label>
+    <rdfs:comment>A more-specific rule may outrank a generic rule only when scope containment is explicit and the expected relations are compatible with the approved policy.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/NSAIDExposureEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>NSAID Exposure Event</rdfs:label>
+    <rdfs:comment>NSAID exposure event relevant to acute deterioration context.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/SourceArtifact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Source Artifact</rdfs:label>
+    <rdfs:comment>Frozen guideline, literature, dataset or design-control source.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/observationValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>observationValue</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Clinical value.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P7">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P7 Human adjudication</rdfs:label>
+    <rdfs:comment>Used for unresolved same-tier or clinically meaningful conflicts.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_DataQualityException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>DataQualityException</rdfs:label>
+    <rdfs:comment>Required observation is invalid/unsupported.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus_ClinicallyReviewed">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus"/>
+    <rdfs:label>ClinicallyReviewed</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/statementType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>statementType</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/A1">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/AlbuminuriaCategoricalState"/>
+    <rdfs:label>A1</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_ExpectedRelationConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>ExpectedRelationConflict</rdfs:label>
+    <rdfs:comment>Same target/output, overlapping applicability, incompatible expected relations.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/sourcePublicationDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>sourcePublicationDate</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/SourceArtifact"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P6">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P6 Guideline strength</rdfs:label>
+    <rdfs:comment>Recorded as provenance metadata.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasAlbuminuriaCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has albuminuria category</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/AlbuminuriaCategoricalState"/>
+    <rdfs:comment>C3-005 control: Local 0..1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_MedicationContextException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>MedicationContextException</rdfs:label>
+    <rdfs:comment>Medication evaluation window changes interpretation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Conflict Type</rdfs:label>
+    <rdfs:comment>Controlled C3-013 conflict category.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasEligibilityRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has eligibility record</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExecutableClinicalRule"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationEligibilityRecord"/>
+    <rdfs:comment>C3-005 control: Exactly 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/TemporalInterval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Temporal Interval</rdfs:label>
+    <rdfs:comment>Start/end bounded temporal extent.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasMeasurementMethodContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has measurement method context</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MeasurementMethodContext"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/AlbuminuriaObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Albuminuria Observation</rdfs:label>
+    <rdfs:comment>Urinary albumin measurement used for A-category state or change assessment.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/reviewStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>reviewStatus</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ClinicalReviewRecord"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Controlled review status.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasCareContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has care context</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CareContext"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/careContextOf"/>
+    <rdfs:comment>C3-005 control: None globally</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/AlbuminuriaChangeTrajectory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Albuminuria Change Trajectory</rdfs:label>
+    <rdfs:comment>Longitudinal ACR change including a doubling evaluation qualifier.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Gate_Conflict_resolved">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+    <rdfs:label>Conflict resolved</rdfs:label>
+    <rdfs:comment>Are relevant conflicts/precedence decisions resolved?</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/ExpectedClinicalRelation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Expected Clinical Relation</rdfs:label>
+    <rdfs:comment>Expected equality, monotonic, ordinal, bounded or decision-level relation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/AlbuminuriaCategoricalState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Albuminuria Categorical State</rdfs:label>
+    <rdfs:comment>Albuminuria category state.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Review Status</rdfs:label>
+    <rdfs:comment>Controlled C3-012 review status vocabulary.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/TherapyAssociatedGFRReductionEvaluation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Therapy-associated GFR Reduction Evaluation</rdfs:label>
+    <rdfs:comment>Evaluation state triggered when GFR reduction after hemodynamically active therapy exceeds 30%.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus_AuthorApproved">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus"/>
+    <rdfs:label>AuthorApproved</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/gateStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>gateStatus</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/localIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>localIdentifier</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Stable local identifier.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/hasProvenanceRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has provenance record</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceRecord"/>
+    <rdfs:comment>C3-005 control: MinCount 1 for executable artefacts</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ClinicalReviewRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Clinical Review Record</rdfs:label>
+    <rdfs:comment>Independent reviewer decision, rationale and adjudication status.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleAntecedent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Rule Antecedent</rdfs:label>
+    <rdfs:comment>Computable condition set required before a rule applies.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/StableKidneyFunctionTrajectory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Stable Kidney Function Trajectory</rdfs:label>
+    <rdfs:comment>Trajectory satisfying a declared stability definition.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Gate_Release_integrity">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+    <rdfs:label>Release integrity</rdfs:label>
+    <rdfs:comment>Are version, checksum and supersession metadata complete?</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasClinicalEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has clinical event</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/clinicalEventOf"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Gate_Computable">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+    <rdfs:label>Computable</rdfs:label>
+    <rdfs:comment>Can the proposition be deterministically represented?</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Gate_Licensing_allowed">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType"/>
+    <rdfs:label>Licensing allowed</rdfs:label>
+    <rdfs:comment>Can the required artefact be used in the target release?</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/term/hasTerminologyMapping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has terminology mapping</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/term/TerminologyMapping"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_ReviewConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>ReviewConflict</rdfs:label>
+    <rdfs:comment>Independent reviewers disagree on clinical meaning/safety.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/PracticePointStatement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Practice Point Statement</rdfs:label>
+    <rdfs:comment>KDIGO practice point.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/affectsTrajectory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>affects trajectory</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalEvent"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ReleaseRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Release Record</rdfs:label>
+    <rdfs:comment>KG release identifier, freeze date, checksum and supersession history.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/ObservationValidityAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Observation Validity Assessment</rdfs:label>
+    <rdfs:comment>Assessment of whether an observation is usable for a rule or trajectory.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/MappingActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Mapping Activity</rdfs:label>
+    <rdfs:comment>Terminology or dataset mapping activity.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/associatedWithMedicationExposure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>associated with medication exposure</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/TherapyAssociatedGFRReductionEvaluation"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent"/>
+    <rdfs:comment>C3-005 control: MinCount 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/clinicalStateOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>clinical state of</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/hasClinicalState"/>
+    <rdfs:comment>C3-005 control: Inverse</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Provenance Record</rdfs:label>
+    <rdfs:comment>Source, locator, extraction, encoding and change record.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/KidneyFunctionObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Kidney Function Observation</rdfs:label>
+    <rdfs:comment>Observation reflecting kidney filtration/function.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has observation</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ResearchSubject"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <owl:inverseOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/observationOf"/>
+    <rdfs:comment>C3-005 control: 0..*</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/InterpretationActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Interpretation Activity</rdfs:label>
+    <rdfs:comment>Activity creating an explicit operational interpretation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceActivity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/G4">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState"/>
+    <rdfs:label>G4</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus_Adjudicated">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ReviewStatus"/>
+    <rdfs:label>Adjudicated</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_VersionConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>VersionConflict</rdfs:label>
+    <rdfs:comment>Different active versions of same source/rule/mapping appear applicable.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P3">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P3 Temporal/event qualifier</rdfs:label>
+    <rdfs:comment>Closed C3-008/C3-009 event and precision semantics determine whether a condition is TRUE/FALSE/INDETERMINATE.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/evidenceCertainty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>evidenceCertainty</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/RecommendationStatement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/RAASInhibitorExposureEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>RAAS Inhibitor Exposure Event</rdfs:label>
+    <rdfs:comment>ACE inhibitor or ARB exposure event.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/MedicationExposureEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/MeasurementMethodContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Measurement Method Context</rdfs:label>
+    <rdfs:comment>Method/specimen context required to interpret or map an observation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P0">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P0 Input integrity / legality</rdfs:label>
+    <rdfs:comment>Invalid/entered-in-error data and release-prohibited artefacts cannot support execution.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/A2">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/AlbuminuriaCategoricalState"/>
+    <rdfs:label>A2</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Conflict_DecisionPolicyConflict">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictType"/>
+    <rdfs:label>DecisionPolicyConflict</rdfs:label>
+    <rdfs:comment>D2/D3 policy versions produce contradictory recommendations.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/hasGateAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has gate assessment</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationEligibilityRecord"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateAssessment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/BaselineObservationContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Baseline Observation Context</rdfs:label>
+    <rdfs:comment>Baseline selection context used by a trajectory or outcome.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationEligibilityRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Compilation Eligibility Record</rdfs:label>
+    <rdfs:comment>Evidence that source, computability, provenance, terminology, review and licensing gates were checked.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/GovernanceEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_ConflictException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>ConflictException</rdfs:label>
+    <rdfs:comment>Another applicable rule creates unresolved contradictory expectation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/CompilationGateType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Compilation Gate Type</rdfs:label>
+    <rdfs:comment>One of the eight frozen C3-012 compilation gates.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/RuleEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>CKD-TKG R1.0 Ontology</rdfs:label>
+    <rdfs:comment>RDF/OWL implementation of the design-closed C3-004 through C3-013 baseline. External terminology and source-data mappings remain governed annotations.</rdfs:comment>
+    <owl:versionInfo>R1.0</owl:versionInfo>
+    <prov1:hasProvenanceRecord rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/DesignClosure_C3_004_C3_013"/>
+    <prov1:hasReleaseRecord rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/Release_R1_0_Implementation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/KDIGOCGARiskCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>KDIGO CGA Risk Category</rdfs:label>
+    <rdfs:comment>Native four-level CGA risk category.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalState"/>
+    <owl:disjointWith rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/MRTestingRiskCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/prov/DesignClosure_C3_004_C3_013">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/prov/ProvenanceRecord"/>
+    <rdfs:label>Chapter 3 design closure provenance</rdfs:label>
+    <prov1:sourceLocator>C3-004 through C3-013 design-control artefacts and closure memos</prov1:sourceLocator>
+    <prov1:recordedDateTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-08-06T23:37:00-04:00</prov1:recordedDateTime>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/G3a">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GFRCategoricalState"/>
+    <rdfs:label>G3a</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/VascularHypertensive">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDEtiologyCategory"/>
+    <rdfs:label>VascularHypertensive</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/hasPredictionTarget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has prediction target</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ProgressionRiskAssessment"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ConfirmedSustainedEGFRDecline"/>
+    <rdfs:comment>C3-005 control: Local exactly 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_MissingDataException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>MissingDataException</rdfs:label>
+    <rdfs:comment>Required observation or confirmation is absent.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/observationUnitCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>observationUnitCode</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/ClinicalObservation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>UCUM unit code.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/resolvedByPrecedenceTier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>resolved by precedence tier</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ConflictResolutionRecord"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Trajectory</rdfs:label>
+    <rdfs:comment>Ordered longitudinal abstraction derived from observations.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/inclusionStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>inclusionStatus</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Included/ContextOnly/Excluded/Deferred.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/A3">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/AlbuminuriaCategoricalState"/>
+    <rdfs:label>A3</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/P1">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/PrecedenceTier"/>
+    <rdfs:label>P1 Applicability gate</rdfs:label>
+    <rdfs:comment>Out-of-scope subject/context makes the rule non-applicable.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/hasSamplingPattern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has sampling pattern</rdfs:label>
+    <rdfs:domain rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/Trajectory"/>
+    <rdfs:range rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/SamplingPattern"/>
+    <rdfs:comment>C3-005 control: Local maxCount 1</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/tk/UncertainTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Uncertain Time</rdfs:label>
+    <rdfs:comment>Possible-time interval implied by partial precision.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/tk/TemporalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_TerminologyMappingException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>TerminologyMappingException</rdfs:label>
+    <rdfs:comment>External mapping is unavailable/ambiguous.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/RecommendationStatement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Recommendation Statement</rdfs:label>
+    <rdfs:comment>Graded guideline recommendation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/GuidelineKnowledgeItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/kgmr/Exception_TemporalPrecisionException">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/kgmr/ExceptionType"/>
+    <rdfs:label>TemporalPrecisionException</rdfs:label>
+    <rdfs:comment>Available time precision cannot prove temporal relation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/DiabeticKidneyDisease">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDEtiologyCategory"/>
+    <rdfs:label>DiabeticKidneyDisease</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://ckd-tkg.org/ontology/r1.0/ckd/Tubulointerstitial">
+    <rdf:type rdf:resource="https://ckd-tkg.org/ontology/r1.0/ckd/CKDEtiologyCategory"/>
+    <rdfs:label>Tubulointerstitial</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

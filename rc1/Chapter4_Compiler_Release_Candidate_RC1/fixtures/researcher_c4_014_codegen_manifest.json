@@ -1,0 +1,150 @@
+{
+  "modules": [
+    {
+      "blocking_reasons": [
+        "C4_010_EXCEPTION_CONTROL_ABSTAIN",
+        "C4_011_TEMPORAL_CONTROL_ABSTAIN"
+      ],
+      "candidate_key": "FIX-TRAJ-001::DECREASE_SLOPE",
+      "candidate_mr_id": "CMR-31ce8779673c05fe37e7ce1e",
+      "execution_gate": "ABSTAIN",
+      "generated_python_sha256": "98051f525fdab4359b84ab247ff13a9dd3a5619f9ac486bda81b8c7b739ec3e7",
+      "module_name": "mr_cmr_31ce8779673c05fe37e7ce1e",
+      "module_path": "mr_cmr_31ce8779673c05fe37e7ce1e.py",
+      "operator_id": "DECREASE_SLOPE",
+      "semantic_spec_fingerprint": "f7d4e6a672feba1a759b78834d6d6b6b11a2643d151ae6cfa3a26f6871eda555"
+    },
+    {
+      "blocking_reasons": [],
+      "candidate_key": "FIX-STATE-001::PRESERVE_CLINICAL_STATE",
+      "candidate_mr_id": "CMR-3fbe15eb0c59f7367ebdd879",
+      "execution_gate": "PROCEED",
+      "generated_python_sha256": "c23f8d78bedbd0681dfa587d6e5a8bce526e0ff8acdf8d15739db657954cead3",
+      "module_name": "mr_cmr_3fbe15eb0c59f7367ebdd879",
+      "module_path": "mr_cmr_3fbe15eb0c59f7367ebdd879.py",
+      "operator_id": "PRESERVE_CLINICAL_STATE",
+      "semantic_spec_fingerprint": "fd6077c5dfa6e1b91bd629d051f94bc1c126033b16086c683f15fba959f493d5"
+    },
+    {
+      "blocking_reasons": [],
+      "candidate_key": "FIX-TIME-001::SHIFT_TIME",
+      "candidate_mr_id": "CMR-4bdb6db32f311bfc85ea76fd",
+      "execution_gate": "PROCEED",
+      "generated_python_sha256": "720641103c0f2750d37749f34c8402b516d33ccf3f6c5cde6a8279c404e0b4d0",
+      "module_name": "mr_cmr_4bdb6db32f311bfc85ea76fd",
+      "module_path": "mr_cmr_4bdb6db32f311bfc85ea76fd.py",
+      "operator_id": "SHIFT_TIME",
+      "semantic_spec_fingerprint": "8082babd474f0d6d055d14f3f263233dc62cee0d67d28d816a5b30ccd9501396"
+    },
+    {
+      "blocking_reasons": [],
+      "candidate_key": "FIX-UNIT-001::CONVERT_UNIT",
+      "candidate_mr_id": "CMR-50a9723f0360ad3fba34ecd2",
+      "execution_gate": "PROCEED",
+      "generated_python_sha256": "a9021c4d14d1a24c5f1c328e15c3d76ad525beea8229bb140481f9a95301c5ff",
+      "module_name": "mr_cmr_50a9723f0360ad3fba34ecd2",
+      "module_path": "mr_cmr_50a9723f0360ad3fba34ecd2.py",
+      "operator_id": "CONVERT_UNIT",
+      "semantic_spec_fingerprint": "68a2623d95952376fbc4643967ff4e5f829e262a50f5fb398b01b7883f1a7ba3"
+    },
+    {
+      "blocking_reasons": [
+        "C4_010_EXCEPTION_CONTROL_ABSTAIN",
+        "C4_011_TEMPORAL_CONTROL_ABSTAIN",
+        "C4_011_TEMPORAL_TRUTH_INDETERMINATE",
+        "C4_012_UNRESOLVED_CONFLICT_RECORD"
+      ],
+      "candidate_key": "FIX-ORDER-001::SWAP_EQUIVALENT_ORDER",
+      "candidate_mr_id": "CMR-548584d5df10797164816313",
+      "execution_gate": "ABSTAIN",
+      "generated_python_sha256": "01fe4b677248f4bdbe9c4d8879707abe9090f9f56aaec5521456e067a0dbe004",
+      "module_name": "mr_cmr_548584d5df10797164816313",
+      "module_path": "mr_cmr_548584d5df10797164816313.py",
+      "operator_id": "SWAP_EQUIVALENT_ORDER",
+      "semantic_spec_fingerprint": "84be76e531f683b8b1f73c75c42d68d9fa0c4d288eae3745e6cd33fb6631531a"
+    },
+    {
+      "blocking_reasons": [],
+      "candidate_key": "FIX-TRAJ-001::RESAMPLE_TRAJECTORY",
+      "candidate_mr_id": "CMR-5685e890d5232ba5a656596d",
+      "execution_gate": "PROCEED",
+      "generated_python_sha256": "d78c67a6f2ec8454cd3629a0f0262cf504a425a5993064e62629c71ae07c5024",
+      "module_name": "mr_cmr_5685e890d5232ba5a656596d",
+      "module_path": "mr_cmr_5685e890d5232ba5a656596d.py",
+      "operator_id": "RESAMPLE_TRAJECTORY",
+      "semantic_spec_fingerprint": "775df42f55227069571ae8894a4f8af471db355f18e84532bf7784a7660ff60e"
+    },
+    {
+      "blocking_reasons": [
+        "C4_010_EXCEPTION_CONTROL_ABSTAIN",
+        "C4_011_TEMPORAL_CONTROL_ABSTAIN"
+      ],
+      "candidate_key": "FIX-MASK-001::MASK_REQUIRED_OBSERVATION",
+      "candidate_mr_id": "CMR-aeb765295a3081c558da634c",
+      "execution_gate": "ABSTAIN",
+      "generated_python_sha256": "20a813baafb286b163b129d68c70af0962c9a6578e297729f96b0e5acbcdd830",
+      "module_name": "mr_cmr_aeb765295a3081c558da634c",
+      "module_path": "mr_cmr_aeb765295a3081c558da634c.py",
+      "operator_id": "MASK_REQUIRED_OBSERVATION",
+      "semantic_spec_fingerprint": "c8c0b84a5a448ca55ebe18f18dfcac47e80bf359dbaa3d58cdfb696911eff6f6"
+    },
+    {
+      "blocking_reasons": [],
+      "candidate_key": "FIX-TRAJ-001::INCREASE_SLOPE",
+      "candidate_mr_id": "CMR-cbde4de53261e747cf0a0645",
+      "execution_gate": "PROCEED",
+      "generated_python_sha256": "d5932ff3be913e14516fc1e73e2cf75a43d8773ccb6fd2d52dd79f9344d3bb9a",
+      "module_name": "mr_cmr_cbde4de53261e747cf0a0645",
+      "module_path": "mr_cmr_cbde4de53261e747cf0a0645.py",
+      "operator_id": "INCREASE_SLOPE",
+      "semantic_spec_fingerprint": "b10b87ac1c44328d8ccdd017585dcbc4a5c69b9aa99e1288efdb67c8a15e2f43"
+    },
+    {
+      "blocking_reasons": [
+        "C4_010_EXCEPTION_CONTROL_ABSTAIN",
+        "C4_011_TEMPORAL_CONTROL_ABSTAIN"
+      ],
+      "candidate_key": "FIX-PENDING-ADMISSION-001::SHIFT_TIME",
+      "candidate_mr_id": "CMR-daaf93e85111e7aa49dfc15a",
+      "execution_gate": "ABSTAIN",
+      "generated_python_sha256": "1df0bd6902cb79101ee1c15ed5afc9dece70fb5392463b92475a2dd474754500",
+      "module_name": "mr_cmr_daaf93e85111e7aa49dfc15a",
+      "module_path": "mr_cmr_daaf93e85111e7aa49dfc15a.py",
+      "operator_id": "SHIFT_TIME",
+      "semantic_spec_fingerprint": "0fb43489bfacd01799a8ac3603df590aaa02887dbade4598c510e57c9c72105c"
+    },
+    {
+      "blocking_reasons": [],
+      "candidate_key": "FIX-AKI-001::INSERT_TRANSIENT_AKI",
+      "candidate_mr_id": "CMR-e23a304617adcf5ee0e244c9",
+      "execution_gate": "PROCEED",
+      "generated_python_sha256": "4ef1ae904e412ca7ddb0438cf138972719aacc4f97a97edc0a0b41d28fd5495e",
+      "module_name": "mr_cmr_e23a304617adcf5ee0e244c9",
+      "module_path": "mr_cmr_e23a304617adcf5ee0e244c9.py",
+      "operator_id": "INSERT_TRANSIENT_AKI",
+      "semantic_spec_fingerprint": "1c74fbcaf2eadcb4968c72a93b561808b4a8dd7292f74facc5804c082523a58f"
+    },
+    {
+      "blocking_reasons": [],
+      "candidate_key": "FIX-REDUNDANT-001::REMOVE_REDUNDANT_OBSERVATION",
+      "candidate_mr_id": "CMR-f1c39b6972f8b9f1e38b6a34",
+      "execution_gate": "PROCEED",
+      "generated_python_sha256": "43ae2b2fb6e76916f993a16b144632f8fa91fe3313aa45de1b52da55cfa8cbbc",
+      "module_name": "mr_cmr_f1c39b6972f8b9f1e38b6a34",
+      "module_path": "mr_cmr_f1c39b6972f8b9f1e38b6a34.py",
+      "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+      "semantic_spec_fingerprint": "236867a3e1c4e0f69650e1f00c6c06e576a2929737c3733a24bd57b80fbab90f"
+    },
+    {
+      "blocking_reasons": [],
+      "candidate_key": "FIX-DELAY-001::DELAY_RESULT_ENTRY",
+      "candidate_mr_id": "CMR-fd3fa393813e67e76871758e",
+      "execution_gate": "PROCEED",
+      "generated_python_sha256": "d18ec079281961a3d32e7cf22ea820c15a76bb39569249d733aa3f02adb1bed9",
+      "module_name": "mr_cmr_fd3fa393813e67e76871758e",
+      "module_path": "mr_cmr_fd3fa393813e67e76871758e.py",
+      "operator_id": "DELAY_RESULT_ENTRY",
+      "semantic_spec_fingerprint": "398418e1fc83e35ab4e4e6ac8e58f2af2a85ef27408f39f3f9d0c1213d602ea6"
+    }
+  ]
+}

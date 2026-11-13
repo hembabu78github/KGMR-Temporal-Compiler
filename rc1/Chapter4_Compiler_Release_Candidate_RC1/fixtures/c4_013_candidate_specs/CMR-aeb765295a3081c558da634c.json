@@ -1,0 +1,145 @@
+{
+  "C": {
+    "children": [
+      {
+        "arguments": {
+          "decision_contract": "D3"
+        },
+        "evaluator_id": "eval_app_v1",
+        "missing_evidence_result": "INDETERMINATE",
+        "predicate_id": "APP-006",
+        "predicate_type": "APPLICABILITY",
+        "source_refs": [
+          "fixture:app"
+        ]
+      },
+      {
+        "arguments": {
+          "required_observation": "required_egfr"
+        },
+        "evaluator_id": "eval_required_observation_v1",
+        "missing_evidence_result": "INDETERMINATE",
+        "predicate_id": "AVAIL-006",
+        "predicate_type": "DATA_AVAILABILITY",
+        "source_refs": [
+          "fixture:antecedent"
+        ]
+      }
+    ],
+    "op": "ALL"
+  },
+  "E": [
+    {
+      "condition": {
+        "arguments": {
+          "exception_type": "MissingDataException",
+          "scope_ref": "scope:required-egfr"
+        },
+        "evaluator_id": "eval:MissingDataException:v1",
+        "missing_evidence_result": "INDETERMINATE",
+        "predicate_id": "cond:EX-MISS-001",
+        "predicate_type": "EXCEPTION",
+        "source_refs": [
+          "source:EX-MISS-001"
+        ]
+      },
+      "evidence_refs": [
+        "source:EX-MISS-001"
+      ],
+      "exception_ref": "EX-MISS-001",
+      "exception_type": "MissingDataException",
+      "precedence_tier": "P0",
+      "resolution_status": "DECLARED"
+    }
+  ],
+  "I": [
+    {
+      "comparator_id": "exact_equal_v1",
+      "followup_selector": "observations[selected].clinical_value",
+      "invariant_id": "INV-34393f2aad74ed21",
+      "invariant_type": "VALUE",
+      "parameters": {},
+      "source_refs": [
+        "fixture:preserve-clinical-value",
+        "fixture:required-observation"
+      ],
+      "source_selector": "observations[selected].clinical_value"
+    },
+    {
+      "comparator_id": "exact_equal_v1",
+      "followup_selector": "subject.id",
+      "invariant_id": "INV-4e6f33f70b7e422b",
+      "invariant_type": "IDENTITY",
+      "parameters": {},
+      "source_refs": [
+        "fixture:preserve-subject",
+        "fixture:subject-contract"
+      ],
+      "source_selector": "subject.id"
+    }
+  ],
+  "P": {
+    "closure_policy_version": "C3-016-R1.0",
+    "compiler_config_id": "C4-006-CompilerConfig-R1.0",
+    "compiler_version": "C4-013-R1.0",
+    "generation_status": "CANDIDATE",
+    "graph_path_ids": [
+      "fixture:path-mask"
+    ],
+    "inference_profile": "RDFS+SREW-R1.0",
+    "kg_release": "fixture:R1",
+    "mr_expert_validation_status": "UNREVIEWED",
+    "ontology_release": "CKD-TKG-R1.0",
+    "operator_library_version": "OperatorLibrary-R1.0",
+    "operator_selection_fingerprint": "6ab745acda3e784b48d95b5c279c1f128850fe5a9eea882dc71e939754cddb5e",
+    "parameter_provenance_refs": [
+      "fixture:antecedent"
+    ],
+    "proposition_ir_version": "ClinicalPropositionIR-1.0",
+    "shacl_release": "CKD-TKG-SHACL-R1.0",
+    "source_knowledge_item_ids": [
+      "fixture:knowledge-item"
+    ],
+    "source_locator_refs": [
+      "fixture:knowledge-item"
+    ],
+    "source_review_refs": [],
+    "srew_version": "SREW-R1.0"
+  },
+  "R": {
+    "comparator_id": "safe_missingness_response_v1",
+    "followup_output_selector": "cds.output",
+    "parameters": {
+      "decision_comparator_id": "safe_missingness_response_v1"
+    },
+    "relation_family": "DECISION_LEVEL",
+    "source_output_selector": "cds.output"
+  },
+  "T": {
+    "bound_parameters": [
+      {
+        "name": "observation_key",
+        "source_kind": "kg",
+        "source_ref": "fixture:antecedent",
+        "value": "required_egfr"
+      }
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "observations[selected].clinical_value",
+      "provenance"
+    ],
+    "operator_id": "MASK_REQUIRED_OBSERVATION",
+    "operator_version": "OperatorLibrary-R1.0",
+    "read_set": [
+      "required_observations",
+      "decision_contract"
+    ],
+    "touch_set": [
+      "observations[selected].availability"
+    ]
+  },
+  "candidate_mr_id": "CMR-aeb765295a3081c558da634c",
+  "candidate_status": "COMPILED_CANDIDATE",
+  "representation_version": "CandidateMR-R1.0"
+}

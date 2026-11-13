@@ -1,0 +1,28 @@
+{
+  "study": "V3.4 Task 2, internal unversioned frozen requirements-to-MR baseline comparison",
+  "baseline_requirements_sha256": "e7bb08481bce7ec9a46914bc01320cc93fa0dce029764156355286fa85172041",
+  "baseline_source_sha256": "f32ebbd72f4b92e28a60629840969c22ccaab12d19008201acb48043c74a663a",
+  "mutants": 388,
+  "cases": 24,
+  "evaluations": 9312,
+  "reference_pairs_valid_original": 24,
+  "reference_pairs_valid_new_baseline": 24,
+  "mutants_with_execution_errors": 40,
+  "mutants_error_free_with_observed_difference": 103,
+  "mutants_error_free_without_observed_difference": 245,
+  "clean_distinguishable_paired": {
+    "neither": 46,
+    "both": 57
+  },
+  "clean_distinguishable_original_killed": 57,
+  "clean_distinguishable_new_baseline_killed": 57,
+  "case_pairs_with_identical_followup": 21,
+  "mutant_case_rows_with_errors": 255,
+  "limitations": [
+    "same-study authorship and requirements domains, not blinded or externally developed",
+    "same source cases, but transformed followups may differ",
+    "behavioral distinguishability only within tested fixture inputs; not global non-equivalence",
+    "errors excluded in primary comparison; not automatically counted as kills",
+    "synthetic target program, not clinical validation"
+  ]
+}

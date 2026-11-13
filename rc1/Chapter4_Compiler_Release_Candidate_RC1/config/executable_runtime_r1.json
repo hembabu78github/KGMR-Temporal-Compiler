@@ -1,0 +1,37 @@
+{
+  "runtime_version": "C4-014-R1.0",
+  "unit_conversions": {
+    "UCUM-FIX-001": {
+      "source_unit": "L/min/1.73m2",
+      "target_unit": "mL/min/1.73m2",
+      "factor": 1000.0,
+      "offset": 0.0
+    }
+  },
+  "ordinal_orderings": {
+    "risk_low_moderate_high_v1": [
+      "low",
+      "moderate",
+      "high"
+    ],
+    "monitoring_intensity_v1": [
+      "low",
+      "routine",
+      "increased",
+      "high"
+    ]
+  },
+  "decision_comparators": [
+    "decision_allowed_set_v1",
+    "safe_missingness_response_v1",
+    "preserve_decision_state_v1"
+  ],
+  "operator_runtime_defaults": {
+    "INSERT_TRANSIENT_AKI": {
+      "event_start_offset_days": 1
+    },
+    "PRESERVE_CLINICAL_STATE": {
+      "variant_primitive": "deterministic_auxiliary_variant_v1"
+    }
+  }
+}

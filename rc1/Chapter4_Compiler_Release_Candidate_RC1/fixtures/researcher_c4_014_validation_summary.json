@@ -1,0 +1,21 @@
+{
+  "all_11_frozen_operators_generated": true,
+  "blocked_candidates_called_cds_count": 0,
+  "code_generation_equals_clinical_validation": false,
+  "direct_transformation_oracle_smoke_count": 12,
+  "direct_transformation_oracle_smoke_pass_count": 12,
+  "end_to_end_gate_smoke_count": 12,
+  "end_to_end_gate_smoke_pass_count": 12,
+  "execution_gate_abstain_count": 4,
+  "execution_gate_proceed_count": 8,
+  "generated_python_compile_pass_count": 12,
+  "generated_python_module_count": 12,
+  "generated_source_hash_match_count": 12,
+  "generated_source_repeat_pass": true,
+  "note": "Software-validation execution fixtures only. Generated modules are not clinically validated CDS tests.",
+  "researcher_manifest_semantic_fingerprint_match_count": 12,
+  "source_candidate_spec_count": 12,
+  "source_case_immutability_pass_count": 12,
+  "task": "C4-014",
+  "unique_operator_count": 11
+}

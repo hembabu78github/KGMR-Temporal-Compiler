@@ -1,0 +1,886 @@
+{
+  "neighbourhoods": [
+    {
+      "proposition_id": "FIX-TIME-001",
+      "seed_nodes": [
+        "FIX-TIME-001:seed"
+      ],
+      "max_hops": 2,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-TIME-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-TIME-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-TIME-001:value",
+          "selector": "observations[selected].value",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:kg-value"
+          ]
+        },
+        {
+          "node_id": "FIX-TIME-001:unit",
+          "selector": "observations[selected].unit",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:kg-unit"
+          ]
+        },
+        {
+          "node_id": "FIX-TIME-001:effective",
+          "selector": "observations[selected].effective_time",
+          "invariant_type": "TIME",
+          "source_refs": [
+            "fixture:kg-time"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-TIME-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-TIME-001:subject",
+          "source_ref": "fixture:preserve-subject",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SHIFT_TIME"
+          ]
+        },
+        {
+          "source": "FIX-TIME-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-TIME-001:value",
+          "source_ref": "fixture:preserve-value",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SHIFT_TIME"
+          ]
+        },
+        {
+          "source": "FIX-TIME-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-TIME-001:unit",
+          "source_ref": "fixture:preserve-unit",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SHIFT_TIME"
+          ]
+        },
+        {
+          "source": "FIX-TIME-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-TIME-001:effective",
+          "source_ref": "fixture:bad-preserve-effective",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SHIFT_TIME"
+          ]
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "seed_nodes": [
+        "FIX-PENDING-ADMISSION-001:seed"
+      ],
+      "max_hops": 2,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-PENDING-ADMISSION-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-PENDING-ADMISSION-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-PENDING-ADMISSION-001:value",
+          "selector": "observations[selected].value",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:kg-value"
+          ]
+        },
+        {
+          "node_id": "FIX-PENDING-ADMISSION-001:unit",
+          "selector": "observations[selected].unit",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:kg-unit"
+          ]
+        },
+        {
+          "node_id": "FIX-PENDING-ADMISSION-001:effective",
+          "selector": "observations[selected].effective_time",
+          "invariant_type": "TIME",
+          "source_refs": [
+            "fixture:kg-time"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-PENDING-ADMISSION-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-PENDING-ADMISSION-001:subject",
+          "source_ref": "fixture:preserve-subject",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SHIFT_TIME"
+          ]
+        },
+        {
+          "source": "FIX-PENDING-ADMISSION-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-PENDING-ADMISSION-001:value",
+          "source_ref": "fixture:preserve-value",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SHIFT_TIME"
+          ]
+        },
+        {
+          "source": "FIX-PENDING-ADMISSION-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-PENDING-ADMISSION-001:unit",
+          "source_ref": "fixture:preserve-unit",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SHIFT_TIME"
+          ]
+        },
+        {
+          "source": "FIX-PENDING-ADMISSION-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-PENDING-ADMISSION-001:effective",
+          "source_ref": "fixture:bad-preserve-effective",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SHIFT_TIME"
+          ]
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-DELAY-001",
+      "seed_nodes": [
+        "FIX-DELAY-001:seed"
+      ],
+      "max_hops": 2,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-DELAY-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-DELAY-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-DELAY-001:effective",
+          "selector": "observations[selected].effective_time",
+          "invariant_type": "TIME",
+          "source_refs": [
+            "fixture:effective-time"
+          ]
+        },
+        {
+          "node_id": "FIX-DELAY-001:value",
+          "selector": "observations[selected].value",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:value"
+          ]
+        },
+        {
+          "node_id": "FIX-DELAY-001:issued",
+          "selector": "observations[selected].issued_time",
+          "invariant_type": "TIME",
+          "source_refs": [
+            "fixture:issued-time"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-DELAY-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-DELAY-001:subject",
+          "source_ref": "fixture:preserve-subject",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "DELAY_RESULT_ENTRY"
+          ]
+        },
+        {
+          "source": "FIX-DELAY-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-DELAY-001:effective",
+          "source_ref": "fixture:preserve-effective",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "DELAY_RESULT_ENTRY"
+          ]
+        },
+        {
+          "source": "FIX-DELAY-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-DELAY-001:value",
+          "source_ref": "fixture:preserve-value",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "DELAY_RESULT_ENTRY"
+          ]
+        },
+        {
+          "source": "FIX-DELAY-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-DELAY-001:issued",
+          "source_ref": "fixture:bad-preserve-issued",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "DELAY_RESULT_ENTRY"
+          ]
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-MASK-001",
+      "seed_nodes": [
+        "FIX-MASK-001:seed"
+      ],
+      "max_hops": 2,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-MASK-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-MASK-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-MASK-001:clinical_value",
+          "selector": "observations[selected].clinical_value",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:required-observation"
+          ]
+        },
+        {
+          "node_id": "FIX-MASK-001:availability",
+          "selector": "observations[selected].availability",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:availability"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-MASK-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-MASK-001:subject",
+          "source_ref": "fixture:preserve-subject",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "MASK_REQUIRED_OBSERVATION"
+          ]
+        },
+        {
+          "source": "FIX-MASK-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-MASK-001:clinical_value",
+          "source_ref": "fixture:preserve-clinical-value",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "MASK_REQUIRED_OBSERVATION"
+          ]
+        },
+        {
+          "source": "FIX-MASK-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-MASK-001:availability",
+          "source_ref": "fixture:bad-preserve-availability",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "MASK_REQUIRED_OBSERVATION"
+          ]
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-ORDER-001",
+      "seed_nodes": [
+        "FIX-ORDER-001:seed"
+      ],
+      "max_hops": 2,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-ORDER-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-ORDER-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-ORDER-001:effective",
+          "selector": "observations[equivalent_set].effective_time",
+          "invariant_type": "TIME",
+          "source_refs": [
+            "fixture:order"
+          ]
+        },
+        {
+          "node_id": "FIX-ORDER-001:value",
+          "selector": "observations[equivalent_set].value",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:order"
+          ]
+        },
+        {
+          "node_id": "FIX-ORDER-001:sequence",
+          "selector": "observations[equivalent_set].sequence_position",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:order"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-ORDER-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-ORDER-001:subject",
+          "source_ref": "fixture:p-subj",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SWAP_EQUIVALENT_ORDER"
+          ]
+        },
+        {
+          "source": "FIX-ORDER-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-ORDER-001:effective",
+          "source_ref": "fixture:p-time",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SWAP_EQUIVALENT_ORDER"
+          ]
+        },
+        {
+          "source": "FIX-ORDER-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-ORDER-001:value",
+          "source_ref": "fixture:p-value",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SWAP_EQUIVALENT_ORDER"
+          ]
+        },
+        {
+          "source": "FIX-ORDER-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-ORDER-001:sequence",
+          "source_ref": "fixture:bad-seq",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "SWAP_EQUIVALENT_ORDER"
+          ]
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-REDUNDANT-001",
+      "seed_nodes": [
+        "FIX-REDUNDANT-001:seed"
+      ],
+      "max_hops": 3,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-REDUNDANT-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-REDUNDANT-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-REDUNDANT-001:anchor",
+          "selector": "trajectory.protected_anchors",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:protected-anchor"
+          ]
+        },
+        {
+          "node_id": "FIX-REDUNDANT-001:required",
+          "selector": "required_observations",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:required-set"
+          ]
+        },
+        {
+          "node_id": "FIX-REDUNDANT-001:trajectory",
+          "selector": "trajectory.observations",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:trajectory"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-REDUNDANT-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-REDUNDANT-001:subject",
+          "source_ref": "fixture:p-subj",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "REMOVE_REDUNDANT_OBSERVATION"
+          ]
+        },
+        {
+          "source": "FIX-REDUNDANT-001:seed",
+          "relation": "protects_anchor",
+          "target": "FIX-REDUNDANT-001:anchor",
+          "source_ref": "fixture:p-anchor",
+          "comparator_id": "set_equal_v1",
+          "parameters": {},
+          "operators": [
+            "REMOVE_REDUNDANT_OBSERVATION"
+          ]
+        },
+        {
+          "source": "FIX-REDUNDANT-001:seed",
+          "relation": "declares_preserved",
+          "target": "FIX-REDUNDANT-001:required",
+          "source_ref": "fixture:p-required",
+          "comparator_id": "set_equal_v1",
+          "parameters": {},
+          "operators": [
+            "REMOVE_REDUNDANT_OBSERVATION"
+          ]
+        },
+        {
+          "source": "FIX-REDUNDANT-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-REDUNDANT-001:trajectory",
+          "source_ref": "fixture:bad-trajectory",
+          "comparator_id": "set_equal_v1",
+          "parameters": {},
+          "operators": [
+            "REMOVE_REDUNDANT_OBSERVATION"
+          ]
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "seed_nodes": [
+        "FIX-TRAJ-001:seed"
+      ],
+      "max_hops": 3,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-TRAJ-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-TRAJ-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-TRAJ-001:anchors",
+          "selector": "trajectory.protected_anchors",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:protected-anchors"
+          ]
+        },
+        {
+          "node_id": "FIX-TRAJ-001:modifiable",
+          "selector": "trajectory.modifiable_observations",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:modifiable"
+          ]
+        },
+        {
+          "node_id": "FIX-TRAJ-001:derived-risk",
+          "selector": "derived.risk_context",
+          "invariant_type": "STATE",
+          "source_refs": [
+            "fixture:derived-risk"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-TRAJ-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-TRAJ-001:subject",
+          "source_ref": "fixture:p-subj",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "RESAMPLE_TRAJECTORY",
+            "INCREASE_SLOPE",
+            "DECREASE_SLOPE"
+          ]
+        },
+        {
+          "source": "FIX-TRAJ-001:seed",
+          "relation": "protects_anchor",
+          "target": "FIX-TRAJ-001:anchors",
+          "source_ref": "fixture:p-anchor",
+          "comparator_id": "set_equal_v1",
+          "parameters": {},
+          "operators": [
+            "RESAMPLE_TRAJECTORY",
+            "INCREASE_SLOPE",
+            "DECREASE_SLOPE"
+          ]
+        },
+        {
+          "source": "FIX-TRAJ-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-TRAJ-001:derived-risk",
+          "source_ref": "fixture:p-derived-risk",
+          "comparator_id": "state_equal_v1",
+          "parameters": {},
+          "operators": [
+            "RESAMPLE_TRAJECTORY",
+            "INCREASE_SLOPE",
+            "DECREASE_SLOPE"
+          ]
+        },
+        {
+          "source": "FIX-TRAJ-001:derived-risk",
+          "relation": "depends_on",
+          "target": "FIX-TRAJ-001:modifiable",
+          "source_ref": "fixture:dep-risk-on-modifiable"
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-AKI-001",
+      "seed_nodes": [
+        "FIX-AKI-001:seed"
+      ],
+      "max_hops": 2,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-AKI-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-AKI-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-AKI-001:formal-aki",
+          "selector": "formal_diagnosis.AKI",
+          "invariant_type": "STATE",
+          "source_refs": [
+            "fixture:no-diagnosis-assertion"
+          ]
+        },
+        {
+          "node_id": "FIX-AKI-001:derived",
+          "selector": "trajectory.derived_followup_observations",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:event"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-AKI-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-AKI-001:subject",
+          "source_ref": "fixture:p-subj",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "INSERT_TRANSIENT_AKI"
+          ]
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-UNIT-001",
+      "seed_nodes": [
+        "FIX-UNIT-001:seed"
+      ],
+      "max_hops": 2,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-UNIT-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-UNIT-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-UNIT-001:effective",
+          "selector": "observations[selected].effective_time",
+          "invariant_type": "TIME",
+          "source_refs": [
+            "fixture:effective-time"
+          ]
+        },
+        {
+          "node_id": "FIX-UNIT-001:value",
+          "selector": "observations[selected].value",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:value"
+          ]
+        },
+        {
+          "node_id": "FIX-UNIT-001:unit",
+          "selector": "observations[selected].unit",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:unit"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-UNIT-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-UNIT-001:subject",
+          "source_ref": "fixture:p-subj",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "CONVERT_UNIT"
+          ]
+        },
+        {
+          "source": "FIX-UNIT-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-UNIT-001:effective",
+          "source_ref": "fixture:p-time",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "CONVERT_UNIT"
+          ]
+        },
+        {
+          "source": "FIX-UNIT-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-UNIT-001:value",
+          "source_ref": "fixture:bad-value",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "CONVERT_UNIT"
+          ]
+        },
+        {
+          "source": "FIX-UNIT-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-UNIT-001:unit",
+          "source_ref": "fixture:bad-unit",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "CONVERT_UNIT"
+          ]
+        }
+      ]
+    },
+    {
+      "proposition_id": "FIX-STATE-001",
+      "seed_nodes": [
+        "FIX-STATE-001:seed"
+      ],
+      "max_hops": 3,
+      "release_ref": "fixture:R1",
+      "nodes": [
+        {
+          "node_id": "FIX-STATE-001:seed",
+          "selector": "compiler.seed",
+          "invariant_type": "STRUCTURE",
+          "source_refs": [
+            "fixture:seed"
+          ]
+        },
+        {
+          "node_id": "FIX-STATE-001:subject",
+          "selector": "subject.id",
+          "invariant_type": "IDENTITY",
+          "source_refs": [
+            "fixture:subject-contract"
+          ]
+        },
+        {
+          "node_id": "FIX-STATE-001:state",
+          "selector": "state_defining_fields",
+          "invariant_type": "STATE",
+          "source_refs": [
+            "fixture:state-definition"
+          ]
+        },
+        {
+          "node_id": "FIX-STATE-001:mutable",
+          "selector": "declared_mutable_fields",
+          "invariant_type": "VALUE",
+          "source_refs": [
+            "fixture:mutable-fields"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "FIX-STATE-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-STATE-001:subject",
+          "source_ref": "fixture:p-subj",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "PRESERVE_CLINICAL_STATE"
+          ]
+        },
+        {
+          "source": "FIX-STATE-001:seed",
+          "relation": "defines_preserved_state",
+          "target": "FIX-STATE-001:state",
+          "source_ref": "fixture:p-state",
+          "comparator_id": "state_signature_equal_v1",
+          "parameters": {},
+          "operators": [
+            "PRESERVE_CLINICAL_STATE"
+          ]
+        },
+        {
+          "source": "FIX-STATE-001:seed",
+          "relation": "supports_invariant",
+          "target": "FIX-STATE-001:mutable",
+          "source_ref": "fixture:bad-mutable",
+          "comparator_id": "exact_equal_v1",
+          "parameters": {},
+          "operators": [
+            "PRESERVE_CLINICAL_STATE"
+          ]
+        }
+      ]
+    }
+  ]
+}

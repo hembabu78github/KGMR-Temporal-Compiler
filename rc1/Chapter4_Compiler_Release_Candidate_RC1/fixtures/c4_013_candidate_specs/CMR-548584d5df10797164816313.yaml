@@ -1,0 +1,118 @@
+---
+candidate_mr_id: "CMR-548584d5df10797164816313"
+representation_version: "CandidateMR-R1.0"
+candidate_status: "COMPILED_CANDIDATE"
+C:
+  children:
+    -
+      arguments:
+        decision_contract: "D1"
+      evaluator_id: "eval_app_v1"
+      missing_evidence_result: "INDETERMINATE"
+      predicate_id: "APP-004"
+      predicate_type: "APPLICABILITY"
+      source_refs:
+        - "fixture:app"
+    -
+      arguments:
+        sameClinicalTime: true
+      evaluator_id: "eval_same_clinical_time_v1"
+      missing_evidence_result: "INDETERMINATE"
+      predicate_id: "TIME-004"
+      predicate_type: "TEMPORAL"
+      source_refs:
+        - "fixture:order"
+  op: "ALL"
+T:
+  operator_id: "SWAP_EQUIVALENT_ORDER"
+  operator_version: "OperatorLibrary-R1.0"
+  bound_parameters: []
+  read_set:
+    - "observations[equivalent_set].sequence_position"
+    - "temporal_relations"
+  touch_set:
+    - "observations[equivalent_set].sequence_position"
+  forbidden_touch_set:
+    - "subject.id"
+    - "observations[equivalent_set].effective_time"
+    - "observations[equivalent_set].value"
+    - "provenance"
+R:
+  relation_family: "EQUALITY_WITHIN_TOLERANCE"
+  source_output_selector: "cds.output"
+  followup_output_selector: "cds.output"
+  comparator_id: "numeric_equality_tolerance_v1"
+  parameters:
+    epsilon: 0.0
+    tolerance_mode: "absolute"
+I:
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "subject.id"
+    invariant_id: "INV-8098fe6341c16123"
+    invariant_type: "IDENTITY"
+    parameters: {}
+    source_refs:
+      - "fixture:p-subj"
+      - "fixture:subject-contract"
+    source_selector: "subject.id"
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "observations[equivalent_set].value"
+    invariant_id: "INV-8367ee29d1dba17d"
+    invariant_type: "VALUE"
+    parameters: {}
+    source_refs:
+      - "fixture:order"
+      - "fixture:p-value"
+    source_selector: "observations[equivalent_set].value"
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "observations[equivalent_set].effective_time"
+    invariant_id: "INV-8c1f9f65f96d6927"
+    invariant_type: "TIME"
+    parameters: {}
+    source_refs:
+      - "fixture:order"
+      - "fixture:p-time"
+    source_selector: "observations[equivalent_set].effective_time"
+E:
+  -
+    exception_ref: "EX-TP-INDET"
+    exception_type: "TemporalPrecisionException"
+    condition:
+      predicate_id: "cond:EX-TP-INDET"
+      predicate_type: "EXCEPTION"
+      arguments:
+        exception_type: "TemporalPrecisionException"
+        scope_ref: "scope:same-time"
+      evaluator_id: "eval:TemporalPrecisionException:v1"
+      source_refs:
+        - "source:EX-TP-INDET"
+      missing_evidence_result: "INDETERMINATE"
+    precedence_tier: "P3"
+    evidence_refs:
+      - "source:EX-TP-INDET"
+    resolution_status: "DECLARED"
+P:
+  source_knowledge_item_ids:
+    - "fixture:knowledge-item"
+  source_locator_refs:
+    - "fixture:knowledge-item"
+  graph_path_ids:
+    - "fixture:path-order"
+  kg_release: "fixture:R1"
+  ontology_release: "CKD-TKG-R1.0"
+  shacl_release: "CKD-TKG-SHACL-R1.0"
+  proposition_ir_version: "ClinicalPropositionIR-1.0"
+  compiler_version: "C4-013-R1.0"
+  operator_library_version: "OperatorLibrary-R1.0"
+  operator_selection_fingerprint: "4f8e06a7478c9ba97a4ce6cf9c105d0e13123c53dbe70b3aeb85183a954e8c7b"
+  parameter_provenance_refs: []
+  source_review_refs: []
+  inference_profile: "RDFS+SREW-R1.0"
+  closure_policy_version: "C3-016-R1.0"
+  srew_version: "SREW-R1.0"
+  compiler_config_id: "C4-006-CompilerConfig-R1.0"
+  generation_status: "CANDIDATE"
+  mr_expert_validation_status: "UNREVIEWED"

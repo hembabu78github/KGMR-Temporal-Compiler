@@ -1,0 +1,100 @@
+{
+  "results": [
+    {
+      "candidate_key": "FIX-TRAJ-001::DECREASE_SLOPE",
+      "candidate_mr_id": "CMR-31ce8779673c05fe37e7ce1e",
+      "cds_call_count": 0,
+      "execution_gate": "ABSTAIN",
+      "pass": true,
+      "result_status": "ABSTAIN"
+    },
+    {
+      "candidate_key": "FIX-STATE-001::PRESERVE_CLINICAL_STATE",
+      "candidate_mr_id": "CMR-3fbe15eb0c59f7367ebdd879",
+      "cds_call_count": 2,
+      "execution_gate": "PROCEED",
+      "pass": true,
+      "result_status": "EXECUTED"
+    },
+    {
+      "candidate_key": "FIX-TIME-001::SHIFT_TIME",
+      "candidate_mr_id": "CMR-4bdb6db32f311bfc85ea76fd",
+      "cds_call_count": 2,
+      "execution_gate": "PROCEED",
+      "pass": true,
+      "result_status": "EXECUTED"
+    },
+    {
+      "candidate_key": "FIX-UNIT-001::CONVERT_UNIT",
+      "candidate_mr_id": "CMR-50a9723f0360ad3fba34ecd2",
+      "cds_call_count": 2,
+      "execution_gate": "PROCEED",
+      "pass": true,
+      "result_status": "EXECUTED"
+    },
+    {
+      "candidate_key": "FIX-ORDER-001::SWAP_EQUIVALENT_ORDER",
+      "candidate_mr_id": "CMR-548584d5df10797164816313",
+      "cds_call_count": 0,
+      "execution_gate": "ABSTAIN",
+      "pass": true,
+      "result_status": "ABSTAIN"
+    },
+    {
+      "candidate_key": "FIX-TRAJ-001::RESAMPLE_TRAJECTORY",
+      "candidate_mr_id": "CMR-5685e890d5232ba5a656596d",
+      "cds_call_count": 2,
+      "execution_gate": "PROCEED",
+      "pass": true,
+      "result_status": "EXECUTED"
+    },
+    {
+      "candidate_key": "FIX-MASK-001::MASK_REQUIRED_OBSERVATION",
+      "candidate_mr_id": "CMR-aeb765295a3081c558da634c",
+      "cds_call_count": 0,
+      "execution_gate": "ABSTAIN",
+      "pass": true,
+      "result_status": "ABSTAIN"
+    },
+    {
+      "candidate_key": "FIX-TRAJ-001::INCREASE_SLOPE",
+      "candidate_mr_id": "CMR-cbde4de53261e747cf0a0645",
+      "cds_call_count": 2,
+      "execution_gate": "PROCEED",
+      "pass": true,
+      "result_status": "EXECUTED"
+    },
+    {
+      "candidate_key": "FIX-PENDING-ADMISSION-001::SHIFT_TIME",
+      "candidate_mr_id": "CMR-daaf93e85111e7aa49dfc15a",
+      "cds_call_count": 0,
+      "execution_gate": "ABSTAIN",
+      "pass": true,
+      "result_status": "ABSTAIN"
+    },
+    {
+      "candidate_key": "FIX-AKI-001::INSERT_TRANSIENT_AKI",
+      "candidate_mr_id": "CMR-e23a304617adcf5ee0e244c9",
+      "cds_call_count": 2,
+      "execution_gate": "PROCEED",
+      "pass": true,
+      "result_status": "EXECUTED"
+    },
+    {
+      "candidate_key": "FIX-REDUNDANT-001::REMOVE_REDUNDANT_OBSERVATION",
+      "candidate_mr_id": "CMR-f1c39b6972f8b9f1e38b6a34",
+      "cds_call_count": 2,
+      "execution_gate": "PROCEED",
+      "pass": true,
+      "result_status": "EXECUTED"
+    },
+    {
+      "candidate_key": "FIX-DELAY-001::DELAY_RESULT_ENTRY",
+      "candidate_mr_id": "CMR-fd3fa393813e67e76871758e",
+      "cds_call_count": 2,
+      "execution_gate": "PROCEED",
+      "pass": true,
+      "result_status": "EXECUTED"
+    }
+  ]
+}

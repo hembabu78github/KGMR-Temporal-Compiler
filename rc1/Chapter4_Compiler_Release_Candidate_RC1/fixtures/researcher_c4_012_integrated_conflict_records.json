@@ -1,0 +1,29 @@
+{
+  "records": [
+    {
+      "adjudication_ref": null,
+      "applicability_overlap": "N/A",
+      "common_output_id": "progression_risk",
+      "common_target_id": "D1_PROGRESS_RISK",
+      "conflict_id": "CONFLICT-cf6e58a9ea1ad5ce9bbe",
+      "conflict_resolved_gate": "Fail",
+      "conflict_type": "TemporalConflict",
+      "detection_phase": "compile_time",
+      "expectation_compatibility": "N/A",
+      "involved_candidate_keys": [
+        "FIX-ORDER-001::SWAP_EQUIVALENT_ORDER"
+      ],
+      "legitimate_winner_key": null,
+      "rationale": "Temporal relation is not provable at the available precision; C3-009/C3-013 requires INDETERMINATE rather than a fabricated boolean result.",
+      "record_version": "ConflictResolutionRecord-R1.0",
+      "resolution_status": "UNRESOLVED",
+      "resolution_type": "UNRESOLVED_SAFE_ABSTENTION",
+      "semantic_truth": "INDETERMINATE",
+      "source_refs": [
+        "C4-011:d8c5e07b3272242bf1f32ff3f00cb7b3858dff1f739c4a983990a4ca2f9d1379"
+      ],
+      "system_action": "ABSTAIN",
+      "temporal_overlap": "INDETERMINATE"
+    }
+  ]
+}

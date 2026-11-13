@@ -1,0 +1,139 @@
+{
+  "evidence": [
+    {
+      "evidence_id": "TAX-EXPECTED",
+      "conflict_type": "ExpectedRelationConflict",
+      "involved_candidate_keys": [
+        "SYN-A::INCREASE_SLOPE",
+        "SYN-B::INCREASE_SLOPE"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic disjoint expected-relation sets under the same target/scope.",
+      "source_refs": [
+        "fixture:taxonomy:expected"
+      ]
+    },
+    {
+      "evidence_id": "TAX-APP",
+      "conflict_type": "ApplicabilityConflict",
+      "involved_candidate_keys": [
+        "SYN-A::X",
+        "SYN-B::X"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic incompatible applicability claims for the same snapshot.",
+      "source_refs": [
+        "fixture:taxonomy:applicability"
+      ],
+      "resolution_hint": "EXPLICIT_SCOPE_CONTAINMENT",
+      "legitimate_winner_key": "SYN-B::X"
+    },
+    {
+      "evidence_id": "TAX-EXC",
+      "conflict_type": "ExceptionConflict",
+      "involved_candidate_keys": [
+        "SYN-A::X",
+        "SYN-B::X"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic competing linked exception effects with no mechanical winner.",
+      "source_refs": [
+        "fixture:taxonomy:exception"
+      ]
+    },
+    {
+      "evidence_id": "TAX-VERSION",
+      "conflict_type": "VersionConflict",
+      "involved_candidate_keys": [
+        "SYN-V1::X",
+        "SYN-V2::X"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic two active versions in one lineage.",
+      "source_refs": [
+        "fixture:taxonomy:version"
+      ],
+      "resolution_hint": "RELEASE_PINNED_NON_SUPERSEDED",
+      "legitimate_winner_key": "SYN-V2::X"
+    },
+    {
+      "evidence_id": "TAX-TERM",
+      "conflict_type": "TerminologyConflict",
+      "involved_candidate_keys": [
+        "SYN-A::X"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic multiple plausible external mappings.",
+      "source_refs": [
+        "fixture:taxonomy:terminology"
+      ]
+    },
+    {
+      "evidence_id": "TAX-DATA",
+      "conflict_type": "DataConflict",
+      "involved_candidate_keys": [
+        "SYN-A::X"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic concurrent source observations remain incompatible after frozen selection.",
+      "source_refs": [
+        "fixture:taxonomy:data"
+      ]
+    },
+    {
+      "evidence_id": "TAX-TEMP",
+      "conflict_type": "TemporalConflict",
+      "involved_candidate_keys": [
+        "SYN-A::X"
+      ],
+      "truth": "INDETERMINATE",
+      "rationale": "Synthetic temporal precision cannot establish the relation.",
+      "source_refs": [
+        "fixture:taxonomy:temporal"
+      ]
+    },
+    {
+      "evidence_id": "TAX-POLICY",
+      "conflict_type": "DecisionPolicyConflict",
+      "involved_candidate_keys": [
+        "SYN-D2A::X",
+        "SYN-D2B::X"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic overlapping current D2 policies disagree.",
+      "source_refs": [
+        "fixture:taxonomy:policy"
+      ]
+    },
+    {
+      "evidence_id": "TAX-SOURCE",
+      "conflict_type": "SourceInterpretationConflict",
+      "involved_candidate_keys": [
+        "SYN-SOURCE::X",
+        "SYN-INTERP::X"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic author interpretation conflicts with the source statement.",
+      "source_refs": [
+        "fixture:taxonomy:source"
+      ],
+      "resolution_hint": "SOURCE_AUTHORITATIVE",
+      "legitimate_winner_key": "SYN-SOURCE::X"
+    },
+    {
+      "evidence_id": "TAX-REVIEW",
+      "conflict_type": "ReviewConflict",
+      "involved_candidate_keys": [
+        "SYN-A::X"
+      ],
+      "truth": "TRUE",
+      "rationale": "Synthetic independent reviewer disagreement.",
+      "source_refs": [
+        "fixture:taxonomy:review"
+      ],
+      "resolution_hint": "FORMAL_ADJUDICATION",
+      "legitimate_winner_key": "SYN-A::X",
+      "adjudication_ref": "fixture:taxonomy:adjudication"
+    }
+  ]
+}

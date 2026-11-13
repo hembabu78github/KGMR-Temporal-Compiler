@@ -1,0 +1,12 @@
+{
+  "component_count": 12,
+  "components_with_invariants": 12,
+  "deterministic_repeat_pass": true,
+  "fingerprint_match_count": 12,
+  "inference_policy": "explicit-positive-preservation-evidence + untouched-selector + no-dependency-to-touched-selector",
+  "inferred_invariant_count": 29,
+  "no_inference_from_silence": true,
+  "note": "Software-validation fixtures only; not clinical MR-performance or clinical-validity results.",
+  "rejected_supported_candidate_count": 11,
+  "task": "C4-009"
+}

@@ -1,0 +1,56 @@
+{
+  "model_version": "C3-009-R1.0",
+  "interval_boundary": "HALF_OPEN",
+  "truth_values": [
+    "TRUE",
+    "FALSE",
+    "INDETERMINATE"
+  ],
+  "missing_or_insufficient_precision": "INDETERMINATE",
+  "calendar_arithmetic_for_month_year": true,
+  "normalize_explicit_offsets_to_utc": true,
+  "retain_original_lexical_value": true,
+  "clinical_time_priority": [
+    "specimen",
+    "effective"
+  ],
+  "availability_time": [
+    "issued"
+  ],
+  "provenance_time": [
+    "recorded",
+    "imported"
+  ],
+  "relation_set": [
+    "before",
+    "after",
+    "meets",
+    "metBy",
+    "overlaps",
+    "overlappedBy",
+    "starts",
+    "startedBy",
+    "during",
+    "contains",
+    "finishes",
+    "finishedBy",
+    "equalsTime",
+    "sameClinicalTime",
+    "overlapsEventWindow",
+    "eventWindowOverlaps"
+  ],
+  "duration_window_operators": [
+    "WITHIN",
+    "AT_LEAST",
+    "AT_MOST",
+    "PERSISTS_FOR",
+    "OCCURS_DURING",
+    "OVERLAPS",
+    "WITHIN_HORIZON"
+  ],
+  "srew_version": "SREW-R1.0",
+  "srew_members": [
+    "ckd:overlapsEvent"
+  ],
+  "broad_property_chains": false
+}

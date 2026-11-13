@@ -1,0 +1,62 @@
+{
+  "policy_version": "C4-016-R1.0",
+  "replay_count": 2,
+  "semantic_identity_includes": [
+    "C",
+    "T",
+    "R",
+    "I",
+    "E",
+    "P.source_knowledge_item_ids",
+    "P.source_locator_refs",
+    "P.graph_path_ids",
+    "P.kg_release",
+    "P.ontology_release",
+    "P.shacl_release",
+    "P.proposition_ir_version",
+    "P.compiler_version",
+    "P.operator_library_version",
+    "P.operator_selection_fingerprint",
+    "P.parameter_provenance_refs",
+    "P.inference_profile",
+    "P.closure_policy_version",
+    "P.srew_version",
+    "P.compiler_config_id"
+  ],
+  "semantic_identity_excludes": [
+    "wall_clock_time",
+    "hostname",
+    "pid",
+    "filesystem_path",
+    "P.generation_status",
+    "P.mr_expert_validation_status",
+    "upstream runtime fixture truth"
+  ],
+  "cross_platform_comparison": {
+    "candidate_json": "canonical_semantic_fingerprint",
+    "candidate_yaml": "parsed_semantic_equivalence",
+    "generated_python": "generated_source_sha256_with_normalized_generator",
+    "static_validation": "status_and_registry_semantics"
+  },
+  "required_versions": [
+    "CandidateMR-R1.0",
+    "ClinicalPropositionIR-1.0",
+    "OperatorLibrary-R1.0",
+    "CKD-TKG-R1.0",
+    "CKD-TKG-SHACL-R1.0",
+    "SREW-R1.0",
+    "C3-016-R1.0",
+    "C4-013-R1.0",
+    "C4-014-R1.0",
+    "C4-015-R1.0",
+    "C4-016-R1.0"
+  ],
+  "acceptance": {
+    "stable_candidate_ids": true,
+    "stable_semantic_fingerprints": true,
+    "stable_generated_python_hashes": true,
+    "stable_static_validation_registry": true,
+    "version_inventory_complete": true,
+    "environment_metadata_excluded_from_release_signature": true
+  }
+}

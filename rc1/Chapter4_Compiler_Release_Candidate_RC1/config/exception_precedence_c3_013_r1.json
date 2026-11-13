@@ -1,0 +1,102 @@
+{
+  "model_version": "C3-013-R1.0",
+  "exception_types": {
+    "ApplicabilityExclusion": {
+      "default_effect": "NOT_APPLICABLE",
+      "default_precedence_tier": "P1",
+      "description": "Subject/context is outside rule applicability."
+    },
+    "DataQualityException": {
+      "default_effect": "INELIGIBLE_OR_INDETERMINATE",
+      "default_precedence_tier": "P0",
+      "description": "Required observation is invalid/unsupported."
+    },
+    "MissingDataException": {
+      "default_effect": "INDETERMINATE_ABSTAIN",
+      "default_precedence_tier": "P0",
+      "description": "Required observation or confirmation is absent."
+    },
+    "TemporalPrecisionException": {
+      "default_effect": "INDETERMINATE",
+      "default_precedence_tier": "P3",
+      "description": "Available time precision cannot prove temporal relation."
+    },
+    "ClinicalEventException": {
+      "default_effect": "QUALIFY_LINKED_SEGMENT",
+      "default_precedence_tier": "P3",
+      "description": "Transient/recovery event qualifies chronic interpretation."
+    },
+    "MedicationContextException": {
+      "default_effect": "QUALIFY_LINKED_WINDOW",
+      "default_precedence_tier": "P3",
+      "description": "Medication evaluation window changes interpretation without implying causation."
+    },
+    "TerminologyMappingException": {
+      "default_effect": "LOCAL_ONLY_OR_BLOCK",
+      "default_precedence_tier": "P0",
+      "description": "External mapping is unavailable/ambiguous."
+    },
+    "LicensingReleaseException": {
+      "default_effect": "BLOCK_RELEASE",
+      "default_precedence_tier": "P0",
+      "description": "Target release cannot expose/use restricted artefact."
+    },
+    "ReviewGateException": {
+      "default_effect": "BLOCK_COMPILATION_GATE",
+      "default_precedence_tier": "P0",
+      "description": "Required clinical/technical review is incomplete or rejected."
+    },
+    "ConflictException": {
+      "default_effect": "ABSTAIN_UNRESOLVED_CONFLICT",
+      "default_precedence_tier": "P8",
+      "description": "Another applicable rule creates unresolved contradictory expectation."
+    }
+  },
+  "precedence_tiers": [
+    {
+      "tier": "P0",
+      "principle": "Input integrity / legality"
+    },
+    {
+      "tier": "P1",
+      "principle": "Applicability"
+    },
+    {
+      "tier": "P2",
+      "principle": "Explicit linked exception"
+    },
+    {
+      "tier": "P3",
+      "principle": "Temporal/event semantics"
+    },
+    {
+      "tier": "P4",
+      "principle": "Specificity"
+    },
+    {
+      "tier": "P5",
+      "principle": "Release/version"
+    },
+    {
+      "tier": "P6",
+      "principle": "Guideline strength metadata only"
+    },
+    {
+      "tier": "P7",
+      "principle": "Human adjudication"
+    },
+    {
+      "tier": "P8",
+      "principle": "Unresolved safety / abstention"
+    }
+  ],
+  "safety_rules": {
+    "specificity_requires_explicit_scope_containment": true,
+    "lexical_specificity_forbidden": true,
+    "guideline_strength_never_automatic_precedence": true,
+    "unresolved_conflict_action": "ABSTAIN",
+    "unresolved_conflict_truth": "INDETERMINATE",
+    "unresolved_conflict_gate": "ConflictResolved:FailOrPending",
+    "exception_scope_is_local_to_explicit_link": true
+  }
+}

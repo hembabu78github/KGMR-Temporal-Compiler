@@ -1,0 +1,28 @@
+{
+  "model_version": "C3-013-R1.0",
+  "conflict_types": [
+    "ExpectedRelationConflict",
+    "ApplicabilityConflict",
+    "ExceptionConflict",
+    "VersionConflict",
+    "TerminologyConflict",
+    "DataConflict",
+    "TemporalConflict",
+    "DecisionPolicyConflict",
+    "SourceInterpretationConflict",
+    "ReviewConflict"
+  ],
+  "conflict_scope_rule": {
+    "same_target_output": true,
+    "overlapping_applicability": true,
+    "overlapping_temporal_scope": true,
+    "incompatible_expectations": true
+  },
+  "safety": {
+    "unresolved_action": "ABSTAIN",
+    "unresolved_truth": "INDETERMINATE",
+    "unresolved_conflict_gate": "Fail",
+    "guideline_strength_is_automatic_tiebreak": false,
+    "lexical_specificity_allowed": false
+  }
+}

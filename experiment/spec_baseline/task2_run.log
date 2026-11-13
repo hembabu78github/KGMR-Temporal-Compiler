@@ -1,0 +1,52 @@
+candidate syntactic mutants 388 families {'compare': 220, 'numeric_constant': 99, 'arithmetic': 54, 'branch_swap': 15}
+baseline reference validity 24 of 24 invalid []
+{
+  "protocol_sha256": "4ffe77f3068caa6bd7459d82c111b6c6b55e30865c76a49c070908e037283f29",
+  "syntactic_mutants": 388,
+  "source_cases": 24,
+  "baseline_reference_valid": 24,
+  "families": {
+    "compare": 220,
+    "numeric_constant": 99,
+    "arithmetic": 54,
+    "branch_swap": 15
+  },
+  "mutation_case_runs": 9312,
+  "runs_with_errors": 255,
+  "generated_detected": 64,
+  "baseline_detected": 69,
+  "both_detected": 64,
+  "generated_only": 0,
+  "baseline_only": 5,
+  "locally_distinguished": 115,
+  "locally_not_distinguished": 273,
+  "evaluation_scope": "Code-level mutations of existing synthetic target; independent baseline transformation and oracle implementation, authored in the same study; no blindness or external authorship; same source-case set; non-eligible baseline cases excluded"
+}
+{
+  "study": "V3.4 Task 2, internal unversioned frozen requirements-to-MR baseline comparison",
+  "baseline_requirements_sha256": "e7bb08481bce7ec9a46914bc01320cc93fa0dce029764156355286fa85172041",
+  "baseline_source_sha256": "f32ebbd72f4b92e28a60629840969c22ccaab12d19008201acb48043c74a663a",
+  "mutants": 388,
+  "cases": 24,
+  "evaluations": 9312,
+  "reference_pairs_valid_original": 24,
+  "reference_pairs_valid_new_baseline": 24,
+  "mutants_with_execution_errors": 40,
+  "mutants_error_free_with_observed_difference": 103,
+  "mutants_error_free_without_observed_difference": 245,
+  "clean_distinguishable_paired": {
+    "neither": 46,
+    "both": 57
+  },
+  "clean_distinguishable_original_killed": 57,
+  "clean_distinguishable_new_baseline_killed": 57,
+  "case_pairs_with_identical_followup": 21,
+  "mutant_case_rows_with_errors": 255,
+  "limitations": [
+    "same-study authorship and requirements domains, not blinded or externally developed",
+    "same source cases, but transformed followups may differ",
+    "behavioral distinguishability only within tested fixture inputs; not global non-equivalence",
+    "errors excluded in primary comparison; not automatically counted as kills",
+    "synthetic target program, not clinical validation"
+  ]
+}

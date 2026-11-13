@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OperatorSelectionResult 1.0",
+  "type": "object",
+  "required": [
+    "proposition_id",
+    "compiler_version",
+    "operator_library_version",
+    "selection_status",
+    "admission_status",
+    "gate_snapshot",
+    "operator_decisions",
+    "selected_operators",
+    "selection_fingerprint",
+    "notes"
+  ]
+}

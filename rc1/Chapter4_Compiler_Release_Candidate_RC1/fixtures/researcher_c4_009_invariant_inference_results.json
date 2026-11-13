@@ -1,0 +1,1127 @@
+{
+  "results": [
+    {
+      "component_fingerprint": "988f0c8ad9e26bfa171c934064ed39da9933271a0ce273dea07e6c0b67780c35",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-AKI-001:subject",
+          "evidence_path": [
+            "FIX-AKI-001:seed",
+            "supports_invariant:fixture:p-subj",
+            "FIX-AKI-001:subject"
+          ],
+          "invariant_id": "INV-343ea9d7b1f15ae0",
+          "operator_id": "INSERT_TRANSIENT_AKI",
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-343ea9d7b1f15ae0",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        }
+      ],
+      "invariant_fingerprint": "f20fd2d999c4a1b7095e92b6882fe4ec35f6a5f4364734f10f237ac084d28190",
+      "notes": [],
+      "operator_id": "INSERT_TRANSIENT_AKI",
+      "proposition_id": "FIX-AKI-001",
+      "rejected_candidates": [],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "a9efce1b9b0a1bac25cecc1b4835b8919d223578275b107abf93cd0e40a44911",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-DELAY-001:effective",
+          "evidence_path": [
+            "FIX-DELAY-001:seed",
+            "supports_invariant:fixture:preserve-effective",
+            "FIX-DELAY-001:effective"
+          ],
+          "invariant_id": "INV-87b048fdafc0122a",
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "source_refs": [
+            "fixture:effective-time",
+            "fixture:preserve-effective"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-DELAY-001:value",
+          "evidence_path": [
+            "FIX-DELAY-001:seed",
+            "supports_invariant:fixture:preserve-value",
+            "FIX-DELAY-001:value"
+          ],
+          "invariant_id": "INV-f9ca719630802726",
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "source_refs": [
+            "fixture:preserve-value",
+            "fixture:value"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-DELAY-001:subject",
+          "evidence_path": [
+            "FIX-DELAY-001:seed",
+            "supports_invariant:fixture:preserve-subject",
+            "FIX-DELAY-001:subject"
+          ],
+          "invariant_id": "INV-3f7be8a92781f101",
+          "operator_id": "DELAY_RESULT_ENTRY",
+          "source_refs": [
+            "fixture:preserve-subject",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[selected].effective_time",
+          "invariant_id": "INV-87b048fdafc0122a",
+          "invariant_type": "TIME",
+          "parameters": {},
+          "source_refs": [
+            "fixture:effective-time",
+            "fixture:preserve-effective"
+          ],
+          "source_selector": "observations[selected].effective_time"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[selected].value",
+          "invariant_id": "INV-f9ca719630802726",
+          "invariant_type": "VALUE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:preserve-value",
+            "fixture:value"
+          ],
+          "source_selector": "observations[selected].value"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-3f7be8a92781f101",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:preserve-subject",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        }
+      ],
+      "invariant_fingerprint": "b4732606b4b15cb3c9a1421cb5fbd35f401df6d9388958be262a525214730098",
+      "notes": [],
+      "operator_id": "DELAY_RESULT_ENTRY",
+      "proposition_id": "FIX-DELAY-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-DELAY-001:issued",
+          "evidence_path": [
+            "FIX-DELAY-001:seed",
+            "supports_invariant:fixture:bad-preserve-issued",
+            "FIX-DELAY-001:issued"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "observations[selected].issued_time",
+          "source_refs": [
+            "fixture:bad-preserve-issued",
+            "fixture:issued-time"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "abb55324087aa65ccd10bbf3cfbe9fd6a1df4f0eb6523477f73df7f2e11ebe63",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-MASK-001:clinical_value",
+          "evidence_path": [
+            "FIX-MASK-001:seed",
+            "supports_invariant:fixture:preserve-clinical-value",
+            "FIX-MASK-001:clinical_value"
+          ],
+          "invariant_id": "INV-34393f2aad74ed21",
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "source_refs": [
+            "fixture:preserve-clinical-value",
+            "fixture:required-observation"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-MASK-001:subject",
+          "evidence_path": [
+            "FIX-MASK-001:seed",
+            "supports_invariant:fixture:preserve-subject",
+            "FIX-MASK-001:subject"
+          ],
+          "invariant_id": "INV-4e6f33f70b7e422b",
+          "operator_id": "MASK_REQUIRED_OBSERVATION",
+          "source_refs": [
+            "fixture:preserve-subject",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[selected].clinical_value",
+          "invariant_id": "INV-34393f2aad74ed21",
+          "invariant_type": "VALUE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:preserve-clinical-value",
+            "fixture:required-observation"
+          ],
+          "source_selector": "observations[selected].clinical_value"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-4e6f33f70b7e422b",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:preserve-subject",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        }
+      ],
+      "invariant_fingerprint": "d0b111e087a6c5615e70a1b2b9a2ade8c85557b2a6504ca968d0a8c43b84f347",
+      "notes": [],
+      "operator_id": "MASK_REQUIRED_OBSERVATION",
+      "proposition_id": "FIX-MASK-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-MASK-001:availability",
+          "evidence_path": [
+            "FIX-MASK-001:seed",
+            "supports_invariant:fixture:bad-preserve-availability",
+            "FIX-MASK-001:availability"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "observations[selected].availability",
+          "source_refs": [
+            "fixture:availability",
+            "fixture:bad-preserve-availability"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "23e4c94e7c884b1757a3f61ffbe285b3ed1ea39c45a0a5aaee71b8f818c20650",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-ORDER-001:effective",
+          "evidence_path": [
+            "FIX-ORDER-001:seed",
+            "supports_invariant:fixture:p-time",
+            "FIX-ORDER-001:effective"
+          ],
+          "invariant_id": "INV-8c1f9f65f96d6927",
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "source_refs": [
+            "fixture:order",
+            "fixture:p-time"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-ORDER-001:value",
+          "evidence_path": [
+            "FIX-ORDER-001:seed",
+            "supports_invariant:fixture:p-value",
+            "FIX-ORDER-001:value"
+          ],
+          "invariant_id": "INV-8367ee29d1dba17d",
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "source_refs": [
+            "fixture:order",
+            "fixture:p-value"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-ORDER-001:subject",
+          "evidence_path": [
+            "FIX-ORDER-001:seed",
+            "supports_invariant:fixture:p-subj",
+            "FIX-ORDER-001:subject"
+          ],
+          "invariant_id": "INV-8098fe6341c16123",
+          "operator_id": "SWAP_EQUIVALENT_ORDER",
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[equivalent_set].effective_time",
+          "invariant_id": "INV-8c1f9f65f96d6927",
+          "invariant_type": "TIME",
+          "parameters": {},
+          "source_refs": [
+            "fixture:order",
+            "fixture:p-time"
+          ],
+          "source_selector": "observations[equivalent_set].effective_time"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[equivalent_set].value",
+          "invariant_id": "INV-8367ee29d1dba17d",
+          "invariant_type": "VALUE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:order",
+            "fixture:p-value"
+          ],
+          "source_selector": "observations[equivalent_set].value"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-8098fe6341c16123",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        }
+      ],
+      "invariant_fingerprint": "df0e9028bd74f1fe9ca586e9053e889a7fbaa81dcd3d2f230d986045d143fc1c",
+      "notes": [],
+      "operator_id": "SWAP_EQUIVALENT_ORDER",
+      "proposition_id": "FIX-ORDER-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-ORDER-001:sequence",
+          "evidence_path": [
+            "FIX-ORDER-001:seed",
+            "supports_invariant:fixture:bad-seq",
+            "FIX-ORDER-001:sequence"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "observations[equivalent_set].sequence_position",
+          "source_refs": [
+            "fixture:bad-seq",
+            "fixture:order"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "545e645e8cd7c7c3b1ca03bfebe1aacf6c5beafd15880d554dd9b0387aa54c4d",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-PENDING-ADMISSION-001:unit",
+          "evidence_path": [
+            "FIX-PENDING-ADMISSION-001:seed",
+            "supports_invariant:fixture:preserve-unit",
+            "FIX-PENDING-ADMISSION-001:unit"
+          ],
+          "invariant_id": "INV-0c4e7de645005945",
+          "operator_id": "SHIFT_TIME",
+          "source_refs": [
+            "fixture:kg-unit",
+            "fixture:preserve-unit"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-PENDING-ADMISSION-001:value",
+          "evidence_path": [
+            "FIX-PENDING-ADMISSION-001:seed",
+            "supports_invariant:fixture:preserve-value",
+            "FIX-PENDING-ADMISSION-001:value"
+          ],
+          "invariant_id": "INV-cdd7a37767972862",
+          "operator_id": "SHIFT_TIME",
+          "source_refs": [
+            "fixture:kg-value",
+            "fixture:preserve-value"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-PENDING-ADMISSION-001:subject",
+          "evidence_path": [
+            "FIX-PENDING-ADMISSION-001:seed",
+            "supports_invariant:fixture:preserve-subject",
+            "FIX-PENDING-ADMISSION-001:subject"
+          ],
+          "invariant_id": "INV-1ed6358fcb041a48",
+          "operator_id": "SHIFT_TIME",
+          "source_refs": [
+            "fixture:preserve-subject",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[selected].unit",
+          "invariant_id": "INV-0c4e7de645005945",
+          "invariant_type": "VALUE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:kg-unit",
+            "fixture:preserve-unit"
+          ],
+          "source_selector": "observations[selected].unit"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[selected].value",
+          "invariant_id": "INV-cdd7a37767972862",
+          "invariant_type": "VALUE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:kg-value",
+            "fixture:preserve-value"
+          ],
+          "source_selector": "observations[selected].value"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-1ed6358fcb041a48",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:preserve-subject",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        }
+      ],
+      "invariant_fingerprint": "1af5850a4c8b83f7c239407149dab5c6b9f0410b3bc1cc24fe693a86225920d8",
+      "notes": [],
+      "operator_id": "SHIFT_TIME",
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-PENDING-ADMISSION-001:effective",
+          "evidence_path": [
+            "FIX-PENDING-ADMISSION-001:seed",
+            "supports_invariant:fixture:bad-preserve-effective",
+            "FIX-PENDING-ADMISSION-001:effective"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "observations[selected].effective_time",
+          "source_refs": [
+            "fixture:bad-preserve-effective",
+            "fixture:kg-time"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "5f96113ac990c66b649c339c6fc461be56c2f627dad8863ed87a8f8679da0bc7",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-REDUNDANT-001:subject",
+          "evidence_path": [
+            "FIX-REDUNDANT-001:seed",
+            "supports_invariant:fixture:p-subj",
+            "FIX-REDUNDANT-001:subject"
+          ],
+          "invariant_id": "INV-415dc7fa898c0744",
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-REDUNDANT-001:required",
+          "evidence_path": [
+            "FIX-REDUNDANT-001:seed",
+            "declares_preserved:fixture:p-required",
+            "FIX-REDUNDANT-001:required"
+          ],
+          "invariant_id": "INV-7bb40beb4eac84cb",
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "source_refs": [
+            "fixture:p-required",
+            "fixture:required-set"
+          ],
+          "support_relation": "declares_preserved"
+        },
+        {
+          "candidate_node_id": "FIX-REDUNDANT-001:anchor",
+          "evidence_path": [
+            "FIX-REDUNDANT-001:seed",
+            "protects_anchor:fixture:p-anchor",
+            "FIX-REDUNDANT-001:anchor"
+          ],
+          "invariant_id": "INV-abf0db8331193014",
+          "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+          "source_refs": [
+            "fixture:p-anchor",
+            "fixture:protected-anchor"
+          ],
+          "support_relation": "protects_anchor"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-415dc7fa898c0744",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        },
+        {
+          "comparator_id": "set_equal_v1",
+          "followup_selector": "required_observations",
+          "invariant_id": "INV-7bb40beb4eac84cb",
+          "invariant_type": "STRUCTURE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-required",
+            "fixture:required-set"
+          ],
+          "source_selector": "required_observations"
+        },
+        {
+          "comparator_id": "set_equal_v1",
+          "followup_selector": "trajectory.protected_anchors",
+          "invariant_id": "INV-abf0db8331193014",
+          "invariant_type": "STRUCTURE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-anchor",
+            "fixture:protected-anchor"
+          ],
+          "source_selector": "trajectory.protected_anchors"
+        }
+      ],
+      "invariant_fingerprint": "dc807357de8b1125de4f2e49a3b4e7d0a6bd4b29cbb07bf184cb476a02557eee",
+      "notes": [],
+      "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+      "proposition_id": "FIX-REDUNDANT-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-REDUNDANT-001:trajectory",
+          "evidence_path": [
+            "FIX-REDUNDANT-001:seed",
+            "supports_invariant:fixture:bad-trajectory",
+            "FIX-REDUNDANT-001:trajectory"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "trajectory.observations",
+          "source_refs": [
+            "fixture:bad-trajectory",
+            "fixture:trajectory"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "807bcc9ef9562e3513ea400ea08e5fadf3dcd914661e386099dbde3ad4379137",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-STATE-001:subject",
+          "evidence_path": [
+            "FIX-STATE-001:seed",
+            "supports_invariant:fixture:p-subj",
+            "FIX-STATE-001:subject"
+          ],
+          "invariant_id": "INV-4b65d5dfced262b0",
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-STATE-001:state",
+          "evidence_path": [
+            "FIX-STATE-001:seed",
+            "defines_preserved_state:fixture:p-state",
+            "FIX-STATE-001:state"
+          ],
+          "invariant_id": "INV-ef1e44654db1d4f3",
+          "operator_id": "PRESERVE_CLINICAL_STATE",
+          "source_refs": [
+            "fixture:p-state",
+            "fixture:state-definition"
+          ],
+          "support_relation": "defines_preserved_state"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-4b65d5dfced262b0",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        },
+        {
+          "comparator_id": "state_signature_equal_v1",
+          "followup_selector": "state_defining_fields",
+          "invariant_id": "INV-ef1e44654db1d4f3",
+          "invariant_type": "STATE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-state",
+            "fixture:state-definition"
+          ],
+          "source_selector": "state_defining_fields"
+        }
+      ],
+      "invariant_fingerprint": "7f660da689c587d8a6faec5c80ced2cd4fc29c82abcad34d971ae4b138187745",
+      "notes": [],
+      "operator_id": "PRESERVE_CLINICAL_STATE",
+      "proposition_id": "FIX-STATE-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-STATE-001:mutable",
+          "evidence_path": [
+            "FIX-STATE-001:seed",
+            "supports_invariant:fixture:bad-mutable",
+            "FIX-STATE-001:mutable"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "declared_mutable_fields",
+          "source_refs": [
+            "fixture:bad-mutable",
+            "fixture:mutable-fields"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "2176c708344b0dfc1f6653bc1569d4f8fe90d3f251887d87732ba96c3d572720",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-TIME-001:unit",
+          "evidence_path": [
+            "FIX-TIME-001:seed",
+            "supports_invariant:fixture:preserve-unit",
+            "FIX-TIME-001:unit"
+          ],
+          "invariant_id": "INV-15db2810bd0b89a0",
+          "operator_id": "SHIFT_TIME",
+          "source_refs": [
+            "fixture:kg-unit",
+            "fixture:preserve-unit"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-TIME-001:value",
+          "evidence_path": [
+            "FIX-TIME-001:seed",
+            "supports_invariant:fixture:preserve-value",
+            "FIX-TIME-001:value"
+          ],
+          "invariant_id": "INV-90928e6a78b83949",
+          "operator_id": "SHIFT_TIME",
+          "source_refs": [
+            "fixture:kg-value",
+            "fixture:preserve-value"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-TIME-001:subject",
+          "evidence_path": [
+            "FIX-TIME-001:seed",
+            "supports_invariant:fixture:preserve-subject",
+            "FIX-TIME-001:subject"
+          ],
+          "invariant_id": "INV-17714cff3e76a0d5",
+          "operator_id": "SHIFT_TIME",
+          "source_refs": [
+            "fixture:preserve-subject",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[selected].unit",
+          "invariant_id": "INV-15db2810bd0b89a0",
+          "invariant_type": "VALUE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:kg-unit",
+            "fixture:preserve-unit"
+          ],
+          "source_selector": "observations[selected].unit"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[selected].value",
+          "invariant_id": "INV-90928e6a78b83949",
+          "invariant_type": "VALUE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:kg-value",
+            "fixture:preserve-value"
+          ],
+          "source_selector": "observations[selected].value"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-17714cff3e76a0d5",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:preserve-subject",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        }
+      ],
+      "invariant_fingerprint": "c1ef131a147e087d348158f6c253cb0893657a099d02ab63ab2c12d3e08534c3",
+      "notes": [],
+      "operator_id": "SHIFT_TIME",
+      "proposition_id": "FIX-TIME-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-TIME-001:effective",
+          "evidence_path": [
+            "FIX-TIME-001:seed",
+            "supports_invariant:fixture:bad-preserve-effective",
+            "FIX-TIME-001:effective"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "observations[selected].effective_time",
+          "source_refs": [
+            "fixture:bad-preserve-effective",
+            "fixture:kg-time"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "5efc0ec1d08a634945e2debb75de0d63c5f2d601c72cba3f6309473a6b4f0cd1",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-TRAJ-001:subject",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "supports_invariant:fixture:p-subj",
+            "FIX-TRAJ-001:subject"
+          ],
+          "invariant_id": "INV-669e684cac48e85d",
+          "operator_id": "DECREASE_SLOPE",
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-TRAJ-001:anchors",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "protects_anchor:fixture:p-anchor",
+            "FIX-TRAJ-001:anchors"
+          ],
+          "invariant_id": "INV-6d02261e501a8755",
+          "operator_id": "DECREASE_SLOPE",
+          "source_refs": [
+            "fixture:p-anchor",
+            "fixture:protected-anchors"
+          ],
+          "support_relation": "protects_anchor"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-669e684cac48e85d",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        },
+        {
+          "comparator_id": "set_equal_v1",
+          "followup_selector": "trajectory.protected_anchors",
+          "invariant_id": "INV-6d02261e501a8755",
+          "invariant_type": "STRUCTURE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-anchor",
+            "fixture:protected-anchors"
+          ],
+          "source_selector": "trajectory.protected_anchors"
+        }
+      ],
+      "invariant_fingerprint": "4fe62ae892c3247364cd25493a867c8a552e2280834ce0a6fbe2e3df9e8be999",
+      "notes": [],
+      "operator_id": "DECREASE_SLOPE",
+      "proposition_id": "FIX-TRAJ-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-TRAJ-001:derived-risk",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "supports_invariant:fixture:p-derived-risk",
+            "FIX-TRAJ-001:derived-risk",
+            "DEPENDENCY_CHECK",
+            "FIX-TRAJ-001:derived-risk",
+            "depends_on:fixture:dep-risk-on-modifiable",
+            "FIX-TRAJ-001:modifiable"
+          ],
+          "reason": "DEPENDS_ON_TRANSFORMED_SELECTOR",
+          "selector": "derived.risk_context",
+          "source_refs": [
+            "fixture:derived-risk",
+            "fixture:p-derived-risk"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "fddac113b58e33fe57849f0400cd0cc4e06e1ecd43c6d3d4815f6aa2bfd3782e",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-TRAJ-001:subject",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "supports_invariant:fixture:p-subj",
+            "FIX-TRAJ-001:subject"
+          ],
+          "invariant_id": "INV-556e5a6e5d458274",
+          "operator_id": "INCREASE_SLOPE",
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-TRAJ-001:anchors",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "protects_anchor:fixture:p-anchor",
+            "FIX-TRAJ-001:anchors"
+          ],
+          "invariant_id": "INV-f520c729df757662",
+          "operator_id": "INCREASE_SLOPE",
+          "source_refs": [
+            "fixture:p-anchor",
+            "fixture:protected-anchors"
+          ],
+          "support_relation": "protects_anchor"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-556e5a6e5d458274",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        },
+        {
+          "comparator_id": "set_equal_v1",
+          "followup_selector": "trajectory.protected_anchors",
+          "invariant_id": "INV-f520c729df757662",
+          "invariant_type": "STRUCTURE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-anchor",
+            "fixture:protected-anchors"
+          ],
+          "source_selector": "trajectory.protected_anchors"
+        }
+      ],
+      "invariant_fingerprint": "bd72cfd1a452e980fba173549b01cef172c0d422945dfbc0d5863f9a642d8d2d",
+      "notes": [],
+      "operator_id": "INCREASE_SLOPE",
+      "proposition_id": "FIX-TRAJ-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-TRAJ-001:derived-risk",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "supports_invariant:fixture:p-derived-risk",
+            "FIX-TRAJ-001:derived-risk",
+            "DEPENDENCY_CHECK",
+            "FIX-TRAJ-001:derived-risk",
+            "depends_on:fixture:dep-risk-on-modifiable",
+            "FIX-TRAJ-001:modifiable"
+          ],
+          "reason": "DEPENDS_ON_TRANSFORMED_SELECTOR",
+          "selector": "derived.risk_context",
+          "source_refs": [
+            "fixture:derived-risk",
+            "fixture:p-derived-risk"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "58b1c46ab2df77a2d4bf9f54315ef2109daa7f9bb356399257c1e415fb5068f3",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-TRAJ-001:subject",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "supports_invariant:fixture:p-subj",
+            "FIX-TRAJ-001:subject"
+          ],
+          "invariant_id": "INV-de5460c81114448c",
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-TRAJ-001:anchors",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "protects_anchor:fixture:p-anchor",
+            "FIX-TRAJ-001:anchors"
+          ],
+          "invariant_id": "INV-cae42b6035922931",
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "source_refs": [
+            "fixture:p-anchor",
+            "fixture:protected-anchors"
+          ],
+          "support_relation": "protects_anchor"
+        },
+        {
+          "candidate_node_id": "FIX-TRAJ-001:derived-risk",
+          "evidence_path": [
+            "FIX-TRAJ-001:seed",
+            "supports_invariant:fixture:p-derived-risk",
+            "FIX-TRAJ-001:derived-risk"
+          ],
+          "invariant_id": "INV-23b55f1e4d6c6f2a",
+          "operator_id": "RESAMPLE_TRAJECTORY",
+          "source_refs": [
+            "fixture:derived-risk",
+            "fixture:p-derived-risk"
+          ],
+          "support_relation": "supports_invariant"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-de5460c81114448c",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        },
+        {
+          "comparator_id": "set_equal_v1",
+          "followup_selector": "trajectory.protected_anchors",
+          "invariant_id": "INV-cae42b6035922931",
+          "invariant_type": "STRUCTURE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-anchor",
+            "fixture:protected-anchors"
+          ],
+          "source_selector": "trajectory.protected_anchors"
+        },
+        {
+          "comparator_id": "state_equal_v1",
+          "followup_selector": "derived.risk_context",
+          "invariant_id": "INV-23b55f1e4d6c6f2a",
+          "invariant_type": "STATE",
+          "parameters": {},
+          "source_refs": [
+            "fixture:derived-risk",
+            "fixture:p-derived-risk"
+          ],
+          "source_selector": "derived.risk_context"
+        }
+      ],
+      "invariant_fingerprint": "b6ddd3886c084c0f37830f88612552e05c8d36e1f681eee2f12e3b02a567e53d",
+      "notes": [],
+      "operator_id": "RESAMPLE_TRAJECTORY",
+      "proposition_id": "FIX-TRAJ-001",
+      "rejected_candidates": [],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "component_fingerprint": "a83454fe2af2c43e83133cae4025c3343d7e238fc0692ac27eaafac11460157e",
+      "evidence_records": [
+        {
+          "candidate_node_id": "FIX-UNIT-001:effective",
+          "evidence_path": [
+            "FIX-UNIT-001:seed",
+            "supports_invariant:fixture:p-time",
+            "FIX-UNIT-001:effective"
+          ],
+          "invariant_id": "INV-34cf75fbe7dfdb6a",
+          "operator_id": "CONVERT_UNIT",
+          "source_refs": [
+            "fixture:effective-time",
+            "fixture:p-time"
+          ],
+          "support_relation": "supports_invariant"
+        },
+        {
+          "candidate_node_id": "FIX-UNIT-001:subject",
+          "evidence_path": [
+            "FIX-UNIT-001:seed",
+            "supports_invariant:fixture:p-subj",
+            "FIX-UNIT-001:subject"
+          ],
+          "invariant_id": "INV-b05f634a9fb3e748",
+          "operator_id": "CONVERT_UNIT",
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "support_relation": "supports_invariant"
+        }
+      ],
+      "inference_status": "INVARIANTS_INFERRED",
+      "inferred_invariants": [
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "observations[selected].effective_time",
+          "invariant_id": "INV-34cf75fbe7dfdb6a",
+          "invariant_type": "TIME",
+          "parameters": {},
+          "source_refs": [
+            "fixture:effective-time",
+            "fixture:p-time"
+          ],
+          "source_selector": "observations[selected].effective_time"
+        },
+        {
+          "comparator_id": "exact_equal_v1",
+          "followup_selector": "subject.id",
+          "invariant_id": "INV-b05f634a9fb3e748",
+          "invariant_type": "IDENTITY",
+          "parameters": {},
+          "source_refs": [
+            "fixture:p-subj",
+            "fixture:subject-contract"
+          ],
+          "source_selector": "subject.id"
+        }
+      ],
+      "invariant_fingerprint": "921333fcb86d97d809456f14f387b9ef60d037294181dfc7091bc07071d02ea2",
+      "notes": [],
+      "operator_id": "CONVERT_UNIT",
+      "proposition_id": "FIX-UNIT-001",
+      "rejected_candidates": [
+        {
+          "candidate_node_id": "FIX-UNIT-001:unit",
+          "evidence_path": [
+            "FIX-UNIT-001:seed",
+            "supports_invariant:fixture:bad-unit",
+            "FIX-UNIT-001:unit"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "observations[selected].unit",
+          "source_refs": [
+            "fixture:bad-unit",
+            "fixture:unit"
+          ]
+        },
+        {
+          "candidate_node_id": "FIX-UNIT-001:value",
+          "evidence_path": [
+            "FIX-UNIT-001:seed",
+            "supports_invariant:fixture:bad-value",
+            "FIX-UNIT-001:value"
+          ],
+          "reason": "SELECTOR_TOUCHED_BY_TRANSFORMATION",
+          "selector": "observations[selected].value",
+          "source_refs": [
+            "fixture:bad-value",
+            "fixture:value"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    }
+  ]
+}

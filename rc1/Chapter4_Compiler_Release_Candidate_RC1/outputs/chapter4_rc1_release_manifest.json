@@ -1,0 +1,39 @@
+{
+  "chapter4_rc_signature": "593aa977505055450f839bd24f628c980f2fa83a0c628a8c9961749004f2e4f3",
+  "environment_in_release_signature": false,
+  "environment_observation": {
+    "platform_machine": "AMD64",
+    "platform_system": "Windows",
+    "python_implementation": "CPython",
+    "python_version": "3.11.0"
+  },
+  "interpretation": {
+    "does_not_mean": [
+      "expert-clinical validation",
+      "clinical MR acceptance",
+      "real CKD compiler yield",
+      "real CDS robustness",
+      "novelty versus baseline"
+    ],
+    "status_on_pass": "SOFTWARE_ENGINEERING_RC_ACCEPTED"
+  },
+  "release_core": {
+    "acceptance_check_count": 22,
+    "acceptance_failed_check_count": 0,
+    "candidate_count": 12,
+    "control_blocked_count": 4,
+    "execution_admissible_count": 8,
+    "expert_validation_unreviewed_count": 12,
+    "generated_python_module_count": 12,
+    "pipeline_scope": "C4-006-through-C4-016",
+    "release_candidate_id": "CH4-COMPILER-RC1",
+    "release_candidate_version": "RC1",
+    "release_status": "SOFTWARE_ENGINEERING_RC_ACCEPTED",
+    "reproducibility_signature": "1fb461973aa502a3db2285a0f728fc49d52c4ee6ab5b3178beb8d8f330c421ed",
+    "software_only": true,
+    "static_validation_pass_count": 12,
+    "unique_operator_count": 11,
+    "unit_test_count": 291
+  },
+  "researcher_c4_016_reproducibility_signature": "1fb461973aa502a3db2285a0f728fc49d52c4ee6ab5b3178beb8d8f330c421ed"
+}

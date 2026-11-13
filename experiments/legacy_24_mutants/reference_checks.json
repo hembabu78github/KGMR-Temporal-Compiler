@@ -1,0 +1,194 @@
+[
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 1,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "MONITOR_3M",
+    "followup_output": "MONITOR_3M"
+  },
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 2,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "REVIEW",
+    "followup_output": "REVIEW"
+  },
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 3,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "REVIEW",
+    "followup_output": "REVIEW"
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 1,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 49.0,
+    "followup_output": 49.0
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 2,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 48.0,
+    "followup_output": 48.0
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 3,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 47.0,
+    "followup_output": 47.0
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 1,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "G3a",
+    "followup_output": "G3a"
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 2,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "G3a",
+    "followup_output": "G3a"
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 3,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "G3a",
+    "followup_output": "G3a"
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 1,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "HIGH",
+    "followup_output": "HIGH"
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 2,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "HIGH",
+    "followup_output": "HIGH"
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 3,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "HIGH",
+    "followup_output": "HIGH"
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 1,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "LOW",
+    "followup_output": "MODERATE"
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 2,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "LOW",
+    "followup_output": "LOW"
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 3,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": "MODERATE",
+    "followup_output": "MODERATE"
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 1,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 1.0,
+    "followup_output": 1.0
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 2,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 0.8,
+    "followup_output": 0.8
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 3,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 0.6,
+    "followup_output": 0.6
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 1,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 48.0,
+    "followup_output": 48.0
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 2,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 49.0,
+    "followup_output": 49.0
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 3,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 50.0,
+    "followup_output": 50.0
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 1,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 90.0,
+    "followup_output": 90.0
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 2,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 80.0,
+    "followup_output": 80.0
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 3,
+    "status": "EXECUTED",
+    "oracle_truth": "TRUE",
+    "source_output": 70.0,
+    "followup_output": 70.0
+  }
+]

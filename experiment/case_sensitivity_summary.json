@@ -1,0 +1,36 @@
+{
+  "random_seed": 231104,
+  "original_protocol_checksum": "4ffe77f3068caa6bd7459d82c111b6c6b55e30865c76a49c070908e037283f29",
+  "source_cases_generated": 24,
+  "source_cases_accepted": 22,
+  "source_cases_rejected": 2,
+  "mutation_evaluations": 8536,
+  "original": {
+    "mutants": 388,
+    "with_errors": 40,
+    "fully_valid": 348,
+    "distinguished": 115,
+    "valid_distinguished": 103,
+    "generated_kills": 64,
+    "baseline_kills": 69
+  },
+  "additional_cases": {
+    "mutants": 388,
+    "with_errors": 40,
+    "fully_valid": 348,
+    "distinguished": 103,
+    "valid_distinguished": 91,
+    "generated_kills": 58,
+    "baseline_kills": 63
+  },
+  "combined": {
+    "mutants": 388,
+    "with_errors": 40,
+    "fully_valid": 348,
+    "distinguished": 115,
+    "valid_distinguished": 103,
+    "generated_kills": 64,
+    "baseline_kills": 69
+  },
+  "constraints": "Supplementary sensitivity experiment from fixture schemas, not independent clinical samples or blinded authorship. Reference validity screened before mutation evaluation."
+}

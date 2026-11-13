@@ -1,0 +1,368 @@
+{
+  "results": [
+    {
+      "c4_010_exception_fingerprint": "1bb2bcc2fe877a1e79f00be8e246592ba37ac647d217aeea580522f9338a4eae",
+      "component_fingerprint": "988f0c8ad9e26bfa171c934064ed39da9933271a0ce273dea07e6c0b67780c35",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-AKI-RECOVERY",
+          "operator": "AT_MOST",
+          "reason": "MAXIMUM_SEPARATION_SATISFIED_FOR_ALL",
+          "source_refs": [
+            "fixture:recovery-window"
+          ],
+          "truth": "TRUE"
+        },
+        {
+          "constraint_id": "TC-AKI-WITHIN",
+          "operator": "WITHIN",
+          "reason": "MAX_ABSOLUTE_SEPARATION_WITHIN_BOUND",
+          "source_refs": [
+            "fixture:acute-like-window"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "notes": [],
+      "operator_id": "INSERT_TRANSIENT_AKI",
+      "proposition_id": "FIX-AKI-001",
+      "structural_conflicts": [],
+      "system_action": "PROCEED",
+      "temporal_fingerprint": "7c304d0588a06a7189899bb747b003583a1bf1048da72cbe55ba611ef832f0aa",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2026-01-01T00:00:00Z",
+        "latest_clinical_time": "2026-01-24T00:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "b6031547f88570df4c5393e507fe2bcca863e6e5f506cac09e608d48ba2c750f",
+      "component_fingerprint": "a9efce1b9b0a1bac25cecc1b4835b8919d223578275b107abf93cd0e40a44911",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-DELAY-AVAIL",
+          "operator": "AT_MOST",
+          "reason": "MAXIMUM_SEPARATION_SATISFIED_FOR_ALL",
+          "source_refs": [
+            "fixture:availability-self-check"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "notes": [],
+      "operator_id": "DELAY_RESULT_ENTRY",
+      "proposition_id": "FIX-DELAY-001",
+      "structural_conflicts": [],
+      "system_action": "PROCEED",
+      "temporal_fingerprint": "7431e23f0215bdeab74e7930c23aed7c05465a94f4fd81fb92224910af65a516",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2026-02-01T14:00:00Z",
+        "latest_clinical_time": "2026-02-01T14:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "937b1d121e15cb5c39ca51329cd9f27ac4a965d7213434b95d299610cd14f216",
+      "component_fingerprint": "abb55324087aa65ccd10bbf3cfbe9fd6a1df4f0eb6523477f73df7f2e11ebe63",
+      "constraint_evaluations": [],
+      "notes": [
+        "C4-010 upstream system action is ABSTAIN; temporal evaluation does not override it.",
+        "No temporal constraint is declared; conjunction is vacuously TRUE."
+      ],
+      "operator_id": "MASK_REQUIRED_OBSERVATION",
+      "proposition_id": "FIX-MASK-001",
+      "structural_conflicts": [],
+      "system_action": "ABSTAIN",
+      "temporal_fingerprint": "d0f7664c6fe1d6ddf9d99c847207b0897cfff8ae2c70a1ff9994d6ea855bac28",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": null,
+        "latest_clinical_time": null
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "f11c8c599c89106ae882332818294d496b0076969988aaa9b129c849e59c6a70",
+      "component_fingerprint": "23e4c94e7c884b1757a3f61ffbe285b3ed1ea39c45a0a5aaee71b8f818c20650",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-ORDER-SAME",
+          "operator": "sameClinicalTime",
+          "reason": "MIXED_OR_OVERLAPPING_PRECISION",
+          "source_refs": [
+            "fixture:same-clinical-time"
+          ],
+          "truth": "INDETERMINATE"
+        }
+      ],
+      "notes": [
+        "C4-010 upstream system action is ABSTAIN; temporal evaluation does not override it."
+      ],
+      "operator_id": "SWAP_EQUIVALENT_ORDER",
+      "proposition_id": "FIX-ORDER-001",
+      "structural_conflicts": [],
+      "system_action": "ABSTAIN",
+      "temporal_fingerprint": "d8c5e07b3272242bf1f32ff3f00cb7b3858dff1f739c4a983990a4ca2f9d1379",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2026-03-01T00:00:00Z",
+        "latest_clinical_time": "2026-03-02T12:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_INDETERMINATE",
+      "temporal_truth": "INDETERMINATE"
+    },
+    {
+      "c4_010_exception_fingerprint": "326cb7c9acecccfaae7b71db284c27c4a5d6fd0ee6b292d03f33d8c51eeaffbc",
+      "component_fingerprint": "545e645e8cd7c7c3b1ca03bfebe1aacf6c5beafd15880d554dd9b0387aa54c4d",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-PENDING-HORIZON",
+          "operator": "WITHIN_HORIZON",
+          "reason": "WITHIN_CALENDAR_HORIZON_FOR_ALL",
+          "source_refs": [
+            "fixture:two-year-horizon"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "notes": [
+        "C4-010 upstream system action is ABSTAIN; temporal evaluation does not override it."
+      ],
+      "operator_id": "SHIFT_TIME",
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "structural_conflicts": [],
+      "system_action": "ABSTAIN",
+      "temporal_fingerprint": "6d022d7fba5015b6e2983babf8d04e50ecbfa3ffc705497210e4028a7a897a04",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2025-01-31T08:00:00Z",
+        "latest_clinical_time": "2026-01-31T08:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "3bd75c73cebe84dd511d1a3a81221b7f34dd6b191b7a9d8154e56838f31f3022",
+      "component_fingerprint": "5f96113ac990c66b649c339c6fc461be56c2f627dad8863ed87a8f8679da0bc7",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-RED-PERSIST",
+          "operator": "PERSISTS_FOR",
+          "reason": "PERSISTENCE_MINIMUM_TRUE_FOR_ALL",
+          "source_refs": [
+            "fixture:persistence"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "notes": [],
+      "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+      "proposition_id": "FIX-REDUNDANT-001",
+      "structural_conflicts": [],
+      "system_action": "PROCEED",
+      "temporal_fingerprint": "703952efb7565d306bc2e47ba4a343e372ada3698767f4844f93dcfbab1726f3",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2026-01-01T00:00:00Z",
+        "latest_clinical_time": "2026-05-01T00:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "df40d78d7c38dc6b09ba32e0b57bbf9b38fc2b7917f61f6cba8c0212954c7688",
+      "component_fingerprint": "807bcc9ef9562e3513ea400ea08e5fadf3dcd914661e386099dbde3ad4379137",
+      "constraint_evaluations": [],
+      "notes": [
+        "No temporal constraint is declared; conjunction is vacuously TRUE."
+      ],
+      "operator_id": "PRESERVE_CLINICAL_STATE",
+      "proposition_id": "FIX-STATE-001",
+      "structural_conflicts": [],
+      "system_action": "PROCEED",
+      "temporal_fingerprint": "7fe96cf99d6308faefefe60befcb22d5a49dd80a0a31698c51f41f3e1bf128fc",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": null,
+        "latest_clinical_time": null
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "e0955a8c01d1534bb0028ea00a5c6104f463edcd0d39d31d568b9d0c7219daaa",
+      "component_fingerprint": "2176c708344b0dfc1f6653bc1569d4f8fe90d3f251887d87732ba96c3d572720",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-TIME-2Y",
+          "operator": "WITHIN_HORIZON",
+          "reason": "WITHIN_CALENDAR_HORIZON_FOR_ALL",
+          "source_refs": [
+            "fixture:two-year"
+          ],
+          "truth": "TRUE"
+        },
+        {
+          "constraint_id": "TC-TIME-90",
+          "operator": "AT_LEAST",
+          "reason": "MINIMUM_SEPARATION_SATISFIED_FOR_ALL",
+          "source_refs": [
+            "fixture:90-day"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "notes": [],
+      "operator_id": "SHIFT_TIME",
+      "proposition_id": "FIX-TIME-001",
+      "structural_conflicts": [],
+      "system_action": "PROCEED",
+      "temporal_fingerprint": "9af1464fd5e941781d3314aba4410d261c5df059e6d7dd86ad3cde7b0c940a01",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2024-02-29T10:00:00Z",
+        "latest_clinical_time": "2024-06-15T10:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "80417d23721823d1b3ae2f78ead7f70232f237b4cc1020a20362a9d67559dd4c",
+      "component_fingerprint": "5efc0ec1d08a634945e2debb75de0d63c5f2d601c72cba3f6309473a6b4f0cd1",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-TRAJ-90",
+          "operator": "AT_LEAST",
+          "reason": "MINIMUM_SEPARATION_SATISFIED_FOR_ALL",
+          "source_refs": [
+            "fixture:90-day"
+          ],
+          "truth": "TRUE"
+        },
+        {
+          "constraint_id": "TC-TRAJ-PERSIST",
+          "operator": "PERSISTS_FOR",
+          "reason": "PERSISTENCE_MINIMUM_TRUE_FOR_ALL",
+          "source_refs": [
+            "fixture:one-year"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "notes": [
+        "C4-010 upstream system action is ABSTAIN; temporal evaluation does not override it."
+      ],
+      "operator_id": "DECREASE_SLOPE",
+      "proposition_id": "FIX-TRAJ-001",
+      "structural_conflicts": [],
+      "system_action": "ABSTAIN",
+      "temporal_fingerprint": "735dbd81fddd70de5ad183ac2ebae05e90f81dca19f0750d6eaa64a74f62d02c",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2024-01-01T00:00:00Z",
+        "latest_clinical_time": "2026-01-02T00:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "f6c977dce5cadb5d2a760e26f6a6a0e9378f8839356939e1f2d1facf7d90874c",
+      "component_fingerprint": "fddac113b58e33fe57849f0400cd0cc4e06e1ecd43c6d3d4815f6aa2bfd3782e",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-TRAJ-90",
+          "operator": "AT_LEAST",
+          "reason": "MINIMUM_SEPARATION_SATISFIED_FOR_ALL",
+          "source_refs": [
+            "fixture:90-day"
+          ],
+          "truth": "TRUE"
+        },
+        {
+          "constraint_id": "TC-TRAJ-PERSIST",
+          "operator": "PERSISTS_FOR",
+          "reason": "PERSISTENCE_MINIMUM_TRUE_FOR_ALL",
+          "source_refs": [
+            "fixture:one-year"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "notes": [],
+      "operator_id": "INCREASE_SLOPE",
+      "proposition_id": "FIX-TRAJ-001",
+      "structural_conflicts": [],
+      "system_action": "PROCEED",
+      "temporal_fingerprint": "937a8d9bf74b3e82d9241b93937775896fffe1c2d11d4e5aa08ffe20e4b22a1b",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2024-01-01T00:00:00Z",
+        "latest_clinical_time": "2026-01-02T00:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "517be122313ad9f2ca6c75c1288f3d961cfa7842e96470413972f22ecd8decc9",
+      "component_fingerprint": "58b1c46ab2df77a2d4bf9f54315ef2109daa7f9bb356399257c1e415fb5068f3",
+      "constraint_evaluations": [
+        {
+          "constraint_id": "TC-TRAJ-90",
+          "operator": "AT_LEAST",
+          "reason": "MINIMUM_SEPARATION_SATISFIED_FOR_ALL",
+          "source_refs": [
+            "fixture:90-day"
+          ],
+          "truth": "TRUE"
+        },
+        {
+          "constraint_id": "TC-TRAJ-PERSIST",
+          "operator": "PERSISTS_FOR",
+          "reason": "PERSISTENCE_MINIMUM_TRUE_FOR_ALL",
+          "source_refs": [
+            "fixture:one-year"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "notes": [],
+      "operator_id": "RESAMPLE_TRAJECTORY",
+      "proposition_id": "FIX-TRAJ-001",
+      "structural_conflicts": [],
+      "system_action": "PROCEED",
+      "temporal_fingerprint": "f97b4dbe44c42ef435bcd94db9b1cc3dda4e728bf22dca9a8ecf5ab05efef190",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2024-01-01T00:00:00Z",
+        "latest_clinical_time": "2026-01-02T00:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    },
+    {
+      "c4_010_exception_fingerprint": "eecc6c54c09f8a06b5bdf0c3bd0db1f7f6aff618b1d9db89b3534f7d5807e516",
+      "component_fingerprint": "a83454fe2af2c43e83133cae4025c3343d7e238fc0692ac27eaafac11460157e",
+      "constraint_evaluations": [],
+      "notes": [
+        "No temporal constraint is declared; conjunction is vacuously TRUE."
+      ],
+      "operator_id": "CONVERT_UNIT",
+      "proposition_id": "FIX-UNIT-001",
+      "structural_conflicts": [],
+      "system_action": "PROCEED",
+      "temporal_fingerprint": "0f8546ca3ac94bf4b4348aee471a9ab4b119a76e9d931c72f4dec95ec8a7e555",
+      "temporal_scope_hull": {
+        "boundary": "[start,end)",
+        "earliest_clinical_time": "2026-04-01T12:00:00Z",
+        "latest_clinical_time": "2026-04-01T12:00:00Z"
+      },
+      "temporal_status": "TEMPORALLY_SATISFIABLE",
+      "temporal_truth": "TRUE"
+    }
+  ]
+}

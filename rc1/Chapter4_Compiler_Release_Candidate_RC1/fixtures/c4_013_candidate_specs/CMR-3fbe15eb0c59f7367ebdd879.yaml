@@ -1,0 +1,114 @@
+---
+candidate_mr_id: "CMR-3fbe15eb0c59f7367ebdd879"
+representation_version: "CandidateMR-R1.0"
+candidate_status: "COMPILED_CANDIDATE"
+C:
+  children:
+    -
+      arguments:
+        decision_contract: "D2"
+      evaluator_id: "eval_app_v1"
+      missing_evidence_result: "INDETERMINATE"
+      predicate_id: "APP-009"
+      predicate_type: "APPLICABILITY"
+      source_refs:
+        - "fixture:app"
+    -
+      arguments:
+        state_definition_available: true
+      evaluator_id: "eval_state_v1"
+      missing_evidence_result: "INDETERMINATE"
+      predicate_id: "CLIN-009"
+      predicate_type: "CLINICAL"
+      source_refs:
+        - "fixture:unaffected-neighbourhood"
+  op: "ALL"
+T:
+  operator_id: "PRESERVE_CLINICAL_STATE"
+  operator_version: "OperatorLibrary-R1.0"
+  bound_parameters:
+    -
+      name: "mutable_fields"
+      source_kind: "kg"
+      source_ref: "fixture:unaffected-neighbourhood"
+      value:
+        - "non_state_auxiliary_field"
+  read_set:
+    - "state_definition"
+    - "invariant_safe_dimensions"
+    - "observations"
+  touch_set:
+    - "declared_mutable_fields"
+  forbidden_touch_set:
+    - "subject.id"
+    - "state_defining_fields"
+    - "provenance"
+R:
+  relation_family: "DECISION_LEVEL"
+  source_output_selector: "cds.output"
+  followup_output_selector: "cds.output"
+  comparator_id: "preserve_decision_state_v1"
+  parameters:
+    decision_comparator_id: "preserve_decision_state_v1"
+I:
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "subject.id"
+    invariant_id: "INV-4b65d5dfced262b0"
+    invariant_type: "IDENTITY"
+    parameters: {}
+    source_refs:
+      - "fixture:p-subj"
+      - "fixture:subject-contract"
+    source_selector: "subject.id"
+  -
+    comparator_id: "state_signature_equal_v1"
+    followup_selector: "state_defining_fields"
+    invariant_id: "INV-ef1e44654db1d4f3"
+    invariant_type: "STATE"
+    parameters: {}
+    source_refs:
+      - "fixture:p-state"
+      - "fixture:state-definition"
+    source_selector: "state_defining_fields"
+E:
+  -
+    exception_ref: "EX-REV-001"
+    exception_type: "ReviewGateException"
+    condition:
+      predicate_id: "cond:EX-REV-001"
+      predicate_type: "EXCEPTION"
+      arguments:
+        exception_type: "ReviewGateException"
+        scope_ref: "scope:state-rule"
+      evaluator_id: "eval:ReviewGateException:v1"
+      source_refs:
+        - "source:EX-REV-001"
+      missing_evidence_result: "INDETERMINATE"
+    precedence_tier: "P0"
+    evidence_refs:
+      - "source:EX-REV-001"
+    resolution_status: "DECLARED"
+P:
+  source_knowledge_item_ids:
+    - "fixture:knowledge-item"
+  source_locator_refs:
+    - "fixture:knowledge-item"
+  graph_path_ids:
+    - "fixture:path-state"
+  kg_release: "fixture:R1"
+  ontology_release: "CKD-TKG-R1.0"
+  shacl_release: "CKD-TKG-SHACL-R1.0"
+  proposition_ir_version: "ClinicalPropositionIR-1.0"
+  compiler_version: "C4-013-R1.0"
+  operator_library_version: "OperatorLibrary-R1.0"
+  operator_selection_fingerprint: "ec19cd21d3576240936bd97bece3c9472bf60441998058a5daae8c708c2fa125"
+  parameter_provenance_refs:
+    - "fixture:unaffected-neighbourhood"
+  source_review_refs: []
+  inference_profile: "RDFS+SREW-R1.0"
+  closure_policy_version: "C3-016-R1.0"
+  srew_version: "SREW-R1.0"
+  compiler_config_id: "C4-006-CompilerConfig-R1.0"
+  generation_status: "CANDIDATE"
+  mr_expert_validation_status: "UNREVIEWED"

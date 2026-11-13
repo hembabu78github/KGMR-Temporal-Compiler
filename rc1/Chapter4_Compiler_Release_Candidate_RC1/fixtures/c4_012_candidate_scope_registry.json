@@ -1,0 +1,296 @@
+{
+  "scopes": [
+    {
+      "proposition_id": "FIX-AKI-001",
+      "operator_id": "INSERT_TRANSIENT_AKI",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:AKI_LIKE_EVENT",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-DELAY-001",
+      "operator_id": "DELAY_RESULT_ENTRY",
+      "target_id": "D2_MONITORING",
+      "output_id": "monitoring_recommendation",
+      "comparison_context_id": "D2:DELAY_RESULT_ENTRY",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G1",
+        "G2",
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-MASK-001",
+      "operator_id": "MASK_REQUIRED_OBSERVATION",
+      "target_id": "D3_REFERRAL",
+      "output_id": "referral_support_decision",
+      "comparison_context_id": "D3:MASK_REQUIRED_OBSERVATION",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "GLOBAL_WITHIN_APPLICABILITY",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-ORDER-001",
+      "operator_id": "SWAP_EQUIVALENT_ORDER",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:SWAP_EQUIVALENT_ORDER",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "operator_id": "SHIFT_TIME",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:SHIFT_TIME",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-REDUNDANT-001",
+      "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:REMOVE_REDUNDANT_OBSERVATION",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-STATE-001",
+      "operator_id": "PRESERVE_CLINICAL_STATE",
+      "target_id": "D2_MONITORING",
+      "output_id": "monitoring_recommendation",
+      "comparison_context_id": "D2:PRESERVE_CLINICAL_STATE",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G1",
+        "G2",
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "GLOBAL_WITHIN_APPLICABILITY",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-TIME-001",
+      "operator_id": "SHIFT_TIME",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:SHIFT_TIME",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "operator_id": "RESAMPLE_TRAJECTORY",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:RESAMPLE_TRAJECTORY",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "operator_id": "INCREASE_SLOPE",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:INCREASE_SLOPE",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "operator_id": "DECREASE_SLOPE",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:DECREASE_SLOPE",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "FROM_C4_011",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    },
+    {
+      "proposition_id": "FIX-UNIT-001",
+      "operator_id": "CONVERT_UNIT",
+      "target_id": "D1_PROGRESS_RISK",
+      "output_id": "progression_risk",
+      "comparison_context_id": "D1:CONVERT_UNIT",
+      "care_contexts": [
+        "OutpatientAmbulatoryContext"
+      ],
+      "gfr_categories": [
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ],
+      "eligibility_states": [
+        "Eligible"
+      ],
+      "temporal_scope_policy": "GLOBAL_WITHIN_APPLICABILITY",
+      "release_lineage": "CKD-TKG",
+      "release_version": "R1.0",
+      "source_interpretation_id": "source-linked",
+      "review_state": "ClinicallyReviewed"
+    }
+  ]
+}

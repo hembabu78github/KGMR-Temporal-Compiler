@@ -1,0 +1,33 @@
+{
+  "task": "C4-016",
+  "replay_count": 2,
+  "candidate_count": 12,
+  "replay_release_signature_match": true,
+  "replay_candidate_id_match_count": 12,
+  "replay_semantic_fingerprint_match_count": 12,
+  "replay_generated_python_hash_match_count": 12,
+  "replay_static_status_match_count": 12,
+  "replay_execution_admission_match_count": 12,
+  "researcher_c4_013_candidate_id_match_count": 12,
+  "researcher_c4_013_semantic_fingerprint_match_count": 12,
+  "researcher_c4_014_generated_python_sha256_match_count": 12,
+  "researcher_c4_015_static_status_match_count": 12,
+  "researcher_c4_015_execution_admission_match_count": 12,
+  "researcher_c4_015_expert_status_match_count": 12,
+  "required_version_inventory_pass": true,
+  "controlled_identity_tests_pass": true,
+  "environment_metadata_excluded_from_release_signature": true,
+  "release_signature": "1fb461973aa502a3db2285a0f728fc49d52c4ee6ab5b3178beb8d8f330c421ed",
+  "note": "Software reproducibility fixtures only. Matching deterministic artifacts do not constitute expert clinical validation."
+}
+
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py", line 32317, in hydrate_crdt_from_proto
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py", line 749, in __call__
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py", line 150, in call
+artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.

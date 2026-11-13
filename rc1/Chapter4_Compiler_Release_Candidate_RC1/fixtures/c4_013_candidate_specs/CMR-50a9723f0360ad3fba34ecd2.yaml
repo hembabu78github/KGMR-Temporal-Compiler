@@ -1,0 +1,120 @@
+---
+candidate_mr_id: "CMR-50a9723f0360ad3fba34ecd2"
+representation_version: "CandidateMR-R1.0"
+candidate_status: "COMPILED_CANDIDATE"
+C:
+  children:
+    -
+      arguments:
+        decision_contract: "D1"
+      evaluator_id: "eval_app_v1"
+      missing_evidence_result: "INDETERMINATE"
+      predicate_id: "APP-008"
+      predicate_type: "APPLICABILITY"
+      source_refs:
+        - "fixture:app"
+    -
+      arguments:
+        unit_mapping_available: true
+      evaluator_id: "eval_unit_mapping_v1"
+      missing_evidence_result: "INDETERMINATE"
+      predicate_id: "TERM-008"
+      predicate_type: "TERMINOLOGY"
+      source_refs:
+        - "fixture:unit-map"
+  op: "ALL"
+T:
+  operator_id: "CONVERT_UNIT"
+  operator_version: "OperatorLibrary-R1.0"
+  bound_parameters:
+    -
+      name: "target_unit"
+      source_kind: "kg"
+      source_ref: "fixture:unit-map"
+      value: "mL/min/1.73m2"
+    -
+      name: "conversion_id"
+      source_kind: "kg"
+      source_ref: "fixture:unit-map"
+      value: "UCUM-FIX-001"
+  read_set:
+    - "observations[selected].value"
+    - "observations[selected].unit"
+    - "unit_conversion_mapping"
+  touch_set:
+    - "observations[selected].value"
+    - "observations[selected].unit"
+  forbidden_touch_set:
+    - "subject.id"
+    - "observations[selected].effective_time"
+    - "provenance"
+R:
+  relation_family: "EQUALITY_WITHIN_TOLERANCE"
+  source_output_selector: "cds.output"
+  followup_output_selector: "cds.output"
+  comparator_id: "numeric_equality_tolerance_v1"
+  parameters:
+    epsilon: 1.0e-09
+    tolerance_mode: "mixed"
+I:
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "observations[selected].effective_time"
+    invariant_id: "INV-34cf75fbe7dfdb6a"
+    invariant_type: "TIME"
+    parameters: {}
+    source_refs:
+      - "fixture:effective-time"
+      - "fixture:p-time"
+    source_selector: "observations[selected].effective_time"
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "subject.id"
+    invariant_id: "INV-b05f634a9fb3e748"
+    invariant_type: "IDENTITY"
+    parameters: {}
+    source_refs:
+      - "fixture:p-subj"
+      - "fixture:subject-contract"
+    source_selector: "subject.id"
+E:
+  -
+    exception_ref: "EX-TERM-001"
+    exception_type: "TerminologyMappingException"
+    condition:
+      predicate_id: "cond:EX-TERM-001"
+      predicate_type: "EXCEPTION"
+      arguments:
+        exception_type: "TerminologyMappingException"
+        scope_ref: "scope:unit-map"
+      evaluator_id: "eval:TerminologyMappingException:v1"
+      source_refs:
+        - "source:EX-TERM-001"
+      missing_evidence_result: "INDETERMINATE"
+    precedence_tier: "P0"
+    evidence_refs:
+      - "source:EX-TERM-001"
+    resolution_status: "DECLARED"
+P:
+  source_knowledge_item_ids:
+    - "fixture:knowledge-item"
+  source_locator_refs:
+    - "fixture:knowledge-item"
+  graph_path_ids:
+    - "fixture:path-unit"
+  kg_release: "fixture:R1"
+  ontology_release: "CKD-TKG-R1.0"
+  shacl_release: "CKD-TKG-SHACL-R1.0"
+  proposition_ir_version: "ClinicalPropositionIR-1.0"
+  compiler_version: "C4-013-R1.0"
+  operator_library_version: "OperatorLibrary-R1.0"
+  operator_selection_fingerprint: "dd5f49ef33613ba3602cdeafc43f3e7466d9973c56b9f9670212d40bca3e013d"
+  parameter_provenance_refs:
+    - "fixture:unit-map"
+  source_review_refs: []
+  inference_profile: "RDFS+SREW-R1.0"
+  closure_policy_version: "C3-016-R1.0"
+  srew_version: "SREW-R1.0"
+  compiler_config_id: "C4-006-CompilerConfig-R1.0"
+  generation_status: "CANDIDATE"
+  mr_expert_validation_status: "UNREVIEWED"

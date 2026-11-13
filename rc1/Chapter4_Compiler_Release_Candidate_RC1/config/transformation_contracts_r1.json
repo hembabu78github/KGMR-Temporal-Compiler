@@ -1,0 +1,172 @@
+{
+  "SHIFT_TIME": {
+    "read_set": [
+      "observations[*].effective_time",
+      "temporal_constraints"
+    ],
+    "touch_set": [
+      "observations[selected].effective_time"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "observations[selected].value",
+      "observations[selected].unit",
+      "provenance"
+    ]
+  },
+  "RESAMPLE_TRAJECTORY": {
+    "read_set": [
+      "trajectory.observations",
+      "trajectory.anchor_roles",
+      "temporal_constraints"
+    ],
+    "touch_set": [
+      "trajectory.observations"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "trajectory.protected_anchors",
+      "provenance"
+    ]
+  },
+  "DELAY_RESULT_ENTRY": {
+    "read_set": [
+      "observations[selected].effective_time",
+      "observations[selected].issued_time",
+      "decision_time"
+    ],
+    "touch_set": [
+      "observations[selected].issued_time"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "observations[selected].effective_time",
+      "observations[selected].value",
+      "observations[selected].unit",
+      "provenance"
+    ]
+  },
+  "SWAP_EQUIVALENT_ORDER": {
+    "read_set": [
+      "observations[equivalent_set].sequence_position",
+      "temporal_relations"
+    ],
+    "touch_set": [
+      "observations[equivalent_set].sequence_position"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "observations[equivalent_set].effective_time",
+      "observations[equivalent_set].value",
+      "provenance"
+    ]
+  },
+  "REMOVE_REDUNDANT_OBSERVATION": {
+    "read_set": [
+      "trajectory.observations",
+      "trajectory.anchor_roles",
+      "redundancy_evidence"
+    ],
+    "touch_set": [
+      "trajectory.observations"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "trajectory.protected_anchors",
+      "required_observations",
+      "provenance"
+    ]
+  },
+  "MASK_REQUIRED_OBSERVATION": {
+    "read_set": [
+      "required_observations",
+      "decision_contract"
+    ],
+    "touch_set": [
+      "observations[selected].availability"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "observations[selected].clinical_value",
+      "provenance"
+    ]
+  },
+  "INCREASE_SLOPE": {
+    "read_set": [
+      "trajectory.observations",
+      "trajectory.slope",
+      "direction_semantics",
+      "protected_anchors"
+    ],
+    "touch_set": [
+      "trajectory.modifiable_observations"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "trajectory.protected_anchors",
+      "provenance"
+    ]
+  },
+  "DECREASE_SLOPE": {
+    "read_set": [
+      "trajectory.observations",
+      "trajectory.slope",
+      "direction_semantics",
+      "protected_anchors"
+    ],
+    "touch_set": [
+      "trajectory.modifiable_observations"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "trajectory.protected_anchors",
+      "provenance"
+    ]
+  },
+  "INSERT_TRANSIENT_AKI": {
+    "read_set": [
+      "trajectory.observations",
+      "acute_like_event_contract",
+      "recovery_contract"
+    ],
+    "touch_set": [
+      "trajectory.derived_followup_observations"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "formal_diagnosis.AKI",
+      "provenance"
+    ]
+  },
+  "CONVERT_UNIT": {
+    "read_set": [
+      "observations[selected].value",
+      "observations[selected].unit",
+      "unit_conversion_mapping"
+    ],
+    "touch_set": [
+      "observations[selected].value",
+      "observations[selected].unit"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "observations[selected].effective_time",
+      "provenance"
+    ]
+  },
+  "PRESERVE_CLINICAL_STATE": {
+    "read_set": [
+      "state_definition",
+      "invariant_safe_dimensions",
+      "observations"
+    ],
+    "touch_set": [
+      "declared_mutable_fields"
+    ],
+    "forbidden_touch_set": [
+      "subject.id",
+      "state_defining_fields",
+      "provenance"
+    ]
+  }
+}

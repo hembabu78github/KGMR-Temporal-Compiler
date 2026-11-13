@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClinicalPropositionIR 1.0",
+  "type": "object",
+  "required": [
+    "proposition_id",
+    "source_knowledge_item_ids",
+    "decision_contract",
+    "disposition",
+    "graph_pattern_family",
+    "capabilities",
+    "parameter_evidence",
+    "gates",
+    "permitted_relation_families",
+    "temporal_truth"
+  ],
+  "properties": {
+    "proposition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_knowledge_item_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision_contract": {
+      "type": "string"
+    },
+    "disposition": {
+      "enum": [
+        "Executable",
+        "ContextOnly",
+        "Excluded"
+      ]
+    },
+    "graph_pattern_family": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "parameter_evidence": {
+      "type": "object"
+    },
+    "gates": {
+      "type": "object",
+      "required": [
+        "SourceLocated",
+        "ScopeMatched",
+        "Computable",
+        "TerminologyReady",
+        "LicensingAllowed",
+        "ReviewSufficient",
+        "ConflictResolved",
+        "ReleaseIntegrity"
+      ]
+    },
+    "permitted_relation_families": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "direction_semantics": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "temporal_truth": {
+      "enum": [
+        "TRUE",
+        "FALSE",
+        "INDETERMINATE"
+      ]
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "release_ref": {
+      "type": "string"
+    }
+  }
+}

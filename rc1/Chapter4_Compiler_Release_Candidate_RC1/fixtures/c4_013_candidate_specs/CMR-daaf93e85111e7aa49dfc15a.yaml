@@ -1,0 +1,124 @@
+---
+candidate_mr_id: "CMR-daaf93e85111e7aa49dfc15a"
+representation_version: "CandidateMR-R1.0"
+candidate_status: "COMPILED_CANDIDATE"
+C:
+  children:
+    -
+      arguments:
+        decision_contract: "D1"
+      evaluator_id: "eval_app_v1"
+      missing_evidence_result: "INDETERMINATE"
+      predicate_id: "APP-010"
+      predicate_type: "APPLICABILITY"
+      source_refs:
+        - "fixture:app"
+    -
+      arguments:
+        relation: "WITHIN"
+      evaluator_id: "eval_temporal_v1"
+      missing_evidence_result: "INDETERMINATE"
+      predicate_id: "TIME-010"
+      predicate_type: "TEMPORAL"
+      source_refs:
+        - "fixture:window"
+  op: "ALL"
+T:
+  operator_id: "SHIFT_TIME"
+  operator_version: "OperatorLibrary-R1.0"
+  bound_parameters:
+    -
+      name: "shift_days"
+      source_kind: "source_evidence"
+      source_ref: "fixture:window"
+      value: 5
+  read_set:
+    - "observations[*].effective_time"
+    - "temporal_constraints"
+  touch_set:
+    - "observations[selected].effective_time"
+  forbidden_touch_set:
+    - "subject.id"
+    - "observations[selected].value"
+    - "observations[selected].unit"
+    - "provenance"
+R:
+  relation_family: "EQUALITY_WITHIN_TOLERANCE"
+  source_output_selector: "cds.output"
+  followup_output_selector: "cds.output"
+  comparator_id: "numeric_equality_tolerance_v1"
+  parameters:
+    epsilon: 0.0
+    tolerance_mode: "absolute"
+I:
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "observations[selected].unit"
+    invariant_id: "INV-0c4e7de645005945"
+    invariant_type: "VALUE"
+    parameters: {}
+    source_refs:
+      - "fixture:kg-unit"
+      - "fixture:preserve-unit"
+    source_selector: "observations[selected].unit"
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "subject.id"
+    invariant_id: "INV-1ed6358fcb041a48"
+    invariant_type: "IDENTITY"
+    parameters: {}
+    source_refs:
+      - "fixture:preserve-subject"
+      - "fixture:subject-contract"
+    source_selector: "subject.id"
+  -
+    comparator_id: "exact_equal_v1"
+    followup_selector: "observations[selected].value"
+    invariant_id: "INV-cdd7a37767972862"
+    invariant_type: "VALUE"
+    parameters: {}
+    source_refs:
+      - "fixture:kg-value"
+      - "fixture:preserve-value"
+    source_selector: "observations[selected].value"
+E:
+  -
+    exception_ref: "EX-LIC-001"
+    exception_type: "LicensingReleaseException"
+    condition:
+      predicate_id: "cond:EX-LIC-001"
+      predicate_type: "EXCEPTION"
+      arguments:
+        exception_type: "LicensingReleaseException"
+        scope_ref: "scope:release"
+      evaluator_id: "eval:LicensingReleaseException:v1"
+      source_refs:
+        - "source:EX-LIC-001"
+      missing_evidence_result: "INDETERMINATE"
+    precedence_tier: "P0"
+    evidence_refs:
+      - "source:EX-LIC-001"
+    resolution_status: "DECLARED"
+P:
+  source_knowledge_item_ids:
+    - "fixture:knowledge-item"
+  source_locator_refs:
+    - "fixture:knowledge-item"
+  graph_path_ids:
+    - "fixture:path-pending"
+  kg_release: "fixture:R1"
+  ontology_release: "CKD-TKG-R1.0"
+  shacl_release: "CKD-TKG-SHACL-R1.0"
+  proposition_ir_version: "ClinicalPropositionIR-1.0"
+  compiler_version: "C4-013-R1.0"
+  operator_library_version: "OperatorLibrary-R1.0"
+  operator_selection_fingerprint: "0f388e7ccc2544f9da011052778b3a87c275b35fb84796430c0e629021065b22"
+  parameter_provenance_refs:
+    - "fixture:window"
+  source_review_refs: []
+  inference_profile: "RDFS+SREW-R1.0"
+  closure_policy_version: "C3-016-R1.0"
+  srew_version: "SREW-R1.0"
+  compiler_config_id: "C4-006-CompilerConfig-R1.0"
+  generation_status: "CANDIDATE"
+  mr_expert_validation_status: "UNREVIEWED"

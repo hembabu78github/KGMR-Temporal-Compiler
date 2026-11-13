@@ -1,0 +1,1076 @@
+[
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-02T14:00:00Z",
+          "value": 55.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-05T14:00:00Z",
+          "value": 55.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {
+      "cutoff": "2026-01-31T00:00:00+00:00"
+    }
+  },
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-02T14:00:00Z",
+          "value": 55.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-05T14:00:00Z",
+          "value": 55.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {
+      "cutoff": "2026-02-03T00:00:00+00:00"
+    }
+  },
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-02T14:00:00Z",
+          "value": 48.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-05T14:00:00Z",
+          "value": 48.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {
+      "cutoff": "2026-02-06T00:00:00+00:00"
+    }
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "obs_non_anchor_3",
+          "effective_time": "2026-02-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": false,
+          "required": false
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 49.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "obs_non_anchor_3",
+        "later"
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 49.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "later"
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "obs_non_anchor_3",
+          "effective_time": "2026-02-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": false,
+          "required": false
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 48.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "obs_non_anchor_3",
+        "later"
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 48.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "later"
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "obs_non_anchor_3",
+          "effective_time": "2026-02-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": false,
+          "required": false
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 47.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "obs_non_anchor_3",
+        "later"
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 47.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "later"
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 10
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 11
+    },
+    "policy": {}
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 12
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 13
+    },
+    "policy": {}
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 20
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 21
+    },
+    "policy": {}
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 59.0
+        },
+        {
+          "id": "c",
+          "time_index": 1.0,
+          "value": 58.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 57.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 56.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 59.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 57.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 56.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 59.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 58.0
+        },
+        {
+          "id": "c",
+          "time_index": 1.0,
+          "value": 57.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 56.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 55.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 59.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 58.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 56.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 55.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 61.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 60.0
+        },
+        {
+          "id": "c",
+          "time_index": 1.0,
+          "value": 59.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 58.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 57.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 61.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 60.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 58.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 57.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 58.0
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 56.0
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 58.5
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 57.0
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 57.7
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 55.4
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 58.2
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 56.4
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 58.3
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 56.6
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 58.8
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 57.6
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 100.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 100.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        },
+        {
+          "id": "mr_aki_like_trigger",
+          "effective_time": "2026-01-02T00:00:00Z",
+          "value": 75.0,
+          "unit": "mL/min/1.73m2",
+          "derived": true,
+          "formal_diagnosis_AKI": false,
+          "event_semantics": "AKI_LIKE_TRANSIENT_DETERIORATION"
+        },
+        {
+          "id": "mr_aki_like_recovery",
+          "effective_time": "2026-01-16T00:00:00Z",
+          "value": 97.5,
+          "unit": "mL/min/1.73m2",
+          "derived": true,
+          "formal_diagnosis_AKI": false,
+          "event_semantics": "AKI_LIKE_TRANSIENT_DETERIORATION"
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 80.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 80.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        },
+        {
+          "id": "mr_aki_like_trigger",
+          "effective_time": "2026-01-02T00:00:00Z",
+          "value": 60.0,
+          "unit": "mL/min/1.73m2",
+          "derived": true,
+          "formal_diagnosis_AKI": false,
+          "event_semantics": "AKI_LIKE_TRANSIENT_DETERIORATION"
+        },
+        {
+          "id": "mr_aki_like_recovery",
+          "effective_time": "2026-01-16T00:00:00Z",
+          "value": 78.0,
+          "unit": "mL/min/1.73m2",
+          "derived": true,
+          "formal_diagnosis_AKI": false,
+          "event_semantics": "AKI_LIKE_TRANSIENT_DETERIORATION"
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 60.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 60.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        },
+        {
+          "id": "mr_aki_like_trigger",
+          "effective_time": "2026-01-02T00:00:00Z",
+          "value": 45.0,
+          "unit": "mL/min/1.73m2",
+          "derived": true,
+          "formal_diagnosis_AKI": false,
+          "event_semantics": "AKI_LIKE_TRANSIENT_DETERIORATION"
+        },
+        {
+          "id": "mr_aki_like_recovery",
+          "effective_time": "2026-01-16T00:00:00Z",
+          "value": 58.5,
+          "unit": "mL/min/1.73m2",
+          "derived": true,
+          "formal_diagnosis_AKI": false,
+          "event_semantics": "AKI_LIKE_TRANSIENT_DETERIORATION"
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-15T10:00:00Z",
+          "value": 48.0
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-22T10:00:00Z",
+          "value": 48.0
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-15T10:00:00Z",
+          "value": 49.0
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-22T10:00:00Z",
+          "value": 49.0
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-15T10:00:00Z",
+          "value": 50.0
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-22T10:00:00Z",
+          "value": 50.0
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 0.09,
+          "unit": "L/min/1.73m2"
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 90.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 0.08,
+          "unit": "L/min/1.73m2"
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 80.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {}
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 0.07,
+          "unit": "L/min/1.73m2"
+        }
+      ]
+    },
+    "followup": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 70.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {}
+  }
+]

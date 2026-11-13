@@ -1,0 +1,29 @@
+{
+  "all_ten_frozen_conflict_types_exercised": true,
+  "candidate_component_count": 12,
+  "cross_transformation_relations_compared_without_explicit_context_equivalence": false,
+  "deterministic_repeat_pass": true,
+  "final_typed_relation_count": 12,
+  "formal_relation_families_present": [
+    "BOUNDED_CHANGE",
+    "DECISION_LEVEL",
+    "EQUALITY_WITHIN_TOLERANCE",
+    "ORDINAL_NONDECREASE",
+    "ORDINAL_NONINCREASE"
+  ],
+  "guideline_strength_automatic_tiebreak_used": false,
+  "integrated_conflict_id_match_count": 1,
+  "integrated_detected_conflict_count": 1,
+  "integrated_detected_conflict_types": [
+    "TemporalConflict"
+  ],
+  "integrated_duplicate_group_count": 0,
+  "invalid_relation_type_count": 0,
+  "lexical_specificity_used": false,
+  "nonstrict_opposing_monotonic_relations_automatically_conflicting": false,
+  "nonstrict_opposing_ordinal_relations_automatically_conflicting": false,
+  "note": "Integrated and taxonomy counts are software-validation fixtures only; they are not clinical conflict prevalence or expert-valid MR results.",
+  "task": "C4-012",
+  "taxonomy_validation_case_count": 10,
+  "typed_relation_signature_match_count": 12
+}

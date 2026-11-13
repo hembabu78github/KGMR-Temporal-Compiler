@@ -1,0 +1,26 @@
+{
+  "operators": 8,
+  "archived_generated_mrs_executed": 8,
+  "constructed_mutants": 24,
+  "cases_per_mutant": 3,
+  "mutant_case_executions": 72,
+  "reference_pairs_verified": 24,
+  "mr_killed_mutants": 17,
+  "conventional_exact_output_killed_mutants": 24,
+  "output_distinguishable_mutants": 24,
+  "mr_false_outcomes": 41,
+  "mr_true_outcomes": 31,
+  "mr_indeterminate_outcomes": 0,
+  "methodology": "synthetic fault seeding; original generated MR oracle; conventional baseline exact output assertions from deterministic synthetic reference model using same source and followup inputs (2 executions each); not independent real-world baseline; no clinical inference",
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "limitations": [
+    "Mutants were authored against the same synthetic reference implementations used to derive the expected conventional outputs.",
+    "The conventional exact-output baseline uses stronger oracle information than metamorphic relations, although both evaluate the same source and follow-up cases.",
+    "Observationally indistinguishable mutants are not necessarily globally equivalent.",
+    "Synthetic temporal/trajectory policies are not clinical CDS implementations.",
+    "Selected synthetic cases were constructed to exercise the archived transformations, not random samples."
+  ]
+}

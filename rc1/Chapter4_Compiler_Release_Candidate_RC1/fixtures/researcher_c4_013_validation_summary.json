@@ -1,0 +1,20 @@
+{
+  "all_specs_candidate_status_compiled": true,
+  "all_specs_expert_validation_unreviewed": true,
+  "all_specs_have_six_components": true,
+  "candidate_id_match_count": 12,
+  "candidate_id_repeat_pass": true,
+  "deterministic_repeat_pass": true,
+  "fixture_observed_truth_leaked_into_exception_specs": false,
+  "generation_rejection_count": 0,
+  "input_component_count": 12,
+  "json_candidate_spec_count": 12,
+  "note": "These are software-validation candidate specifications. They are not independently expert-validated MRs and must not be reported as clinical MR yield.",
+  "representation_version": "CandidateMR-R1.0",
+  "schema_implementation": "CandidateMR-R1.0 / C4-013 schema patch 1",
+  "schema_semantic_validation_pass_count": 12,
+  "semantic_fingerprint_match_count": 12,
+  "semantic_fingerprint_repeat_pass": true,
+  "task": "C4-013",
+  "yaml_candidate_spec_count": 12
+}

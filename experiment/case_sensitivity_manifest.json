@@ -1,0 +1,668 @@
+[
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-02T14:00:00Z",
+          "value": 44.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {
+      "cutoff": "2026-02-05T00:00:00+00:00"
+    },
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-02T14:00:00Z",
+          "value": 61.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {
+      "cutoff": "2026-02-05T00:00:00+00:00"
+    },
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "DELAY_RESULT_ENTRY",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-02-01T14:00:00Z",
+          "issued_time": "2026-02-02T14:00:00Z",
+          "value": 53.0,
+          "unit": "mL/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {
+      "cutoff": "2026-02-01T00:00:00+00:00"
+    },
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "obs_non_anchor_3",
+          "effective_time": "2026-02-01T00:00:00Z",
+          "value": 48.0,
+          "anchor": false,
+          "required": false
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 49.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "obs_non_anchor_3",
+        "later"
+      ]
+    },
+    "policy": {},
+    "baseline_valid": false,
+    "generated_valid": false,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "obs_non_anchor_3",
+          "effective_time": "2026-02-01T00:00:00Z",
+          "value": 48.0,
+          "anchor": false,
+          "required": false
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 48.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "obs_non_anchor_3",
+        "later"
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "REMOVE_REDUNDANT_OBSERVATION",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "anchor",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 50.0,
+          "anchor": true
+        },
+        {
+          "id": "obs_non_anchor_3",
+          "effective_time": "2026-02-01T00:00:00Z",
+          "value": 46.0,
+          "anchor": false,
+          "required": false
+        },
+        {
+          "id": "later",
+          "effective_time": "2026-03-01T00:00:00Z",
+          "value": 47.0
+        }
+      ],
+      "observation_order": [
+        "anchor",
+        "obs_non_anchor_3",
+        "later"
+      ]
+    },
+    "policy": {},
+    "baseline_valid": false,
+    "generated_valid": false,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 7
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 9
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "PRESERVE_CLINICAL_STATE",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "state_defining_fields": {
+        "gfr_category": "G3a"
+      },
+      "non_state_auxiliary_field": 3
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 58.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 57.0
+        },
+        {
+          "id": "c",
+          "time_index": 1.0,
+          "value": 56.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 55.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 54.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 58.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 57.0
+        },
+        {
+          "id": "c",
+          "time_index": 1.0,
+          "value": 56.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 55.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 54.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "RESAMPLE_TRAJECTORY",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 59.0,
+          "anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 0.5,
+          "value": 58.0
+        },
+        {
+          "id": "c",
+          "time_index": 1.0,
+          "value": 57.0
+        },
+        {
+          "id": "d",
+          "time_index": 1.5,
+          "value": 56.0
+        },
+        {
+          "id": "e",
+          "time_index": 2.0,
+          "value": 55.0,
+          "anchor": true
+        }
+      ],
+      "observation_order": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 58.2
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 56.4
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 58.3
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 56.6
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "INCREASE_SLOPE",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "a",
+          "time_index": 0.0,
+          "value": 60.0,
+          "protected_anchor": true
+        },
+        {
+          "id": "b",
+          "time_index": 1.0,
+          "value": 57.7
+        },
+        {
+          "id": "c",
+          "time_index": 2.0,
+          "value": 55.4
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 70.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 90.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "INSERT_TRANSIENT_AKI",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "egfr0",
+          "effective_time": "2026-01-01T00:00:00Z",
+          "value": 75.0,
+          "unit": "mL/min/1.73m2",
+          "anchor": true
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-15T10:00:00Z",
+          "value": 54.0
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-15T10:00:00Z",
+          "value": 52.0
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "SHIFT_TIME",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2024-06-15T10:00:00Z",
+          "value": 47.0
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 1,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 0.075,
+          "unit": "L/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 2,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 0.075,
+          "unit": "L/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  },
+  {
+    "operator": "CONVERT_UNIT",
+    "case": 3,
+    "source": {
+      "subject": {
+        "id": "S1"
+      },
+      "observations": [
+        {
+          "id": "o1",
+          "effective_time": "2026-04-01T12:00:00Z",
+          "value": 0.065,
+          "unit": "L/min/1.73m2"
+        }
+      ]
+    },
+    "policy": {},
+    "baseline_valid": true,
+    "generated_valid": true,
+    "rejection_reason": ""
+  }
+]

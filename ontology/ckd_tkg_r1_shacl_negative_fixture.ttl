@@ -1,0 +1,18 @@
+@prefix ex: <https://ckd-tkg.org/test/bad/> .
+@prefix ckd: <https://ckd-tkg.org/ontology/r1.0/ckd/> .
+@prefix kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/> .
+@prefix prov: <https://ckd-tkg.org/ontology/r1.0/prov/> .
+
+# Deliberate C3-004-O9 safety violation.
+ex:bothRisk a ckd:KidneyFailureRiskAssessment, ckd:ProgressionRiskAssessment .
+
+# Deliberate C3-004-O4 safety violation.
+ex:bothCategory a ckd:KDIGOCGARiskCategory, kgmr:MRTestingRiskCategory .
+
+# Deliberately incomplete executable rule.
+ex:badRule a kgmr:ExecutableClinicalRule .
+
+# Deliberate Practice Point grading error.
+ex:badPP a ckd:PracticePointStatement ;
+  prov:sourceLocator "test" ;
+  prov:evidenceCertainty "A" .

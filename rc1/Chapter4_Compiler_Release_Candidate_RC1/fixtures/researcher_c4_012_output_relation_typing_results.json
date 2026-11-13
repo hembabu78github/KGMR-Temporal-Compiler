@@ -1,0 +1,264 @@
+{
+  "results": [
+    {
+      "comparator_id": "bounded_delta_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "closed": true,
+        "delta_definition": "followup_minus_source",
+        "kind": "NUMERIC_DELTA_INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0
+      },
+      "operator_id": "INSERT_TRANSIENT_AKI",
+      "parameters": {
+        "delta_definition": "followup_minus_source",
+        "lower_bound": -1.0,
+        "upper_bound": 1.0
+      },
+      "proposition_id": "FIX-AKI-001",
+      "reasons": [],
+      "relation_family": "BOUNDED_CHANGE",
+      "relation_signature": "REL-9bacef20eada72d55858",
+      "semantic_domain": "NUMERIC",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "decision_allowed_set_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "allowed_relation": "PRESERVE_OR_ABSTAIN_IF_UNAVAILABLE",
+        "allowed_values": null,
+        "decision_comparator_id": "decision_allowed_set_v1",
+        "kind": "DECISION_RELATION"
+      },
+      "operator_id": "DELAY_RESULT_ENTRY",
+      "parameters": {
+        "allowed_relation": "PRESERVE_OR_ABSTAIN_IF_UNAVAILABLE",
+        "decision_comparator_id": "decision_allowed_set_v1"
+      },
+      "proposition_id": "FIX-DELAY-001",
+      "reasons": [],
+      "relation_family": "DECISION_LEVEL",
+      "relation_signature": "REL-aac6e6715888c72eb2dc",
+      "semantic_domain": "DECISION",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "safe_missingness_response_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "allowed_relation": null,
+        "allowed_values": null,
+        "decision_comparator_id": "safe_missingness_response_v1",
+        "kind": "DECISION_RELATION"
+      },
+      "operator_id": "MASK_REQUIRED_OBSERVATION",
+      "parameters": {
+        "decision_comparator_id": "safe_missingness_response_v1"
+      },
+      "proposition_id": "FIX-MASK-001",
+      "reasons": [],
+      "relation_family": "DECISION_LEVEL",
+      "relation_signature": "REL-c7e8564f6840996ca5c8",
+      "semantic_domain": "DECISION",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "numeric_equality_tolerance_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "closed": true,
+        "kind": "NUMERIC_DELTA_INTERVAL",
+        "lower": -0.0,
+        "upper": 0.0
+      },
+      "operator_id": "SWAP_EQUIVALENT_ORDER",
+      "parameters": {
+        "epsilon": 0.0,
+        "tolerance_mode": "absolute"
+      },
+      "proposition_id": "FIX-ORDER-001",
+      "reasons": [],
+      "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+      "relation_signature": "REL-2a4ebb56c4e775e03da0",
+      "semantic_domain": "NUMERIC",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "numeric_equality_tolerance_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "closed": true,
+        "kind": "NUMERIC_DELTA_INTERVAL",
+        "lower": -0.0,
+        "upper": 0.0
+      },
+      "operator_id": "SHIFT_TIME",
+      "parameters": {
+        "epsilon": 0.0,
+        "tolerance_mode": "absolute"
+      },
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "reasons": [],
+      "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+      "relation_signature": "REL-fccd34f54f3d9e8c8b32",
+      "semantic_domain": "NUMERIC",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "numeric_equality_tolerance_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "closed": true,
+        "kind": "NUMERIC_DELTA_INTERVAL",
+        "lower": -0.0,
+        "upper": 0.0
+      },
+      "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+      "parameters": {
+        "epsilon": 0.0,
+        "tolerance_mode": "absolute"
+      },
+      "proposition_id": "FIX-REDUNDANT-001",
+      "reasons": [],
+      "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+      "relation_signature": "REL-bfc9ff560eef11b7aa85",
+      "semantic_domain": "NUMERIC",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "preserve_decision_state_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "allowed_relation": null,
+        "allowed_values": null,
+        "decision_comparator_id": "preserve_decision_state_v1",
+        "kind": "DECISION_RELATION"
+      },
+      "operator_id": "PRESERVE_CLINICAL_STATE",
+      "parameters": {
+        "decision_comparator_id": "preserve_decision_state_v1"
+      },
+      "proposition_id": "FIX-STATE-001",
+      "reasons": [],
+      "relation_family": "DECISION_LEVEL",
+      "relation_signature": "REL-220fc22ea6d77f27b835",
+      "semantic_domain": "DECISION",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "numeric_equality_tolerance_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "closed": true,
+        "kind": "NUMERIC_DELTA_INTERVAL",
+        "lower": -0.001,
+        "upper": 0.001
+      },
+      "operator_id": "SHIFT_TIME",
+      "parameters": {
+        "epsilon": 0.001,
+        "tolerance_mode": "absolute"
+      },
+      "proposition_id": "FIX-TIME-001",
+      "reasons": [],
+      "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+      "relation_signature": "REL-658d82b2a76e5a1d4b14",
+      "semantic_domain": "NUMERIC",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "ordinal_compare_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "direction": "NONINCREASE",
+        "kind": "ORDINAL_RANK_DELTA",
+        "ordering_id": "risk_low_moderate_high_v1",
+        "strict_change_required": false
+      },
+      "operator_id": "DECREASE_SLOPE",
+      "parameters": {
+        "ordering_id": "risk_low_moderate_high_v1"
+      },
+      "proposition_id": "FIX-TRAJ-001",
+      "reasons": [],
+      "relation_family": "ORDINAL_NONINCREASE",
+      "relation_signature": "REL-9310b601ef975cae9e52",
+      "semantic_domain": "ORDINAL",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "ordinal_compare_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "direction": "NONDECREASE",
+        "kind": "ORDINAL_RANK_DELTA",
+        "ordering_id": "risk_low_moderate_high_v1",
+        "strict_change_required": false
+      },
+      "operator_id": "INCREASE_SLOPE",
+      "parameters": {
+        "ordering_id": "risk_low_moderate_high_v1"
+      },
+      "proposition_id": "FIX-TRAJ-001",
+      "reasons": [],
+      "relation_family": "ORDINAL_NONDECREASE",
+      "relation_signature": "REL-c12a36ab9d95b74bd612",
+      "semantic_domain": "ORDINAL",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "ordinal_compare_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "direction": "NONDECREASE",
+        "kind": "ORDINAL_RANK_DELTA",
+        "ordering_id": "risk_low_moderate_high_v1",
+        "strict_change_required": false
+      },
+      "operator_id": "RESAMPLE_TRAJECTORY",
+      "parameters": {
+        "ordering_id": "risk_low_moderate_high_v1"
+      },
+      "proposition_id": "FIX-TRAJ-001",
+      "reasons": [],
+      "relation_family": "ORDINAL_NONDECREASE",
+      "relation_signature": "REL-5143824f2afa259ccc28",
+      "semantic_domain": "ORDINAL",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    },
+    {
+      "comparator_id": "numeric_equality_tolerance_v1",
+      "followup_output_selector": "cds.output",
+      "normalized_constraint": {
+        "epsilon": 1e-09,
+        "kind": "PARAMETRIC_EQUALITY_TOLERANCE",
+        "mode": "mixed"
+      },
+      "operator_id": "CONVERT_UNIT",
+      "parameters": {
+        "epsilon": 1e-09,
+        "tolerance_mode": "mixed"
+      },
+      "proposition_id": "FIX-UNIT-001",
+      "reasons": [],
+      "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+      "relation_signature": "REL-e44c8c6fd2a35e07f3ed",
+      "semantic_domain": "NUMERIC",
+      "source_output_selector": "cds.output",
+      "typing_status": "FINAL_TYPED"
+    }
+  ]
+}

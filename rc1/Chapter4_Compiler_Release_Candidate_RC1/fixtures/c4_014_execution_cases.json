@@ -1,0 +1,356 @@
+{
+  "cases": [
+    {
+      "candidate_key": "FIX-AKI-001::INSERT_TRANSIENT_AKI",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "egfr0",
+            "effective_time": "2026-01-01T00:00:00Z",
+            "value": 100.0,
+            "unit": "mL/min/1.73m2",
+            "anchor": true
+          }
+        ]
+      },
+      "execution_context": {},
+      "oracle_context": {},
+      "source_output": 1.0,
+      "followup_output": 1.5,
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-DELAY-001::DELAY_RESULT_ENTRY",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "o1",
+            "effective_time": "2026-02-01T14:00:00Z",
+            "issued_time": "2026-02-02T14:00:00Z",
+            "value": 55.0,
+            "unit": "mL/min/1.73m2"
+          }
+        ]
+      },
+      "execution_context": {
+        "selected_observation_ids": [
+          "o1"
+        ]
+      },
+      "oracle_context": {
+        "available_at_decision": true
+      },
+      "source_output": "MONITOR_3M",
+      "followup_output": "MONITOR_3M",
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-MASK-001::MASK_REQUIRED_OBSERVATION",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "egfr",
+            "semantic_key": "required_egfr",
+            "effective_time": "2026-01-01T00:00:00Z",
+            "value": 45.0,
+            "unit": "mL/min/1.73m2",
+            "available": true
+          }
+        ]
+      },
+      "execution_context": {},
+      "oracle_context": {
+        "required_observation_available": false
+      },
+      "source_output": "NO_REFERRAL",
+      "followup_output": "ABSTAIN",
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-ORDER-001::SWAP_EQUIVALENT_ORDER",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "a",
+            "effective_time": "2026-03-01T00:00:00Z",
+            "value": 40.0
+          },
+          {
+            "id": "b",
+            "effective_time": "2026-03-01T00:00:00Z",
+            "value": 40.0
+          }
+        ],
+        "observation_order": [
+          "a",
+          "b"
+        ]
+      },
+      "execution_context": {
+        "equivalent_order_ids": [
+          "a",
+          "b"
+        ]
+      },
+      "oracle_context": {},
+      "source_output": 0.4,
+      "followup_output": 0.4,
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-PENDING-ADMISSION-001::SHIFT_TIME",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "o1",
+            "effective_time": "2025-01-31T08:00:00Z",
+            "value": 50.0
+          }
+        ]
+      },
+      "execution_context": {
+        "selected_observation_ids": [
+          "o1"
+        ]
+      },
+      "oracle_context": {},
+      "source_output": 0.2,
+      "followup_output": 0.2,
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-REDUNDANT-001::REMOVE_REDUNDANT_OBSERVATION",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "anchor",
+            "effective_time": "2026-01-01T00:00:00Z",
+            "value": 50.0,
+            "anchor": true
+          },
+          {
+            "id": "obs_non_anchor_3",
+            "effective_time": "2026-02-01T00:00:00Z",
+            "value": 50.0,
+            "anchor": false,
+            "required": false
+          },
+          {
+            "id": "later",
+            "effective_time": "2026-03-01T00:00:00Z",
+            "value": 49.0
+          }
+        ],
+        "observation_order": [
+          "anchor",
+          "obs_non_anchor_3",
+          "later"
+        ]
+      },
+      "execution_context": {},
+      "oracle_context": {},
+      "source_output": 0.5,
+      "followup_output": 0.5,
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-STATE-001::PRESERVE_CLINICAL_STATE",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "state_defining_fields": {
+          "gfr_category": "G3a"
+        },
+        "non_state_auxiliary_field": 10
+      },
+      "execution_context": {
+        "state_defining_fields": [
+          "state_defining_fields"
+        ]
+      },
+      "oracle_context": {},
+      "source_output": "MONITOR_3M",
+      "followup_output": "MONITOR_3M",
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-TIME-001::SHIFT_TIME",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "o1",
+            "effective_time": "2024-06-15T10:00:00Z",
+            "value": 48.0
+          }
+        ]
+      },
+      "execution_context": {
+        "selected_observation_ids": [
+          "o1"
+        ]
+      },
+      "oracle_context": {},
+      "source_output": 0.2,
+      "followup_output": 0.2005,
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-TRAJ-001::DECREASE_SLOPE",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "a",
+            "time_index": 0.0,
+            "value": 60.0,
+            "protected_anchor": true
+          },
+          {
+            "id": "b",
+            "time_index": 1.0,
+            "value": 58.0
+          },
+          {
+            "id": "c",
+            "time_index": 2.0,
+            "value": 56.0
+          }
+        ]
+      },
+      "execution_context": {},
+      "oracle_context": {},
+      "source_output": "high",
+      "followup_output": "moderate",
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-TRAJ-001::INCREASE_SLOPE",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "a",
+            "time_index": 0.0,
+            "value": 60.0,
+            "protected_anchor": true
+          },
+          {
+            "id": "b",
+            "time_index": 1.0,
+            "value": 58.0
+          },
+          {
+            "id": "c",
+            "time_index": 2.0,
+            "value": 56.0
+          }
+        ]
+      },
+      "execution_context": {},
+      "oracle_context": {},
+      "source_output": "moderate",
+      "followup_output": "high",
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-TRAJ-001::RESAMPLE_TRAJECTORY",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "a",
+            "time_index": 0.0,
+            "value": 60.0,
+            "anchor": true
+          },
+          {
+            "id": "b",
+            "time_index": 0.5,
+            "value": 59.0
+          },
+          {
+            "id": "c",
+            "time_index": 1.0,
+            "value": 58.0
+          },
+          {
+            "id": "d",
+            "time_index": 1.5,
+            "value": 57.0
+          },
+          {
+            "id": "e",
+            "time_index": 2.0,
+            "value": 56.0,
+            "anchor": true
+          }
+        ],
+        "observation_order": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ]
+      },
+      "execution_context": {},
+      "oracle_context": {},
+      "source_output": "moderate",
+      "followup_output": "moderate",
+      "expected_oracle_truth": "TRUE"
+    },
+    {
+      "candidate_key": "FIX-UNIT-001::CONVERT_UNIT",
+      "source_case": {
+        "subject": {
+          "id": "S1"
+        },
+        "observations": [
+          {
+            "id": "o1",
+            "effective_time": "2026-04-01T12:00:00Z",
+            "value": 0.09,
+            "unit": "L/min/1.73m2"
+          }
+        ]
+      },
+      "execution_context": {
+        "selected_observation_ids": [
+          "o1"
+        ]
+      },
+      "oracle_context": {},
+      "source_output": 0.5,
+      "followup_output": 0.5,
+      "expected_oracle_truth": "TRUE"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "artifact_name": "CKD-TKG Semantic Relation Expansion Whitelist",
+  "artifact_id": "SREW",
+  "version": "SREW-R1.0",
+  "status": "Frozen candidate pending C3-016 guide approval",
+  "scope": "Runtime compiler/query semantic normalization only; not a global OWL closure policy.",
+  "members": [
+    {
+      "property": "ckd:overlapsEvent",
+      "semantic_characteristic": "symmetric",
+      "runtime_normalization": "bidirectional query normalization",
+      "persistent_reciprocal_materialization_required": false,
+      "transitive_expansion": false
+    }
+  ],
+  "change_control": "Any member addition/removal or handling change requires a new SREW version.",
+  "reproducibility_requirement": "Every executable evaluation records the active SREW whitelist version."
+}

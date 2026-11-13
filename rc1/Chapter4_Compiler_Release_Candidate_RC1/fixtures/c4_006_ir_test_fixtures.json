@@ -1,0 +1,524 @@
+{
+  "propositions": [
+    {
+      "proposition_id": "FIX-TIME-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-TIME"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "temporal_shift_pattern",
+      "capabilities": {
+        "has_temporal_structure": true
+      },
+      "parameter_evidence": {
+        "shift_days": {
+          "value": 7,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:temporal-window"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "PRESERVE_OUTPUT",
+        "EQUALITY_WITHIN_TOLERANCE"
+      ],
+      "direction_semantics": null,
+      "temporal_truth": "TRUE",
+      "exceptions": [],
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-TRAJ"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "trajectory_pattern",
+      "capabilities": {
+        "has_trajectory": true,
+        "has_sampling_semantics": true,
+        "has_slope_semantics": true
+      },
+      "parameter_evidence": {
+        "resample_strategy": {
+          "value": "retain_anchors_reduce_density",
+          "source_kind": "compiler_config",
+          "source_ref": "fixture:cfg"
+        },
+        "slope_delta": {
+          "value": 0.5,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:slope-range"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "BOUNDED_CHANGE",
+        "ORDINAL_NONDECREASE",
+        "ORDINAL_NONINCREASE"
+      ],
+      "direction_semantics": "algebraic_slope_to_risk_direction_explicit",
+      "temporal_truth": "TRUE",
+      "exceptions": [],
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-DELAY-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-DELAY"
+      ],
+      "decision_contract": "D2",
+      "disposition": "Executable",
+      "graph_pattern_family": "availability_time_pattern",
+      "capabilities": {
+        "has_effective_and_issued_time": true
+      },
+      "parameter_evidence": {
+        "delay_days": {
+          "value": 3,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:availability-window"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "DECISION_LEVEL",
+        "PRESERVE_OUTPUT"
+      ],
+      "temporal_truth": "TRUE",
+      "exceptions": [
+        "DataQualityException"
+      ],
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-ORDER-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-ORDER"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "same_clinical_time_pattern",
+      "capabilities": {
+        "has_equivalent_order_semantics": true
+      },
+      "parameter_evidence": {},
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "PRESERVE_OUTPUT"
+      ],
+      "temporal_truth": "TRUE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-REDUNDANT-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-RED"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "redundancy_pattern",
+      "capabilities": {
+        "has_redundant_observation_semantics": true
+      },
+      "parameter_evidence": {
+        "redundancy_key": {
+          "value": "obs_non_anchor_3",
+          "source_kind": "kg",
+          "source_ref": "fixture:graph-path"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "PRESERVE_OUTPUT"
+      ],
+      "temporal_truth": "TRUE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-MASK-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-MASK"
+      ],
+      "decision_contract": "D3",
+      "disposition": "Executable",
+      "graph_pattern_family": "required_observation_pattern",
+      "capabilities": {
+        "has_required_observation": true,
+        "supports_decision_level_missingness_oracle": true
+      },
+      "parameter_evidence": {
+        "observation_key": {
+          "value": "required_egfr",
+          "source_kind": "kg",
+          "source_ref": "fixture:antecedent"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "DECISION_LEVEL"
+      ],
+      "temporal_truth": "TRUE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-AKI-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-AKI"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "acute_like_event_pattern",
+      "capabilities": {
+        "supports_aki_like_event": true,
+        "has_recovery_semantics": true
+      },
+      "parameter_evidence": {
+        "decline_fraction": {
+          "value": 0.25,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:acute-like-trigger"
+        },
+        "event_duration_days": {
+          "value": 14,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:event-window"
+        },
+        "recovery_fraction": {
+          "value": 0.9,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:recovery-rule"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "BOUNDED_CHANGE",
+        "DECISION_LEVEL"
+      ],
+      "temporal_truth": "TRUE",
+      "exceptions": [
+        "AcuteEventException"
+      ],
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1",
+      "notes": "Fixture models AKI-like transient deterioration only; it does not assert FormalAKIDiagnosis."
+    },
+    {
+      "proposition_id": "FIX-UNIT-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-UNIT"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "unit_normalisation_pattern",
+      "capabilities": {
+        "has_unit_conversion_semantics": true
+      },
+      "parameter_evidence": {
+        "target_unit": {
+          "value": "mL/min/1.73m2",
+          "source_kind": "kg",
+          "source_ref": "fixture:unit-map"
+        },
+        "conversion_id": {
+          "value": "UCUM-FIX-001",
+          "source_kind": "kg",
+          "source_ref": "fixture:unit-map"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "EQUALITY_WITHIN_TOLERANCE",
+        "PRESERVE_OUTPUT"
+      ],
+      "temporal_truth": "TRUE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-STATE-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-STATE"
+      ],
+      "decision_contract": "D2",
+      "disposition": "Executable",
+      "graph_pattern_family": "state_preservation_pattern",
+      "capabilities": {
+        "has_state_definition": true,
+        "has_invariant_safe_dimensions": true
+      },
+      "parameter_evidence": {
+        "mutable_fields": {
+          "value": [
+            "non_state_auxiliary_field"
+          ],
+          "source_kind": "kg",
+          "source_ref": "fixture:unaffected-neighbourhood"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "PRESERVE_OUTPUT",
+        "DECISION_LEVEL"
+      ],
+      "temporal_truth": "TRUE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-CONTEXT-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-CONTEXT"
+      ],
+      "decision_contract": "D1",
+      "disposition": "ContextOnly",
+      "graph_pattern_family": "context_exception_pattern",
+      "capabilities": {
+        "has_temporal_structure": true
+      },
+      "parameter_evidence": {
+        "shift_days": {
+          "value": 7,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:x"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pending",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pending",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pending"
+      },
+      "permitted_relation_families": [
+        "PRESERVE_OUTPUT"
+      ],
+      "temporal_truth": "TRUE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-INDET-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-INDET"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "uncertain_temporal_pattern",
+      "capabilities": {
+        "has_temporal_structure": true
+      },
+      "parameter_evidence": {
+        "shift_days": {
+          "value": 7,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:x"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "PRESERVE_OUTPUT"
+      ],
+      "temporal_truth": "INDETERMINATE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-PEND"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "temporal_shift_pattern",
+      "capabilities": {
+        "has_temporal_structure": true
+      },
+      "parameter_evidence": {
+        "shift_days": {
+          "value": 5,
+          "source_kind": "source_evidence",
+          "source_ref": "fixture:window"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pending",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pending",
+        "ReleaseIntegrity": "Pending"
+      },
+      "permitted_relation_families": [
+        "PRESERVE_OUTPUT"
+      ],
+      "temporal_truth": "TRUE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-MISSING-PARAM-001",
+      "source_knowledge_item_ids": [
+        "FIX:KI-MP"
+      ],
+      "decision_contract": "D1",
+      "disposition": "Executable",
+      "graph_pattern_family": "unit_normalisation_pattern",
+      "capabilities": {
+        "has_unit_conversion_semantics": true
+      },
+      "parameter_evidence": {
+        "target_unit": {
+          "value": "mL/min/1.73m2",
+          "source_kind": "kg",
+          "source_ref": "fixture:unit-map"
+        }
+      },
+      "gates": {
+        "SourceLocated": "Pass",
+        "ScopeMatched": "Pass",
+        "Computable": "Pass",
+        "TerminologyReady": "Pass",
+        "LicensingAllowed": "Pass",
+        "ReviewSufficient": "Pass",
+        "ConflictResolved": "Pass",
+        "ReleaseIntegrity": "Pass"
+      },
+      "permitted_relation_families": [
+        "PRESERVE_OUTPUT"
+      ],
+      "temporal_truth": "TRUE",
+      "provenance_refs": [
+        "fixture:prov"
+      ],
+      "release_ref": "fixture:R1"
+    }
+  ]
+}

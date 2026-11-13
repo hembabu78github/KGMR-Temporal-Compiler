@@ -1,0 +1,114 @@
+{
+  "checks": [
+    {
+      "check_id": "UNIT_TEST_SUITE_PASS",
+      "detail": "returncode=0;test_count=291",
+      "passed": true
+    },
+    {
+      "check_id": "C4_016_FRESH_REPLAY_PASS",
+      "detail": "returncode=0",
+      "passed": true
+    },
+    {
+      "check_id": "CANDIDATE_COUNT",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "REPLAY_RELEASE_SIGNATURE_MATCH",
+      "detail": "True",
+      "passed": true
+    },
+    {
+      "check_id": "RELEASE_SIGNATURE_EQUALS_RESEARCHER",
+      "detail": "1fb461973aa502a3db2285a0f728fc49d52c4ee6ab5b3178beb8d8f330c421ed",
+      "passed": true
+    },
+    {
+      "check_id": "REPLAY_CANDIDATE_IDS_12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "REPLAY_SEMANTIC_FINGERPRINTS_12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "REPLAY_GENERATED_CODE_HASHES_12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "REPLAY_STATIC_STATUS_12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "REPLAY_ADMISSION_STATUS_12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "VERSION_INVENTORY_PASS",
+      "detail": "True",
+      "passed": true
+    },
+    {
+      "check_id": "CONTROLLED_IDENTITY_TESTS_PASS",
+      "detail": "True",
+      "passed": true
+    },
+    {
+      "check_id": "ENVIRONMENT_EXCLUDED_FROM_SIGNATURE",
+      "detail": "True",
+      "passed": true
+    },
+    {
+      "check_id": "C4_014_MODULES_12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "C4_014_ALL_11_OPERATORS",
+      "detail": "True",
+      "passed": true
+    },
+    {
+      "check_id": "C4_014_BLOCKED_CDS_CALLS_ZERO",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check_id": "C4_015_STATIC_PASS_12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "C4_015_STATIC_FAIL_ZERO",
+      "detail": "0",
+      "passed": true
+    },
+    {
+      "check_id": "C4_015_EXECUTION_ADMISSIBLE_8",
+      "detail": "8",
+      "passed": true
+    },
+    {
+      "check_id": "C4_015_CONTROL_BLOCKED_4",
+      "detail": "4",
+      "passed": true
+    },
+    {
+      "check_id": "C4_015_EXPERT_UNREVIEWED_12",
+      "detail": "12",
+      "passed": true
+    },
+    {
+      "check_id": "RESEARCHER_ARTIFACT_COMPARISON_12",
+      "detail": "C4-013/C4-014/C4-015 researcher artifact chain",
+      "passed": true
+    }
+  ]
+}

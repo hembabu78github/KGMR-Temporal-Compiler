@@ -1,0 +1,60 @@
+@prefix ex: <https://ckd-tkg.org/test/> .
+@prefix ckd: <https://ckd-tkg.org/ontology/r1.0/ckd/> .
+@prefix kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/> .
+@prefix prov: <https://ckd-tkg.org/ontology/r1.0/prov/> .
+@prefix tk: <https://ckd-tkg.org/ontology/r1.0/tk/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:gfr a ckd:GFRCategoricalState .
+ex:elig a ckd:EstablishedCKDEligibilityState .
+ex:care a ckd:CareContext .
+ex:valid a ckd:ObservationValidityAssessment .
+
+ex:state a ckd:CKDState ;
+  ckd:hasGFRCategory ex:gfr .
+
+ex:obs a ckd:ClinicalObservation ;
+  ckd:localIdentifier "OBS-1" ;
+  prov:recordedDateTime "2026-08-07T00:00:00-04:00"^^xsd:dateTime ;
+  ckd:hasValidityAssessment ex:valid ;
+  ckd:observationValue "42.0"^^xsd:decimal ;
+  ckd:observationUnitCode "mg/dL" .
+
+ex:knowledge a ckd:GuidelineKnowledgeItem ;
+  prov:sourceLocator "Section X / test fixture" .
+
+ex:app a kgmr:RuleApplicability ;
+  kgmr:appliesToCareContext ex:care ;
+  kgmr:appliesToEligibilityState ex:elig .
+
+ex:ant a kgmr:RuleAntecedent ;
+  kgmr:requiresObservation ex:obs .
+
+ex:rel a kgmr:ExpectedClinicalRelation .
+ex:prov a prov:ProvenanceRecord .
+ex:release a prov:ReleaseRecord ;
+  prov:versionLabel "R1.0-test" ;
+  prov:releaseStatus "Test" ;
+  prov:recordedDateTime "2026-08-07T00:00:00-04:00"^^xsd:dateTime .
+
+ex:a1 a kgmr:CompilationGateAssessment ; kgmr:assessesGateType kgmr:Gate_Source_located ; kgmr:gateStatus "Pass" .
+ex:a2 a kgmr:CompilationGateAssessment ; kgmr:assessesGateType kgmr:Gate_Scope_matched ; kgmr:gateStatus "Pass" .
+ex:a3 a kgmr:CompilationGateAssessment ; kgmr:assessesGateType kgmr:Gate_Computable ; kgmr:gateStatus "Pass" .
+ex:a4 a kgmr:CompilationGateAssessment ; kgmr:assessesGateType kgmr:Gate_Terminology_ready ; kgmr:gateStatus "NotApplicable" .
+ex:a5 a kgmr:CompilationGateAssessment ; kgmr:assessesGateType kgmr:Gate_Licensing_allowed ; kgmr:gateStatus "Pass" .
+ex:a6 a kgmr:CompilationGateAssessment ; kgmr:assessesGateType kgmr:Gate_Review_sufficient ; kgmr:gateStatus "Pass" .
+ex:a7 a kgmr:CompilationGateAssessment ; kgmr:assessesGateType kgmr:Gate_Conflict_resolved ; kgmr:gateStatus "Pass" .
+ex:a8 a kgmr:CompilationGateAssessment ; kgmr:assessesGateType kgmr:Gate_Release_integrity ; kgmr:gateStatus "Pass" .
+
+ex:gateRecord a kgmr:CompilationEligibilityRecord ;
+  kgmr:eligibilityStatus "Eligible" ;
+  kgmr:hasGateAssessment ex:a1, ex:a2, ex:a3, ex:a4, ex:a5, ex:a6, ex:a7, ex:a8 .
+
+ex:rule a kgmr:ExecutableClinicalRule ;
+  kgmr:hasApplicability ex:app ;
+  kgmr:hasAntecedent ex:ant ;
+  kgmr:hasExpectedRelation ex:rel ;
+  kgmr:hasEligibilityRecord ex:gateRecord ;
+  kgmr:admittedFromKnowledgeItem ex:knowledge ;
+  prov:hasProvenanceRecord ex:prov ;
+  prov:hasReleaseRecord ex:release .

@@ -1,0 +1,247 @@
+{
+  "controlled_identity_tests": {
+    "compiler_config_version_bump_changes_candidate_id": true,
+    "environment_metadata_excluded_from_identity": true,
+    "expert_validation_status_excluded_from_identity": true,
+    "operator_library_version_bump_changes_candidate_id": true
+  },
+  "replay_comparison": {
+    "candidate_id_match_count": 12,
+    "candidate_id_set_match": true,
+    "execution_admission_match_count": 12,
+    "generated_python_hash_match_count": 12,
+    "per_candidate": [
+      {
+        "candidate_mr_id": "CMR-31ce8779673c05fe37e7ce1e",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-3fbe15eb0c59f7367ebdd879",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-4bdb6db32f311bfc85ea76fd",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-50a9723f0360ad3fba34ecd2",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-548584d5df10797164816313",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-5685e890d5232ba5a656596d",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-aeb765295a3081c558da634c",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-cbde4de53261e747cf0a0645",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-daaf93e85111e7aa49dfc15a",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-e23a304617adcf5ee0e244c9",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-f1c39b6972f8b9f1e38b6a34",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-fd3fa393813e67e76871758e",
+        "execution_admission_match": true,
+        "generated_python_hash_match": true,
+        "present_in_both": true,
+        "semantic_fingerprint_match": true,
+        "static_status_match": true
+      }
+    ],
+    "release_signature_match": true,
+    "semantic_fingerprint_match_count": 12,
+    "static_status_match_count": 12
+  },
+  "required_version_check": {
+    "C3-016-R1.0": true,
+    "C4-013-R1.0": true,
+    "C4-014-R1.0": true,
+    "C4-015-R1.0": true,
+    "C4-016-R1.0": true,
+    "CKD-TKG-R1.0": true,
+    "CKD-TKG-SHACL-R1.0": true,
+    "CandidateMR-R1.0": true,
+    "ClinicalPropositionIR-1.0": true,
+    "OperatorLibrary-R1.0": true,
+    "SREW-R1.0": true
+  },
+  "researcher_artifact_comparison": {
+    "candidate_count": 12,
+    "execution_admission_status_match_count": 12,
+    "expert_validation_status_match_count": 12,
+    "generated_python_sha256_match_count": 12,
+    "per_candidate": [
+      {
+        "candidate_mr_id": "CMR-31ce8779673c05fe37e7ce1e",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-3fbe15eb0c59f7367ebdd879",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-4bdb6db32f311bfc85ea76fd",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-50a9723f0360ad3fba34ecd2",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-548584d5df10797164816313",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-5685e890d5232ba5a656596d",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-aeb765295a3081c558da634c",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-cbde4de53261e747cf0a0645",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-daaf93e85111e7aa49dfc15a",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-e23a304617adcf5ee0e244c9",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-f1c39b6972f8b9f1e38b6a34",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      },
+      {
+        "candidate_mr_id": "CMR-fd3fa393813e67e76871758e",
+        "execution_admission_status_match": true,
+        "expert_validation_status_match": true,
+        "generated_python_sha256_match": true,
+        "researcher_c4_013_id_present": true,
+        "semantic_fingerprint_match": true,
+        "static_validation_status_match": true
+      }
+    ],
+    "researcher_c4_013_id_match_count": 12,
+    "semantic_fingerprint_match_count": 12,
+    "static_validation_status_match_count": 12
+  }
+}

@@ -1,0 +1,1172 @@
+{
+  "results": [
+    {
+      "C": {
+        "atom_count": 3,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-007",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "acute_like_event_supported": true
+              },
+              "evaluator_id": "eval_acute_like_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "CLIN-007",
+              "predicate_type": "CLINICAL",
+              "source_refs": [
+                "fixture:acute-like-trigger"
+              ]
+            },
+            {
+              "arguments": {
+                "recovery_window_available": true
+              },
+              "evaluator_id": "eval_temporal_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "TIME-007",
+              "predicate_type": "TEMPORAL",
+              "source_refs": [
+                "fixture:recovery-rule"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "BOUNDED_CHANGE"
+        ],
+        "comparator_id": "bounded_delta_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "delta_definition": "followup_minus_source",
+          "lower_bound": -1.0,
+          "upper_bound": 1.0
+        },
+        "reasons": [],
+        "relation_family": "BOUNDED_CHANGE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-bounded",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "decline_fraction",
+            "source_kind": "source_evidence",
+            "source_ref": "fixture:acute-like-trigger",
+            "value": 0.25
+          },
+          {
+            "name": "event_duration_days",
+            "source_kind": "source_evidence",
+            "source_ref": "fixture:event-window",
+            "value": 14
+          },
+          {
+            "name": "recovery_fraction",
+            "source_kind": "source_evidence",
+            "source_ref": "fixture:recovery-rule",
+            "value": 0.9
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "formal_diagnosis.AKI",
+          "provenance"
+        ],
+        "operator_id": "INSERT_TRANSIENT_AKI",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "trajectory.observations",
+          "acute_like_event_contract",
+          "recovery_contract"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "trajectory.derived_followup_observations"
+        ]
+      },
+      "c4_006_selection_fingerprint": "f44ee2362702af7b954703459179ae1dd8626f0b02796f34a80bc029ca54f36e",
+      "component_fingerprint": "988f0c8ad9e26bfa171c934064ed39da9933271a0ce273dea07e6c0b67780c35",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-aki-like"
+      ],
+      "notes": [],
+      "operator_id": "INSERT_TRANSIENT_AKI",
+      "proposition_id": "FIX-AKI-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 2,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D2"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-003",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "issued_time_required": true
+              },
+              "evaluator_id": "eval_availability_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "AVAIL-003",
+              "predicate_type": "DATA_AVAILABILITY",
+              "source_refs": [
+                "fixture:availability-window"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "DECISION_LEVEL"
+        ],
+        "comparator_id": "decision_allowed_set_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "allowed_relation": "PRESERVE_OR_ABSTAIN_IF_UNAVAILABLE",
+          "decision_comparator_id": "decision_allowed_set_v1"
+        },
+        "reasons": [],
+        "relation_family": "DECISION_LEVEL",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-decision",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "delay_days",
+            "source_kind": "source_evidence",
+            "source_ref": "fixture:availability-window",
+            "value": 3
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "observations[selected].effective_time",
+          "observations[selected].value",
+          "observations[selected].unit",
+          "provenance"
+        ],
+        "operator_id": "DELAY_RESULT_ENTRY",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "observations[selected].effective_time",
+          "observations[selected].issued_time",
+          "decision_time"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "observations[selected].issued_time"
+        ]
+      },
+      "c4_006_selection_fingerprint": "f0d184cd528b19ad3741c6169ee06bb0b9fe3c79467ec6834625328ba28a713a",
+      "component_fingerprint": "a9efce1b9b0a1bac25cecc1b4835b8919d223578275b107abf93cd0e40a44911",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-delay"
+      ],
+      "notes": [],
+      "operator_id": "DELAY_RESULT_ENTRY",
+      "proposition_id": "FIX-DELAY-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 2,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D3"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-006",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "required_observation": "required_egfr"
+              },
+              "evaluator_id": "eval_required_observation_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "AVAIL-006",
+              "predicate_type": "DATA_AVAILABILITY",
+              "source_refs": [
+                "fixture:antecedent"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "DECISION_LEVEL"
+        ],
+        "comparator_id": "safe_missingness_response_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "decision_comparator_id": "safe_missingness_response_v1"
+        },
+        "reasons": [],
+        "relation_family": "DECISION_LEVEL",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-mask",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "observation_key",
+            "source_kind": "kg",
+            "source_ref": "fixture:antecedent",
+            "value": "required_egfr"
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "observations[selected].clinical_value",
+          "provenance"
+        ],
+        "operator_id": "MASK_REQUIRED_OBSERVATION",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "required_observations",
+          "decision_contract"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "observations[selected].availability"
+        ]
+      },
+      "c4_006_selection_fingerprint": "6ab745acda3e784b48d95b5c279c1f128850fe5a9eea882dc71e939754cddb5e",
+      "component_fingerprint": "abb55324087aa65ccd10bbf3cfbe9fd6a1df4f0eb6523477f73df7f2e11ebe63",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-mask"
+      ],
+      "notes": [],
+      "operator_id": "MASK_REQUIRED_OBSERVATION",
+      "proposition_id": "FIX-MASK-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 2,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-004",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "sameClinicalTime": true
+              },
+              "evaluator_id": "eval_same_clinical_time_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "TIME-004",
+              "predicate_type": "TEMPORAL",
+              "source_refs": [
+                "fixture:order"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "EQUALITY_WITHIN_TOLERANCE"
+        ],
+        "comparator_id": "numeric_equality_tolerance_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "epsilon": 0.0,
+          "tolerance_mode": "absolute"
+        },
+        "reasons": [],
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-eq-order",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [],
+        "forbidden_touch_set": [
+          "subject.id",
+          "observations[equivalent_set].effective_time",
+          "observations[equivalent_set].value",
+          "provenance"
+        ],
+        "operator_id": "SWAP_EQUIVALENT_ORDER",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "observations[equivalent_set].sequence_position",
+          "temporal_relations"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "observations[equivalent_set].sequence_position"
+        ]
+      },
+      "c4_006_selection_fingerprint": "4f8e06a7478c9ba97a4ce6cf9c105d0e13123c53dbe70b3aeb85183a954e8c7b",
+      "component_fingerprint": "23e4c94e7c884b1757a3f61ffbe285b3ed1ea39c45a0a5aaee71b8f818c20650",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-order"
+      ],
+      "notes": [],
+      "operator_id": "SWAP_EQUIVALENT_ORDER",
+      "proposition_id": "FIX-ORDER-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 2,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-010",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "relation": "WITHIN"
+              },
+              "evaluator_id": "eval_temporal_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "TIME-010",
+              "predicate_type": "TEMPORAL",
+              "source_refs": [
+                "fixture:window"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "EQUALITY_WITHIN_TOLERANCE"
+        ],
+        "comparator_id": "numeric_equality_tolerance_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "epsilon": 0.0,
+          "tolerance_mode": "absolute"
+        },
+        "reasons": [],
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-pending",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "shift_days",
+            "source_kind": "source_evidence",
+            "source_ref": "fixture:window",
+            "value": 5
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "observations[selected].value",
+          "observations[selected].unit",
+          "provenance"
+        ],
+        "operator_id": "SHIFT_TIME",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "observations[*].effective_time",
+          "temporal_constraints"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "observations[selected].effective_time"
+        ]
+      },
+      "c4_006_selection_fingerprint": "0f388e7ccc2544f9da011052778b3a87c275b35fb84796430c0e629021065b22",
+      "component_fingerprint": "545e645e8cd7c7c3b1ca03bfebe1aacf6c5beafd15880d554dd9b0387aa54c4d",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-pending"
+      ],
+      "notes": [
+        "Component generation does not override C4-006 admission status: PENDING"
+      ],
+      "operator_id": "SHIFT_TIME",
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 2,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-005",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "redundancy_proven": true
+              },
+              "evaluator_id": "eval_redundancy_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "CLIN-005",
+              "predicate_type": "CLINICAL",
+              "source_refs": [
+                "fixture:graph-path"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "EQUALITY_WITHIN_TOLERANCE"
+        ],
+        "comparator_id": "numeric_equality_tolerance_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "epsilon": 0.0,
+          "tolerance_mode": "absolute"
+        },
+        "reasons": [],
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-eq-red",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "redundancy_key",
+            "source_kind": "kg",
+            "source_ref": "fixture:graph-path",
+            "value": "obs_non_anchor_3"
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "trajectory.protected_anchors",
+          "required_observations",
+          "provenance"
+        ],
+        "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "trajectory.observations",
+          "trajectory.anchor_roles",
+          "redundancy_evidence"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "trajectory.observations"
+        ]
+      },
+      "c4_006_selection_fingerprint": "440e69415a20427787abf72a25c718ae9c40b63b534ff9982d0beb7c46f4d976",
+      "component_fingerprint": "5f96113ac990c66b649c339c6fc461be56c2f627dad8863ed87a8f8679da0bc7",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-red"
+      ],
+      "notes": [],
+      "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+      "proposition_id": "FIX-REDUNDANT-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 2,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D2"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-009",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "state_definition_available": true
+              },
+              "evaluator_id": "eval_state_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "CLIN-009",
+              "predicate_type": "CLINICAL",
+              "source_refs": [
+                "fixture:unaffected-neighbourhood"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "DECISION_LEVEL"
+        ],
+        "comparator_id": "preserve_decision_state_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "decision_comparator_id": "preserve_decision_state_v1"
+        },
+        "reasons": [],
+        "relation_family": "DECISION_LEVEL",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-state-decision",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "mutable_fields",
+            "source_kind": "kg",
+            "source_ref": "fixture:unaffected-neighbourhood",
+            "value": [
+              "non_state_auxiliary_field"
+            ]
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "state_defining_fields",
+          "provenance"
+        ],
+        "operator_id": "PRESERVE_CLINICAL_STATE",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "state_definition",
+          "invariant_safe_dimensions",
+          "observations"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "declared_mutable_fields"
+        ]
+      },
+      "c4_006_selection_fingerprint": "ec19cd21d3576240936bd97bece3c9472bf60441998058a5daae8c708c2fa125",
+      "component_fingerprint": "807bcc9ef9562e3513ea400ea08e5fadf3dcd914661e386099dbde3ad4379137",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-state"
+      ],
+      "notes": [],
+      "operator_id": "PRESERVE_CLINICAL_STATE",
+      "proposition_id": "FIX-STATE-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 2,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-001",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "relation": "WITHIN_HORIZON"
+              },
+              "evaluator_id": "eval_temporal_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "TIME-001",
+              "predicate_type": "TEMPORAL",
+              "source_refs": [
+                "fixture:temporal-window"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "EQUALITY_WITHIN_TOLERANCE"
+        ],
+        "comparator_id": "numeric_equality_tolerance_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "epsilon": 0.001,
+          "tolerance_mode": "absolute"
+        },
+        "reasons": [],
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-eq",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "shift_days",
+            "source_kind": "source_evidence",
+            "source_ref": "fixture:temporal-window",
+            "value": 7
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "observations[selected].value",
+          "observations[selected].unit",
+          "provenance"
+        ],
+        "operator_id": "SHIFT_TIME",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "observations[*].effective_time",
+          "temporal_constraints"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "observations[selected].effective_time"
+        ]
+      },
+      "c4_006_selection_fingerprint": "421d8e98b235abe5972b944ac55c54d2d2ff7366cb9d9ec0f2ae2e697a2712f3",
+      "component_fingerprint": "2176c708344b0dfc1f6653bc1569d4f8fe90d3f251887d87732ba96c3d572720",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-time"
+      ],
+      "notes": [],
+      "operator_id": "SHIFT_TIME",
+      "proposition_id": "FIX-TIME-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 3,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-002",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "trajectory_available": true
+              },
+              "evaluator_id": "eval_trajectory_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "CLIN-002",
+              "predicate_type": "CLINICAL",
+              "source_refs": [
+                "fixture:trajectory"
+              ]
+            },
+            {
+              "arguments": {
+                "persistence": "satisfied"
+              },
+              "evaluator_id": "eval_temporal_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "TIME-002",
+              "predicate_type": "TEMPORAL",
+              "source_refs": [
+                "fixture:trajectory"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "ORDINAL_NONDECREASE"
+        ],
+        "comparator_id": "ordinal_compare_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "ordering_id": "risk_low_moderate_high_v1"
+        },
+        "reasons": [],
+        "relation_family": "ORDINAL_NONDECREASE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-resample-ord",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "resample_strategy",
+            "source_kind": "compiler_config",
+            "source_ref": "fixture:cfg",
+            "value": "retain_anchors_reduce_density"
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "trajectory.protected_anchors",
+          "provenance"
+        ],
+        "operator_id": "RESAMPLE_TRAJECTORY",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "trajectory.observations",
+          "trajectory.anchor_roles",
+          "temporal_constraints"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "trajectory.observations"
+        ]
+      },
+      "c4_006_selection_fingerprint": "10da31ecbed28c49c6a5cae8cc0d5800ccb6b3e36caf5e13fa7c1bfb16315c5b",
+      "component_fingerprint": "58b1c46ab2df77a2d4bf9f54315ef2109daa7f9bb356399257c1e415fb5068f3",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-traj"
+      ],
+      "notes": [],
+      "operator_id": "RESAMPLE_TRAJECTORY",
+      "proposition_id": "FIX-TRAJ-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 3,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-002",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "trajectory_available": true
+              },
+              "evaluator_id": "eval_trajectory_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "CLIN-002",
+              "predicate_type": "CLINICAL",
+              "source_refs": [
+                "fixture:trajectory"
+              ]
+            },
+            {
+              "arguments": {
+                "persistence": "satisfied"
+              },
+              "evaluator_id": "eval_temporal_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "TIME-002",
+              "predicate_type": "TEMPORAL",
+              "source_refs": [
+                "fixture:trajectory"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "ORDINAL_NONDECREASE"
+        ],
+        "comparator_id": "ordinal_compare_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "ordering_id": "risk_low_moderate_high_v1"
+        },
+        "reasons": [],
+        "relation_family": "ORDINAL_NONDECREASE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-increase-ord",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "slope_delta",
+            "source_kind": "source_evidence",
+            "source_ref": "fixture:slope-range",
+            "value": 0.5
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "trajectory.protected_anchors",
+          "provenance"
+        ],
+        "operator_id": "INCREASE_SLOPE",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "trajectory.observations",
+          "trajectory.slope",
+          "direction_semantics",
+          "protected_anchors"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "trajectory.modifiable_observations"
+        ]
+      },
+      "c4_006_selection_fingerprint": "10da31ecbed28c49c6a5cae8cc0d5800ccb6b3e36caf5e13fa7c1bfb16315c5b",
+      "component_fingerprint": "fddac113b58e33fe57849f0400cd0cc4e06e1ecd43c6d3d4815f6aa2bfd3782e",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-traj"
+      ],
+      "notes": [],
+      "operator_id": "INCREASE_SLOPE",
+      "proposition_id": "FIX-TRAJ-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 3,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-002",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "trajectory_available": true
+              },
+              "evaluator_id": "eval_trajectory_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "CLIN-002",
+              "predicate_type": "CLINICAL",
+              "source_refs": [
+                "fixture:trajectory"
+              ]
+            },
+            {
+              "arguments": {
+                "persistence": "satisfied"
+              },
+              "evaluator_id": "eval_temporal_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "TIME-002",
+              "predicate_type": "TEMPORAL",
+              "source_refs": [
+                "fixture:trajectory"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "ORDINAL_NONINCREASE"
+        ],
+        "comparator_id": "ordinal_compare_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "ordering_id": "risk_low_moderate_high_v1"
+        },
+        "reasons": [],
+        "relation_family": "ORDINAL_NONINCREASE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-decrease-ord",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "slope_delta",
+            "source_kind": "source_evidence",
+            "source_ref": "fixture:slope-range",
+            "value": 0.5
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "trajectory.protected_anchors",
+          "provenance"
+        ],
+        "operator_id": "DECREASE_SLOPE",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "trajectory.observations",
+          "trajectory.slope",
+          "direction_semantics",
+          "protected_anchors"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "trajectory.modifiable_observations"
+        ]
+      },
+      "c4_006_selection_fingerprint": "10da31ecbed28c49c6a5cae8cc0d5800ccb6b3e36caf5e13fa7c1bfb16315c5b",
+      "component_fingerprint": "5efc0ec1d08a634945e2debb75de0d63c5f2d601c72cba3f6309473a6b4f0cd1",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-traj"
+      ],
+      "notes": [],
+      "operator_id": "DECREASE_SLOPE",
+      "proposition_id": "FIX-TRAJ-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    },
+    {
+      "C": {
+        "atom_count": 2,
+        "expression": {
+          "children": [
+            {
+              "arguments": {
+                "decision_contract": "D1"
+              },
+              "evaluator_id": "eval_app_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "APP-008",
+              "predicate_type": "APPLICABILITY",
+              "source_refs": [
+                "fixture:app"
+              ]
+            },
+            {
+              "arguments": {
+                "unit_mapping_available": true
+              },
+              "evaluator_id": "eval_unit_mapping_v1",
+              "missing_evidence_result": "INDETERMINATE",
+              "predicate_id": "TERM-008",
+              "predicate_type": "TERMINOLOGY",
+              "source_refs": [
+                "fixture:unit-map"
+              ]
+            }
+          ],
+          "op": "ALL"
+        },
+        "reasons": [],
+        "status": "GENERATED"
+      },
+      "R": {
+        "candidate_families": [
+          "EQUALITY_WITHIN_TOLERANCE"
+        ],
+        "comparator_id": "numeric_equality_tolerance_v1",
+        "followup_output_selector": "cds.output",
+        "parameters": {
+          "epsilon": 1e-09,
+          "tolerance_mode": "mixed"
+        },
+        "reasons": [],
+        "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+        "source_output_selector": "cds.output",
+        "source_ref": "fixture:r-unit",
+        "status": "GENERATED"
+      },
+      "T": {
+        "bound_parameters": [
+          {
+            "name": "target_unit",
+            "source_kind": "kg",
+            "source_ref": "fixture:unit-map",
+            "value": "mL/min/1.73m2"
+          },
+          {
+            "name": "conversion_id",
+            "source_kind": "kg",
+            "source_ref": "fixture:unit-map",
+            "value": "UCUM-FIX-001"
+          }
+        ],
+        "forbidden_touch_set": [
+          "subject.id",
+          "observations[selected].effective_time",
+          "provenance"
+        ],
+        "operator_id": "CONVERT_UNIT",
+        "operator_version": "OperatorLibrary-R1.0",
+        "read_set": [
+          "observations[selected].value",
+          "observations[selected].unit",
+          "unit_conversion_mapping"
+        ],
+        "reasons": [],
+        "status": "GENERATED",
+        "touch_set": [
+          "observations[selected].value",
+          "observations[selected].unit"
+        ]
+      },
+      "c4_006_selection_fingerprint": "dd5f49ef33613ba3602cdeafc43f3e7466d9973c56b9f9670212d40bca3e013d",
+      "component_fingerprint": "a83454fe2af2c43e83133cae4025c3343d7e238fc0692ac27eaafac11460157e",
+      "generation_status": "COMPONENTS_GENERATED",
+      "graph_path_ids": [
+        "fixture:path-unit"
+      ],
+      "notes": [],
+      "operator_id": "CONVERT_UNIT",
+      "proposition_id": "FIX-UNIT-001",
+      "release_ref": "fixture:R1",
+      "source_refs": [
+        "fixture:knowledge-item"
+      ]
+    }
+  ]
+}

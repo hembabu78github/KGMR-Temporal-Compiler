@@ -1,0 +1,89 @@
+{
+  "policy_version": "C4-015-R1.0",
+  "representation_version": "CandidateMR-R1.0",
+  "required_candidate_status": "COMPILED_CANDIDATE",
+  "required_expert_validation_status": "UNREVIEWED",
+  "allowed_operators": [
+    "SHIFT_TIME",
+    "RESAMPLE_TRAJECTORY",
+    "DELAY_RESULT_ENTRY",
+    "SWAP_EQUIVALENT_ORDER",
+    "REMOVE_REDUNDANT_OBSERVATION",
+    "MASK_REQUIRED_OBSERVATION",
+    "INCREASE_SLOPE",
+    "DECREASE_SLOPE",
+    "INSERT_TRANSIENT_AKI",
+    "CONVERT_UNIT",
+    "PRESERVE_CLINICAL_STATE"
+  ],
+  "allowed_relation_families": [
+    "EQUALITY_WITHIN_TOLERANCE",
+    "MONOTONIC_INCREASE",
+    "MONOTONIC_DECREASE",
+    "ORDINAL_NONDECREASE",
+    "ORDINAL_NONINCREASE",
+    "BOUNDED_CHANGE",
+    "DECISION_LEVEL"
+  ],
+  "allowed_exception_types": [
+    "ApplicabilityExclusion",
+    "DataQualityException",
+    "MissingDataException",
+    "TemporalPrecisionException",
+    "ClinicalEventException",
+    "MedicationContextException",
+    "TerminologyMappingException",
+    "LicensingReleaseException",
+    "ReviewGateException",
+    "ConflictException"
+  ],
+  "allowed_precedence_tiers": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "generated_module_allowed_imports": {
+    "import": [
+      "json"
+    ],
+    "from": {
+      "runtime.executable_runtime": [
+        "apply_transformation",
+        "evaluate_oracle",
+        "execute_mr"
+      ]
+    }
+  },
+  "shared_runtime_allowed_import_roots": [
+    "__future__",
+    "copy",
+    "datetime",
+    "typing"
+  ],
+  "forbidden_code_names": [
+    "exec",
+    "eval",
+    "open",
+    "__import__",
+    "compile",
+    "input",
+    "os",
+    "subprocess",
+    "socket",
+    "requests",
+    "urllib",
+    "pathlib",
+    "shutil"
+  ],
+  "static_pass_does_not_imply": {
+    "clinical_validation": true,
+    "expert_acceptance": true,
+    "execution_admission": true
+  }
+}

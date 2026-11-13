@@ -1,0 +1,382 @@
+{
+  "cases": [
+    {
+      "proposition_id": "FIX-AKI-001",
+      "entities": [
+        {
+          "entity_id": "aki_ref",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2026-01-01T00:00:00Z",
+          "start_latest": "2026-01-01T00:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2026-01-01T00:00:00Z",
+          "source_refs": [
+            "fixture:acute-reference"
+          ]
+        },
+        {
+          "entity_id": "aki_trigger",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2026-01-10T00:00:00Z",
+          "start_latest": "2026-01-10T00:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2026-01-10T00:00:00Z",
+          "source_refs": [
+            "fixture:acute-trigger"
+          ]
+        },
+        {
+          "entity_id": "aki_recovery",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2026-01-24T00:00:00Z",
+          "start_latest": "2026-01-24T00:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2026-01-24T00:00:00Z",
+          "source_refs": [
+            "fixture:recovery"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_id": "TC-AKI-WITHIN",
+          "operator": "WITHIN",
+          "left": "aki_trigger",
+          "right": "aki_ref",
+          "duration": "P14D",
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:acute-like-window"
+          ]
+        },
+        {
+          "constraint_id": "TC-AKI-RECOVERY",
+          "operator": "AT_MOST",
+          "left": "aki_recovery",
+          "right": "aki_trigger",
+          "duration": "P28D",
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:recovery-window"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-DELAY-001",
+      "entities": [
+        {
+          "entity_id": "effective",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2026-02-01T09:00:00-05:00",
+          "start_latest": "2026-02-01T09:00:00-05:00",
+          "precision": "exact",
+          "lexical_value": "2026-02-01T09:00:00-05:00",
+          "source_refs": [
+            "fixture:effective"
+          ]
+        },
+        {
+          "entity_id": "issued",
+          "kind": "INSTANT",
+          "time_domain": "availability",
+          "start_earliest": "2026-02-03T10:00:00-05:00",
+          "start_latest": "2026-02-03T10:00:00-05:00",
+          "precision": "exact",
+          "lexical_value": "2026-02-03T10:00:00-05:00",
+          "source_refs": [
+            "fixture:issued"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_id": "TC-DELAY-AVAIL",
+          "operator": "AT_MOST",
+          "left": "issued",
+          "right": "issued",
+          "duration": "P1D",
+          "time_domain": "availability",
+          "source_refs": [
+            "fixture:availability-self-check"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1",
+      "notes": "Issued time is an availability-time variable and does not substitute for clinical effective time."
+    },
+    {
+      "proposition_id": "FIX-MASK-001",
+      "entities": [],
+      "constraints": [],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-ORDER-001",
+      "entities": [
+        {
+          "entity_id": "obs_a",
+          "kind": "UNCERTAIN_INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2026-03-01T00:00:00Z",
+          "start_latest": "2026-03-01T23:59:59Z",
+          "precision": "date",
+          "source_refs": [
+            "fixture:visit-a"
+          ]
+        },
+        {
+          "entity_id": "obs_b",
+          "kind": "UNCERTAIN_INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2026-03-01T12:00:00Z",
+          "start_latest": "2026-03-02T12:00:00Z",
+          "precision": "visit",
+          "source_refs": [
+            "fixture:visit-b"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_id": "TC-ORDER-SAME",
+          "operator": "sameClinicalTime",
+          "left": "obs_a",
+          "right": "obs_b",
+          "duration": null,
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:same-clinical-time"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "entities": [
+        {
+          "entity_id": "baseline",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2025-01-31T08:00:00Z",
+          "start_latest": "2025-01-31T08:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2025-01-31T08:00:00Z",
+          "source_refs": [
+            "fixture:baseline"
+          ]
+        },
+        {
+          "entity_id": "confirmation",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2026-01-31T08:00:00Z",
+          "start_latest": "2026-01-31T08:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2026-01-31T08:00:00Z",
+          "source_refs": [
+            "fixture:confirmation"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_id": "TC-PENDING-HORIZON",
+          "operator": "WITHIN_HORIZON",
+          "left": "confirmation",
+          "right": "baseline",
+          "duration": "P2Y",
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:two-year-horizon"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-REDUNDANT-001",
+      "entities": [
+        {
+          "entity_id": "trajectory_window",
+          "kind": "INTERVAL",
+          "time_domain": "clinical",
+          "start_earliest": "2026-01-01T00:00:00Z",
+          "start_latest": "2026-01-01T00:00:00Z",
+          "end_earliest": "2026-05-01T00:00:00Z",
+          "end_latest": "2026-05-01T00:00:00Z",
+          "precision": "exact",
+          "source_refs": [
+            "fixture:trajectory"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_id": "TC-RED-PERSIST",
+          "operator": "PERSISTS_FOR",
+          "left": "trajectory_window",
+          "right": null,
+          "duration": "P90D",
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:persistence"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-STATE-001",
+      "entities": [],
+      "constraints": [],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-TIME-001",
+      "entities": [
+        {
+          "entity_id": "baseline",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2024-02-29T10:00:00Z",
+          "start_latest": "2024-02-29T10:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2024-02-29T10:00:00Z",
+          "source_refs": [
+            "fixture:baseline"
+          ]
+        },
+        {
+          "entity_id": "confirmation",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2024-06-15T10:00:00Z",
+          "start_latest": "2024-06-15T10:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2024-06-15T10:00:00Z",
+          "source_refs": [
+            "fixture:confirmation"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_id": "TC-TIME-90",
+          "operator": "AT_LEAST",
+          "left": "confirmation",
+          "right": "baseline",
+          "duration": "P90D",
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:90-day"
+          ]
+        },
+        {
+          "constraint_id": "TC-TIME-2Y",
+          "operator": "WITHIN_HORIZON",
+          "left": "confirmation",
+          "right": "baseline",
+          "duration": "P2Y",
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:two-year"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "entities": [
+        {
+          "entity_id": "crossing",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2025-01-01T00:00:00Z",
+          "start_latest": "2025-01-01T00:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2025-01-01T00:00:00Z",
+          "source_refs": [
+            "fixture:crossing"
+          ]
+        },
+        {
+          "entity_id": "confirmation",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2025-04-15T00:00:00Z",
+          "start_latest": "2025-04-15T00:00:00Z",
+          "precision": "exact",
+          "lexical_value": "2025-04-15T00:00:00Z",
+          "source_refs": [
+            "fixture:confirmation"
+          ]
+        },
+        {
+          "entity_id": "trajectory_window",
+          "kind": "INTERVAL",
+          "time_domain": "clinical",
+          "start_earliest": "2024-01-01T00:00:00Z",
+          "start_latest": "2024-01-01T00:00:00Z",
+          "end_earliest": "2026-01-02T00:00:00Z",
+          "end_latest": "2026-01-02T00:00:00Z",
+          "precision": "exact",
+          "source_refs": [
+            "fixture:trajectory"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_id": "TC-TRAJ-90",
+          "operator": "AT_LEAST",
+          "left": "confirmation",
+          "right": "crossing",
+          "duration": "P90D",
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:90-day"
+          ]
+        },
+        {
+          "constraint_id": "TC-TRAJ-PERSIST",
+          "operator": "PERSISTS_FOR",
+          "left": "trajectory_window",
+          "right": null,
+          "duration": "P1Y",
+          "time_domain": "clinical",
+          "source_refs": [
+            "fixture:one-year"
+          ]
+        }
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-UNIT-001",
+      "entities": [
+        {
+          "entity_id": "effective",
+          "kind": "INSTANT",
+          "time_domain": "clinical",
+          "start_earliest": "2026-04-01T14:00:00+02:00",
+          "start_latest": "2026-04-01T14:00:00+02:00",
+          "precision": "exact",
+          "lexical_value": "2026-04-01T14:00:00+02:00",
+          "source_refs": [
+            "fixture:effective"
+          ]
+        }
+      ],
+      "constraints": [],
+      "release_ref": "fixture:R1"
+    }
+  ]
+}

@@ -1,0 +1,1612 @@
+@prefix ckd: <https://ckd-tkg.org/ontology/r1.0/ckd/> .
+@prefix kgmr: <https://ckd-tkg.org/ontology/r1.0/kgmr/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov1: <https://ckd-tkg.org/ontology/r1.0/prov/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix term: <https://ckd-tkg.org/ontology/r1.0/term/> .
+@prefix tk: <https://ckd-tkg.org/ontology/r1.0/tk/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ckd-tkg.org/ontology/r1.0/> a owl:Ontology ;
+    rdfs:label "CKD-TKG R1.0 Ontology" ;
+    rdfs:comment "RDF/OWL implementation of the design-closed C3-004 through C3-013 baseline. External terminology and source-data mappings remain governed annotations." ;
+    owl:versionInfo "R1.0" ;
+    prov1:hasProvenanceRecord prov1:DesignClosure_C3_004_C3_013 ;
+    prov1:hasReleaseRecord prov1:Release_R1_0_Implementation .
+
+ckd:A1 a ckd:AlbuminuriaCategoricalState ;
+    rdfs:label "A1" .
+
+ckd:A2 a ckd:AlbuminuriaCategoricalState ;
+    rdfs:label "A2" .
+
+ckd:A3 a ckd:AlbuminuriaCategoricalState ;
+    rdfs:label "A3" .
+
+ckd:AlbuminuriaChangeTrajectory a owl:Class ;
+    rdfs:label "Albuminuria Change Trajectory" ;
+    rdfs:comment "Longitudinal ACR change including a doubling evaluation qualifier." ;
+    rdfs:subClassOf tk:Trajectory .
+
+ckd:AlbuminuriaObservation a owl:Class ;
+    rdfs:label "Albuminuria Observation" ;
+    rdfs:comment "Urinary albumin measurement used for A-category state or change assessment." ;
+    rdfs:subClassOf ckd:ClinicalObservation .
+
+ckd:CysticHereditary a ckd:CKDEtiologyCategory ;
+    rdfs:label "CysticHereditary" .
+
+ckd:DiabeticKidneyDisease a ckd:CKDEtiologyCategory ;
+    rdfs:label "DiabeticKidneyDisease" .
+
+ckd:DiureticExposureEvent a owl:Class ;
+    rdfs:label "Diuretic Exposure Event" ;
+    rdfs:comment "Diuretic exposure event relevant to volume-related changes." ;
+    rdfs:subClassOf ckd:MedicationExposureEvent .
+
+ckd:EarlyWarningEGFRChange a owl:Class ;
+    rdfs:label "Early-warning eGFR Change" ;
+    rdfs:comment "Subsequent-test eGFR decline >20% represented as an evaluation trigger." ;
+    rdfs:subClassOf tk:Trajectory .
+
+ckd:FigureDerivedProposition a owl:Class ;
+    rdfs:label "Figure-derived Proposition" ;
+    rdfs:comment "Controlled proposition extracted from a guideline figure/table cell." ;
+    rdfs:subClassOf ckd:GuidelineKnowledgeItem .
+
+ckd:G1 a ckd:GFRCategoricalState ;
+    rdfs:label "G1" .
+
+ckd:G2 a ckd:GFRCategoricalState ;
+    rdfs:label "G2" .
+
+ckd:G3a a ckd:GFRCategoricalState ;
+    rdfs:label "G3a" .
+
+ckd:G3b a ckd:GFRCategoricalState ;
+    rdfs:label "G3b" .
+
+ckd:G4 a ckd:GFRCategoricalState ;
+    rdfs:label "G4" .
+
+ckd:G5 a ckd:GFRCategoricalState ;
+    rdfs:label "G5" .
+
+ckd:GlomerularImmuneMediated a ckd:CKDEtiologyCategory ;
+    rdfs:label "GlomerularImmuneMediated" .
+
+ckd:KidneyFunctionObservation a owl:Class ;
+    rdfs:label "Kidney Function Observation" ;
+    rdfs:comment "Observation reflecting kidney filtration/function." ;
+    rdfs:subClassOf ckd:ClinicalObservation .
+
+ckd:NSAIDExposureEvent a owl:Class ;
+    rdfs:label "NSAID Exposure Event" ;
+    rdfs:comment "NSAID exposure event relevant to acute deterioration context." ;
+    rdfs:subClassOf ckd:MedicationExposureEvent .
+
+ckd:OtherUnknown a ckd:CKDEtiologyCategory ;
+    rdfs:label "OtherUnknown" .
+
+ckd:PracticePointStatement a owl:Class ;
+    rdfs:label "Practice Point Statement" ;
+    rdfs:comment "KDIGO practice point." ;
+    rdfs:subClassOf ckd:GuidelineKnowledgeItem .
+
+ckd:RAASInhibitorExposureEvent a owl:Class ;
+    rdfs:label "RAAS Inhibitor Exposure Event" ;
+    rdfs:comment "ACE inhibitor or ARB exposure event." ;
+    rdfs:subClassOf ckd:MedicationExposureEvent .
+
+ckd:SGLT2InhibitorExposureEvent a owl:Class ;
+    rdfs:label "SGLT2 Inhibitor Exposure Event" ;
+    rdfs:comment "SGLT2 inhibitor exposure event." ;
+    rdfs:subClassOf ckd:MedicationExposureEvent .
+
+ckd:StableKidneyFunctionTrajectory a owl:Class ;
+    rdfs:label "Stable Kidney Function Trajectory" ;
+    rdfs:comment "Trajectory satisfying a declared stability definition." ;
+    rdfs:subClassOf tk:Trajectory .
+
+ckd:Tubulointerstitial a ckd:CKDEtiologyCategory ;
+    rdfs:label "Tubulointerstitial" .
+
+ckd:VascularHypertensive a ckd:CKDEtiologyCategory ;
+    rdfs:label "VascularHypertensive" .
+
+ckd:affectsTrajectory a owl:ObjectProperty ;
+    rdfs:label "affects trajectory" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:ClinicalEvent ;
+    rdfs:range tk:Trajectory .
+
+ckd:assessesTrajectory a owl:ObjectProperty ;
+    rdfs:label "assesses trajectory" ;
+    rdfs:comment "C3-005 control: 1..* candidate" ;
+    rdfs:domain ckd:RiskAssessment ;
+    rdfs:range tk:Trajectory .
+
+ckd:associatedWithMedicationExposure a owl:ObjectProperty ;
+    rdfs:label "associated with medication exposure" ;
+    rdfs:comment "C3-005 control: MinCount 1" ;
+    rdfs:domain ckd:TherapyAssociatedGFRReductionEvaluation ;
+    rdfs:range ckd:MedicationExposureEvent .
+
+ckd:hasAlbuminuriaCategory a owl:ObjectProperty ;
+    rdfs:label "has albuminuria category" ;
+    rdfs:comment "C3-005 control: Local 0..1" ;
+    rdfs:domain ckd:CKDState ;
+    rdfs:range ckd:AlbuminuriaCategoricalState .
+
+ckd:hasAvailabilityState a owl:ObjectProperty ;
+    rdfs:label "has availability state" ;
+    rdfs:comment "C3-005 control: Local maxCount 1" ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range ckd:ObservationAvailabilityState .
+
+ckd:hasCGAClinicalRiskCategory a owl:ObjectProperty ;
+    rdfs:label "has CGA clinical risk category" ;
+    rdfs:comment "C3-005 control: Local maxCount 1" ;
+    rdfs:domain ckd:CKDState ;
+    rdfs:range ckd:KDIGOCGARiskCategory .
+
+ckd:hasDecisionRationale a owl:ObjectProperty ;
+    rdfs:label "has decision rationale" ;
+    rdfs:comment "C3-005 control: MinCount 1 for policy outputs" ;
+    rdfs:domain ckd:DecisionArtifact ;
+    rdfs:range ckd:DecisionRationale .
+
+ckd:hasEligibilityState a owl:ObjectProperty ;
+    rdfs:label "has eligibility state" ;
+    rdfs:comment "C3-005 control: Local exactly 1 per executable snapshot" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:EstablishedCKDEligibilityState ;
+    rdfs:subPropertyOf ckd:hasClinicalState .
+
+ckd:hasEtiologyCategory a owl:ObjectProperty ;
+    rdfs:label "has etiology category" ;
+    rdfs:comment "C3-005 control: Local 0..1" ;
+    rdfs:domain ckd:CKDState ;
+    rdfs:range ckd:CKDEtiologyCategory .
+
+ckd:hasGFRCategory a owl:ObjectProperty ;
+    rdfs:label "has GFR category" ;
+    rdfs:comment "C3-005 control: Local exactly 1 per state snapshot" ;
+    rdfs:domain ckd:CKDState ;
+    rdfs:range ckd:GFRCategoricalState .
+
+ckd:hasKidneyFailureRiskAssessment a owl:ObjectProperty ;
+    rdfs:label "has kidney-failure risk assessment" ;
+    rdfs:comment "C3-005 control: 0..* versioned" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:KidneyFailureRiskAssessment ;
+    rdfs:subPropertyOf ckd:hasRiskAssessment .
+
+ckd:hasMeasurementMethodContext a owl:ObjectProperty ;
+    rdfs:label "has measurement method context" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range ckd:MeasurementMethodContext .
+
+ckd:hasMedicationExposureEvent a owl:ObjectProperty ;
+    rdfs:label "has medication exposure event" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:MedicationExposureEvent ;
+    rdfs:subPropertyOf ckd:hasClinicalEvent .
+
+ckd:hasMonitoringRecommendation a owl:ObjectProperty ;
+    rdfs:label "has monitoring recommendation" ;
+    rdfs:comment "C3-005 control: 0..* versioned" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:MonitoringRecommendation ;
+    rdfs:subPropertyOf ckd:hasDecisionArtifact .
+
+ckd:hasOperationalInterpretation a owl:ObjectProperty ;
+    rdfs:label "has operational interpretation" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:GuidelineKnowledgeItem ;
+    rdfs:range ckd:ExpertInterpretation .
+
+ckd:hasPredictionTarget a owl:ObjectProperty ;
+    rdfs:label "has prediction target" ;
+    rdfs:comment "C3-005 control: Local exactly 1" ;
+    rdfs:domain ckd:ProgressionRiskAssessment ;
+    rdfs:range ckd:ConfirmedSustainedEGFRDecline .
+
+ckd:hasProgressionRiskAssessment a owl:ObjectProperty ;
+    rdfs:label "has progression-risk assessment" ;
+    rdfs:comment "C3-005 control: 0..* versioned" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:ProgressionRiskAssessment ;
+    rdfs:subPropertyOf ckd:hasRiskAssessment .
+
+ckd:hasRecoveryEvent a owl:ObjectProperty ;
+    rdfs:label "has recovery event" ;
+    rdfs:comment "C3-005 control: MinCount 1 before recovered use" ;
+    rdfs:domain ckd:AKILikeTransientDeterioration ;
+    rdfs:range ckd:RecoveryEvent .
+
+ckd:hasReferralSupportDecision a owl:ObjectProperty ;
+    rdfs:label "has referral-support decision" ;
+    rdfs:comment "C3-005 control: 0..* versioned" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:ReferralSupportDecision ;
+    rdfs:subPropertyOf ckd:hasDecisionArtifact .
+
+ckd:hasValidityAssessment a owl:ObjectProperty ;
+    rdfs:label "has validity assessment" ;
+    rdfs:comment "C3-005 control: Local exactly 1 before executable use" ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range ckd:ObservationValidityAssessment .
+
+ckd:localIdentifier a owl:DatatypeProperty ;
+    rdfs:label "localIdentifier" ;
+    rdfs:comment "Stable local identifier." ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+ckd:monitoringTimesPerYear a owl:DatatypeProperty ;
+    rdfs:label "monitoringTimesPerYear" ;
+    rdfs:comment "Optional local-policy cadence." ;
+    rdfs:domain ckd:MonitoringRecommendation ;
+    rdfs:range xsd:decimal .
+
+ckd:numericRiskValue a owl:DatatypeProperty ;
+    rdfs:label "numericRiskValue" ;
+    rdfs:comment "Numeric risk estimate." ;
+    rdfs:domain ckd:RiskAssessment ;
+    rdfs:range xsd:decimal .
+
+ckd:observationUnitCode a owl:DatatypeProperty ;
+    rdfs:label "observationUnitCode" ;
+    rdfs:comment "UCUM unit code." ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range xsd:string .
+
+ckd:observationValue a owl:DatatypeProperty ;
+    rdfs:label "observationValue" ;
+    rdfs:comment "Clinical value." ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range xsd:decimal .
+
+ckd:overlapsEvent a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "overlaps event" ;
+    rdfs:domain ckd:ClinicalEvent ;
+    rdfs:range ckd:ClinicalEvent .
+
+ckd:qualifiesTrajectory a owl:ObjectProperty ;
+    rdfs:label "qualifies trajectory" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:ClinicalState ;
+    rdfs:range tk:Trajectory .
+
+ckd:rationaleGroundedIn a owl:ObjectProperty ;
+    rdfs:label "rationale grounded in" ;
+    rdfs:comment "C3-005 control: 1..*" ;
+    rdfs:domain ckd:DecisionRationale ;
+    rdfs:range ckd:GuidelineKnowledgeItem .
+
+ckd:riskHorizonYears a owl:DatatypeProperty ;
+    rdfs:label "riskHorizonYears" ;
+    rdfs:comment "Prediction horizon." ;
+    rdfs:domain ckd:RiskAssessment ;
+    rdfs:range xsd:decimal .
+
+ckd:supportedByRiskAssessment a owl:ObjectProperty ;
+    rdfs:label "supported by risk assessment" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:DecisionArtifact ;
+    rdfs:range ckd:RiskAssessment .
+
+ckd:triggersTherapyEvaluation a owl:ObjectProperty ;
+    rdfs:label "triggers therapy evaluation" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:MedicationExposureEvent ;
+    rdfs:range ckd:TherapyAssociatedGFRReductionEvaluation .
+
+ckd:usesReferralCGACondition a owl:ObjectProperty ;
+    rdfs:label "uses referral CGA condition" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:DecisionPolicyVersion ;
+    rdfs:range ckd:ReferralCGACondition ;
+    rdfs:subPropertyOf ckd:usesCriterion .
+
+ckd:usesReferralRiskCriterion a owl:ObjectProperty ;
+    rdfs:label "uses referral-risk criterion" ;
+    rdfs:comment "C3-005 control: 0..1 candidate" ;
+    rdfs:domain ckd:DecisionPolicyVersion ;
+    rdfs:range ckd:ReferralRiskCriterion ;
+    rdfs:subPropertyOf ckd:usesCriterion .
+
+kgmr:Conflict_ApplicabilityConflict a kgmr:ConflictType ;
+    rdfs:label "ApplicabilityConflict" ;
+    rdfs:comment "Two rules claim incompatible applicability for same snapshot." .
+
+kgmr:Conflict_DataConflict a kgmr:ConflictType ;
+    rdfs:label "DataConflict" ;
+    rdfs:comment "Concurrent source records disagree after selection/status rules." .
+
+kgmr:Conflict_DecisionPolicyConflict a kgmr:ConflictType ;
+    rdfs:label "DecisionPolicyConflict" ;
+    rdfs:comment "D2/D3 policy versions produce contradictory recommendations." .
+
+kgmr:Conflict_ExceptionConflict a kgmr:ConflictType ;
+    rdfs:label "ExceptionConflict" ;
+    rdfs:comment "Rule exception and rule antecedent both satisfied with unclear override." .
+
+kgmr:Conflict_ExpectedRelationConflict a kgmr:ConflictType ;
+    rdfs:label "ExpectedRelationConflict" ;
+    rdfs:comment "Same target/output, overlapping applicability, incompatible expected relations." .
+
+kgmr:Conflict_ReviewConflict a kgmr:ConflictType ;
+    rdfs:label "ReviewConflict" ;
+    rdfs:comment "Independent reviewers disagree on clinical meaning/safety." .
+
+kgmr:Conflict_SourceInterpretationConflict a kgmr:ConflictType ;
+    rdfs:label "SourceInterpretationConflict" ;
+    rdfs:comment "Source statement and author interpretation disagree or two interpretations differ." .
+
+kgmr:Conflict_TemporalConflict a kgmr:ConflictType ;
+    rdfs:label "TemporalConflict" ;
+    rdfs:comment "Temporal relations cannot be simultaneously satisfied or precision makes relation uncertain." .
+
+kgmr:Conflict_TerminologyConflict a kgmr:ConflictType ;
+    rdfs:label "TerminologyConflict" ;
+    rdfs:comment "Multiple candidate codes/mapping relations for same source value." .
+
+kgmr:Conflict_VersionConflict a kgmr:ConflictType ;
+    rdfs:label "VersionConflict" ;
+    rdfs:comment "Different active versions of same source/rule/mapping appear applicable." .
+
+kgmr:Exception_ApplicabilityExclusion a kgmr:ExceptionType ;
+    rdfs:label "ApplicabilityExclusion" ;
+    rdfs:comment "Subject/context is outside rule applicability." .
+
+kgmr:Exception_ClinicalEventException a kgmr:ExceptionType ;
+    rdfs:label "ClinicalEventException" ;
+    rdfs:comment "Transient/recovery event qualifies chronic interpretation." .
+
+kgmr:Exception_ConflictException a kgmr:ExceptionType ;
+    rdfs:label "ConflictException" ;
+    rdfs:comment "Another applicable rule creates unresolved contradictory expectation." .
+
+kgmr:Exception_DataQualityException a kgmr:ExceptionType ;
+    rdfs:label "DataQualityException" ;
+    rdfs:comment "Required observation is invalid/unsupported." .
+
+kgmr:Exception_LicensingReleaseException a kgmr:ExceptionType ;
+    rdfs:label "LicensingReleaseException" ;
+    rdfs:comment "Target release cannot expose/use restricted artefact." .
+
+kgmr:Exception_MedicationContextException a kgmr:ExceptionType ;
+    rdfs:label "MedicationContextException" ;
+    rdfs:comment "Medication evaluation window changes interpretation." .
+
+kgmr:Exception_MissingDataException a kgmr:ExceptionType ;
+    rdfs:label "MissingDataException" ;
+    rdfs:comment "Required observation or confirmation is absent." .
+
+kgmr:Exception_ReviewGateException a kgmr:ExceptionType ;
+    rdfs:label "ReviewGateException" ;
+    rdfs:comment "Required clinical/technical review is incomplete or rejected." .
+
+kgmr:Exception_TemporalPrecisionException a kgmr:ExceptionType ;
+    rdfs:label "TemporalPrecisionException" ;
+    rdfs:comment "Available time precision cannot prove temporal relation." .
+
+kgmr:Exception_TerminologyMappingException a kgmr:ExceptionType ;
+    rdfs:label "TerminologyMappingException" ;
+    rdfs:comment "External mapping is unavailable/ambiguous." .
+
+kgmr:Gate_Computable a kgmr:CompilationGateType ;
+    rdfs:label "Computable" ;
+    rdfs:comment "Can the proposition be deterministically represented?" .
+
+kgmr:Gate_Conflict_resolved a kgmr:CompilationGateType ;
+    rdfs:label "Conflict resolved" ;
+    rdfs:comment "Are relevant conflicts/precedence decisions resolved?" .
+
+kgmr:Gate_Licensing_allowed a kgmr:CompilationGateType ;
+    rdfs:label "Licensing allowed" ;
+    rdfs:comment "Can the required artefact be used in the target release?" .
+
+kgmr:Gate_Release_integrity a kgmr:CompilationGateType ;
+    rdfs:label "Release integrity" ;
+    rdfs:comment "Are version, checksum and supersession metadata complete?" .
+
+kgmr:Gate_Review_sufficient a kgmr:CompilationGateType ;
+    rdfs:label "Review sufficient" ;
+    rdfs:comment "Has the required review tier been reached?" .
+
+kgmr:Gate_Scope_matched a kgmr:CompilationGateType ;
+    rdfs:label "Scope matched" ;
+    rdfs:comment "Is the knowledge item within C3-002 decision/population scope?" .
+
+kgmr:Gate_Source_located a kgmr:CompilationGateType ;
+    rdfs:label "Source located" ;
+    rdfs:comment "Is a stable source and precise locator present?" .
+
+kgmr:Gate_Terminology_ready a kgmr:CompilationGateType ;
+    rdfs:label "Terminology ready" ;
+    rdfs:comment "Are required local/external mappings versioned?" .
+
+kgmr:P0 a kgmr:PrecedenceTier ;
+    rdfs:label "P0 Input integrity / legality" ;
+    rdfs:comment "Invalid/entered-in-error data and release-prohibited artefacts cannot support execution." .
+
+kgmr:P1 a kgmr:PrecedenceTier ;
+    rdfs:label "P1 Applicability gate" ;
+    rdfs:comment "Out-of-scope subject/context makes the rule non-applicable." .
+
+kgmr:P2 a kgmr:PrecedenceTier ;
+    rdfs:label "P2 Explicit linked exception" ;
+    rdfs:comment "An exception suppresses/qualifies only the rule and scope it explicitly references." .
+
+kgmr:P3 a kgmr:PrecedenceTier ;
+    rdfs:label "P3 Temporal/event qualifier" ;
+    rdfs:comment "Closed C3-008/C3-009 event and precision semantics determine whether a condition is TRUE/FALSE/INDETERMINATE." .
+
+kgmr:P4 a kgmr:PrecedenceTier ;
+    rdfs:label "P4 Specificity" ;
+    rdfs:comment "A more-specific rule may outrank a generic rule only when scope containment is explicit and the expected relations are compatible with the approved policy." .
+
+kgmr:P5 a kgmr:PrecedenceTier ;
+    rdfs:label "P5 Release/version" ;
+    rdfs:comment "Within one rule/mapping lineage, the release-pinned non-superseded version is current." .
+
+kgmr:P6 a kgmr:PrecedenceTier ;
+    rdfs:label "P6 Guideline strength" ;
+    rdfs:comment "Recorded as provenance metadata." .
+
+kgmr:P7 a kgmr:PrecedenceTier ;
+    rdfs:label "P7 Human adjudication" ;
+    rdfs:comment "Used for unresolved same-tier or clinically meaningful conflicts." .
+
+kgmr:P8 a kgmr:PrecedenceTier ;
+    rdfs:label "P8 Unresolved" ;
+    rdfs:comment "Return ABSTAIN/INDETERMINATE and block eligible compilation where required." .
+
+kgmr:admittedFromKnowledgeItem a owl:ObjectProperty ;
+    rdfs:label "admitted from knowledge item" ;
+    rdfs:comment "C3-005 control: 1..*" ;
+    rdfs:domain kgmr:ExecutableClinicalRule ;
+    rdfs:range ckd:GuidelineKnowledgeItem ;
+    rdfs:subPropertyOf ckd:groundedInKnowledgeItem .
+
+kgmr:appliesToCareContext a owl:ObjectProperty ;
+    rdfs:label "applies to care context" ;
+    rdfs:comment "C3-005 control: MinCount 1" ;
+    rdfs:domain kgmr:RuleApplicability ;
+    rdfs:range ckd:CareContext .
+
+kgmr:appliesToEligibilityState a owl:ObjectProperty ;
+    rdfs:label "applies to eligibility state" ;
+    rdfs:comment "C3-005 control: Exactly 1" ;
+    rdfs:domain kgmr:RuleApplicability ;
+    rdfs:range ckd:EstablishedCKDEligibilityState .
+
+kgmr:appliesToGFRCategory a owl:ObjectProperty ;
+    rdfs:label "applies to GFR category" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain kgmr:RuleApplicability ;
+    rdfs:range ckd:GFRCategoricalState .
+
+kgmr:assessesGateType a owl:ObjectProperty ;
+    rdfs:label "assesses gate type" ;
+    rdfs:domain kgmr:CompilationGateAssessment ;
+    rdfs:range kgmr:CompilationGateType .
+
+kgmr:conflictStatus a owl:DatatypeProperty ;
+    rdfs:label "conflictStatus" ;
+    rdfs:domain kgmr:ConflictResolutionRecord ;
+    rdfs:range xsd:string .
+
+kgmr:eligibilityStatus a owl:DatatypeProperty ;
+    rdfs:label "eligibilityStatus" ;
+    rdfs:comment "Eligible/Ineligible/Pending." ;
+    rdfs:domain kgmr:CompilationEligibilityRecord ;
+    rdfs:range xsd:string .
+
+kgmr:exceptedByClinicalEvent a owl:ObjectProperty ;
+    rdfs:label "excepted by clinical event" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain kgmr:RuleException ;
+    rdfs:range ckd:ClinicalEvent .
+
+kgmr:exceptedByMedicationExposure a owl:ObjectProperty ;
+    rdfs:label "excepted by medication exposure" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain kgmr:RuleException ;
+    rdfs:range ckd:MedicationExposureEvent .
+
+kgmr:expectedRelationOnDecisionArtifact a owl:ObjectProperty ;
+    rdfs:label "expected relation on decision artifact" ;
+    rdfs:comment "C3-005 control: 0..* test-instance link" ;
+    rdfs:domain kgmr:ExpectedClinicalRelation ;
+    rdfs:range ckd:DecisionArtifact .
+
+kgmr:expectedRelationOnRiskAssessment a owl:ObjectProperty ;
+    rdfs:label "expected relation on risk assessment" ;
+    rdfs:comment "C3-005 control: 0..* test-instance link" ;
+    rdfs:domain kgmr:ExpectedClinicalRelation ;
+    rdfs:range ckd:RiskAssessment .
+
+kgmr:gateStatus a owl:DatatypeProperty ;
+    rdfs:label "gateStatus" ;
+    rdfs:domain kgmr:CompilationGateAssessment ;
+    rdfs:range xsd:string .
+
+kgmr:hasAntecedent a owl:ObjectProperty ;
+    rdfs:label "has antecedent" ;
+    rdfs:comment "C3-005 control: MinCount 1" ;
+    rdfs:domain kgmr:ExecutableClinicalRule ;
+    rdfs:range kgmr:RuleAntecedent .
+
+kgmr:hasApplicability a owl:ObjectProperty ;
+    rdfs:label "has applicability" ;
+    rdfs:comment "C3-005 control: Exactly 1" ;
+    rdfs:domain kgmr:ExecutableClinicalRule ;
+    rdfs:range kgmr:RuleApplicability .
+
+kgmr:hasConflictResolutionRecord a owl:ObjectProperty ;
+    rdfs:label "has conflict resolution record" ;
+    rdfs:domain kgmr:ExecutableClinicalRule ;
+    rdfs:range kgmr:ConflictResolutionRecord .
+
+kgmr:hasConflictType a owl:ObjectProperty ;
+    rdfs:label "has conflict type" ;
+    rdfs:domain kgmr:ConflictResolutionRecord ;
+    rdfs:range kgmr:ConflictType .
+
+kgmr:hasEligibilityRecord a owl:ObjectProperty ;
+    rdfs:label "has eligibility record" ;
+    rdfs:comment "C3-005 control: Exactly 1" ;
+    rdfs:domain kgmr:ExecutableClinicalRule ;
+    rdfs:range kgmr:CompilationEligibilityRecord .
+
+kgmr:hasException a owl:ObjectProperty ;
+    rdfs:label "has exception" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain kgmr:ExecutableClinicalRule ;
+    rdfs:range kgmr:RuleException .
+
+kgmr:hasExpectedRelation a owl:ObjectProperty ;
+    rdfs:label "has expected relation" ;
+    rdfs:comment "C3-005 control: Exactly 1" ;
+    rdfs:domain kgmr:ExecutableClinicalRule ;
+    rdfs:range kgmr:ExpectedClinicalRelation .
+
+kgmr:hasGateAssessment a owl:ObjectProperty ;
+    rdfs:label "has gate assessment" ;
+    rdfs:domain kgmr:CompilationEligibilityRecord ;
+    rdfs:range kgmr:CompilationGateAssessment .
+
+kgmr:hasMRTestingRiskCategory a owl:ObjectProperty ;
+    rdfs:label "has MR-testing risk category" ;
+    rdfs:comment "C3-005 control: Local maxCount 1" ;
+    rdfs:domain ckd:CKDState ;
+    rdfs:range kgmr:MRTestingRiskCategory .
+
+kgmr:inclusionStatus a owl:DatatypeProperty ;
+    rdfs:label "inclusionStatus" ;
+    rdfs:comment "Included/ContextOnly/Excluded/Deferred." ;
+    rdfs:domain ckd:GuidelineKnowledgeItem ;
+    rdfs:range xsd:string .
+
+kgmr:involvesRule a owl:ObjectProperty ;
+    rdfs:label "involves rule" ;
+    rdfs:domain kgmr:ConflictResolutionRecord ;
+    rdfs:range kgmr:ExecutableClinicalRule .
+
+kgmr:requiresClinicalState a owl:ObjectProperty ;
+    rdfs:label "requires clinical state" ;
+    rdfs:comment "C3-005 control: 0..* test-instance link" ;
+    rdfs:domain kgmr:RuleAntecedent ;
+    rdfs:range ckd:ClinicalState .
+
+kgmr:requiresObservation a owl:ObjectProperty ;
+    rdfs:label "requires observation" ;
+    rdfs:comment "C3-005 control: 1..* test-instance link" ;
+    rdfs:domain kgmr:RuleAntecedent ;
+    rdfs:range ckd:ClinicalObservation .
+
+kgmr:resolutionRationale a owl:DatatypeProperty ;
+    rdfs:label "resolutionRationale" ;
+    rdfs:domain kgmr:ConflictResolutionRecord ;
+    rdfs:range xsd:string .
+
+kgmr:resolutionType a owl:DatatypeProperty ;
+    rdfs:label "resolutionType" ;
+    rdfs:domain kgmr:ConflictResolutionRecord ;
+    rdfs:range xsd:string .
+
+kgmr:resolvedByPrecedenceTier a owl:ObjectProperty ;
+    rdfs:label "resolved by precedence tier" ;
+    rdfs:domain kgmr:ConflictResolutionRecord ;
+    rdfs:range kgmr:PrecedenceTier .
+
+kgmr:winningRule a owl:ObjectProperty ;
+    rdfs:label "winning rule" ;
+    rdfs:domain kgmr:ConflictResolutionRecord ;
+    rdfs:range kgmr:ExecutableClinicalRule .
+
+prov1:DatasetSource a owl:Class ;
+    rdfs:label "Dataset Source" ;
+    rdfs:comment "Versioned dataset or data-dictionary source." ;
+    rdfs:subClassOf prov1:SourceArtifact .
+
+prov1:ExecutionProvenanceRecord a owl:Class ;
+    rdfs:label "Execution Provenance Record" ;
+    rdfs:comment "Runtime provenance linking release, code, dataset snapshot and outputs." ;
+    rdfs:subClassOf prov1:ProvenanceRecord .
+
+prov1:ExtractionActivity a owl:Class ;
+    rdfs:label "Extraction Activity" ;
+    rdfs:comment "Activity extracting a knowledge item from a source." ;
+    rdfs:subClassOf prov1:ProvenanceActivity .
+
+prov1:InterpretationActivity a owl:Class ;
+    rdfs:label "Interpretation Activity" ;
+    rdfs:comment "Activity creating an explicit operational interpretation." ;
+    rdfs:subClassOf prov1:ProvenanceActivity .
+
+prov1:LiteratureSource a owl:Class ;
+    rdfs:label "Literature Source" ;
+    rdfs:comment "Versioned literature source used for evidence/working assumptions." ;
+    rdfs:subClassOf prov1:SourceArtifact .
+
+prov1:MappingActivity a owl:Class ;
+    rdfs:label "Mapping Activity" ;
+    rdfs:comment "Terminology or dataset mapping activity." ;
+    rdfs:subClassOf prov1:ProvenanceActivity .
+
+prov1:ReviewStatus_Adjudicated a prov1:ReviewStatus ;
+    rdfs:label "Adjudicated" .
+
+prov1:ReviewStatus_AuthorApproved a prov1:ReviewStatus ;
+    rdfs:label "AuthorApproved" .
+
+prov1:ReviewStatus_ClinicallyReviewed a prov1:ReviewStatus ;
+    rdfs:label "ClinicallyReviewed" .
+
+prov1:ReviewStatus_Draft a prov1:ReviewStatus ;
+    rdfs:label "Draft" .
+
+prov1:ReviewStatus_Rejected a prov1:ReviewStatus ;
+    rdfs:label "Rejected" .
+
+prov1:ReviewStatus_TechnicallyReviewed a prov1:ReviewStatus ;
+    rdfs:label "TechnicallyReviewed" .
+
+prov1:RuleDerivationActivity a owl:Class ;
+    rdfs:label "Rule Derivation Activity" ;
+    rdfs:comment "Activity deriving an executable clinical rule." ;
+    rdfs:subClassOf prov1:ProvenanceActivity .
+
+prov1:agentRole a owl:DatatypeProperty ;
+    rdfs:label "agentRole" ;
+    rdfs:domain prov1:GovernanceEntity ;
+    rdfs:range xsd:string .
+
+prov1:checksumAlgorithm a owl:DatatypeProperty ;
+    rdfs:label "checksumAlgorithm" ;
+    rdfs:domain prov1:SourceArtifact ;
+    rdfs:range xsd:string .
+
+prov1:derivationMethod a owl:DatatypeProperty ;
+    rdfs:label "derivationMethod" ;
+    rdfs:domain prov1:ProvenanceActivity ;
+    rdfs:range xsd:string .
+
+prov1:evidenceCertainty a owl:DatatypeProperty ;
+    rdfs:label "evidenceCertainty" ;
+    rdfs:domain ckd:RecommendationStatement ;
+    rdfs:range xsd:string .
+
+prov1:generatedEntity a owl:ObjectProperty ;
+    rdfs:label "generated entity" ;
+    rdfs:domain prov1:ProvenanceActivity ;
+    rdfs:range owl:Thing .
+
+prov1:hasAdjudicationRecord a owl:ObjectProperty ;
+    rdfs:label "has adjudication record" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range prov1:AdjudicationRecord .
+
+prov1:hasAdministrativeReviewRecord a owl:ObjectProperty ;
+    rdfs:label "has administrative review record" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range prov1:AdministrativeReviewRecord .
+
+prov1:hasClinicalReviewRecord a owl:ObjectProperty ;
+    rdfs:label "has clinical review record" ;
+    rdfs:comment "C3-005 control: MinCount 1 for candidate rules" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range prov1:ClinicalReviewRecord .
+
+prov1:hasLicensingRecord a owl:ObjectProperty ;
+    rdfs:label "has licensing record" ;
+    rdfs:comment "C3-005 control: MinCount 1 for controlled items" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range prov1:LicensingRecord .
+
+prov1:hasProvenanceRecord a owl:ObjectProperty ;
+    rdfs:label "has provenance record" ;
+    rdfs:comment "C3-005 control: MinCount 1 for executable artefacts" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range prov1:ProvenanceRecord .
+
+prov1:hasReleaseRecord a owl:ObjectProperty ;
+    rdfs:label "has release record" ;
+    rdfs:comment "C3-005 control: MinCount 1 for frozen artefacts" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range prov1:ReleaseRecord .
+
+prov1:hasTechnicalReviewRecord a owl:ObjectProperty ;
+    rdfs:label "has technical review record" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range prov1:TechnicalReviewRecord .
+
+prov1:licensingStatus a owl:DatatypeProperty ;
+    rdfs:label "licensingStatus" ;
+    rdfs:comment "Permission status." ;
+    rdfs:domain prov1:LicensingRecord ;
+    rdfs:range xsd:string .
+
+prov1:performedByAgent a owl:ObjectProperty ;
+    rdfs:label "performed by agent" ;
+    rdfs:domain prov1:ProvenanceActivity ;
+    rdfs:range owl:Thing .
+
+prov1:rawStrengthText a owl:DatatypeProperty ;
+    rdfs:label "rawStrengthText" ;
+    rdfs:domain ckd:GuidelineKnowledgeItem ;
+    rdfs:range xsd:string .
+
+prov1:recommendationLevel a owl:DatatypeProperty ;
+    rdfs:label "recommendationLevel" ;
+    rdfs:domain ckd:RecommendationStatement ;
+    rdfs:range xsd:string .
+
+prov1:recordedDateTime a owl:DatatypeProperty ;
+    rdfs:label "recordedDateTime" ;
+    rdfs:comment "Time an observation or record was entered/imported into the research representation; provenance only, must not replace clinical time." ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:dateTime .
+
+prov1:releaseStatus a owl:DatatypeProperty ;
+    rdfs:label "releaseStatus" ;
+    rdfs:comment "Draft/Frozen/Superseded/Deprecated." ;
+    rdfs:domain prov1:ReleaseRecord ;
+    rdfs:range xsd:string .
+
+prov1:reviewDate a owl:DatatypeProperty ;
+    rdfs:label "reviewDate" ;
+    rdfs:domain prov1:GovernanceEntity ;
+    rdfs:range xsd:dateTime .
+
+prov1:reviewRationale a owl:DatatypeProperty ;
+    rdfs:label "reviewRationale" ;
+    rdfs:domain prov1:GovernanceEntity ;
+    rdfs:range xsd:string .
+
+prov1:reviewStatus a owl:DatatypeProperty ;
+    rdfs:label "reviewStatus" ;
+    rdfs:comment "Controlled review status." ;
+    rdfs:domain prov1:ClinicalReviewRecord ;
+    rdfs:range xsd:string .
+
+prov1:sourceChecksum a owl:DatatypeProperty ;
+    rdfs:label "sourceChecksum" ;
+    rdfs:comment "Frozen source checksum." ;
+    rdfs:domain ckd:GuidelineSource ;
+    rdfs:range xsd:string .
+
+prov1:sourceLocator a owl:DatatypeProperty ;
+    rdfs:label "sourceLocator" ;
+    rdfs:comment "Exact source locator." ;
+    rdfs:domain ckd:GuidelineKnowledgeItem ;
+    rdfs:range xsd:string .
+
+prov1:sourcePublicationDate a owl:DatatypeProperty ;
+    rdfs:label "sourcePublicationDate" ;
+    rdfs:domain prov1:SourceArtifact ;
+    rdfs:range xsd:date .
+
+prov1:sourceURI a owl:DatatypeProperty ;
+    rdfs:label "sourceURI" ;
+    rdfs:domain prov1:SourceArtifact ;
+    rdfs:range xsd:anyURI .
+
+prov1:sourceVersion a owl:DatatypeProperty ;
+    rdfs:label "sourceVersion" ;
+    rdfs:domain prov1:SourceArtifact ;
+    rdfs:range xsd:string .
+
+prov1:statementType a owl:DatatypeProperty ;
+    rdfs:label "statementType" ;
+    rdfs:domain ckd:GuidelineKnowledgeItem ;
+    rdfs:range xsd:string .
+
+prov1:usedSourceArtifact a owl:ObjectProperty ;
+    rdfs:label "used source artifact" ;
+    rdfs:domain prov1:ProvenanceActivity ;
+    rdfs:range prov1:SourceArtifact .
+
+prov1:versionLabel a owl:DatatypeProperty ;
+    rdfs:label "versionLabel" ;
+    rdfs:comment "Version/release label." ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+term:codeSystemURI a owl:DatatypeProperty ;
+    rdfs:label "codeSystemURI" ;
+    rdfs:comment "Code-system identifier." ;
+    rdfs:domain term:TerminologyMapping ;
+    rdfs:range xsd:anyURI .
+
+term:codeSystemVersion a owl:DatatypeProperty ;
+    rdfs:label "codeSystemVersion" ;
+    rdfs:comment "Frozen terminology release." ;
+    rdfs:domain term:TerminologyMapping ;
+    rdfs:range xsd:string .
+
+term:codeValue a owl:DatatypeProperty ;
+    rdfs:label "codeValue" ;
+    rdfs:comment "External terminology code." ;
+    rdfs:domain term:TerminologyMapping ;
+    rdfs:range xsd:string .
+
+term:hasTerminologyMapping a owl:ObjectProperty ;
+    rdfs:label "has terminology mapping" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range term:TerminologyMapping .
+
+term:hasTerminologyReleasePin a owl:ObjectProperty ;
+    rdfs:label "has terminology release pin" ;
+    rdfs:domain term:TerminologyMapping ;
+    rdfs:range term:TerminologyReleasePin .
+
+tk:BaselineObservationContext a owl:Class ;
+    rdfs:label "Baseline Observation Context" ;
+    rdfs:comment "Baseline selection context used by a trajectory or outcome." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+tk:FollowUpObservationContext a owl:Class ;
+    rdfs:label "Follow-up Observation Context" ;
+    rdfs:comment "Follow-up observation context linked to a baseline." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+tk:SequencePosition a owl:Class ;
+    rdfs:label "Sequence Position" ;
+    rdfs:comment "Deterministic ordering position after same-time tie-break." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+tk:TemporalDuration a owl:Class ;
+    rdfs:label "Temporal Duration" ;
+    rdfs:comment "Elapsed quantity between temporal entities." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+tk:TemporalInstant a owl:Class ;
+    rdfs:label "Temporal Instant" ;
+    rdfs:comment "Single time point with declared precision." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+tk:UncertainTime a owl:Class ;
+    rdfs:label "Uncertain Time" ;
+    rdfs:comment "Possible-time interval implied by partial precision." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+tk:durationDays a owl:DatatypeProperty ;
+    rdfs:label "durationDays" ;
+    rdfs:comment "Duration." ;
+    rdfs:domain tk:TemporalEntity ;
+    rdfs:range xsd:decimal .
+
+tk:during a owl:AsymmetricProperty,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "during" ;
+    rdfs:domain tk:TemporalInterval ;
+    rdfs:range tk:TemporalInterval ;
+    owl:inverseOf tk:contains .
+
+tk:effectiveDateTime a owl:DatatypeProperty ;
+    rdfs:label "effectiveDateTime" ;
+    rdfs:comment "Clinical effective/specimen time." ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range xsd:dateTime .
+
+tk:finishes a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "finishes" ;
+    rdfs:domain tk:TemporalInterval ;
+    rdfs:range tk:TemporalInterval ;
+    owl:inverseOf tk:finishedBy .
+
+tk:hasBaselineObservation a owl:ObjectProperty ;
+    rdfs:label "has baseline observation" ;
+    rdfs:comment "C3-005 control: Local exactly 1 for D1 candidate" ;
+    rdfs:domain tk:Trajectory ;
+    rdfs:range ckd:ClinicalObservation .
+
+tk:hasConfirmatoryObservation a owl:ObjectProperty ;
+    rdfs:label "has confirmatory observation" ;
+    rdfs:comment "C3-005 control: Local exactly 1 candidate" ;
+    rdfs:domain ckd:ConfirmedSustainedEGFRDecline ;
+    rdfs:range ckd:ClinicalObservation ;
+    rdfs:subPropertyOf tk:hasFollowUpObservation .
+
+tk:hasRecoveryObservation a owl:ObjectProperty ;
+    rdfs:label "has recovery observation" ;
+    rdfs:comment "C3-005 control: Local minCount 1" ;
+    rdfs:domain ckd:RecoveryEvent ;
+    rdfs:range ckd:ClinicalObservation ;
+    rdfs:subPropertyOf tk:hasFollowUpObservation .
+
+tk:hasSamplingPattern a owl:ObjectProperty ;
+    rdfs:label "has sampling pattern" ;
+    rdfs:comment "C3-005 control: Local maxCount 1" ;
+    rdfs:domain tk:Trajectory ;
+    rdfs:range tk:SamplingPattern .
+
+tk:issuedAfterEffective a owl:ObjectProperty ;
+    rdfs:label "issuedAfterEffective" ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range ckd:ClinicalObservation .
+
+tk:issuedDateTime a owl:DatatypeProperty ;
+    rdfs:label "issuedDateTime" ;
+    rdfs:comment "Result issuance time." ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range xsd:dateTime .
+
+tk:meets a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "meets" ;
+    rdfs:domain tk:TemporalInterval ;
+    rdfs:range tk:TemporalInterval ;
+    owl:inverseOf tk:metBy .
+
+tk:overlaps a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "overlaps" ;
+    rdfs:domain tk:TemporalInterval ;
+    rdfs:range tk:TemporalInterval ;
+    owl:inverseOf tk:overlappedBy .
+
+tk:overlapsEventWindow a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "overlapsEventWindow" ;
+    rdfs:domain tk:TemporalEntity ;
+    rdfs:range tk:EventWindow ;
+    owl:inverseOf tk:eventWindowOverlaps .
+
+tk:relativeChangePercent a owl:DatatypeProperty ;
+    rdfs:label "relativeChangePercent" ;
+    rdfs:comment "Relative change." ;
+    rdfs:domain tk:Trajectory ;
+    rdfs:range xsd:decimal .
+
+tk:specimenCollectionDateTime a owl:DatatypeProperty ;
+    rdfs:label "specimenCollectionDateTime" ;
+    rdfs:comment "Time the specimen was collected, when available; preferred ordering time for specimen-based lab observations." ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range xsd:dateTime .
+
+tk:starts a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "starts" ;
+    rdfs:domain tk:TemporalInterval ;
+    rdfs:range tk:TemporalInterval ;
+    owl:inverseOf tk:startedBy .
+
+ckd:AKILikeTransientDeterioration a owl:Class ;
+    rdfs:label "AKI-like Transient Deterioration" ;
+    rdfs:comment "Operational acute deterioration triggered by >20% eGFR decline and reversing before D1 persistence." ;
+    rdfs:subClassOf ckd:ClinicalEvent .
+
+ckd:ExpertInterpretation a owl:Class ;
+    rdfs:label "Expert Interpretation" ;
+    rdfs:comment "Documented operationalization not stated directly by the guideline." ;
+    rdfs:subClassOf ckd:GuidelineKnowledgeItem .
+
+ckd:GuidelineSource a owl:Class ;
+    rdfs:label "Guideline Source" ;
+    rdfs:comment "Versioned source document or official guideline release." ;
+    rdfs:subClassOf ckd:GuidelineKnowledgeItem .
+
+ckd:KDIGOCGARiskCategory a owl:Class ;
+    rdfs:label "KDIGO CGA Risk Category" ;
+    rdfs:comment "Native four-level CGA risk category." ;
+    rdfs:subClassOf ckd:ClinicalState ;
+    owl:disjointWith kgmr:MRTestingRiskCategory .
+
+ckd:KidneyFailureRiskAssessment a owl:Class ;
+    rdfs:label "Kidney Failure Risk Assessment" ;
+    rdfs:comment "Absolute kidney-failure risk from a validated equation." ;
+    rdfs:subClassOf ckd:RiskAssessment ;
+    owl:disjointWith ckd:ProgressionRiskAssessment .
+
+ckd:MeasurementMethodContext a owl:Class ;
+    rdfs:label "Measurement Method Context" ;
+    rdfs:comment "Method/specimen context required to interpret or map an observation." ;
+    rdfs:subClassOf owl:Thing .
+
+ckd:ObservationAvailabilityState a owl:Class ;
+    rdfs:label "Observation Availability State" ;
+    rdfs:comment "Availability state used for missingness and result-delay testing." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+ckd:ObservationValidityAssessment a owl:Class ;
+    rdfs:label "Observation Validity Assessment" ;
+    rdfs:comment "Assessment of whether an observation is usable for a rule or trajectory." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+ckd:ReferralCGACondition a owl:Class ;
+    rdfs:label "Referral CGA Condition" ;
+    rdfs:comment "Selected eGFR/ACR referral condition extracted from Figure 48." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+ckd:ReferralRiskCriterion a owl:Class ;
+    rdfs:label "Referral Risk Criterion" ;
+    rdfs:comment "Five-year kidney-failure risk criterion for D3." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+ckd:careContextOf a owl:ObjectProperty ;
+    rdfs:label "care context of" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:CareContext ;
+    rdfs:range ckd:ResearchSubject ;
+    owl:inverseOf ckd:hasCareContext .
+
+ckd:ckdStateOf a owl:ObjectProperty ;
+    rdfs:label "CKD state of" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:CKDState ;
+    rdfs:range ckd:ResearchSubject ;
+    rdfs:subPropertyOf ckd:clinicalStateOf ;
+    owl:inverseOf ckd:hasCKDState .
+
+ckd:clinicalEventOf a owl:ObjectProperty ;
+    rdfs:label "clinical event of" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:ClinicalEvent ;
+    rdfs:range ckd:ResearchSubject ;
+    owl:inverseOf ckd:hasClinicalEvent .
+
+ckd:contributesToState a owl:ObjectProperty ;
+    rdfs:label "contributes to state" ;
+    rdfs:comment "C3-005 control: Many-to-many" ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range ckd:ClinicalState ;
+    owl:inverseOf ckd:isStateDerivedFromObservation .
+
+ckd:decisionFor a owl:ObjectProperty ;
+    rdfs:label "decision for" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:DecisionArtifact ;
+    rdfs:range ckd:ResearchSubject ;
+    owl:inverseOf ckd:hasDecisionArtifact .
+
+ckd:generatedByModelVersion a owl:ObjectProperty ;
+    rdfs:label "generated by model version" ;
+    rdfs:comment "C3-005 control: Exactly 1" ;
+    rdfs:domain ckd:ProgressionRiskAssessment ;
+    rdfs:range ckd:PredictionModelVersion ;
+    owl:inverseOf ckd:modelVersionGenerates .
+
+ckd:generatedByPolicyVersion a owl:ObjectProperty ;
+    rdfs:label "generated by policy version" ;
+    rdfs:comment "C3-005 control: Exactly 1 for D2/D3" ;
+    rdfs:domain ckd:DecisionArtifact ;
+    rdfs:range ckd:DecisionPolicyVersion ;
+    owl:inverseOf ckd:producesDecision .
+
+ckd:groundsEntity a owl:ObjectProperty ;
+    rdfs:label "grounds entity" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:GuidelineKnowledgeItem ;
+    rdfs:range owl:Thing ;
+    owl:inverseOf ckd:groundedInKnowledgeItem .
+
+ckd:hasCKDState a owl:ObjectProperty ;
+    rdfs:label "has CKD state" ;
+    rdfs:comment "C3-005 control: Local maxCount 1 per snapshot" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:CKDState ;
+    rdfs:subPropertyOf ckd:hasClinicalState ;
+    owl:inverseOf ckd:ckdStateOf .
+
+ckd:hasCareContext a owl:ObjectProperty ;
+    rdfs:label "has care context" ;
+    rdfs:comment "C3-005 control: None globally" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:CareContext ;
+    owl:inverseOf ckd:careContextOf .
+
+ckd:hasObservation a owl:ObjectProperty ;
+    rdfs:label "has observation" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:ClinicalObservation ;
+    owl:inverseOf ckd:observationOf .
+
+ckd:hasTrajectory a owl:ObjectProperty ;
+    rdfs:label "has trajectory" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range tk:Trajectory ;
+    owl:inverseOf ckd:trajectoryOf .
+
+ckd:isStateDerivedFromObservation a owl:ObjectProperty ;
+    rdfs:label "is state derived from observation" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:ClinicalState ;
+    rdfs:range ckd:ClinicalObservation ;
+    owl:inverseOf ckd:contributesToState .
+
+ckd:modelVersionGenerates a owl:ObjectProperty ;
+    rdfs:label "model version generates" ;
+    rdfs:comment "C3-005 control: Inverse, 0..*" ;
+    rdfs:domain ckd:PredictionModelVersion ;
+    rdfs:range ckd:ProgressionRiskAssessment ;
+    owl:inverseOf ckd:generatedByModelVersion .
+
+ckd:observationOf a owl:ObjectProperty ;
+    rdfs:label "observation of" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range ckd:ResearchSubject ;
+    owl:inverseOf ckd:hasObservation .
+
+ckd:producesDecision a owl:ObjectProperty ;
+    rdfs:label "produces decision" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:DecisionPolicyVersion ;
+    rdfs:range ckd:DecisionArtifact ;
+    owl:inverseOf ckd:generatedByPolicyVersion .
+
+ckd:riskAssessmentOf a owl:ObjectProperty ;
+    rdfs:label "risk assessment of" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:RiskAssessment ;
+    rdfs:range ckd:ResearchSubject ;
+    owl:inverseOf ckd:hasRiskAssessment .
+
+ckd:trajectoryOf a owl:ObjectProperty ;
+    rdfs:label "trajectory of" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain tk:Trajectory ;
+    rdfs:range ckd:ResearchSubject ;
+    owl:inverseOf ckd:hasTrajectory .
+
+kgmr:ContextOnlyKnowledgeItem a owl:Class ;
+    rdfs:label "Context-only Knowledge Item" ;
+    rdfs:comment "Explicit designation that an item remains contextual and is not compiled." ;
+    rdfs:subClassOf kgmr:RuleEntity ;
+    owl:disjointWith kgmr:ExcludedKnowledgeItem .
+
+prov1:AdjudicationRecord a owl:Class ;
+    rdfs:label "Adjudication Record" ;
+    rdfs:comment "Record resolving reviewer/rule disagreement." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+prov1:AdministrativeReviewRecord a owl:Class ;
+    rdfs:label "Administrative Review Record" ;
+    rdfs:comment "Licensing, registration or public-sharing review record." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+prov1:DesignClosure_C3_004_C3_013 a prov1:ProvenanceRecord ;
+    rdfs:label "Chapter 3 design closure provenance" ;
+    prov1:recordedDateTime "2026-08-06T23:37:00-04:00"^^xsd:dateTime ;
+    prov1:sourceLocator "C3-004 through C3-013 design-control artefacts and closure memos" .
+
+prov1:Release_R1_0_Implementation a prov1:ReleaseRecord ;
+    rdfs:label "CKD-TKG R1.0 implementation release" ;
+    prov1:recordedDateTime "2026-08-06T23:37:00-04:00"^^xsd:dateTime ;
+    prov1:releaseStatus "ImplementationCandidate" ;
+    prov1:versionLabel "R1.0" .
+
+prov1:TechnicalReviewRecord a owl:Class ;
+    rdfs:label "Technical Review Record" ;
+    rdfs:comment "Technical/schema/terminology/FHIR/statistical review record." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+prov1:isSupersededBy a owl:ObjectProperty ;
+    rdfs:label "is superseded by" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain prov1:ReleaseRecord ;
+    rdfs:range prov1:ReleaseRecord ;
+    owl:inverseOf prov1:supersedes .
+
+prov1:supersedes a owl:ObjectProperty ;
+    rdfs:label "supersedes" ;
+    rdfs:comment "C3-005 control: Irreflexive/asymmetric candidate" ;
+    rdfs:domain prov1:ReleaseRecord ;
+    rdfs:range prov1:ReleaseRecord ;
+    owl:inverseOf prov1:isSupersededBy .
+
+term:TerminologyReleasePin a owl:Class ;
+    rdfs:label "Terminology Release Pin" ;
+    rdfs:comment "Pinned terminology edition/version for a mapping set." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+tk:EventWindow a owl:Class ;
+    rdfs:label "Event Window" ;
+    rdfs:comment "Configured interval around an event/exposure." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+tk:SamplingPattern a owl:Class ;
+    rdfs:label "Sampling Pattern" ;
+    rdfs:comment "Pattern of visit/observation density, gaps and redundancy." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+tk:after a owl:AsymmetricProperty,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "after" ;
+    rdfs:domain tk:TemporalEntity ;
+    rdfs:range tk:TemporalEntity ;
+    owl:inverseOf tk:before .
+
+tk:before a owl:AsymmetricProperty,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "before" ;
+    rdfs:domain tk:TemporalEntity ;
+    rdfs:range tk:TemporalEntity ;
+    owl:inverseOf tk:after .
+
+tk:equalsTime a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "equalsTime" ;
+    rdfs:domain tk:TemporalEntity ;
+    rdfs:range tk:TemporalEntity ;
+    owl:inverseOf tk:equalsTime .
+
+tk:hasSequenceMember a owl:ObjectProperty ;
+    rdfs:label "has sequence member" ;
+    rdfs:comment "C3-005 control: Ordered semantics deferred" ;
+    rdfs:domain tk:ObservationSequence ;
+    rdfs:range ckd:ClinicalObservation ;
+    owl:inverseOf tk:isSequenceMemberOf .
+
+tk:isSequenceMemberOf a owl:ObjectProperty ;
+    rdfs:label "is sequence member of" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range tk:ObservationSequence ;
+    owl:inverseOf tk:hasSequenceMember .
+
+tk:sameClinicalTime a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "sameClinicalTime" ;
+    rdfs:domain ckd:ClinicalObservation ;
+    rdfs:range ckd:ClinicalObservation ;
+    owl:inverseOf tk:sameClinicalTime .
+
+ckd:ConfirmedSustainedEGFRDecline a owl:Class ;
+    rdfs:label "Confirmed Sustained eGFR Decline" ;
+    rdfs:comment "Proposed D1 outcome: >=40% decline, second valid measurement >=90 days later, no intervening transient exception." ;
+    rdfs:subClassOf tk:Trajectory .
+
+ckd:DecisionRationale a owl:Class ;
+    rdfs:label "Decision Rationale" ;
+    rdfs:comment "Criterion-level explanation attached to a policy output." ;
+    rdfs:subClassOf owl:Thing .
+
+ckd:EstablishedCKDEligibilityState a owl:Class ;
+    rdfs:label "Established CKD Eligibility State" ;
+    rdfs:comment "R1.0 release-population eligibility state." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+ckd:PredictionModelVersion a owl:Class ;
+    rdfs:label "Prediction Model Version" ;
+    rdfs:comment "A versioned identifier for the specific D1 prediction model (algorithm, training-data snapshot and hyperparameters) that produced a ProgressionRiskAssessment instance." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+ckd:RecommendationStatement a owl:Class ;
+    rdfs:label "Recommendation Statement" ;
+    rdfs:comment "Graded guideline recommendation." ;
+    rdfs:subClassOf ckd:GuidelineKnowledgeItem .
+
+ckd:RecoveryEvent a owl:Class ;
+    rdfs:label "Recovery Event" ;
+    rdfs:comment "Observed recovery terminating or qualifying a transient deterioration." ;
+    rdfs:subClassOf ckd:ClinicalEvent .
+
+ckd:TherapyAssociatedGFRReductionEvaluation a owl:Class ;
+    rdfs:label "Therapy-associated GFR Reduction Evaluation" ;
+    rdfs:comment "Evaluation state triggered when GFR reduction after hemodynamically active therapy exceeds 30%." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+ckd:clinicalStateOf a owl:ObjectProperty ;
+    rdfs:label "clinical state of" ;
+    rdfs:comment "C3-005 control: Inverse" ;
+    rdfs:domain ckd:ClinicalState ;
+    rdfs:range ckd:ResearchSubject ;
+    owl:inverseOf ckd:hasClinicalState .
+
+ckd:groundedInKnowledgeItem a owl:ObjectProperty ;
+    rdfs:label "grounded in knowledge item" ;
+    rdfs:comment "C3-005 control: 1..* for rules/policies" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range ckd:GuidelineKnowledgeItem ;
+    owl:inverseOf ckd:groundsEntity .
+
+ckd:hasClinicalEvent a owl:ObjectProperty ;
+    rdfs:label "has clinical event" ;
+    rdfs:comment "C3-005 control: 0..*" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:ClinicalEvent ;
+    owl:inverseOf ckd:clinicalEventOf .
+
+ckd:usesCriterion a owl:ObjectProperty ;
+    rdfs:label "uses criterion" ;
+    rdfs:comment "C3-005 control: 1..*" ;
+    rdfs:domain ckd:DecisionPolicyVersion ;
+    rdfs:range ckd:ClinicalState .
+
+kgmr:ExcludedKnowledgeItem a owl:Class ;
+    rdfs:label "Excluded Knowledge Item" ;
+    rdfs:comment "Out-of-scope item retained with an exclusion reason." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+kgmr:MRTestingRiskCategory a owl:Class ;
+    rdfs:label "MR Testing Risk Category" ;
+    rdfs:comment "Derived three-level category used only to limit ordinal MR test-space size." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+prov1:ClinicalReviewRecord a owl:Class ;
+    rdfs:label "Clinical Review Record" ;
+    rdfs:comment "Independent reviewer decision, rationale and adjudication status." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+prov1:LicensingRecord a owl:Class ;
+    rdfs:label "Licensing Record" ;
+    rdfs:comment "Internal/public use and redistribution status." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+tk:ObservationSequence a owl:Class ;
+    rdfs:label "Observation Sequence" ;
+    rdfs:comment "Time-ordered sequence of comparable observations." ;
+    rdfs:subClassOf tk:Trajectory .
+
+tk:hasFollowUpObservation a owl:ObjectProperty ;
+    rdfs:label "has follow-up observation" ;
+    rdfs:comment "C3-005 control: 1..*" ;
+    rdfs:domain tk:Trajectory ;
+    rdfs:range ckd:ClinicalObservation .
+
+ckd:CareContext a owl:Class ;
+    rdfs:label "Care Context" ;
+    rdfs:comment "Care setting and eligibility context associated with an observation, state or decision." ;
+    rdfs:subClassOf owl:Thing .
+
+ckd:MonitoringRecommendation a owl:Class ;
+    rdfs:label "Monitoring Recommendation" ;
+    rdfs:comment "D2 policy output." ;
+    rdfs:subClassOf ckd:DecisionArtifact ;
+    owl:disjointWith ckd:ReferralSupportDecision .
+
+ckd:ReferralSupportDecision a owl:Class ;
+    rdfs:label "Referral Support Decision" ;
+    rdfs:comment "D3 advisory policy output." ;
+    rdfs:subClassOf ckd:DecisionArtifact .
+
+ckd:hasClinicalState a owl:ObjectProperty ;
+    rdfs:label "has clinical state" ;
+    rdfs:comment "C3-005 control: None globally" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:ClinicalState ;
+    owl:inverseOf ckd:clinicalStateOf .
+
+ckd:hasDecisionArtifact a owl:ObjectProperty ;
+    rdfs:label "has decision artifact" ;
+    rdfs:comment "C3-005 control: 0..* versioned" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:DecisionArtifact ;
+    owl:inverseOf ckd:decisionFor .
+
+ckd:hasRiskAssessment a owl:ObjectProperty ;
+    rdfs:label "has risk assessment" ;
+    rdfs:comment "C3-005 control: 0..* versioned" ;
+    rdfs:domain ckd:ResearchSubject ;
+    rdfs:range ckd:RiskAssessment ;
+    owl:inverseOf ckd:riskAssessmentOf .
+
+kgmr:CompilationEligibilityRecord a owl:Class ;
+    rdfs:label "Compilation Eligibility Record" ;
+    rdfs:comment "Evidence that source, computability, provenance, terminology, review and licensing gates were checked." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+kgmr:CompilationGateAssessment a owl:Class ;
+    rdfs:label "Compilation Gate Assessment" ;
+    rdfs:comment "Assessment of one compilation gate." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+kgmr:ExpectedClinicalRelation a owl:Class ;
+    rdfs:label "Expected Clinical Relation" ;
+    rdfs:comment "Expected equality, monotonic, ordinal, bounded or decision-level relation." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+kgmr:RuleAntecedent a owl:Class ;
+    rdfs:label "Rule Antecedent" ;
+    rdfs:comment "Computable condition set required before a rule applies." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+kgmr:RuleException a owl:Class ;
+    rdfs:label "Rule Exception" ;
+    rdfs:comment "Computable exception preventing or modifying rule execution." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+prov1:ProvenanceRecord a owl:Class ;
+    rdfs:label "Provenance Record" ;
+    rdfs:comment "Source, locator, extraction, encoding and change record." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+ckd:AlbuminuriaCategoricalState a owl:Class ;
+    rdfs:label "Albuminuria Categorical State" ;
+    rdfs:comment "Albuminuria category state." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+kgmr:RuleApplicability a owl:Class ;
+    rdfs:label "Rule Applicability" ;
+    rdfs:comment "Population, care-setting and clinical-state applicability specification." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+ckd:DecisionPolicyVersion a owl:Class ;
+    rdfs:label "Decision Policy Version" ;
+    rdfs:comment "Versioned policy used to produce D2 or D3 output." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+ckd:ProgressionRiskAssessment a owl:Class ;
+    rdfs:label "Progression Risk Assessment" ;
+    rdfs:comment "D1 output for the selected sustained-decline target." ;
+    rdfs:subClassOf ckd:RiskAssessment ;
+    owl:disjointWith ckd:MonitoringRecommendation,
+        ckd:ReferralSupportDecision .
+
+term:TerminologyMapping a owl:Class ;
+    rdfs:label "Terminology Mapping" ;
+    rdfs:comment "Mapping from local class/concept to a frozen terminology code/version." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+prov1:ReviewStatus a owl:Class ;
+    rdfs:label "Review Status" ;
+    rdfs:comment "Controlled C3-012 review status vocabulary." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+ckd:CKDEtiologyCategory a owl:Class ;
+    rdfs:label "CKD Etiology Category" ;
+    rdfs:comment "Broad cause/etiology qualifier when available." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+ckd:CKDState a owl:Class ;
+    rdfs:label "CKD State" ;
+    rdfs:comment "Established CKD state with cause, GFR category, albuminuria category and chronicity context." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+prov1:ReleaseRecord a owl:Class ;
+    rdfs:label "Release Record" ;
+    rdfs:comment "KG release identifier, freeze date, checksum and supersession history." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+prov1:SourceArtifact a owl:Class ;
+    rdfs:label "Source Artifact" ;
+    rdfs:comment "Frozen guideline, literature, dataset or design-control source." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+ckd:GFRCategoricalState a owl:Class ;
+    rdfs:label "GFR Categorical State" ;
+    rdfs:comment "GFR category state." ;
+    rdfs:subClassOf ckd:ClinicalState .
+
+ckd:MedicationExposureEvent a owl:Class ;
+    rdfs:label "Medication Exposure Event" ;
+    rdfs:comment "Start, stop or dose-change event for a medication class relevant to trajectory interpretation." ;
+    rdfs:subClassOf ckd:ClinicalEvent ;
+    owl:disjointWith ckd:DecisionArtifact .
+
+kgmr:ConflictResolutionRecord a owl:Class ;
+    rdfs:label "Conflict Resolution Record" ;
+    rdfs:comment "Versioned record of a conflict, resolution or abstention." ;
+    rdfs:subClassOf prov1:GovernanceEntity .
+
+prov1:ProvenanceActivity a owl:Class ;
+    rdfs:label "Provenance Activity" ;
+    rdfs:comment "Activity that extracts, interprets, maps, derives or executes an artefact." ;
+    rdfs:subClassOf owl:Thing .
+
+ckd:ClinicalEvent a owl:Class ;
+    rdfs:label "Clinical Event" ;
+    rdfs:comment "Temporally bounded event that may alter interpretation of a state or trajectory." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+ckd:RiskAssessment a owl:Class ;
+    rdfs:label "Risk Assessment" ;
+    rdfs:comment "Versioned numeric or categorical risk estimate." ;
+    rdfs:subClassOf owl:Thing .
+
+kgmr:CompilationGateType a owl:Class ;
+    rdfs:label "Compilation Gate Type" ;
+    rdfs:comment "One of the eight frozen C3-012 compilation gates." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+kgmr:ExecutableClinicalRule a owl:Class ;
+    rdfs:label "Executable Clinical Rule" ;
+    rdfs:comment "Source-linked proposition admitted to deterministic compilation." ;
+    rdfs:subClassOf kgmr:RuleEntity ;
+    owl:disjointWith kgmr:ContextOnlyKnowledgeItem,
+        kgmr:ExcludedKnowledgeItem .
+
+ckd:DecisionArtifact a owl:Class ;
+    rdfs:label "Decision Artifact" ;
+    rdfs:comment "Versioned output produced by a model or decision policy." ;
+    rdfs:subClassOf owl:Thing .
+
+kgmr:ExceptionType a owl:Class ;
+    rdfs:label "Exception Type" ;
+    rdfs:comment "Controlled C3-013 exception category." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+kgmr:PrecedenceTier a owl:Class ;
+    rdfs:label "Precedence Tier" ;
+    rdfs:comment "One of the frozen P0-P8 precedence tiers." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+tk:TemporalInterval a owl:Class ;
+    rdfs:label "Temporal Interval" ;
+    rdfs:comment "Start/end bounded temporal extent." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+kgmr:ConflictType a owl:Class ;
+    rdfs:label "Conflict Type" ;
+    rdfs:comment "Controlled C3-013 conflict category." ;
+    rdfs:subClassOf kgmr:RuleEntity .
+
+kgmr:RuleEntity a owl:Class ;
+    rdfs:label "Rule Entity" ;
+    rdfs:comment "Compiler-facing class used only in the executable-rule layer." ;
+    rdfs:subClassOf owl:Thing .
+
+ckd:GuidelineKnowledgeItem a owl:Class ;
+    rdfs:label "Guideline Knowledge Item" ;
+    rdfs:comment "Source-linked recommendation, practice point, definition, figure/table proposition or expert interpretation." ;
+    rdfs:subClassOf owl:Thing .
+
+tk:Trajectory a owl:Class ;
+    rdfs:label "Trajectory" ;
+    rdfs:comment "Ordered longitudinal abstraction derived from observations." ;
+    rdfs:subClassOf tk:TemporalEntity .
+
+ckd:ClinicalState a owl:Class ;
+    rdfs:label "Clinical State" ;
+    rdfs:comment "Clinically meaningful state asserted for a subject over a stated interval." ;
+    rdfs:subClassOf owl:Thing .
+
+prov1:GovernanceEntity a owl:Class ;
+    rdfs:label "Governance Entity" ;
+    rdfs:comment "Provenance, review, licensing, version and terminology-control entity." ;
+    rdfs:subClassOf owl:Thing .
+
+tk:TemporalEntity a owl:Class ;
+    rdfs:label "Temporal Entity" ;
+    rdfs:comment "Entity with time-point, interval, duration, ordering or persistence semantics." ;
+    rdfs:subClassOf owl:Thing .
+
+ckd:ResearchSubject a owl:Class ;
+    rdfs:label "Research Subject" ;
+    rdfs:comment "De-identified adult subject whose longitudinal CKD data are represented." ;
+    rdfs:subClassOf owl:Thing .
+
+ckd:ClinicalObservation a owl:Class ;
+    rdfs:label "Clinical Observation" ;
+    rdfs:comment "Measured or recorded clinical observation with value and temporal metadata." ;
+    rdfs:subClassOf owl:Thing .
+

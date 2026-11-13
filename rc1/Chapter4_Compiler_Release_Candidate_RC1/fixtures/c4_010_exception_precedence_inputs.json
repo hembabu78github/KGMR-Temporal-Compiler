@@ -1,0 +1,409 @@
+{
+  "exceptions": [
+    {
+      "exception_ref": "EX-APP-001",
+      "exception_type": "ApplicabilityExclusion",
+      "linked_proposition_id": "FIX-TIME-001",
+      "linked_operator_ids": [
+        "SHIFT_TIME"
+      ],
+      "scope_ref": "scope:time:d1",
+      "condition_truth": "FALSE",
+      "condition_id": "cond:EX-APP-001",
+      "evaluator_id": "eval:ApplicabilityExclusion:v1",
+      "source_refs": [
+        "source:EX-APP-001"
+      ],
+      "precedence_tier": "P1",
+      "effect_mode": "DEFAULT",
+      "phase": "compile_time",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-DQ-001",
+      "exception_type": "DataQualityException",
+      "linked_proposition_id": "FIX-REDUNDANT-001",
+      "linked_operator_ids": [
+        "REMOVE_REDUNDANT_OBSERVATION"
+      ],
+      "scope_ref": "scope:redundant",
+      "condition_truth": "FALSE",
+      "condition_id": "cond:EX-DQ-001",
+      "evaluator_id": "eval:DataQualityException:v1",
+      "source_refs": [
+        "source:EX-DQ-001"
+      ],
+      "precedence_tier": "P0",
+      "effect_mode": "DEFAULT",
+      "phase": "compile_time",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-MISS-001",
+      "exception_type": "MissingDataException",
+      "linked_proposition_id": "FIX-MASK-001",
+      "linked_operator_ids": [
+        "MASK_REQUIRED_OBSERVATION"
+      ],
+      "scope_ref": "scope:required-egfr",
+      "condition_truth": "TRUE",
+      "condition_id": "cond:EX-MISS-001",
+      "evaluator_id": "eval:MissingDataException:v1",
+      "source_refs": [
+        "source:EX-MISS-001"
+      ],
+      "precedence_tier": "P0",
+      "effect_mode": "DEFAULT",
+      "phase": "runtime",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-TP-001",
+      "exception_type": "TemporalPrecisionException",
+      "linked_proposition_id": "FIX-DELAY-001",
+      "linked_operator_ids": [
+        "DELAY_RESULT_ENTRY"
+      ],
+      "scope_ref": "scope:issued-effective",
+      "condition_truth": "FALSE",
+      "condition_id": "cond:EX-TP-001",
+      "evaluator_id": "eval:TemporalPrecisionException:v1",
+      "source_refs": [
+        "source:EX-TP-001"
+      ],
+      "precedence_tier": "P3",
+      "effect_mode": "DEFAULT",
+      "phase": "runtime",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-CE-001",
+      "exception_type": "ClinicalEventException",
+      "linked_proposition_id": "FIX-AKI-001",
+      "linked_operator_ids": [
+        "INSERT_TRANSIENT_AKI"
+      ],
+      "scope_ref": "scope:aki-like-segment",
+      "condition_truth": "TRUE",
+      "condition_id": "cond:EX-CE-001",
+      "evaluator_id": "eval:ClinicalEventException:v1",
+      "source_refs": [
+        "source:EX-CE-001"
+      ],
+      "precedence_tier": "P3",
+      "effect_mode": "DEFAULT",
+      "phase": "runtime",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-MED-001",
+      "exception_type": "MedicationContextException",
+      "linked_proposition_id": "FIX-TRAJ-001",
+      "linked_operator_ids": [
+        "RESAMPLE_TRAJECTORY"
+      ],
+      "scope_ref": "scope:med-window",
+      "condition_truth": "TRUE",
+      "condition_id": "cond:EX-MED-001",
+      "evaluator_id": "eval:MedicationContextException:v1",
+      "source_refs": [
+        "source:EX-MED-001"
+      ],
+      "precedence_tier": "P3",
+      "effect_mode": "DEFAULT",
+      "phase": "runtime",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-TERM-001",
+      "exception_type": "TerminologyMappingException",
+      "linked_proposition_id": "FIX-UNIT-001",
+      "linked_operator_ids": [
+        "CONVERT_UNIT"
+      ],
+      "scope_ref": "scope:unit-map",
+      "condition_truth": "TRUE",
+      "condition_id": "cond:EX-TERM-001",
+      "evaluator_id": "eval:TerminologyMappingException:v1",
+      "source_refs": [
+        "source:EX-TERM-001"
+      ],
+      "precedence_tier": "P0",
+      "effect_mode": "LOCAL_FALLBACK_AVAILABLE",
+      "phase": "compile_time",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-LIC-001",
+      "exception_type": "LicensingReleaseException",
+      "linked_proposition_id": "FIX-PENDING-ADMISSION-001",
+      "linked_operator_ids": [
+        "SHIFT_TIME"
+      ],
+      "scope_ref": "scope:release",
+      "condition_truth": "TRUE",
+      "condition_id": "cond:EX-LIC-001",
+      "evaluator_id": "eval:LicensingReleaseException:v1",
+      "source_refs": [
+        "source:EX-LIC-001"
+      ],
+      "precedence_tier": "P0",
+      "effect_mode": "DEFAULT",
+      "phase": "compile_time",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-REV-001",
+      "exception_type": "ReviewGateException",
+      "linked_proposition_id": "FIX-STATE-001",
+      "linked_operator_ids": [
+        "PRESERVE_CLINICAL_STATE"
+      ],
+      "scope_ref": "scope:state-rule",
+      "condition_truth": "FALSE",
+      "condition_id": "cond:EX-REV-001",
+      "evaluator_id": "eval:ReviewGateException:v1",
+      "source_refs": [
+        "source:EX-REV-001"
+      ],
+      "precedence_tier": "P0",
+      "effect_mode": "DEFAULT",
+      "phase": "compile_time",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-CONF-001",
+      "exception_type": "ConflictException",
+      "linked_proposition_id": "FIX-TRAJ-001",
+      "linked_operator_ids": [
+        "DECREASE_SLOPE"
+      ],
+      "scope_ref": "scope:risk-output",
+      "condition_truth": "TRUE",
+      "condition_id": "cond:EX-CONF-001",
+      "evaluator_id": "eval:ConflictException:v1",
+      "source_refs": [
+        "source:EX-CONF-001"
+      ],
+      "precedence_tier": "P8",
+      "effect_mode": "DEFAULT",
+      "phase": "compile_time",
+      "clinically_meaningful": true,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-TP-INDET",
+      "exception_type": "TemporalPrecisionException",
+      "linked_proposition_id": "FIX-ORDER-001",
+      "linked_operator_ids": [
+        "SWAP_EQUIVALENT_ORDER"
+      ],
+      "scope_ref": "scope:same-time",
+      "condition_truth": "INDETERMINATE",
+      "condition_id": "cond:EX-TP-INDET",
+      "evaluator_id": "eval:TemporalPrecisionException:v1",
+      "source_refs": [
+        "source:EX-TP-INDET"
+      ],
+      "precedence_tier": "P3",
+      "effect_mode": "DEFAULT",
+      "phase": "runtime",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    },
+    {
+      "exception_ref": "EX-SCOPE-OTHER",
+      "exception_type": "ClinicalEventException",
+      "linked_proposition_id": "FIX-TRAJ-001",
+      "linked_operator_ids": [
+        "DECREASE_SLOPE"
+      ],
+      "scope_ref": "scope:other-segment",
+      "condition_truth": "FALSE",
+      "condition_id": "cond:EX-SCOPE-OTHER",
+      "evaluator_id": "eval:ClinicalEventException:v1",
+      "source_refs": [
+        "source:EX-SCOPE-OTHER"
+      ],
+      "precedence_tier": "P3",
+      "effect_mode": "DEFAULT",
+      "phase": "compile_time",
+      "clinically_meaningful": false,
+      "adjudication_status": "NOT_REQUIRED",
+      "adjudication_ref": null,
+      "guideline_strength_metadata": null
+    }
+  ],
+  "contexts": [
+    {
+      "proposition_id": "FIX-AKI-001",
+      "operator_id": "INSERT_TRANSIENT_AKI",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-DELAY-001",
+      "operator_id": "DELAY_RESULT_ENTRY",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-MASK-001",
+      "operator_id": "MASK_REQUIRED_OBSERVATION",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-ORDER-001",
+      "operator_id": "SWAP_EQUIVALENT_ORDER",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "operator_id": "SHIFT_TIME",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-REDUNDANT-001",
+      "operator_id": "REMOVE_REDUNDANT_OBSERVATION",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-STATE-001",
+      "operator_id": "PRESERVE_CLINICAL_STATE",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false,
+      "explicit_scope_containment_ref": "scope-containment:state-specific"
+    },
+    {
+      "proposition_id": "FIX-TIME-001",
+      "operator_id": "SHIFT_TIME",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "operator_id": "RESAMPLE_TRAJECTORY",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "operator_id": "INCREASE_SLOPE",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {
+        "level": "Level1",
+        "certainty": "A"
+      },
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "operator_id": "DECREASE_SLOPE",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {
+        "level": "Level2",
+        "certainty": "C"
+      },
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": true
+    },
+    {
+      "proposition_id": "FIX-UNIT-001",
+      "operator_id": "CONVERT_UNIT",
+      "input_integrity_truth": "TRUE",
+      "applicability_truth": "TRUE",
+      "temporal_event_truth": "TRUE",
+      "release_lineage_status": "CURRENT",
+      "guideline_strength_metadata": {},
+      "adjudication_status": "NOT_REQUIRED",
+      "unresolved_conflict": false
+    }
+  ]
+}

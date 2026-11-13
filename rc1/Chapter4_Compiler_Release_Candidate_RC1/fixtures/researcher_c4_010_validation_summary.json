@@ -1,0 +1,32 @@
+{
+  "active_or_indeterminate_exception_count": 7,
+  "all_ten_frozen_exception_types_exercised": true,
+  "assembled_exception_count": 12,
+  "component_count": 12,
+  "deterministic_repeat_pass": true,
+  "fingerprint_match_count": 12,
+  "guideline_strength_automatic_tiebreak_used": false,
+  "lexical_specificity_used": false,
+  "note": "Software-validation fixtures only; not clinical MR-performance or conflict-frequency results.",
+  "outcome_counts": {
+    "ABSTAIN": 1,
+    "PENDING": 1,
+    "PROCEED": 6,
+    "QUALIFIED": 2,
+    "RELEASE_BLOCKED": 1,
+    "UNRESOLVED": 1
+  },
+  "precedence_tiers_frozen": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "task": "C4-010",
+  "unresolved_conflict_action": "ABSTAIN/INDETERMINATE"
+}

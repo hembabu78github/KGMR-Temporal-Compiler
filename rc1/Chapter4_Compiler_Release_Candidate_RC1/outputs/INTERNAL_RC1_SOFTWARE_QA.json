@@ -1,0 +1,8 @@
+{
+  "validation_context": "OpenAI sandbox software QA only",
+  "runner_exit_code": 0,
+  "release_status": "SOFTWARE_ENGINEERING_RC_ACCEPTED",
+  "ready_for_next_phase": true,
+  "acceptance_failed_check_count": 0,
+  "note": "Software-engineering RC validation only; not clinical validation."
+}

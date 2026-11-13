@@ -1,0 +1,22 @@
+{
+  "all_global_checks_pass": true,
+  "candidate_bundle_count": 12,
+  "candidate_check_total": 312,
+  "candidate_failed_check_total": 0,
+  "candidate_ids_unique": true,
+  "control_blocked_after_static_validation_count": 4,
+  "execution_admissible_after_static_validation_count": 8,
+  "expert_validation_unreviewed_count": 12,
+  "manifest_candidate_count_matches_gate_count": true,
+  "module_hashes_unique": true,
+  "module_names_unique": true,
+  "note": "Software static-validation fixtures only. A static PASS does not constitute expert clinical validation or override an upstream ABSTAIN.",
+  "shared_runtime_ast_safety_pass": true,
+  "shared_runtime_compile_pass": true,
+  "static_rejection_count": 0,
+  "static_validation_equals_clinical_validation": false,
+  "static_validation_fail_count": 0,
+  "static_validation_overrides_control_abstention": false,
+  "static_validation_pass_count": 12,
+  "task": "C4-015"
+}

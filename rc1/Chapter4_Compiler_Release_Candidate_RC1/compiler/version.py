@@ -1,0 +1,5 @@
+COMPILER_NAME = "CKD-TKG deterministic KG-to-MR compiler"
+COMPILER_VERSION = "C4-006-R1.0"
+INTERFACE_VERSION = "ClinicalPropositionIR-1.0"
+OPERATOR_LIBRARY_VERSION = "OperatorLibrary-R1.0"
+SREW_VERSION = "SREW-R1.0"

@@ -1,0 +1,30 @@
+{
+  "release_candidate_id": "CH4-COMPILER-RC1",
+  "release_candidate_version": "RC1",
+  "pipeline_scope": "C4-006-through-C4-016",
+  "expected_reproducibility_signature": "1fb461973aa502a3db2285a0f728fc49d52c4ee6ab5b3178beb8d8f330c421ed",
+  "acceptance": {
+    "integrated_unit_tests_must_pass": true,
+    "c4_016_replay_must_pass": true,
+    "candidate_count": 12,
+    "static_validation_pass_count": 12,
+    "execution_admissible_count": 8,
+    "control_blocked_count": 4,
+    "expert_validation_unreviewed_count": 12,
+    "generated_python_module_count": 12,
+    "unique_operator_count": 11,
+    "blocked_candidates_called_cds_count": 0,
+    "release_signature_must_match_researcher_c4_016": true,
+    "no_clinical_validation_claim": true
+  },
+  "interpretation": {
+    "status_on_pass": "SOFTWARE_ENGINEERING_RC_ACCEPTED",
+    "does_not_mean": [
+      "expert-clinical validation",
+      "clinical MR acceptance",
+      "real CKD compiler yield",
+      "real CDS robustness",
+      "novelty versus baseline"
+    ]
+  }
+}

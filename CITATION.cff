@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code or its synthetic benchmark, please cite the accompanying research manuscript and repository release."
+title: "KG-to-MR Temporal Compiler: Reproducibility Materials"
+type: software
+authors:
+  - family-names: Babu
+    given-names: Hemachandran
+  - family-names: K
+    given-names: Priyadarsini
+license: MIT
+version: 1.0.0

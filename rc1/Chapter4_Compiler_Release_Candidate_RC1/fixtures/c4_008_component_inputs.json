@@ -1,0 +1,561 @@
+{
+  "inputs": [
+    {
+      "proposition_id": "FIX-TIME-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-001",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D1"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "TIME-001",
+          "predicate_type": "TEMPORAL",
+          "arguments": {
+            "relation": "WITHIN_HORIZON"
+          },
+          "evaluator_id": "eval_temporal_v1",
+          "source_refs": [
+            "fixture:temporal-window"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+          "source_ref": "fixture:r-eq",
+          "parameters": {
+            "tolerance_mode": "absolute",
+            "epsilon": 0.001
+          },
+          "comparator_id": "numeric_equality_tolerance_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-time"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-TRAJ-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-002",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D1"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "CLIN-002",
+          "predicate_type": "CLINICAL",
+          "arguments": {
+            "trajectory_available": true
+          },
+          "evaluator_id": "eval_trajectory_v1",
+          "source_refs": [
+            "fixture:trajectory"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "TIME-002",
+          "predicate_type": "TEMPORAL",
+          "arguments": {
+            "persistence": "satisfied"
+          },
+          "evaluator_id": "eval_temporal_v1",
+          "source_refs": [
+            "fixture:trajectory"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "ORDINAL_NONDECREASE",
+          "source_ref": "fixture:r-resample-ord",
+          "parameters": {
+            "ordering_id": "risk_low_moderate_high_v1"
+          },
+          "comparator_id": "ordinal_compare_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10,
+          "applicable_operators": [
+            "RESAMPLE_TRAJECTORY"
+          ]
+        },
+        {
+          "relation_family": "ORDINAL_NONDECREASE",
+          "source_ref": "fixture:r-increase-ord",
+          "parameters": {
+            "ordering_id": "risk_low_moderate_high_v1"
+          },
+          "comparator_id": "ordinal_compare_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10,
+          "applicable_operators": [
+            "INCREASE_SLOPE"
+          ]
+        },
+        {
+          "relation_family": "ORDINAL_NONINCREASE",
+          "source_ref": "fixture:r-decrease-ord",
+          "parameters": {
+            "ordering_id": "risk_low_moderate_high_v1"
+          },
+          "comparator_id": "ordinal_compare_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10,
+          "applicable_operators": [
+            "DECREASE_SLOPE"
+          ]
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-traj"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-DELAY-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-003",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D2"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "AVAIL-003",
+          "predicate_type": "DATA_AVAILABILITY",
+          "arguments": {
+            "issued_time_required": true
+          },
+          "evaluator_id": "eval_availability_v1",
+          "source_refs": [
+            "fixture:availability-window"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "DECISION_LEVEL",
+          "source_ref": "fixture:r-decision",
+          "parameters": {
+            "decision_comparator_id": "decision_allowed_set_v1",
+            "allowed_relation": "PRESERVE_OR_ABSTAIN_IF_UNAVAILABLE"
+          },
+          "comparator_id": "decision_allowed_set_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-delay"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-ORDER-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-004",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D1"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "TIME-004",
+          "predicate_type": "TEMPORAL",
+          "arguments": {
+            "sameClinicalTime": true
+          },
+          "evaluator_id": "eval_same_clinical_time_v1",
+          "source_refs": [
+            "fixture:order"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+          "source_ref": "fixture:r-eq-order",
+          "parameters": {
+            "tolerance_mode": "absolute",
+            "epsilon": 0.0
+          },
+          "comparator_id": "numeric_equality_tolerance_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-order"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-REDUNDANT-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-005",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D1"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "CLIN-005",
+          "predicate_type": "CLINICAL",
+          "arguments": {
+            "redundancy_proven": true
+          },
+          "evaluator_id": "eval_redundancy_v1",
+          "source_refs": [
+            "fixture:graph-path"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+          "source_ref": "fixture:r-eq-red",
+          "parameters": {
+            "tolerance_mode": "absolute",
+            "epsilon": 0.0
+          },
+          "comparator_id": "numeric_equality_tolerance_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-red"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-MASK-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-006",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D3"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "AVAIL-006",
+          "predicate_type": "DATA_AVAILABILITY",
+          "arguments": {
+            "required_observation": "required_egfr"
+          },
+          "evaluator_id": "eval_required_observation_v1",
+          "source_refs": [
+            "fixture:antecedent"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "DECISION_LEVEL",
+          "source_ref": "fixture:r-mask",
+          "parameters": {
+            "decision_comparator_id": "safe_missingness_response_v1"
+          },
+          "comparator_id": "safe_missingness_response_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-mask"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-AKI-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-007",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D1"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "CLIN-007",
+          "predicate_type": "CLINICAL",
+          "arguments": {
+            "acute_like_event_supported": true
+          },
+          "evaluator_id": "eval_acute_like_v1",
+          "source_refs": [
+            "fixture:acute-like-trigger"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "TIME-007",
+          "predicate_type": "TEMPORAL",
+          "arguments": {
+            "recovery_window_available": true
+          },
+          "evaluator_id": "eval_temporal_v1",
+          "source_refs": [
+            "fixture:recovery-rule"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "BOUNDED_CHANGE",
+          "source_ref": "fixture:r-bounded",
+          "parameters": {
+            "lower_bound": -1.0,
+            "upper_bound": 1.0,
+            "delta_definition": "followup_minus_source"
+          },
+          "comparator_id": "bounded_delta_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-aki-like"
+      ],
+      "release_ref": "fixture:R1",
+      "notes": "AKI-like operational event only; no FormalAKIDiagnosis assertion."
+    },
+    {
+      "proposition_id": "FIX-UNIT-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-008",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D1"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "TERM-008",
+          "predicate_type": "TERMINOLOGY",
+          "arguments": {
+            "unit_mapping_available": true
+          },
+          "evaluator_id": "eval_unit_mapping_v1",
+          "source_refs": [
+            "fixture:unit-map"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+          "source_ref": "fixture:r-unit",
+          "parameters": {
+            "tolerance_mode": "mixed",
+            "epsilon": 1e-09
+          },
+          "comparator_id": "numeric_equality_tolerance_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-unit"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-STATE-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-009",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D2"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "CLIN-009",
+          "predicate_type": "CLINICAL",
+          "arguments": {
+            "state_definition_available": true
+          },
+          "evaluator_id": "eval_state_v1",
+          "source_refs": [
+            "fixture:unaffected-neighbourhood"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "DECISION_LEVEL",
+          "source_ref": "fixture:r-state-decision",
+          "parameters": {
+            "decision_comparator_id": "preserve_decision_state_v1"
+          },
+          "comparator_id": "preserve_decision_state_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10,
+          "applicable_operators": [
+            "PRESERVE_CLINICAL_STATE"
+          ]
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-state"
+      ],
+      "release_ref": "fixture:R1"
+    },
+    {
+      "proposition_id": "FIX-PENDING-ADMISSION-001",
+      "condition_atoms": [
+        {
+          "predicate_id": "APP-010",
+          "predicate_type": "APPLICABILITY",
+          "arguments": {
+            "decision_contract": "D1"
+          },
+          "evaluator_id": "eval_app_v1",
+          "source_refs": [
+            "fixture:app"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        },
+        {
+          "predicate_id": "TIME-010",
+          "predicate_type": "TEMPORAL",
+          "arguments": {
+            "relation": "WITHIN"
+          },
+          "evaluator_id": "eval_temporal_v1",
+          "source_refs": [
+            "fixture:window"
+          ],
+          "missing_evidence_result": "INDETERMINATE"
+        }
+      ],
+      "relation_evidence": [
+        {
+          "relation_family": "EQUALITY_WITHIN_TOLERANCE",
+          "source_ref": "fixture:r-pending",
+          "parameters": {
+            "tolerance_mode": "absolute",
+            "epsilon": 0.0
+          },
+          "comparator_id": "numeric_equality_tolerance_v1",
+          "source_output_selector": "cds.output",
+          "followup_output_selector": "cds.output",
+          "evidence_priority": 10
+        }
+      ],
+      "source_refs": [
+        "fixture:knowledge-item"
+      ],
+      "graph_path_ids": [
+        "fixture:path-pending"
+      ],
+      "release_ref": "fixture:R1"
+    }
+  ]
+}
