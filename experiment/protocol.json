@@ -1,12 +1,40 @@
 {
-  "protocol_status":"frozen-before-execution",
-  "population":"All unique AST single-site substitutions from the existing synthetic target function, without using MR detection outputs to select mutants",
-  "mutation_replacements":{"Compare":["Lt","LtE","Gt","GtE","Eq","NotEq"],"BinOp":["Add","Sub","Mult","Div"],"BoolOp":["And","Or"],"numeric_constants":["zero","plus_one","minus_one"],"IfExp":["swap_branches"]},
-  "evaluation":"All eight existing admissible operators, three pre-existing source cases per operator, no mutation-output-based selection",
-  "baseline":"Standalone manually specified operator-specific source transformations and relation comparators, independently written, not importing generated MR transform/oracle",
-  "eligibility":"Reference pairs must satisfy relation before mutation is scored; invalid and unresolved separate; no cherry picking",
-  "scoring":"A kill requires a known valid source/follow-up relation and a FALSE relation on mutated target outputs; source-only changes do not count",
-  "equivalence":"Distinguished from exact-output divergence over evaluation inputs; not global mutant equivalence",
-  "limits":"Synthetic target, authorship not blinded, requirements adapted to same domains, constructed fixtures",
-  "no_versioned_artifacts":true
+  "protocol_status": "recorded-methods-description; no verifiable prior registration",
+  "population": "All unique AST single-site substitutions from the existing synthetic target function, without using MR detection outputs to select mutants",
+  "mutation_replacements": {
+    "Compare": [
+      "Lt",
+      "LtE",
+      "Gt",
+      "GtE",
+      "Eq",
+      "NotEq"
+    ],
+    "BinOp": [
+      "Add",
+      "Sub",
+      "Mult",
+      "Div"
+    ],
+    "BoolOp": [
+      "And",
+      "Or"
+    ],
+    "numeric_constants": [
+      "zero",
+      "plus_one",
+      "minus_one"
+    ],
+    "IfExp": [
+      "swap_branches"
+    ]
+  },
+  "evaluation": "All eight existing admissible operators, three pre-existing source cases per operator, no mutation-output-based selection",
+  "baseline": "Standalone manually specified operator-specific source transformations and relation comparators, independently written, not importing generated MR transform/oracle",
+  "eligibility": "Reference pairs must satisfy relation before mutation is scored; invalid and unresolved separate; no cherry picking",
+  "scoring": "A kill requires a known valid source/follow-up relation and a FALSE relation on mutated target outputs; source-only changes do not count",
+  "equivalence": "Distinguished from exact-output divergence over evaluation inputs; not global mutant equivalence",
+  "limits": "Synthetic target, authorship not blinded, requirements adapted to same domains, constructed fixtures",
+  "no_versioned_artifacts": true,
+  "protocol_registration_note": "The methods were recorded within the same study; a time-stamped pre-outcome freeze was not established. Do not interpret this as independent preregistration."
 }

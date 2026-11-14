@@ -10,13 +10,12 @@ The **evaluated** compiler consumes prepared typed intermediate-representation (
 
 | Path | Contents |
 |---|---|
-| `rc1/Chapter4_Compiler_Release_Candidate_RC1/` | Frozen compiler implementation, fixtures, generated modules, unit tests, output evidence |
+| `rc1/Chapter4_Compiler_Release_Candidate_RC1/` | Frozen historical RC1 compiler directory, retained under its original name for provenance and compatibility |
 | `ontology/` | CKD-TKG R1.0 ontology, SHACL constraints, fixtures and graph validation scripts |
 | `run_expanded.py` | Original small 24-mutant synthetic experiment runner |
 | `experiment/study.py` | Mechanical AST mutation generation and original comparison scaffolding |
 | `experiment/spec_baseline/` | Independently implemented *within-study* requirements-to-MR comparison |
-| `experiments/original_controlled/` | Frozen benchmark comparison and ablation records, where available |
-| `experiments/legacy_24_mutants/` | Archived first mutation-study results |
+| `experiments/legacy_24_mutants/` | Historical 24-mutant experiment records (separate from the 388-mutant study) |
 | `SHA256SUMS.txt` | Hash manifest for the distributable snapshot |
 
 ## Key findings and interpretation
@@ -53,3 +52,7 @@ Run the comparator from the **repository root**. It automatically resolves the p
 ## Research boundaries
 
 Source templates and clinical guideline material are not a validated clinical rulebase. The controlled comparison uses hand-authored requirements in the same study, not external blinded MR generation. Report the original RC1 compiler evidence and the expanded synthetic mutation results separately.
+
+## Release evidence hygiene
+
+This is a corrected successor snapshot to v1.0.0. The earlier version is preserved at Zenodo for provenance. The original RC1 directory name is historical and is retained to avoid breaking the frozen runner. A scratch file with alternative provisional counts was excluded; the reported 388-mutant analysis uses the verified `experiment/spec_baseline/` outputs and the 103-error-free-distinguishable denominator. The recorded methods are not claimed to have been preregistered before outcome inspection.
